@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bordrolama10", "Bordrolama1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfOku", "PdfOku\PdfOku.csproj", "{C0D2ACE6-BB52-44EF-8D5D-E960E18EACB4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tesvik10", "tesvik10\tesvik10.csproj", "{05A543FE-3B87-4DAE-86DA-31D35804EE2A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{C0D2ACE6-BB52-44EF-8D5D-E960E18EACB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0D2ACE6-BB52-44EF-8D5D-E960E18EACB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0D2ACE6-BB52-44EF-8D5D-E960E18EACB4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{05A543FE-3B87-4DAE-86DA-31D35804EE2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{05A543FE-3B87-4DAE-86DA-31D35804EE2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{05A543FE-3B87-4DAE-86DA-31D35804EE2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{05A543FE-3B87-4DAE-86DA-31D35804EE2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
