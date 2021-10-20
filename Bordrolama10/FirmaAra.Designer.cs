@@ -43,11 +43,11 @@ namespace Bordrolama10
             // btnrfrnsara
             // 
             this.btnrfrnsara.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnrfrnsara.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnrfrnsara.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnrfrnsara.ForeColor = System.Drawing.Color.Black;
-            this.btnrfrnsara.Location = new System.Drawing.Point(418, 70);
+            this.btnrfrnsara.Location = new System.Drawing.Point(358, 61);
             this.btnrfrnsara.Name = "btnrfrnsara";
-            this.btnrfrnsara.Size = new System.Drawing.Size(137, 37);
+            this.btnrfrnsara.Size = new System.Drawing.Size(117, 32);
             this.btnrfrnsara.TabIndex = 89;
             this.btnrfrnsara.Text = "ARA";
             this.btnrfrnsara.UseVisualStyleBackColor = false;
@@ -55,63 +55,64 @@ namespace Bordrolama10
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 120);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 104);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(543, 318);
+            this.dataGridView1.Size = new System.Drawing.Size(465, 276);
             this.dataGridView1.TabIndex = 88;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // txtunvan
             // 
             this.txtunvan.BackColor = System.Drawing.Color.White;
-            this.txtunvan.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtunvan.Location = new System.Drawing.Point(163, 50);
+            this.txtunvan.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtunvan.Location = new System.Drawing.Point(140, 43);
             this.txtunvan.Name = "txtunvan";
-            this.txtunvan.Size = new System.Drawing.Size(233, 23);
+            this.txtunvan.Size = new System.Drawing.Size(200, 23);
             this.txtunvan.TabIndex = 83;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(30, 57);
+            this.label11.Location = new System.Drawing.Point(26, 49);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(130, 16);
+            this.label11.Size = new System.Drawing.Size(131, 16);
             this.label11.TabIndex = 87;
             this.label11.Text = "ÜNVANA GÖRE ARA";
             // 
             // txtreferans
             // 
             this.txtreferans.BackColor = System.Drawing.Color.White;
-            this.txtreferans.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtreferans.Location = new System.Drawing.Point(163, 79);
+            this.txtreferans.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtreferans.Location = new System.Drawing.Point(140, 68);
             this.txtreferans.Name = "txtreferans";
-            this.txtreferans.Size = new System.Drawing.Size(233, 23);
+            this.txtreferans.Size = new System.Drawing.Size(200, 23);
             this.txtreferans.TabIndex = 84;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(6, 86);
+            this.label2.Location = new System.Drawing.Point(5, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 16);
+            this.label2.Size = new System.Drawing.Size(152, 16);
             this.label2.TabIndex = 86;
             this.label2.Text = "REFERANSA GÖRE ARA";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(233, 7);
+            this.label1.Location = new System.Drawing.Point(200, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 22);
             this.label1.TabIndex = 85;
@@ -121,20 +122,20 @@ namespace Bordrolama10
             // 
             this.lblid.AutoSize = true;
             this.lblid.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.lblid.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblid.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.lblid.ForeColor = System.Drawing.Color.Black;
-            this.lblid.Location = new System.Drawing.Point(12, 13);
+            this.lblid.Location = new System.Drawing.Point(10, 11);
             this.lblid.Name = "lblid";
-            this.lblid.Size = new System.Drawing.Size(18, 16);
+            this.lblid.Size = new System.Drawing.Size(19, 16);
             this.lblid.TabIndex = 90;
             this.lblid.Text = "id";
             // 
             // FirmaAra
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PapayaWhip;
-            this.ClientSize = new System.Drawing.Size(570, 450);
+            this.ClientSize = new System.Drawing.Size(489, 390);
             this.Controls.Add(this.lblid);
             this.Controls.Add(this.btnrfrnsara);
             this.Controls.Add(this.dataGridView1);

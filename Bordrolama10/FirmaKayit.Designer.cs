@@ -80,11 +80,11 @@ namespace Bordrolama10
             // btnkaydet
             // 
             this.btnkaydet.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnkaydet.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnkaydet.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnkaydet.ForeColor = System.Drawing.Color.Black;
-            this.btnkaydet.Location = new System.Drawing.Point(1207, 178);
+            this.btnkaydet.Location = new System.Drawing.Point(1035, 154);
             this.btnkaydet.Name = "btnkaydet";
-            this.btnkaydet.Size = new System.Drawing.Size(118, 37);
+            this.btnkaydet.Size = new System.Drawing.Size(101, 32);
             this.btnkaydet.TabIndex = 104;
             this.btnkaydet.Text = "KAYDET";
             this.btnkaydet.UseVisualStyleBackColor = false;
@@ -93,11 +93,11 @@ namespace Bordrolama10
             // chkbxpasif
             // 
             this.chkbxpasif.AutoSize = true;
-            this.chkbxpasif.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.chkbxpasif.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.chkbxpasif.ForeColor = System.Drawing.Color.Black;
-            this.chkbxpasif.Location = new System.Drawing.Point(997, 72);
+            this.chkbxpasif.Location = new System.Drawing.Point(855, 62);
             this.chkbxpasif.Name = "chkbxpasif";
-            this.chkbxpasif.Size = new System.Drawing.Size(63, 20);
+            this.chkbxpasif.Size = new System.Drawing.Size(64, 20);
             this.chkbxpasif.TabIndex = 17;
             this.chkbxpasif.Text = "PASİF";
             this.chkbxpasif.UseVisualStyleBackColor = true;
@@ -105,9 +105,9 @@ namespace Bordrolama10
             // lblfirmano
             // 
             this.lblfirmano.AutoSize = true;
-            this.lblfirmano.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblfirmano.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblfirmano.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblfirmano.Location = new System.Drawing.Point(879, 16);
+            this.lblfirmano.Location = new System.Drawing.Point(753, 14);
             this.lblfirmano.Name = "lblfirmano";
             this.lblfirmano.Size = new System.Drawing.Size(11, 15);
             this.lblfirmano.TabIndex = 95;
@@ -116,82 +116,82 @@ namespace Bordrolama10
             // txtytkltelefon
             // 
             this.txtytkltelefon.BackColor = System.Drawing.Color.White;
-            this.txtytkltelefon.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtytkltelefon.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.txtytkltelefon.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtytkltelefon.Location = new System.Drawing.Point(752, 191);
+            this.txtytkltelefon.Location = new System.Drawing.Point(645, 166);
             this.txtytkltelefon.Mask = "(999) 000-0000";
             this.txtytkltelefon.Name = "txtytkltelefon";
-            this.txtytkltelefon.Size = new System.Drawing.Size(102, 25);
+            this.txtytkltelefon.Size = new System.Drawing.Size(88, 25);
             this.txtytkltelefon.TabIndex = 6;
             // 
             // txtvn
             // 
             this.txtvn.BackColor = System.Drawing.Color.White;
-            this.txtvn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtvn.Location = new System.Drawing.Point(954, 130);
+            this.txtvn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtvn.Location = new System.Drawing.Point(818, 113);
             this.txtvn.Name = "txtvn";
-            this.txtvn.Size = new System.Drawing.Size(104, 23);
+            this.txtvn.Size = new System.Drawing.Size(90, 23);
             this.txtvn.TabIndex = 4;
             // 
             // txtvd
             // 
             this.txtvd.BackColor = System.Drawing.Color.White;
-            this.txtvd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtvd.Location = new System.Drawing.Point(752, 130);
+            this.txtvd.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtvd.Location = new System.Drawing.Point(645, 113);
             this.txtvd.Name = "txtvd";
-            this.txtvd.Size = new System.Drawing.Size(104, 23);
+            this.txtvd.Size = new System.Drawing.Size(90, 23);
             this.txtvd.TabIndex = 3;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label18.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(658, 201);
+            this.label18.Location = new System.Drawing.Point(564, 174);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(58, 16);
+            this.label18.Size = new System.Drawing.Size(59, 16);
             this.label18.TabIndex = 100;
             this.label18.Text = "TELEFON";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label17.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(873, 138);
+            this.label17.Location = new System.Drawing.Point(748, 120);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(66, 16);
+            this.label17.Size = new System.Drawing.Size(67, 16);
             this.label17.TabIndex = 99;
             this.label17.Text = "VERGİ NO";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(627, 138);
+            this.label11.Location = new System.Drawing.Point(537, 120);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(102, 16);
+            this.label11.Size = new System.Drawing.Size(103, 16);
             this.label11.TabIndex = 94;
             this.label11.Text = "VERGİ DAİRESİ";
             // 
             // txtkisaunvan
             // 
             this.txtkisaunvan.BackColor = System.Drawing.Color.White;
-            this.txtkisaunvan.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtkisaunvan.Location = new System.Drawing.Point(752, 101);
+            this.txtkisaunvan.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtkisaunvan.Location = new System.Drawing.Point(645, 88);
             this.txtkisaunvan.Name = "txtkisaunvan";
-            this.txtkisaunvan.Size = new System.Drawing.Size(306, 23);
+            this.txtkisaunvan.Size = new System.Drawing.Size(263, 23);
             this.txtkisaunvan.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(625, 109);
+            this.label2.Location = new System.Drawing.Point(536, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 16);
+            this.label2.Size = new System.Drawing.Size(112, 16);
             this.label2.TabIndex = 93;
             this.label2.Text = "KISA FİRMA ADI";
             // 
@@ -199,9 +199,9 @@ namespace Bordrolama10
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(468, 9);
+            this.label1.Location = new System.Drawing.Point(401, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(248, 23);
             this.label1.TabIndex = 92;
@@ -210,190 +210,190 @@ namespace Bordrolama10
             // txtfrmno
             // 
             this.txtfrmno.BackColor = System.Drawing.Color.White;
-            this.txtfrmno.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtfrmno.Location = new System.Drawing.Point(752, 72);
+            this.txtfrmno.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtfrmno.Location = new System.Drawing.Point(645, 62);
             this.txtfrmno.Name = "txtfrmno";
-            this.txtfrmno.Size = new System.Drawing.Size(78, 23);
+            this.txtfrmno.Size = new System.Drawing.Size(67, 23);
             this.txtfrmno.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(655, 80);
+            this.label5.Location = new System.Drawing.Point(561, 69);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 16);
+            this.label5.Size = new System.Drawing.Size(70, 16);
             this.label5.TabIndex = 106;
             this.label5.Text = "FİRMA NO";
             // 
             // txtyetkili
             // 
             this.txtyetkili.BackColor = System.Drawing.Color.White;
-            this.txtyetkili.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtyetkili.Location = new System.Drawing.Point(752, 162);
+            this.txtyetkili.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtyetkili.Location = new System.Drawing.Point(645, 140);
             this.txtyetkili.Name = "txtyetkili";
-            this.txtyetkili.Size = new System.Drawing.Size(233, 23);
+            this.txtyetkili.Size = new System.Drawing.Size(200, 23);
             this.txtyetkili.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(626, 170);
+            this.label3.Location = new System.Drawing.Point(537, 147);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 16);
+            this.label3.Size = new System.Drawing.Size(106, 16);
             this.label3.TabIndex = 108;
             this.label3.Text = "YETKİLİ BİLGİSİ";
             // 
             // txtytkposta
             // 
             this.txtytkposta.BackColor = System.Drawing.Color.White;
-            this.txtytkposta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtytkposta.Location = new System.Drawing.Point(954, 195);
+            this.txtytkposta.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtytkposta.Location = new System.Drawing.Point(818, 169);
             this.txtytkposta.Name = "txtytkposta";
-            this.txtytkposta.Size = new System.Drawing.Size(104, 23);
+            this.txtytkposta.Size = new System.Drawing.Size(90, 23);
             this.txtytkposta.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(873, 197);
+            this.label4.Location = new System.Drawing.Point(748, 171);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 16);
+            this.label4.Size = new System.Drawing.Size(63, 16);
             this.label4.TabIndex = 110;
             this.label4.Text = "E-POSTA";
             // 
             // txtvdparola
             // 
             this.txtvdparola.BackColor = System.Drawing.Color.White;
-            this.txtvdparola.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtvdparola.Location = new System.Drawing.Point(752, 251);
+            this.txtvdparola.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtvdparola.Location = new System.Drawing.Point(645, 218);
             this.txtvdparola.Name = "txtvdparola";
-            this.txtvdparola.Size = new System.Drawing.Size(122, 23);
+            this.txtvdparola.Size = new System.Drawing.Size(105, 23);
             this.txtvdparola.TabIndex = 12;
             // 
             // txtvdkullanici
             // 
             this.txtvdkullanici.BackColor = System.Drawing.Color.White;
-            this.txtvdkullanici.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtvdkullanici.Location = new System.Drawing.Point(752, 222);
+            this.txtvdkullanici.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtvdkullanici.Location = new System.Drawing.Point(645, 192);
             this.txtvdkullanici.Name = "txtvdkullanici";
-            this.txtvdkullanici.Size = new System.Drawing.Size(122, 23);
+            this.txtvdkullanici.Size = new System.Drawing.Size(105, 23);
             this.txtvdkullanici.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(650, 259);
+            this.label6.Location = new System.Drawing.Point(557, 224);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 16);
+            this.label6.Size = new System.Drawing.Size(79, 16);
             this.label6.TabIndex = 114;
             this.label6.Text = "VDPAROLA";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(633, 230);
+            this.label7.Location = new System.Drawing.Point(543, 199);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(95, 16);
+            this.label7.Size = new System.Drawing.Size(96, 16);
             this.label7.TabIndex = 113;
             this.label7.Text = "VD KULLANICI";
             // 
             // txtvdsifre
             // 
             this.txtvdsifre.BackColor = System.Drawing.Color.White;
-            this.txtvdsifre.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtvdsifre.Location = new System.Drawing.Point(752, 280);
+            this.txtvdsifre.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtvdsifre.Location = new System.Drawing.Point(645, 243);
             this.txtvdsifre.Name = "txtvdsifre";
-            this.txtvdsifre.Size = new System.Drawing.Size(122, 23);
+            this.txtvdsifre.Size = new System.Drawing.Size(105, 23);
             this.txtvdsifre.TabIndex = 13;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(662, 288);
+            this.label8.Location = new System.Drawing.Point(567, 250);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(60, 16);
+            this.label8.Size = new System.Drawing.Size(61, 16);
             this.label8.TabIndex = 116;
             this.label8.Text = "VDSİFRE";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(604, 331);
+            this.label9.Location = new System.Drawing.Point(518, 287);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(121, 16);
+            this.label9.Size = new System.Drawing.Size(122, 16);
             this.label9.TabIndex = 118;
             this.label9.Text = "REFERANS BİLGİSİ";
             // 
             // txtreftelefon
             // 
             this.txtreftelefon.BackColor = System.Drawing.Color.White;
-            this.txtreftelefon.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtreftelefon.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.txtreftelefon.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.txtreftelefon.Location = new System.Drawing.Point(752, 352);
+            this.txtreftelefon.Location = new System.Drawing.Point(645, 305);
             this.txtreftelefon.Mask = "(999) 000-0000";
             this.txtreftelefon.Name = "txtreftelefon";
-            this.txtreftelefon.Size = new System.Drawing.Size(102, 25);
+            this.txtreftelefon.Size = new System.Drawing.Size(88, 25);
             this.txtreftelefon.TabIndex = 15;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(590, 362);
+            this.label10.Location = new System.Drawing.Point(506, 314);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(126, 16);
+            this.label10.Size = new System.Drawing.Size(127, 16);
             this.label10.TabIndex = 120;
             this.label10.Text = "REFERANS TELEFON";
             // 
             // rctxfirmnot
             // 
-            this.rctxfirmnot.Location = new System.Drawing.Point(752, 392);
+            this.rctxfirmnot.Location = new System.Drawing.Point(645, 340);
             this.rctxfirmnot.Name = "rctxfirmnot";
-            this.rctxfirmnot.Size = new System.Drawing.Size(382, 51);
+            this.rctxfirmnot.Size = new System.Drawing.Size(328, 45);
             this.rctxfirmnot.TabIndex = 16;
             this.rctxfirmnot.Text = "";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(688, 428);
+            this.label12.Location = new System.Drawing.Point(590, 371);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(31, 16);
+            this.label12.Size = new System.Drawing.Size(32, 16);
             this.label12.TabIndex = 122;
             this.label12.Text = "NOT";
             // 
             // cmbrefadsoyad
             // 
             this.cmbrefadsoyad.FormattingEnabled = true;
-            this.cmbrefadsoyad.Location = new System.Drawing.Point(752, 323);
+            this.cmbrefadsoyad.Location = new System.Drawing.Point(645, 280);
             this.cmbrefadsoyad.Name = "cmbrefadsoyad";
-            this.cmbrefadsoyad.Size = new System.Drawing.Size(233, 23);
+            this.cmbrefadsoyad.Size = new System.Drawing.Size(200, 21);
             this.cmbrefadsoyad.TabIndex = 14;
             this.cmbrefadsoyad.SelectedValueChanged += new System.EventHandler(this.cmbrefadsoyad_SelectedValueChanged);
             // 
             // lblrefid
             // 
             this.lblrefid.AutoSize = true;
-            this.lblrefid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblrefid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblrefid.ForeColor = System.Drawing.Color.Teal;
-            this.lblrefid.Location = new System.Drawing.Point(1064, 371);
+            this.lblrefid.Location = new System.Drawing.Point(912, 322);
             this.lblrefid.Name = "lblrefid";
             this.lblrefid.Size = new System.Drawing.Size(31, 15);
             this.lblrefid.TabIndex = 123;
@@ -402,11 +402,11 @@ namespace Bordrolama10
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Gainsboro;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(1207, 228);
+            this.button1.Location = new System.Drawing.Point(1035, 198);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 37);
+            this.button1.Size = new System.Drawing.Size(101, 32);
             this.button1.TabIndex = 124;
             this.button1.Text = "SİL";
             this.button1.UseVisualStyleBackColor = false;
@@ -415,11 +415,11 @@ namespace Bordrolama10
             // btnfirmabul
             // 
             this.btnfirmabul.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnfirmabul.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnfirmabul.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnfirmabul.ForeColor = System.Drawing.Color.Black;
-            this.btnfirmabul.Location = new System.Drawing.Point(1207, 129);
+            this.btnfirmabul.Location = new System.Drawing.Point(1035, 112);
             this.btnfirmabul.Name = "btnfirmabul";
-            this.btnfirmabul.Size = new System.Drawing.Size(118, 37);
+            this.btnfirmabul.Size = new System.Drawing.Size(101, 32);
             this.btnfirmabul.TabIndex = 125;
             this.btnfirmabul.Text = "FİRMA BUL";
             this.btnfirmabul.UseVisualStyleBackColor = false;
@@ -428,11 +428,11 @@ namespace Bordrolama10
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Gainsboro;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(1207, 82);
+            this.button2.Location = new System.Drawing.Point(1035, 71);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 37);
+            this.button2.Size = new System.Drawing.Size(101, 32);
             this.button2.TabIndex = 126;
             this.button2.Text = "YENİ";
             this.button2.UseVisualStyleBackColor = false;
@@ -440,86 +440,87 @@ namespace Bordrolama10
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(39, 101);
+            this.dataGridView1.Location = new System.Drawing.Point(33, 88);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(482, 385);
+            this.dataGridView1.Size = new System.Drawing.Size(413, 334);
             this.dataGridView1.TabIndex = 127;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // txtunvanagore
             // 
             this.txtunvanagore.BackColor = System.Drawing.Color.White;
-            this.txtunvanagore.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtunvanagore.Location = new System.Drawing.Point(124, 71);
+            this.txtunvanagore.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtunvanagore.Location = new System.Drawing.Point(106, 62);
             this.txtunvanagore.Name = "txtunvanagore";
-            this.txtunvanagore.Size = new System.Drawing.Size(185, 23);
+            this.txtunvanagore.Size = new System.Drawing.Size(159, 23);
             this.txtunvanagore.TabIndex = 128;
             this.txtunvanagore.TextChanged += new System.EventHandler(this.txtunvanagore_TextChanged);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label13.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(124, 52);
+            this.label13.Location = new System.Drawing.Point(106, 45);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(50, 16);
+            this.label13.Size = new System.Drawing.Size(51, 16);
             this.label13.TabIndex = 129;
             this.label13.Text = "UNVAN";
             // 
             // txtfirmanoyagore
             // 
             this.txtfirmanoyagore.BackColor = System.Drawing.Color.White;
-            this.txtfirmanoyagore.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtfirmanoyagore.Location = new System.Drawing.Point(39, 71);
+            this.txtfirmanoyagore.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtfirmanoyagore.Location = new System.Drawing.Point(33, 62);
             this.txtfirmanoyagore.Name = "txtfirmanoyagore";
-            this.txtfirmanoyagore.Size = new System.Drawing.Size(79, 23);
+            this.txtfirmanoyagore.Size = new System.Drawing.Size(68, 23);
             this.txtfirmanoyagore.TabIndex = 130;
             this.txtfirmanoyagore.TextChanged += new System.EventHandler(this.txtfirmanoyagore_TextChanged);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label14.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(39, 52);
+            this.label14.Location = new System.Drawing.Point(33, 45);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(69, 16);
+            this.label14.Size = new System.Drawing.Size(70, 16);
             this.label14.TabIndex = 131;
             this.label14.Text = "FİRMA NO";
             // 
             // txtreferansagore
             // 
             this.txtreferansagore.BackColor = System.Drawing.Color.White;
-            this.txtreferansagore.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtreferansagore.Location = new System.Drawing.Point(315, 71);
+            this.txtreferansagore.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtreferansagore.Location = new System.Drawing.Point(270, 62);
             this.txtreferansagore.Name = "txtreferansagore";
-            this.txtreferansagore.Size = new System.Drawing.Size(121, 23);
+            this.txtreferansagore.Size = new System.Drawing.Size(104, 23);
             this.txtreferansagore.TabIndex = 132;
             this.txtreferansagore.TextChanged += new System.EventHandler(this.txtreferansagore_TextChanged);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label15.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(315, 52);
+            this.label15.Location = new System.Drawing.Point(270, 45);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(71, 16);
+            this.label15.Size = new System.Drawing.Size(72, 16);
             this.label15.TabIndex = 133;
             this.label15.Text = "REFERANS";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label16.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(442, 52);
+            this.label16.Location = new System.Drawing.Point(379, 45);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(52, 16);
+            this.label16.Size = new System.Drawing.Size(53, 16);
             this.label16.TabIndex = 135;
             this.label16.Text = "DURUM";
             // 
@@ -529,20 +530,20 @@ namespace Bordrolama10
             this.cmbdurumagore.Items.AddRange(new object[] {
             "Aktif",
             "Pasif"});
-            this.cmbdurumagore.Location = new System.Drawing.Point(442, 71);
+            this.cmbdurumagore.Location = new System.Drawing.Point(379, 62);
             this.cmbdurumagore.Name = "cmbdurumagore";
-            this.cmbdurumagore.Size = new System.Drawing.Size(79, 23);
+            this.cmbdurumagore.Size = new System.Drawing.Size(68, 21);
             this.cmbdurumagore.TabIndex = 136;
             this.cmbdurumagore.SelectedValueChanged += new System.EventHandler(this.cmbdurumagore_SelectedValueChanged);
             // 
             // btnkapat
             // 
             this.btnkapat.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnkapat.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnkapat.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnkapat.ForeColor = System.Drawing.Color.Black;
-            this.btnkapat.Location = new System.Drawing.Point(1207, 275);
+            this.btnkapat.Location = new System.Drawing.Point(1035, 238);
             this.btnkapat.Name = "btnkapat";
-            this.btnkapat.Size = new System.Drawing.Size(118, 37);
+            this.btnkapat.Size = new System.Drawing.Size(101, 32);
             this.btnkapat.TabIndex = 137;
             this.btnkapat.Text = "KAPAT";
             this.btnkapat.UseVisualStyleBackColor = false;
@@ -551,11 +552,11 @@ namespace Bordrolama10
             // btnReferans
             // 
             this.btnReferans.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnReferans.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnReferans.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnReferans.ForeColor = System.Drawing.Color.Black;
-            this.btnReferans.Location = new System.Drawing.Point(1207, 323);
+            this.btnReferans.Location = new System.Drawing.Point(1035, 280);
             this.btnReferans.Name = "btnReferans";
-            this.btnReferans.Size = new System.Drawing.Size(118, 37);
+            this.btnReferans.Size = new System.Drawing.Size(101, 32);
             this.btnReferans.TabIndex = 138;
             this.btnReferans.Text = "REFERANS EKLE";
             this.btnReferans.UseVisualStyleBackColor = false;
@@ -563,10 +564,10 @@ namespace Bordrolama10
             // 
             // FirmaKayit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PapayaWhip;
-            this.ClientSize = new System.Drawing.Size(1363, 548);
+            this.ClientSize = new System.Drawing.Size(1168, 475);
             this.Controls.Add(this.btnReferans);
             this.Controls.Add(this.btnkapat);
             this.Controls.Add(this.cmbdurumagore);

@@ -186,6 +186,15 @@
     <EmbeddedResource Include="ebildirge.resx">
       <DependentUpon>ebildirge.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FirmaAra.resx">
+      <DependentUpon>FirmaAra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirmaKayit.resx">
+      <DependentUpon>FirmaKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KanuniParametre.resx">
+      <DependentUpon>KanuniParametre.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -196,8 +205,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Referanslar.resx">
+      <DependentUpon>Referanslar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SubeKayit.resx">
       <DependentUpon>SubeKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tahmin.resx">
+      <DependentUpon>Tahmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XtraReport1.resx">
       <DependentUpon>XtraReport1.cs</DependentUpon>

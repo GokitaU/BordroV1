@@ -671,9 +671,24 @@ namespace Bordrolama10
             // datagiritalanlariniduzenle();
         }
 
+        DataTable tesvikliHizmetListesi = new DataTable();
+            private void tesvikliListe()
+        {
+           
+            baglan.Open();
+            using (SQLiteCommand sorgu = new SQLiteCommand("Select * From HizmetListesi where firmaid = '"+programreferans.firmaid+"' and subeid='"+programreferans.subid+ "' and (Kanun_No='00687' or Kanun_No='01687' or Kanun_No='17103' or Kanun_No='027103')", baglan))
+            {
+                SQLiteDataAdapter da = new SQLiteDataAdapter();
+                da.SelectCommand = sorgu;
+                da.Fill(tesvikliHizmetListesi);
+            }
+            baglan.Close();
+        }
+
+
         private void btnArgeHesapla_Click(object sender, EventArgs e)
         {
-            baglan.Open();
+            
             string hzmtListPersid = "";
             string hzmKanunNo = "";
 
@@ -690,13 +705,13 @@ namespace Bordrolama10
             int gun = 0;
 
 
+            tesvikliListe();
 
 
 
 
 
-
-
+            baglan.Open();
             int gritSatirSayisi = dataGridView1.Rows.Count;
             progressBar1.Maximum = gritSatirSayisi-1;
             for (int i = 0; i < gritSatirSayisi-1; i++)
