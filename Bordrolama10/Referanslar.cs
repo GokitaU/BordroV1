@@ -80,7 +80,7 @@ namespace Bordrolama10
 
         private void btnkaydet_Click(object sender, EventArgs e)
         {
-            string durum = (chkbxpasif.Checked = true) ? "Pasif" : "Aktif";
+            string durum = chkbxpasif.Checked ? "Pasif" : "Aktif";
             baglan.Open();
             if (lblrefno.Text == "-")
             {

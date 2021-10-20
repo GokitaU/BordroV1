@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using System.Data.OleDb;
 using System.Globalization;
 using System.Data;
-using Consul;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Collections.Generic;
 using System.Data.SQLite;
@@ -153,7 +152,7 @@ namespace Bordrolama10
                         OleDbCommand sorgu = new OleDbCommand("Select * From [" + comboBox1.Text.ToString() + "$]", con);
                         OleDbDataAdapter da = new OleDbDataAdapter();
                         da.SelectCommand = sorgu;
-                        DataSet ds = new DataSet();
+
                         da.Fill(TemelTablo);
                         //Table = ds.Tables[0];
                         Basliklaruygunmu();
@@ -633,6 +632,7 @@ namespace Bordrolama10
 
         private void btnKapat_Click(object sender, EventArgs e)
         {
+            baglan.Dispose();
             this.Close();
         }
 
@@ -672,23 +672,25 @@ namespace Bordrolama10
         }
 
         DataTable tesvikliHizmetListesi = new DataTable();
-            private void tesvikliListe()
+        private void tesvikliListe()
         {
-           
+            //tesvikliHizmetListesi.Clear();
             baglan.Open();
-            using (SQLiteCommand sorgu = new SQLiteCommand("Select * From HizmetListesi where firmaid = '"+programreferans.firmaid+"' and subeid='"+programreferans.subid+ "' and (Kanun_No='00687' or Kanun_No='01687' or Kanun_No='17103' or Kanun_No='027103')", baglan))
+            using (SQLiteCommand sorgu = new SQLiteCommand("Select * From HizmetListesi where firmaid = '" + programreferans.firmaid + "' and subeid='" + programreferans.subid + "' and (Kanun_No='00687' or Kanun_No='01687' or Kanun_No='17103' or Kanun_No='027103')", baglan))
             {
                 SQLiteDataAdapter da = new SQLiteDataAdapter();
                 da.SelectCommand = sorgu;
                 da.Fill(tesvikliHizmetListesi);
             }
             baglan.Close();
+           // var value = tesvikliHizmetListesi.Rows[1][""].ToString();
+            
         }
 
 
         private void btnArgeHesapla_Click(object sender, EventArgs e)
         {
-            
+
             string hzmtListPersid = "";
             string hzmKanunNo = "";
 
@@ -713,10 +715,10 @@ namespace Bordrolama10
 
             baglan.Open();
             int gritSatirSayisi = dataGridView1.Rows.Count;
-            progressBar1.Maximum = gritSatirSayisi-1;
-            for (int i = 0; i < gritSatirSayisi-1; i++)
+            progressBar1.Maximum = gritSatirSayisi - 1;
+            for (int i = 0; i < gritSatirSayisi - 1; i++)
             {
-                
+
 
                 string agiyil = dataGridView1.Rows[i].Cells["PuantajYil"].Value.ToString();
                 using (SQLiteCommand gvlistesi = new SQLiteCommand("select * From agi_tablosu where agi_yil = '" + agiyil + "' ", baglan))
@@ -748,7 +750,7 @@ namespace Bordrolama10
                             //hzmKanunNo = dr[18].ToString();
                             hzmKanunNo = dr["Kanun_No"].ToString();//.GetString(26);//dr[26].ToString().Trim();
                         }
-                    } 
+                    }
                 }
 
 
@@ -766,7 +768,7 @@ namespace Bordrolama10
                         dataGridView1.Rows[i].Cells["AsgUcrGv"].Value = asgucrGv;
                         dataGridView1.Rows[i].Cells["GunlukGv"].Value = asgUcrGvGunluk;
                         dataGridView1.Rows[i].Cells["AsgUcrDv"].Value = asgucrDv;
-   
+
 
                         // Gelir vergisi terkin hesaplama
                         if (bdrGv == 0)
@@ -779,7 +781,7 @@ namespace Bordrolama10
                         }
                         else if (bdrGv > (asgUcrGvGunluk * gun) && bdrGv > agi)
                         {
-                         terkinGv = (asgUcrGvGunluk * gun) - agi;
+                            terkinGv = (asgUcrGvGunluk * gun) - agi;
                         }
                         else if (bdrGv < (asgUcrGvGunluk * gun) && bdrGv > agi)
                         {
@@ -790,13 +792,13 @@ namespace Bordrolama10
                         {
                             terkinDv = 0;
                         }
-                        else if (bdrDv <= (asgUcrDvGunluk*gun))
+                        else if (bdrDv <= (asgUcrDvGunluk * gun))
                         {
                             terkinDv = bdrGv;
                         }
                         else if (bdrDv > (asgUcrDvGunluk * gun))
                         {
-                            terkinDv = asgUcrDvGunluk*gun;
+                            terkinDv = asgUcrDvGunluk * gun;
                         }
 
 
@@ -804,12 +806,13 @@ namespace Bordrolama10
                         dataGridView1.Rows[i].Cells["TerkinDv"].Value = terkinDv;
                     }
                 }
-                progressBar1.Value = i;
                 lblHesaplanan.Text = (gritSatirSayisi - i).ToString();
+                progressBar1.Value = i;
+
             }
             //  dataGridView1.Refresh();
             baglan.Close();
-            baglan.Dispose();
+
         }
 
         private void terkinhesapla()

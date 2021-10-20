@@ -9,8 +9,6 @@ namespace Bordrolama10
 {
     public partial class EbildV1Guvenlik : Form
     {
-        private object v1driver1;
-
         public EbildV1Guvenlik()
         {
             InitializeComponent();

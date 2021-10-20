@@ -115,7 +115,7 @@ namespace Bordrolama10
         {
             baglan.Open();
             string id = lblfirmano.Text;
-            string durum = (chkbxpasif.Checked = true) ? "Pasif" : "Aktif";
+            string durum = chkbxpasif.Checked ? "Pasif" : "Aktif";
             if (lblfirmano.Text == "")
             {
 

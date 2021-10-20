@@ -53,7 +53,7 @@ namespace PdfOku
             if (SilinecekIptalKayitlar.Count > 0)
                 KayitIptalSil();
             int num = (int)MessageBox.Show("Okuma İşlemi Tamamlandı. \n\nVeritabanına Kayıt İşlemi Tamamlandı.", "Bilgi Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            
+
         }
 
         private static void KayitIptalSil()
@@ -135,21 +135,21 @@ namespace PdfOku
                     sqlCommand.Parameters.AddWithValue("@MAHIYET", (object)pdfHizmetListesi.Mahiyet);
                     sqlCommand.Parameters.AddWithValue("@firmaid", firmid);
                     sqlCommand.Parameters.AddWithValue("@subid", subid);
-                    
+
                     int gun = Convert.ToInt32(pdfHizmetListesi.Gun.Trim());
-                    string yill= (pdfHizmetListesi.Donem.Split('/')[0].ToString().Trim());
+                    string yill = (pdfHizmetListesi.Donem.Split('/')[0].ToString().Trim());
                     string ayy = (pdfHizmetListesi.Donem.Split('/')[1].ToString().Trim());
-                    string tcn= pdfHizmetListesi.SgkNo.Trim();
+                    string tcn = pdfHizmetListesi.SgkNo.Trim();
                     sqlCommand.Parameters.AddWithValue("@Persid", yill + "" + ayy + "" + tcn);
                     sqlCommand.Parameters.AddWithValue("@firmPersid", firmid + "" + subid + "" + yill + "" + ayy + "" + tcn);
                     sqlCommand.Parameters.AddWithValue("@DONEM", (object)(pdfHizmetListesi.Donem.ToString().Trim()));
 
                     string kanun = pdfHizmetListesi.KanunNo.Replace('(', '-').ToString().Trim().ToString().Replace(')', ' ').ToString().Trim();
-                    if (kanun=="00687" || kanun == "01687" || kanun == "17103" || kanun == "27103" )
+                    if (kanun == "00687" || kanun == "01687" || kanun == "17103" || kanun == "27103")
                     {
 
-                    
-                        SQLiteCommand frm = new SQLiteCommand("select * from agi_tablosu where agi_yil='" + yill+"' ", sqlConnection);
+
+                        SQLiteCommand frm = new SQLiteCommand("select * from agi_tablosu where agi_yil='" + yill + "' ", sqlConnection);
                         SQLiteDataReader da = frm.ExecuteReader();
                         while (da.Read())
                         {
@@ -162,11 +162,11 @@ namespace PdfOku
                             sqlCommand.Parameters.AddWithValue("@agimin", minAgitutari);
                             sqlCommand.Parameters.AddWithValue("@augv", asUcrGvTut);
                             sqlCommand.Parameters.AddWithValue("@trkMatrh", auterkmatrahi);
-                            if (((asUcrGvTut/30)*Convert.ToInt32(gun))>=asUcrGvTut)
+                            if (((asUcrGvTut / 30) * Convert.ToInt32(gun)) >= asUcrGvTut)
                             {
                                 sqlCommand.Parameters.AddWithValue("@gvterkin", Convert.ToDouble(gvterkinmax));
                             }
-                            else if (((asUcrGvTut / 30) * Convert.ToInt32(gun)>=minAgitutari && (asUcrGvTut / 30) * Convert.ToInt32(gun) <asUcrGvTut))
+                            else if (((asUcrGvTut / 30) * Convert.ToInt32(gun) >= minAgitutari && (asUcrGvTut / 30) * Convert.ToInt32(gun) < asUcrGvTut))
                             {
                                 sqlCommand.Parameters.AddWithValue("@gvterkin", Convert.ToDouble(auterkmatrahi - minAgitutari));
                             }
@@ -195,7 +195,7 @@ namespace PdfOku
                     if (pdfHizmetListesi.Mahiyet == "IPTAL")      //Convert.ToInt32(                                              //Convert.ToInt32
                         KayitIptalListeEkle(pdfHizmetListesi.Donem.Split('/')[0].Trim().ToString(), pdfHizmetListesi.Donem.Split('/')[1].Trim().ToString(), pdfHizmetListesi.SgkNo, pdfHizmetListesi.KanunNo, pdfHizmetListesi.CGun, pdfHizmetListesi.GGun, pdfHizmetListesi.Ucret);
                     //---------------------------------------------------------------------------------------------------
-                    
+
                     ++num1;
                 }
             }
@@ -217,7 +217,7 @@ namespace PdfOku
             this.rbMetin.Text = this.rbMetin.Text.Replace("Ð", "Ğ");
             this.rbMetin.Text = this.rbMetin.Text.Replace("ð", "ğ");
             bool flag = false;
-        label_38:
+
             for (int index1 = 6; index1 < this.rbMetin.Lines.Length; ++index1)
             {
                 if (index1 == 6)
@@ -326,9 +326,7 @@ namespace PdfOku
                                         pdfHizmetListesi2.CGun = "";
                                     this.HList.Add(pdfHizmetListesi2);
                                 }
-                                catch (Exception ex)
-                                {
-                                }
+                                catch { }
                             }
                             ++index2;
                         }
