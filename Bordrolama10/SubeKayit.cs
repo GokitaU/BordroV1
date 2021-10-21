@@ -404,7 +404,7 @@ namespace Bordrolama10
         {
             if (lblfirmano.Text!="-" && lblsubeid.Text!="-")
             {
-                Bordro bordro = new Bordro();
+                BordroYukle bordro = new BordroYukle();
                 bordro.Show();
                 
             }
