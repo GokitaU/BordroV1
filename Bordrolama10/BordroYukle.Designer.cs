@@ -58,6 +58,17 @@ namespace Bordrolama10
             this.lblbaslik = new System.Windows.Forms.Label();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnPreviousPage = new System.Windows.Forms.Button();
+            this.btnFirstPage = new System.Windows.Forms.Button();
+            this.btnLastPage = new System.Windows.Forms.Button();
+            this.btnNextPage = new System.Windows.Forms.Button();
+            this.txtShowRowCount = new System.Windows.Forms.TextBox();
+            this.txtTotalRow = new System.Windows.Forms.TextBox();
+            this.txtCurrentRow = new System.Windows.Forms.TextBox();
+            this.txtTotalPage = new System.Windows.Forms.TextBox();
+            this.txtCurrentPage = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -73,8 +84,10 @@ namespace Bordrolama10
             this.dataGridView1.Location = new System.Drawing.Point(205, 97);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1219, 532);
+            this.dataGridView1.Size = new System.Drawing.Size(1219, 497);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // btnDosyaYolu
             // 
@@ -350,12 +363,121 @@ namespace Bordrolama10
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
             // 
+            // btnPreviousPage
+            // 
+            this.btnPreviousPage.Location = new System.Drawing.Point(397, 599);
+            this.btnPreviousPage.Name = "btnPreviousPage";
+            this.btnPreviousPage.Size = new System.Drawing.Size(40, 23);
+            this.btnPreviousPage.TabIndex = 38;
+            this.btnPreviousPage.Text = "<";
+            this.btnPreviousPage.UseVisualStyleBackColor = true;
+            // 
+            // btnFirstPage
+            // 
+            this.btnFirstPage.Location = new System.Drawing.Point(351, 599);
+            this.btnFirstPage.Name = "btnFirstPage";
+            this.btnFirstPage.Size = new System.Drawing.Size(40, 23);
+            this.btnFirstPage.TabIndex = 39;
+            this.btnFirstPage.Text = "|<";
+            this.btnFirstPage.UseVisualStyleBackColor = true;
+            // 
+            // btnLastPage
+            // 
+            this.btnLastPage.Location = new System.Drawing.Point(489, 600);
+            this.btnLastPage.Name = "btnLastPage";
+            this.btnLastPage.Size = new System.Drawing.Size(40, 23);
+            this.btnLastPage.TabIndex = 40;
+            this.btnLastPage.Text = ">|";
+            this.btnLastPage.UseVisualStyleBackColor = true;
+            this.btnLastPage.Click += new System.EventHandler(this.btnLastPage_Click);
+            // 
+            // btnNextPage
+            // 
+            this.btnNextPage.Location = new System.Drawing.Point(443, 600);
+            this.btnNextPage.Name = "btnNextPage";
+            this.btnNextPage.Size = new System.Drawing.Size(40, 23);
+            this.btnNextPage.TabIndex = 41;
+            this.btnNextPage.Text = ">";
+            this.btnNextPage.UseVisualStyleBackColor = true;
+            this.btnNextPage.Click += new System.EventHandler(this.btnNextPage_Click);
+            // 
+            // txtShowRowCount
+            // 
+            this.txtShowRowCount.Location = new System.Drawing.Point(297, 603);
+            this.txtShowRowCount.Name = "txtShowRowCount";
+            this.txtShowRowCount.Size = new System.Drawing.Size(48, 20);
+            this.txtShowRowCount.TabIndex = 33;
+            this.txtShowRowCount.Text = "50";
+            // 
+            // txtTotalRow
+            // 
+            this.txtTotalRow.Location = new System.Drawing.Point(836, 604);
+            this.txtTotalRow.Name = "txtTotalRow";
+            this.txtTotalRow.Size = new System.Drawing.Size(48, 20);
+            this.txtTotalRow.TabIndex = 34;
+            this.txtTotalRow.Text = "0";
+            // 
+            // txtCurrentRow
+            // 
+            this.txtCurrentRow.Location = new System.Drawing.Point(782, 604);
+            this.txtCurrentRow.Name = "txtCurrentRow";
+            this.txtCurrentRow.Size = new System.Drawing.Size(48, 20);
+            this.txtCurrentRow.TabIndex = 35;
+            this.txtCurrentRow.Text = "0";
+            // 
+            // txtTotalPage
+            // 
+            this.txtTotalPage.Location = new System.Drawing.Point(663, 604);
+            this.txtTotalPage.Name = "txtTotalPage";
+            this.txtTotalPage.Size = new System.Drawing.Size(48, 20);
+            this.txtTotalPage.TabIndex = 36;
+            this.txtTotalPage.Text = "1";
+            // 
+            // txtCurrentPage
+            // 
+            this.txtCurrentPage.Location = new System.Drawing.Point(609, 604);
+            this.txtCurrentPage.Name = "txtCurrentPage";
+            this.txtCurrentPage.Size = new System.Drawing.Size(48, 20);
+            this.txtCurrentPage.TabIndex = 37;
+            this.txtCurrentPage.Text = "1";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label10.Location = new System.Drawing.Point(731, 604);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(50, 16);
+            this.label10.TabIndex = 31;
+            this.label10.Text = "Kayıt :";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.Location = new System.Drawing.Point(558, 604);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 16);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "Sayfa :";
+            // 
             // BordroYukle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PapayaWhip;
             this.ClientSize = new System.Drawing.Size(1436, 641);
+            this.Controls.Add(this.btnPreviousPage);
+            this.Controls.Add(this.btnFirstPage);
+            this.Controls.Add(this.btnLastPage);
+            this.Controls.Add(this.btnNextPage);
+            this.Controls.Add(this.txtShowRowCount);
+            this.Controls.Add(this.txtTotalRow);
+            this.Controls.Add(this.txtCurrentRow);
+            this.Controls.Add(this.txtTotalPage);
+            this.Controls.Add(this.txtCurrentPage);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.lblbaslik);
@@ -424,5 +546,16 @@ namespace Bordrolama10
         private System.Windows.Forms.Label lblbaslik;
         private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnPreviousPage;
+        private System.Windows.Forms.Button btnFirstPage;
+        private System.Windows.Forms.Button btnLastPage;
+        private System.Windows.Forms.Button btnNextPage;
+        private System.Windows.Forms.TextBox txtShowRowCount;
+        private System.Windows.Forms.TextBox txtTotalRow;
+        private System.Windows.Forms.TextBox txtCurrentRow;
+        private System.Windows.Forms.TextBox txtTotalPage;
+        private System.Windows.Forms.TextBox txtCurrentPage;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label7;
     }
 }

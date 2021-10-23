@@ -17,13 +17,58 @@ namespace Bordrolama10
             InitializeComponent();
         }
 
+        string command = "Select * From FirmaBordro where FirmaNo = '" + firmano + "' and SubeNo ='" + subeno + "'";
+        int totalCount = 0;
+        int currentRecord = 0;
+        static int firmano = Convert.ToInt32(programreferans.firmaid);
+        static int subeno = programreferans.subid;
 
-        public void bordrolarigoster(string bordro)
+        public static int MyProperty { get; set; }
+        public int MyProperty1 { get; set; }
+
+        private void GetValues()
         {
-            SQLiteDataAdapter da = new SQLiteDataAdapter(bordro, baglan);
-            DataSet dss = new DataSet();
-            da.Fill(dss);
-            dataGridView1.DataSource = dss.Tables[0];
+           // SQLiteConnection baglan1 = new SqlConnection(Baglanti.Baglan1);
+            baglan.Open();
+
+            SQLiteDataAdapter da = new SQLiteDataAdapter(command, baglan);
+            DataTable table = new DataTable();
+            table.Columns.Add(new DataColumn("IsChanged", typeof(bool)));
+
+            int showPageRowCount = int.Parse(txtShowRowCount.Text);
+            int currentPage = int.Parse(txtCurrentPage.Text);
+            // var pageCount = totalCount / showPageRowCount;
+
+            da.Fill(currentRecord, showPageRowCount, table);
+            currentRecord += showPageRowCount;
+
+            dataGridView1.DataSource = table;
+
+            baglan.Close();
+        }
+
+        public void bordrolarigoster()
+        {
+           // SQLiteDataAdapter da = new SQLiteDataAdapter(command, baglan);
+           // DataTable table = new DataTable();
+            baglan.Open();
+            SQLiteCommand totalCountCommand = new SQLiteCommand("Select Count(*) From FirmaBordro", baglan);
+            totalCount = int.Parse(totalCountCommand.ExecuteScalar().ToString());
+            baglan.Close();
+           // command = bordro;
+            GetValues();
+
+
+            //da.Fill(table);
+            //dataGridView1.DataSource = table;
+        }
+
+        public void bordrolarigoster(string donem)
+        {            
+            SQLiteCommand totalCountCommand = new SQLiteCommand("Select Count(*) From FirmaBordro", baglan);
+            totalCount = int.Parse(totalCountCommand.ExecuteScalar().ToString());
+            baglan.Close();
+            GetValues();
         }
 
         public void donemlerigoster(string donem)
@@ -113,6 +158,7 @@ namespace Bordrolama10
             }
 
         }
+
 
 
         DataTable Table = new DataTable();
@@ -402,14 +448,21 @@ namespace Bordrolama10
 
 
             //// dataGridView1.Columns.Add(new DataGridViewColumn { Name = "BdrId", CellTemplate = new DataGridViewTextBoxCell() });// datagrite başlık ekler
-            int firmano = Convert.ToInt32(programreferans.firmaid);
-            int subeno = programreferans.subid;
+            //int firmano = Convert.ToInt32(programreferans.firmaid);
+            //int subeno = programreferans.subid;
 
 
             load = true;
-            bordrolarigoster("Select * From FirmaBordro where FirmaNo = '" + firmano + "' and SubeNo ='" + subeno + "'");
+            bordrolarigoster();
             donemlerigoster("SELECT PuantajDonem as Donem, count(PersId) as Per_Sayi From FirmaBordro Where FirmaNo = '" + programreferans.firmaid + "' and SubeNo ='" + programreferans.subid + "' GROUP by Donem");
 
+            txtTotalPage.Text = Math.Round(double.Parse(totalCount.ToString()) / double.Parse(txtShowRowCount.Text), MidpointRounding.AwayFromZero).ToString();
+
+            if (totalCount > 0)
+            {
+                txtCurrentRow.Text = "1";
+                txtTotalRow.Text = totalCount.ToString();
+            }
             //  datagiritalanlariniduzenle();
         }
 
@@ -660,13 +713,15 @@ namespace Bordrolama10
         {
             int secim = dataGridView2.SelectedCells[0].RowIndex;
             var donem = dataGridView2.Rows[secim].Cells[0].Value.ToString();
-            bordrolarigoster("Select * From FirmaBordro where FirmaNo = '" + programreferans.firmaid + "' and SubeNo ='" + programreferans.subid + "' and PuantajDonem = '" + donem + "'");
+            command = "Select * From FirmaBordro where FirmaNo = '" + programreferans.firmaid + "' and SubeNo ='" + programreferans.subid + "' and PuantajDonem = '" + donem + "'";
+
+            bordrolarigoster(command);
             datagiritalanlariniduzenle();
         }
 
         private void btnfiltrekaldir_Click(object sender, EventArgs e)
         {
-            bordrolarigoster("Select * From FirmaBordro where FirmaNo = '" + programreferans.firmaid + "' and SubeNo ='" + programreferans.subid + "'");
+            bordrolarigoster();
             // datagiritalanlariniduzenle();
         }
 
@@ -814,7 +869,33 @@ namespace Bordrolama10
             }
         }
 
+        private void btnNextPage_Click(object sender, EventArgs e)
+        {
+            var pageNo = int.Parse(txtCurrentPage.Text);
+            txtCurrentPage.Text = (pageNo += 1).ToString();
 
+            GetValues();
+        }
 
+        private void btnLastPage_Click(object sender, EventArgs e)
+        {
+            txtCurrentPage.Text = txtTotalPage.Text;
+
+            int showPageRowCount = int.Parse(txtShowRowCount.Text);
+            currentRecord = (int.Parse(txtCurrentPage.Text) - 1) * showPageRowCount;
+            GetValues();
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            var currentPage = int.Parse(txtCurrentPage.Text);
+            txtCurrentRow.Text = (currentPage == 1 ? currentPage + e.RowIndex : ((currentPage - 1) * int.Parse(txtShowRowCount.Text)) + e.RowIndex + 1).ToString();
+
+        }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridView1.Rows[e.RowIndex].Cells["IsChanged"].Value = true;
+        }
     }
 }

@@ -10,27 +10,35 @@ namespace Bordrolama10
 
 
 {
-    public static class programreferans
+    public class programreferans
     {
         public static string firmaid = "";
         public static int subid = 0;
         public static int firmid = 0;
-        public static string subeunvan ="";
-        public static string firmaunvan ="";
-        public static string IsyeriSgkNo ="";
+        public static string subeunvan = "";
+        public static string firmaunvan = "";
+        public static string IsyeriSgkNo = "";
 
 
     }
-    public static class v1guvenliksozcugu
+    public class v1guvenliksozcugu
     {
         public static string v1guvenlik = "";
     }
-    public static class ebildirgeV1Guvenlik
+    public class ebildirgeV1Guvenlik
     {
         public static string v1GuvenlikImageUrl = "";
     }
-    public static class v1driver
+    public class v1driver
     {
         public static IWebDriver v1driver1 { get; set; }
+    }
+
+    public static class Deneme
+    {
+        public static int ElemanSayisi(this DataTable table)
+        {
+            return table.Rows.Count;
+        }
     }
 }
