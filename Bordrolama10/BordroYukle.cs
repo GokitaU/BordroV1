@@ -836,28 +836,6 @@ namespace Bordrolama10
                         }
 
 
-
-
-
-
-
-
-
-                        //using (SQLiteCommand HzmtListesi = new SQLiteCommand("Select * From HizmetListesi where firmPersid = '" + dtgritPersid + "'", baglan))
-                        //{
-                        //    using (SQLiteDataReader dr = HzmtListesi.ExecuteReader())
-                        //    {
-                        //        while (dr.Read())
-                        //        {
-                        //            hzmtListPersid = dr["firmPersid"].ToString();//.GetString(26);//dr[26].ToString().Trim();
-                        //                                                         //hzmKanunNo = dr[18].ToString();
-                        //            hzmKanunNo = dr["Kanun_No"].ToString();//.GetString(26);//dr[26].ToString().Trim();
-                        //        }
-                        //    }
-                        //}
-
-
-
                     }
                     lblHesaplanan.Text = (gritSatirSayisi - i).ToString();
 

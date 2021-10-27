@@ -29,32 +29,41 @@ namespace Bordrolama10
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtgrtBrdTesvikliPers = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtgrtHzmtListe = new System.Windows.Forms.DataGridView();
+            this.dtgrtFrmBordro = new System.Windows.Forms.DataGridView();
+            this.dtgrtBrdDonem = new System.Windows.Forms.DataGridView();
             this.tabCntGvBordro = new System.Windows.Forms.TabControl();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.dtgrtSubeSecim = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cmbilk = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmbson = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtdosyayolu = new System.Windows.Forms.TextBox();
+            this.btnDosyaYolu = new System.Windows.Forms.Button();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrtBrdTesvikliPers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrtHzmtListe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrtFrmBordro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrtBrdDonem)).BeginInit();
             this.tabCntGvBordro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrtSubeSecim)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage2
@@ -62,7 +71,7 @@ namespace Bordrolama10
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1539, 625);
+            this.tabPage2.Size = new System.Drawing.Size(1732, 767);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -71,13 +80,13 @@ namespace Bordrolama10
             // 
             this.tabPage1.BackColor = System.Drawing.Color.NavajoWhite;
             this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.dataGridView5);
+            this.tabPage1.Controls.Add(this.dtgrtBrdTesvikliPers);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.dataGridView3);
-            this.tabPage1.Controls.Add(this.dataGridView2);
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.dtgrtHzmtListe);
+            this.tabPage1.Controls.Add(this.dtgrtFrmBordro);
+            this.tabPage1.Controls.Add(this.dtgrtBrdDonem);
             this.tabPage1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -86,62 +95,127 @@ namespace Bordrolama10
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Gv & Dv Bordro";
             // 
-            // dataGridView3
+            // label5
             // 
-            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView3.Location = new System.Drawing.Point(1027, 23);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(699, 465);
-            this.dataGridView3.TabIndex = 5;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(401, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(230, 18);
+            this.label5.TabIndex = 44;
+            this.label5.Text = "TEŞVİKLİ PERSONEL LİSTESİ";
             // 
-            // dataGridView2
+            // dtgrtBrdTesvikliPers
             // 
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 506);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1720, 253);
-            this.dataGridView2.TabIndex = 4;
+            this.dtgrtBrdTesvikliPers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtgrtBrdTesvikliPers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtgrtBrdTesvikliPers.BackgroundColor = System.Drawing.Color.White;
+            this.dtgrtBrdTesvikliPers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgrtBrdTesvikliPers.DefaultCellStyle = dataGridViewCellStyle21;
+            this.dtgrtBrdTesvikliPers.Location = new System.Drawing.Point(471, 23);
+            this.dtgrtBrdTesvikliPers.Name = "dtgrtBrdTesvikliPers";
+            this.dtgrtBrdTesvikliPers.Size = new System.Drawing.Size(1255, 272);
+            this.dtgrtBrdTesvikliPers.TabIndex = 43;
+            this.dtgrtBrdTesvikliPers.Click += new System.EventHandler(this.dtgrtBrdTesvikliPers_Click);
             // 
-            // dataGridView1
+            // label4
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 23);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(356, 451);
-            this.dataGridView1.TabIndex = 3;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(1074, 5);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(131, 18);
+            this.label4.TabIndex = 42;
+            this.label4.Text = "HİZMET LİSTESİ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(3, 5);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(172, 18);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "BORDRO DÖNEMLERİ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(3, 477);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(260, 18);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "DÖNEM BAZLI FİRMA BORDROSU";
+            // 
+            // dtgrtHzmtListe
+            // 
+            this.dtgrtHzmtListe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtgrtHzmtListe.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtgrtHzmtListe.BackgroundColor = System.Drawing.Color.White;
+            this.dtgrtHzmtListe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgrtHzmtListe.DefaultCellStyle = dataGridViewCellStyle22;
+            this.dtgrtHzmtListe.Location = new System.Drawing.Point(471, 301);
+            this.dtgrtHzmtListe.Name = "dtgrtHzmtListe";
+            this.dtgrtHzmtListe.Size = new System.Drawing.Size(1255, 194);
+            this.dtgrtHzmtListe.TabIndex = 5;
+            // 
+            // dtgrtFrmBordro
+            // 
+            this.dtgrtFrmBordro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtgrtFrmBordro.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtgrtFrmBordro.BackgroundColor = System.Drawing.Color.White;
+            this.dtgrtFrmBordro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgrtFrmBordro.DefaultCellStyle = dataGridViewCellStyle23;
+            this.dtgrtFrmBordro.Location = new System.Drawing.Point(6, 498);
+            this.dtgrtFrmBordro.Name = "dtgrtFrmBordro";
+            this.dtgrtFrmBordro.Size = new System.Drawing.Size(1720, 261);
+            this.dtgrtFrmBordro.TabIndex = 4;
+            // 
+            // dtgrtBrdDonem
+            // 
+            this.dtgrtBrdDonem.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtgrtBrdDonem.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtgrtBrdDonem.BackgroundColor = System.Drawing.Color.White;
+            this.dtgrtBrdDonem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgrtBrdDonem.DefaultCellStyle = dataGridViewCellStyle24;
+            this.dtgrtBrdDonem.Location = new System.Drawing.Point(3, 23);
+            this.dtgrtBrdDonem.Name = "dtgrtBrdDonem";
+            this.dtgrtBrdDonem.Size = new System.Drawing.Size(395, 451);
+            this.dtgrtBrdDonem.TabIndex = 3;
+            this.dtgrtBrdDonem.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // tabCntGvBordro
             // 
@@ -157,7 +231,7 @@ namespace Bordrolama10
             // 
             this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(150, 13);
+            this.comboBox1.Location = new System.Drawing.Point(153, 1);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(291, 28);
             this.comboBox1.TabIndex = 38;
@@ -168,94 +242,120 @@ namespace Bordrolama10
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(12, 18);
+            this.label1.Location = new System.Drawing.Point(15, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 18);
             this.label1.TabIndex = 37;
             this.label1.Text = "FİRMA SEÇİMİ";
             // 
-            // dataGridView4
+            // dtgrtSubeSecim
             // 
-            this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView4.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView4.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView4.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView4.Location = new System.Drawing.Point(677, 12);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(557, 99);
-            this.dataGridView4.TabIndex = 39;
-            this.dataGridView4.Click += new System.EventHandler(this.dataGridView4_Click);
+            this.dtgrtSubeSecim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtgrtSubeSecim.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtgrtSubeSecim.BackgroundColor = System.Drawing.Color.White;
+            this.dtgrtSubeSecim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgrtSubeSecim.DefaultCellStyle = dataGridViewCellStyle25;
+            this.dtgrtSubeSecim.Location = new System.Drawing.Point(464, 1);
+            this.dtgrtSubeSecim.Name = "dtgrtSubeSecim";
+            this.dtgrtSubeSecim.Size = new System.Drawing.Size(398, 89);
+            this.dtgrtSubeSecim.TabIndex = 39;
+            this.dtgrtSubeSecim.Click += new System.EventHandler(this.dataGridView4_Click);
             // 
-            // label2
+            // button1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(3, 486);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(260, 18);
-            this.label2.TabIndex = 40;
-            this.label2.Text = "DÖNEM BAZLI FİRMA BORDROSU";
+            this.button1.Location = new System.Drawing.Point(868, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(201, 23);
+            this.button1.TabIndex = 40;
+            this.button1.Text = "Seçili Dönem Bordrosunu Göster";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label3
+            // cmbilk
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(3, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(172, 18);
-            this.label3.TabIndex = 41;
-            this.label3.Text = "BORDRO DÖNEMLERİ";
+            this.cmbilk.FormattingEnabled = true;
+            this.cmbilk.Location = new System.Drawing.Point(360, 35);
+            this.cmbilk.Name = "cmbilk";
+            this.cmbilk.Size = new System.Drawing.Size(84, 21);
+            this.cmbilk.TabIndex = 64;
+            this.cmbilk.SelectedValueChanged += new System.EventHandler(this.cmbilk_SelectedValueChanged);
             // 
-            // label4
+            // label6
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(1074, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 18);
-            this.label4.TabIndex = 42;
-            this.label4.Text = "HİZMET LİSTESİ";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(277, 37);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 16);
+            this.label6.TabIndex = 66;
+            this.label6.Text = "İlk Dönem";
             // 
-            // label5
+            // cmbson
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(366, 6);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(230, 18);
-            this.label5.TabIndex = 44;
-            this.label5.Text = "TEŞVİKLİ PERSONEL LİSTESİ";
+            this.cmbson.FormattingEnabled = true;
+            this.cmbson.Location = new System.Drawing.Point(360, 56);
+            this.cmbson.Name = "cmbson";
+            this.cmbson.Size = new System.Drawing.Size(84, 21);
+            this.cmbson.TabIndex = 65;
+            this.cmbson.SelectedValueChanged += new System.EventHandler(this.cmbson_SelectedValueChanged);
             // 
-            // dataGridView5
+            // label10
             // 
-            this.dataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView5.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView5.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView5.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView5.Location = new System.Drawing.Point(365, 23);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.Size = new System.Drawing.Size(656, 451);
-            this.dataGridView5.TabIndex = 43;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(277, 57);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(80, 16);
+            this.label10.TabIndex = 67;
+            this.label10.Text = "Son Dönem";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1397, 57);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(201, 23);
+            this.button2.TabIndex = 68;
+            this.button2.Text = "Teşvikli Bordroları Pdf Kaydet";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.Location = new System.Drawing.Point(1107, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(80, 16);
+            this.label7.TabIndex = 70;
+            this.label7.Text = "Dosya Yolu";
+            // 
+            // txtdosyayolu
+            // 
+            this.txtdosyayolu.Location = new System.Drawing.Point(1193, 6);
+            this.txtdosyayolu.Name = "txtdosyayolu";
+            this.txtdosyayolu.Size = new System.Drawing.Size(210, 20);
+            this.txtdosyayolu.TabIndex = 69;
+            // 
+            // btnDosyaYolu
+            // 
+            this.btnDosyaYolu.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnDosyaYolu.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnDosyaYolu.Location = new System.Drawing.Point(1409, 7);
+            this.btnDosyaYolu.Name = "btnDosyaYolu";
+            this.btnDosyaYolu.Size = new System.Drawing.Size(101, 23);
+            this.btnDosyaYolu.TabIndex = 71;
+            this.btnDosyaYolu.Text = "Dosya Yolu";
+            this.btnDosyaYolu.UseVisualStyleBackColor = false;
+            this.btnDosyaYolu.Click += new System.EventHandler(this.btnDosyaYolu_Click);
             // 
             // BordroHesapla
             // 
@@ -263,7 +363,16 @@ namespace Bordrolama10
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.NavajoWhite;
             this.ClientSize = new System.Drawing.Size(1753, 889);
-            this.Controls.Add(this.dataGridView4);
+            this.Controls.Add(this.btnDosyaYolu);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtdosyayolu);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.cmbilk);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.cmbson);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dtgrtSubeSecim);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabCntGvBordro);
@@ -272,12 +381,12 @@ namespace Bordrolama10
             this.Load += new System.EventHandler(this.BordroHesapla_Load);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrtBrdTesvikliPers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrtHzmtListe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrtFrmBordro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrtBrdDonem)).EndInit();
             this.tabCntGvBordro.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrtSubeSecim)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,17 +396,26 @@ namespace Bordrolama10
 
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgrtHzmtListe;
+        private System.Windows.Forms.DataGridView dtgrtFrmBordro;
+        private System.Windows.Forms.DataGridView dtgrtBrdDonem;
         private System.Windows.Forms.TabControl tabCntGvBordro;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView dtgrtSubeSecim;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.DataGridView dtgrtBrdTesvikliPers;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cmbilk;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cmbson;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtdosyayolu;
+        private System.Windows.Forms.Button btnDosyaYolu;
     }
 }
