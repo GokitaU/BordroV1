@@ -189,6 +189,12 @@
     <Compile Include="IslemDurumuPopup.Designer.cs">
       <DependentUpon>IslemDurumuPopup.cs</DependentUpon>
     </Compile>
+    <Compile Include="IstihdaminTesvikiListe.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IstihdaminTesvikiListe.Designer.cs">
+      <DependentUpon>IstihdaminTesvikiListe.cs</DependentUpon>
+    </Compile>
     <Compile Include="KanuniParametre.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IslemDurumuPopup.resx">
       <DependentUpon>IslemDurumuPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IstihdaminTesvikiListe.resx">
+      <DependentUpon>IstihdaminTesvikiListe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KanuniParametre.resx">
       <DependentUpon>KanuniParametre.cs</DependentUpon>

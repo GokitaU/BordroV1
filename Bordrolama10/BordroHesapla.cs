@@ -139,6 +139,7 @@ namespace Bordrolama10
 
             cmbilk.Text = "2017/02";
             cmbson.Text = "2020/12";
+            txtdosyayolu.Text = Application.StartupPath + "\\GvTesvikBordro";
         }
 
 
@@ -176,9 +177,9 @@ namespace Bordrolama10
         {
             int secim = dtgrtSubeSecim.SelectedCells[0].RowIndex;
             subeid = dtgrtSubeSecim.Rows[secim].Cells[0].Value != DBNull.Value ? Convert.ToInt32(dtgrtSubeSecim.Rows[secim].Cells[0].Value) : 0;
-            programreferans.subeunvan = dtgrtSubeSecim.Rows[secim].Cells[1].Value != DBNull.Value ? dtgrtSubeSecim.Rows[secim].Cells[1].Value.ToString() :"";
+            programreferans.subeunvan = dtgrtSubeSecim.Rows[secim].Cells[1].Value != DBNull.Value ? dtgrtSubeSecim.Rows[secim].Cells[1].Value.ToString() : "";
             programreferans.subid = subeid;
-           
+
             gvTesvikDonemBazli();
             donem = dtgrtBrdDonem.Rows[0].Cells[0].Value.ToString();
             persid = null;
@@ -273,30 +274,11 @@ namespace Bordrolama10
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DataSet ds = new DataSet("DataSource");
+            //  DataSet ds = new DataSet("DataSource");
 
             DataTable baslikTable = new DataTable("baslikTable");
             DataTable bordroTable = new DataTable("bordroTable");
 
-            //baglan.Open();
-            //for (int i = 0; i < dtgrtSubeSecim.Rows.Count; i++)
-            //{
-
-            //    subeid = Convert.ToInt32(dtgrtSubeSecim.Rows[i].Cells["Id"].Value);
-
-            //    SQLiteDataAdapter baslikda = new SQLiteDataAdapter("SELECT * From sube_bilgileri where firmaid ='" + firmaid + "' and subeid = '"+subeid+"'", baglan);
-            //    baslikda.Fill(baslikTable);
-
-            //    for (int j = 0; j < dtgrtBrdDonem.Rows.Count; j++)
-            //    {
-            //        donem = dtgrtBrdDonem.Rows[j].Cells["Donem"].Value.ToString();
-            //        SQLiteDataAdapter bordroda = new SQLiteDataAdapter("SELECT * From FirmaBordro where FirmaNo='"+firmaid+"'and SubeNo='"+subeid+"' and PuantajDonem='"+donem+"'", baglan);
-            //        bordroda.Fill(bordroTable);
-            //    }
-
-
-            //}
-            //baglan.Close();
             if (subeid == 0 || donem == null)
             {
                 MessageBox.Show("Lütfen İlgili Şube ve Dönem Seçiniz");
@@ -309,37 +291,56 @@ namespace Bordrolama10
 
                 baslikda.Fill(baslikTable);
                 bordroda.Fill(bordroTable);
-                baslikTable.Columns.Add("PuantajDonem", typeof(string));
-                if (bordroTable.Rows.Count > 0)
+
+                //baslikTable.Columns.Add("PuantajDonem", typeof(string));
+                //if (bordroTable.Rows.Count > 0)
+                //{
+                //    baslikTable.Rows[0]["PuantajDonem"] = bordroTable.Rows[0]["PuantajDonem"];
+                //}
+                bordroTable.Columns.Add("firmunvantam", typeof(string));
+                bordroTable.Columns.Add("subeunvan", typeof(string));
+                bordroTable.Columns.Add("vd", typeof(string));
+                bordroTable.Columns.Add("vn", typeof(string));
+                bordroTable.Columns.Add("ticsiciln", typeof(string));
+                bordroTable.Columns.Add("adres", typeof(string));
+                bordroTable.Columns.Add("sgkisyerino", typeof(string));
+
+
+                //bordroTable.Rows[0]["firmunvantam"] = baslikTable.Rows[0]["firmunvantam"];
+                for (int i = 0; i < bordroTable.Rows.Count; i++)
                 {
-                    baslikTable.Rows[0]["PuantajDonem"] = bordroTable.Rows[0]["PuantajDonem"];
+                    bordroTable.Rows[i]["firmunvantam"] = baslikTable.Rows[0]["firmunvantam"];
+                    bordroTable.Rows[i]["subeunvan"] = baslikTable.Rows[0]["subeunvan"];
+                    bordroTable.Rows[i]["vd"] = baslikTable.Rows[0]["vd"];
+                    bordroTable.Rows[i]["vn"] = baslikTable.Rows[0]["vn"];
+                    bordroTable.Rows[i]["ticsiciln"] = baslikTable.Rows[0]["ticsiciln"];
+                    bordroTable.Rows[i]["adres"] = baslikTable.Rows[0]["adres"];
+                    bordroTable.Rows[i]["sgkisyerino"] = baslikTable.Rows[0]["sgkisyerino"];
                 }
 
-                ds.Tables.Add(baslikTable);
-                ds.Tables.Add(bordroTable);
+                //ds.Tables.Add(baslikTable);
+                //ds.Tables.Add(bordroTable);
 
                 baglan.Close();
 
 
-                GelirVergisiBordro report = new GelirVergisiBordro();
+                GelirVergisiBordro report = new GelirVergisiBordro { DataSource = bordroTable, DataMember = "bordroTable" };
 
-                report.DataSource = ds;
-                report.DataMember = "baslikTable";
+                // report.DataSource = bordroTable;
+                //  report.DataMember = "baslikTable";
 
-                report.DetailReport.DataSource = ds;
-                report.DetailReport.DataMember = "bordroTable";
+                //report.DetailReport.DataSource = ds;
+                //report.DetailReport.DataMember = "bordroTable";
+                //string dnm = donem.Replace('/', '-');
+                //report.Name = programreferans.subeunvan + "-" + dnm;
+                //string filepathpdf = @txtdosyayolu.Text + "\\" + report.Name + ".pdf";
+                ////string filepathpdf = Application.StartupPath + "\\"+ report.Name+".pdf";
+                //report.ExportToPdf(filepathpdf);
 
-                report.Name = programreferans.subeunvan + "-" + donem;
-                //PdfExportOptions pdfExportOptions = new PdfExportOptions()
-                //{ PdfACompatibility = PdfACompatibility.PdfA1b };
-                //string filepathpdf = @txtdosyayolu.Text+"\\"+report.Name+".pdf";
-                string filepathpdf = Application.StartupPath + "\\";// + report.Name+".pdf";
-                report.ExportToPdf(filepathpdf);
+                RaporGoruntule rpr = new RaporGoruntule();
+                rpr.documentViewer1.DocumentSource = report;
 
-                //RaporGoruntule rpr = new RaporGoruntule();
-                //rpr.documentViewer1.DocumentSource = report;
-
-                //rpr.ShowDialog();
+                rpr.ShowDialog();
             }
         }
 
@@ -380,13 +381,13 @@ namespace Bordrolama10
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DataSet ds = new DataSet("DataSource");
+            // DataSet ds = new DataSet("DataSource");
 
             DataTable baslikTable = new DataTable("baslikTable");
             DataTable bordroTable = new DataTable("bordroTable");
 
             baglan.Open();
-            for (int i = 0; i < dtgrtSubeSecim.Rows.Count; i++)
+            for (int i = 0; i < dtgrtSubeSecim.Rows.Count-1; i++)
             {
 
                 subeid = Convert.ToInt32(dtgrtSubeSecim.Rows[i].Cells["Id"].Value);
@@ -394,62 +395,191 @@ namespace Bordrolama10
                 SQLiteDataAdapter baslikda = new SQLiteDataAdapter("SELECT * From sube_bilgileri where firmaid ='" + firmaid + "' and subeid = '" + subeid + "'", baglan);
                 baslikda.Fill(baslikTable);
 
-                for (int j = 0; j < dtgrtBrdDonem.Rows.Count; j++)
+                for (int j = 0; j < dtgrtBrdDonem.Rows.Count-1; j++)
                 {
                     donem = dtgrtBrdDonem.Rows[j].Cells["Donem"].Value.ToString();
-                    SQLiteDataAdapter bordroda = new SQLiteDataAdapter("SELECT * From FirmaBordro where FirmaNo='" + firmaid + "'and SubeNo='" + subeid + "' and PuantajDonem='" + donem + "'", baglan);
-                    bordroda.Fill(bordroTable);
-
-
-                    baslikTable.Columns.Add("PuantajDonem", typeof(string));
-                    if (bordroTable.Rows.Count > 0)
+                    if (Convert.ToDecimal(dtgrtBrdDonem.Rows[j].Cells["TrkGv"].Value) >0 || Convert.ToDecimal(dtgrtBrdDonem.Rows[j].Cells["TrkDv"].Value)>0)
                     {
-                        baslikTable.Rows[0]["PuantajDonem"] = bordroTable.Rows[0]["PuantajDonem"];
+                        SQLiteDataAdapter bordroda = new SQLiteDataAdapter("SELECT * From FirmaBordro where FirmaNo='" + firmaid + "'and SubeNo='" + subeid + "' and PuantajDonem='" + donem + "'", baglan);
+                        bordroda.Fill(bordroTable);
+
+                        bordroTable.Columns.Add("firmunvantam", typeof(string));
+                        bordroTable.Columns.Add("subeunvan", typeof(string));
+                        bordroTable.Columns.Add("vd", typeof(string));
+                        bordroTable.Columns.Add("vn", typeof(string));
+                        bordroTable.Columns.Add("ticsiciln", typeof(string));
+                        bordroTable.Columns.Add("adres", typeof(string));
+                        bordroTable.Columns.Add("sgkisyerino", typeof(string));
+
+
+                        //bordroTable.Rows[0]["firmunvantam"] = baslikTable.Rows[0]["firmunvantam"];
+                        for (int y = 0; y < bordroTable.Rows.Count; y++)
+                        {
+                            bordroTable.Rows[y]["firmunvantam"] = baslikTable.Rows[0]["firmunvantam"];
+                            bordroTable.Rows[y]["subeunvan"] = baslikTable.Rows[0]["subeunvan"];
+                            bordroTable.Rows[y]["vd"] = baslikTable.Rows[0]["vd"];
+                            bordroTable.Rows[y]["vn"] = baslikTable.Rows[0]["vn"];
+                            bordroTable.Rows[y]["ticsiciln"] = baslikTable.Rows[0]["ticsiciln"];
+                            bordroTable.Rows[y]["adres"] = baslikTable.Rows[0]["adres"];
+                            bordroTable.Rows[y]["sgkisyerino"] = baslikTable.Rows[0]["sgkisyerino"];
+                        }
+
+
+                        GelirVergisiBordro report = new GelirVergisiBordro { DataSource = bordroTable, DataMember = "bordroTable" };
+                        string dnm = donem.Replace('/', '-');
+                        report.Name = programreferans.subeunvan + "-" + dnm;
+                        string filepathpdf = @txtdosyayolu.Text + "\\" + report.Name + ".pdf";
+                        report.ExportToPdf(filepathpdf);
+
+                        bordroTable.Rows.Clear();
+                        bordroTable.Columns.Clear();
+                        
+                        
                     }
-
-                    ds.Tables.Add(baslikTable);
-                    ds.Tables.Add(bordroTable);
                 }
-                baglan.Close();
 
-
-                GelirVergisiBordro report = new GelirVergisiBordro();
-
-                report.DataSource = ds;
-                report.DataMember = "baslikTable";
-
-                report.DetailReport.DataSource = ds;
-                report.DetailReport.DataMember = "bordroTable";
-
-                PdfExportOptions pdfExportOptions = new PdfExportOptions()
-                {PdfACompatibility = PdfACompatibility.PdfA1b};
-                string filepathpdf = txtdosyayolu.Text;
-
-                report.ExportToPdf(filepathpdf, pdfExportOptions);
-
-                RaporGoruntule rpr = new RaporGoruntule();
-                rpr.documentViewer1.DocumentSource = report;
-
-                rpr.ShowDialog();
             }
+            baglan.Close();
         }
 
 
         private void btnDosyaYolu_Click(object sender, EventArgs e)
         {
-            
+
 
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             dialog.Description = "Dosyayı Nereye Kaydetmek İstersiniz?";
             dialog.RootFolder = Environment.SpecialFolder.Desktop;
-            dialog.SelectedPath=@"C:\Program Files";
-            
+            dialog.SelectedPath = @"C:\Program Files";
+
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 txtdosyayolu.Text = dialog.SelectedPath;
             }
 
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //  DataSet ds = new DataSet("DataSource");
+
+            DataTable baslikTable = new DataTable("baslikTable");
+            DataTable bordroTable = new DataTable("bordroTable");
+
+            if (subeid == 0 || donem == null)
+            {
+                MessageBox.Show("Lütfen İlgili Şube ve Dönem Seçiniz");
+            }
+            else
+            {
+                baglan.Open();
+                SQLiteDataAdapter baslikda = new SQLiteDataAdapter("SELECT * From sube_bilgileri where firmaid ='" + firmaid + "' and subeid='" + subeid + "'", baglan);
+                SQLiteDataAdapter bordroda = new SQLiteDataAdapter("SELECT * From FirmaBordro where FirmaNo='" + firmaid + "' and SubeNo='" + subeid + "' and PuantajDonem='" + donem + "' ", baglan);
+
+                baslikda.Fill(baslikTable);
+                bordroda.Fill(bordroTable);
+
+                bordroTable.Columns.Add("firmunvantam", typeof(string));
+                bordroTable.Columns.Add("subeunvan", typeof(string));
+                bordroTable.Columns.Add("vd", typeof(string));
+                bordroTable.Columns.Add("vn", typeof(string));
+                bordroTable.Columns.Add("ticsiciln", typeof(string));
+                bordroTable.Columns.Add("adres", typeof(string));
+                bordroTable.Columns.Add("sgkisyerino", typeof(string));
+
+
+                //bordroTable.Rows[0]["firmunvantam"] = baslikTable.Rows[0]["firmunvantam"];
+                for (int i = 0; i < bordroTable.Rows.Count; i++)
+                {
+                    bordroTable.Rows[i]["firmunvantam"] = baslikTable.Rows[0]["firmunvantam"];
+                    bordroTable.Rows[i]["subeunvan"] = baslikTable.Rows[0]["subeunvan"];
+                    bordroTable.Rows[i]["vd"] = baslikTable.Rows[0]["vd"];
+                    bordroTable.Rows[i]["vn"] = baslikTable.Rows[0]["vn"];
+                    bordroTable.Rows[i]["ticsiciln"] = baslikTable.Rows[0]["ticsiciln"];
+                    bordroTable.Rows[i]["adres"] = baslikTable.Rows[0]["adres"];
+                    bordroTable.Rows[i]["sgkisyerino"] = baslikTable.Rows[0]["sgkisyerino"];
+                }
+
+                //ds.Tables.Add(baslikTable);
+                //ds.Tables.Add(bordroTable);
+
+                baglan.Close();
+
+
+                GelirVergisiBordro report = new GelirVergisiBordro { DataSource = bordroTable, DataMember = "bordroTable" };
+
+                // report.DataSource = bordroTable;
+                //  report.DataMember = "baslikTable";
+
+                string dnm = donem.Replace('/', '-');
+                report.Name = programreferans.subeunvan + "-" + dnm;
+                string filepathpdf = @txtdosyayolu.Text + "\\" + report.Name + ".pdf";
+                report.ExportToPdf(filepathpdf);
+
+
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            DataTable baslikTable = new DataTable("baslikTable");
+            DataTable bordroTable = new DataTable("bordroTable");
+
+            if (subeid == 0 || donem == null)
+            {
+                MessageBox.Show("Lütfen İlgili Şube ve Dönem Seçiniz");
+            }
+            else
+            {
+                baglan.Open();
+                SQLiteDataAdapter baslikda = new SQLiteDataAdapter("SELECT * From sube_bilgileri where firmaid ='" + firmaid + "' and subeid='" + subeid + "'", baglan);
+                SQLiteDataAdapter bordroda = new SQLiteDataAdapter("SELECT * From FirmaBordro where FirmaNo='" + firmaid + "' and SubeNo='" + subeid + "' and PuantajDonem='" + donem + "' and (TerkinGv >0 or TerkinDv>0)  ", baglan);
+
+                baslikda.Fill(baslikTable);
+                bordroda.Fill(bordroTable);
+
+                bordroTable.Columns.Add("firmunvantam", typeof(string));
+                bordroTable.Columns.Add("subeunvan", typeof(string));
+                bordroTable.Columns.Add("vd", typeof(string));
+                bordroTable.Columns.Add("vn", typeof(string));
+                bordroTable.Columns.Add("il", typeof(string));
+                bordroTable.Columns.Add("sgkisyerino", typeof(string));
+                bordroTable.Columns.Add("Yeni_Kod", typeof(string));
+                bordroTable.Columns.Add("Eski_Kod", typeof(string));
+                bordroTable.Columns.Add("isyeri_Kod", typeof(string));
+                bordroTable.Columns.Add("Araci_Kod", typeof(string));
+                bordroTable.Columns.Add("isyeriSubeKodu", typeof(string));
+
+                string isyerisgkno;
+                for (int i = 0; i < bordroTable.Rows.Count; i++)
+                {
+                    bordroTable.Rows[i]["firmunvantam"] = baslikTable.Rows[0]["firmunvantam"];
+                    bordroTable.Rows[i]["subeunvan"] = baslikTable.Rows[0]["subeunvan"];
+                    bordroTable.Rows[i]["vd"] = baslikTable.Rows[0]["vd"];
+                    bordroTable.Rows[i]["vn"] = baslikTable.Rows[0]["vn"];
+                    bordroTable.Rows[i]["il"] = baslikTable.Rows[0]["il"];
+                    isyerisgkno = baslikTable.Rows[0]["sgkisyerino"].ToString();
+                    bordroTable.Rows[i]["sgkisyerino"] = isyerisgkno;
+                    bordroTable.Rows[i]["Yeni_Kod"] = isyerisgkno.Substring(2, 2);
+                    bordroTable.Rows[i]["Eski_Kod"] = isyerisgkno.Substring(4, 2);
+                    bordroTable.Rows[i]["isyeri_Kod"] = isyerisgkno.Substring(13, 7);
+                    bordroTable.Rows[i]["Araci_Kod"] = isyerisgkno.Substring(31, 3);
+                    bordroTable.Rows[i]["isyeriSubeKodu"] = baslikTable.Rows[0]["isyeriSubeKodu"];
+                }
+
+
+                baglan.Close();
+
+
+                
+                IstihdaminTesvikiListe report = new IstihdaminTesvikiListe { DataSource = bordroTable, DataMember = "bordroTable" };
+                RaporGoruntule rpr = new RaporGoruntule();
+                rpr.documentViewer1.DocumentSource = report;
+
+                rpr.ShowDialog();
+            }
         }
     }
 }

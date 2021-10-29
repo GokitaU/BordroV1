@@ -8,16 +8,9 @@ namespace Bordrolama10
 {
     public partial class GelirVergisiBordro : DevExpress.XtraReports.UI.XtraReport
     {
-        public object MyDataSource { get; set; }
-        public string MyDataMember { get; set; }
-
         public GelirVergisiBordro()
         {
             InitializeComponent();
-          //  DataSource = MyDataSource;
-            //  DataMember = MyDataMember;
         }
-
-        
     }
 }
