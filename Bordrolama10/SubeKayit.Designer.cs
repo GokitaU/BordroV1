@@ -96,6 +96,8 @@ namespace Bordrolama10
             this.btnBilgiAl = new System.Windows.Forms.Button();
             this.btnebeyanname = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.label25 = new System.Windows.Forms.Label();
+            this.txtisySubeKod = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -565,7 +567,7 @@ namespace Bordrolama10
             this.chkbxpasif.AutoSize = true;
             this.chkbxpasif.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.chkbxpasif.ForeColor = System.Drawing.Color.Black;
-            this.chkbxpasif.Location = new System.Drawing.Point(1098, 15);
+            this.chkbxpasif.Location = new System.Drawing.Point(335, 22);
             this.chkbxpasif.Name = "chkbxpasif";
             this.chkbxpasif.Size = new System.Drawing.Size(61, 21);
             this.chkbxpasif.TabIndex = 14;
@@ -685,6 +687,8 @@ namespace Bordrolama10
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label25);
+            this.groupBox1.Controls.Add(this.txtisySubeKod);
             this.groupBox1.Controls.Add(this.label28);
             this.groupBox1.Controls.Add(this.lblvdsifre);
             this.groupBox1.Controls.Add(this.label26);
@@ -849,6 +853,26 @@ namespace Bordrolama10
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label25.ForeColor = System.Drawing.Color.Black;
+            this.label25.Location = new System.Drawing.Point(926, 20);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(101, 16);
+            this.label25.TabIndex = 68;
+            this.label25.Text = "Muht.İşy.Kodu";
+            // 
+            // txtisySubeKod
+            // 
+            this.txtisySubeKod.BackColor = System.Drawing.Color.White;
+            this.txtisySubeKod.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtisySubeKod.Location = new System.Drawing.Point(1033, 15);
+            this.txtisySubeKod.Name = "txtisySubeKod";
+            this.txtisySubeKod.Size = new System.Drawing.Size(114, 23);
+            this.txtisySubeKod.TabIndex = 67;
+            // 
             // SubeKayit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -961,5 +985,7 @@ namespace Bordrolama10
         private System.Windows.Forms.Button btnBilgiAl;
         private System.Windows.Forms.Button btnebeyanname;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox txtisySubeKod;
     }
 }

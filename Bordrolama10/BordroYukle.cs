@@ -574,11 +574,11 @@ namespace Bordrolama10
                     }
                     if (gv > (asUcrGvGun * Convert.ToInt32(primgun)) && gv > agi)
                     {
-                        gvTerkin = (asUcrGvGun * Convert.ToInt32(primgun)) - agi;
+                        gvTerkin = decimal.Round((asUcrGvGun * Convert.ToInt32(primgun)) - agi,2);
                     }
                     if (gv < (asUcrGvGun * Convert.ToInt32(primgun)) && gv > agi)
                     {
-                        gvTerkin = gv - agi;
+                        gvTerkin = decimal.Round((gv - agi),2);
                     }
 
                     if (dv == 0)
@@ -587,11 +587,11 @@ namespace Bordrolama10
                     }
                     if (dv > (asUcrDvGun * Convert.ToInt32(primgun)))
                     {
-                        dvTerkin = (asUcrDvGun * Convert.ToInt32(primgun));
+                        dvTerkin = decimal.Round((asUcrDvGun * Convert.ToInt32(primgun)),2);
                     }
                     if (dv < (asUcrDvGun * Convert.ToInt32(primgun)))
                     {
-                        dvTerkin = dv;
+                        dvTerkin = decimal.Round((dv),2);
                     }
                 }
                 else

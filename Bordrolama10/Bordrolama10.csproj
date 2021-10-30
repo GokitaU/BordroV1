@@ -195,6 +195,12 @@
     <Compile Include="IstihdaminTesvikiListe.Designer.cs">
       <DependentUpon>IstihdaminTesvikiListe.cs</DependentUpon>
     </Compile>
+    <Compile Include="IstTesvTxt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IstTesvTxt.Designer.cs">
+      <DependentUpon>IstTesvTxt.cs</DependentUpon>
+    </Compile>
     <Compile Include="KanuniParametre.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IstihdaminTesvikiListe.resx">
       <DependentUpon>IstihdaminTesvikiListe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IstTesvTxt.resx">
+      <DependentUpon>IstTesvTxt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KanuniParametre.resx">
       <DependentUpon>KanuniParametre.cs</DependentUpon>

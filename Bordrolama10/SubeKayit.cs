@@ -98,7 +98,7 @@ namespace Bordrolama10
                 {
 
                     baglan.Open();
-                    SQLiteCommand ekle = new SQLiteCommand("INSERT INTO [sube_bilgileri] (subeno,firmunvantam,subeunvan,vd,vn,ticsiciln,sgkisyerino,adres,il,ilce,sgkkullanici,sgkek,sgksistemsif,sgkisyerisif,aktifpasif,firmaid) values (@firmaunvan,@subeunvan,@vd,@vn,@ticsicil,@sgkisyerino,@adres,@il,@ilce,@sgkkullanici,@sgkek,@sgksistem,@sgkissif,@aktifpasif,@firmaid)", baglan);
+                    SQLiteCommand ekle = new SQLiteCommand("INSERT INTO [sube_bilgileri] (subeno,firmunvantam,subeunvan,vd,vn,ticsiciln,sgkisyerino,adres,il,ilce,sgkkullanici,sgkek,sgksistemsif,sgkisyerisif,aktifpasif,firmaid,isyeriSubeKodu) values (@firmaunvan,@subeunvan,@vd,@vn,@ticsicil,@sgkisyerino,@adres,@il,@ilce,@sgkkullanici,@sgkek,@sgksistem,@sgkissif,@aktifpasif,@firmaid,@isySubKod)", baglan);
 
 
 
@@ -118,6 +118,7 @@ namespace Bordrolama10
                     ekle.Parameters.AddWithValue("@sgkek", txtek.Text.ToString().Trim());
                     ekle.Parameters.AddWithValue("@sgksistem", txtsgkisyeri.Text.ToString().Trim());
                     ekle.Parameters.AddWithValue("@sgkissif", txtsistem.Text.ToString().Trim());
+                    ekle.Parameters.AddWithValue("@isySubKod", txtisySubeKod.Text.ToString().Trim());
                     string durum = (chkbxpasif.Checked == true) ? "Pasif" : "Aktif";
                     ekle.Parameters.AddWithValue("@aktifpasif", durum);
                     //ekle.Parameters.AddWithValue("@subeid", subeid);
@@ -134,7 +135,7 @@ namespace Bordrolama10
 
 
                     baglan.Open();
-                    SQLiteCommand guncelle = new SQLiteCommand("update [sube_bilgileri] set subeno=@subeno,firmunvantam=@firmaunvan,subeunvan=@subeunvan,vd=@vd,vn=@vn,ticsiciln=@ticsicil,sgkisyerino=@sgkisyerino,adres=@adres,il=@il,ilce=@ilce,sgkkullanici=@sgkkullanici,sgkek=@sgkek,sgksistemsif=@sgksistem,sgkisyerisif=@sgkissif,aktifpasif=@aktifpasif,firmaid=@firmaid WHERE subeid = @subeid", baglan);
+                    SQLiteCommand guncelle = new SQLiteCommand("update [sube_bilgileri] set subeno=@subeno,firmunvantam=@firmaunvan,subeunvan=@subeunvan,vd=@vd,vn=@vn,ticsiciln=@ticsicil,sgkisyerino=@sgkisyerino,adres=@adres,il=@il,ilce=@ilce,sgkkullanici=@sgkkullanici,sgkek=@sgkek,sgksistemsif=@sgksistem,sgkisyerisif=@sgkissif,aktifpasif=@aktifpasif,firmaid=@firmaid,isyeriSubeKodu=@isySubKod WHERE subeid = @subeid", baglan);
 
                     int subeid = Convert.ToInt32(lblsubeid.Text);
                     //int firmaid = Convert.ToInt32(lblfirmano.Text);
@@ -152,7 +153,7 @@ namespace Bordrolama10
                     guncelle.Parameters.AddWithValue("@sgkek", txtek.Text);
                     guncelle.Parameters.AddWithValue("@sgksistem", txtsgkisyeri.Text);
                     guncelle.Parameters.AddWithValue("@sgkissif", txtsistem.Text);
-
+                    guncelle.Parameters.AddWithValue("@isySubKod", txtisySubeKod.Text);
 
                     String durum = (chkbxpasif.Checked == true) ? "Pasif" : "Aktif";
                     guncelle.Parameters.AddWithValue("@aktifpasif", durum);
@@ -220,6 +221,7 @@ namespace Bordrolama10
             string sgkisysifr = dataGridView1.Rows[secim].Cells[14].Value.ToString().Trim();
             string firmaid = dataGridView1.Rows[secim].Cells[16].Value.ToString().Trim();
             string aktifpasif = dataGridView1.Rows[secim].Cells[15].Value.ToString().Trim();
+            string isySubeKod = dataGridView1.Rows[secim].Cells[16].Value.ToString().Trim();
 
             lblsubeid.Text = subid;
             txtsubeno.Text = subeno;
@@ -236,6 +238,7 @@ namespace Bordrolama10
             txtek.Text = sgkek;
             txtsistem.Text = sgksistem;
             txtsgkisyeri.Text = sgkisysifr;
+            txtisySubeKod.Text = isySubeKod;
             if (aktifpasif == "Pasif")
             {
                 chkbxpasif.Checked = true;

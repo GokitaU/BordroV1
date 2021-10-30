@@ -53,12 +53,20 @@ namespace Bordrolama10
             this.label6 = new System.Windows.Forms.Label();
             this.cmbson = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnTesvTumBordPdf = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtdosyayolu = new System.Windows.Forms.TextBox();
             this.btnDosyaYolu = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnSeciliDonemPdf = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.btnSeciliDnmIstTesv = new System.Windows.Forms.Button();
+            this.btnIstTesvPdfToplu = new System.Windows.Forms.Button();
+            this.btnSeciliIstTesvTXT = new System.Windows.Forms.Button();
+            this.btnIstTesvTopluTXT = new System.Windows.Forms.Button();
+            this.btnOtoBdrDnmIstTesToplu = new System.Windows.Forms.Button();
+            this.btnOtoBdrIstTsvDonemlik = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrtBrdTesvikliPers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrtHzmtListe)).BeginInit();
@@ -93,7 +101,7 @@ namespace Bordrolama10
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1732, 767);
+            this.tabPage1.Size = new System.Drawing.Size(1847, 754);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Gv & Dv Bordro";
             // 
@@ -102,7 +110,7 @@ namespace Bordrolama10
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(401, 3);
+            this.label5.Location = new System.Drawing.Point(401, 2);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(230, 18);
             this.label5.TabIndex = 44;
@@ -122,9 +130,9 @@ namespace Bordrolama10
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgrtBrdTesvikliPers.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dtgrtBrdTesvikliPers.Location = new System.Drawing.Point(471, 23);
+            this.dtgrtBrdTesvikliPers.Location = new System.Drawing.Point(404, 23);
             this.dtgrtBrdTesvikliPers.Name = "dtgrtBrdTesvikliPers";
-            this.dtgrtBrdTesvikliPers.Size = new System.Drawing.Size(1255, 272);
+            this.dtgrtBrdTesvikliPers.Size = new System.Drawing.Size(735, 338);
             this.dtgrtBrdTesvikliPers.TabIndex = 43;
             this.dtgrtBrdTesvikliPers.Click += new System.EventHandler(this.dtgrtBrdTesvikliPers_Click);
             // 
@@ -133,7 +141,7 @@ namespace Bordrolama10
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(1074, 5);
+            this.label4.Location = new System.Drawing.Point(1148, 3);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(131, 18);
             this.label4.TabIndex = 42;
@@ -155,7 +163,7 @@ namespace Bordrolama10
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(3, 477);
+            this.label2.Location = new System.Drawing.Point(3, 367);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(260, 18);
             this.label2.TabIndex = 40;
@@ -175,9 +183,9 @@ namespace Bordrolama10
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgrtHzmtListe.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dtgrtHzmtListe.Location = new System.Drawing.Point(471, 301);
+            this.dtgrtHzmtListe.Location = new System.Drawing.Point(1145, 23);
             this.dtgrtHzmtListe.Name = "dtgrtHzmtListe";
-            this.dtgrtHzmtListe.Size = new System.Drawing.Size(1255, 194);
+            this.dtgrtHzmtListe.Size = new System.Drawing.Size(696, 338);
             this.dtgrtHzmtListe.TabIndex = 5;
             // 
             // dtgrtFrmBordro
@@ -194,9 +202,9 @@ namespace Bordrolama10
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgrtFrmBordro.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dtgrtFrmBordro.Location = new System.Drawing.Point(6, 498);
+            this.dtgrtFrmBordro.Location = new System.Drawing.Point(6, 388);
             this.dtgrtFrmBordro.Name = "dtgrtFrmBordro";
-            this.dtgrtFrmBordro.Size = new System.Drawing.Size(1720, 261);
+            this.dtgrtFrmBordro.Size = new System.Drawing.Size(1835, 360);
             this.dtgrtFrmBordro.TabIndex = 4;
             // 
             // dtgrtBrdDonem
@@ -215,7 +223,7 @@ namespace Bordrolama10
             this.dtgrtBrdDonem.DefaultCellStyle = dataGridViewCellStyle9;
             this.dtgrtBrdDonem.Location = new System.Drawing.Point(3, 23);
             this.dtgrtBrdDonem.Name = "dtgrtBrdDonem";
-            this.dtgrtBrdDonem.Size = new System.Drawing.Size(395, 451);
+            this.dtgrtBrdDonem.Size = new System.Drawing.Size(395, 338);
             this.dtgrtBrdDonem.TabIndex = 3;
             this.dtgrtBrdDonem.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
@@ -223,10 +231,10 @@ namespace Bordrolama10
             // 
             this.tabCntGvBordro.Controls.Add(this.tabPage1);
             this.tabCntGvBordro.Controls.Add(this.tabPage2);
-            this.tabCntGvBordro.Location = new System.Drawing.Point(1, 96);
+            this.tabCntGvBordro.Location = new System.Drawing.Point(1, 109);
             this.tabCntGvBordro.Name = "tabCntGvBordro";
             this.tabCntGvBordro.SelectedIndex = 0;
-            this.tabCntGvBordro.Size = new System.Drawing.Size(1740, 793);
+            this.tabCntGvBordro.Size = new System.Drawing.Size(1855, 780);
             this.tabCntGvBordro.TabIndex = 3;
             // 
             // comboBox1
@@ -266,15 +274,15 @@ namespace Bordrolama10
             this.dtgrtSubeSecim.DefaultCellStyle = dataGridViewCellStyle10;
             this.dtgrtSubeSecim.Location = new System.Drawing.Point(464, 1);
             this.dtgrtSubeSecim.Name = "dtgrtSubeSecim";
-            this.dtgrtSubeSecim.Size = new System.Drawing.Size(398, 89);
+            this.dtgrtSubeSecim.Size = new System.Drawing.Size(398, 102);
             this.dtgrtSubeSecim.TabIndex = 39;
             this.dtgrtSubeSecim.Click += new System.EventHandler(this.dataGridView4_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(868, 6);
+            this.button1.Location = new System.Drawing.Point(868, 1);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(201, 23);
+            this.button1.Size = new System.Drawing.Size(201, 20);
             this.button1.TabIndex = 40;
             this.button1.Text = "Seçili Dönem Bordrosunu Göster";
             this.button1.UseVisualStyleBackColor = true;
@@ -283,7 +291,7 @@ namespace Bordrolama10
             // cmbilk
             // 
             this.cmbilk.FormattingEnabled = true;
-            this.cmbilk.Location = new System.Drawing.Point(360, 35);
+            this.cmbilk.Location = new System.Drawing.Point(96, 37);
             this.cmbilk.Name = "cmbilk";
             this.cmbilk.Size = new System.Drawing.Size(84, 21);
             this.cmbilk.TabIndex = 64;
@@ -294,7 +302,7 @@ namespace Bordrolama10
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(277, 37);
+            this.label6.Location = new System.Drawing.Point(8, 40);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 16);
             this.label6.TabIndex = 66;
@@ -303,7 +311,7 @@ namespace Bordrolama10
             // cmbson
             // 
             this.cmbson.FormattingEnabled = true;
-            this.cmbson.Location = new System.Drawing.Point(360, 56);
+            this.cmbson.Location = new System.Drawing.Point(296, 35);
             this.cmbson.Name = "cmbson";
             this.cmbson.Size = new System.Drawing.Size(84, 21);
             this.cmbson.TabIndex = 65;
@@ -314,27 +322,27 @@ namespace Bordrolama10
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(277, 57);
+            this.label10.Location = new System.Drawing.Point(199, 40);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(80, 16);
             this.label10.TabIndex = 67;
             this.label10.Text = "Son Dönem";
             // 
-            // button2
+            // btnTesvTumBordPdf
             // 
-            this.button2.Location = new System.Drawing.Point(1202, 61);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(201, 23);
-            this.button2.TabIndex = 68;
-            this.button2.Text = "Teşvikli Tüm Bordroları Pdf Kaydet";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnTesvTumBordPdf.Location = new System.Drawing.Point(1083, 52);
+            this.btnTesvTumBordPdf.Name = "btnTesvTumBordPdf";
+            this.btnTesvTumBordPdf.Size = new System.Drawing.Size(201, 20);
+            this.btnTesvTumBordPdf.TabIndex = 68;
+            this.btnTesvTumBordPdf.Text = "Teşvikli Tüm Bordroları Pdf Kaydet";
+            this.btnTesvTumBordPdf.UseVisualStyleBackColor = true;
+            this.btnTesvTumBordPdf.Click += new System.EventHandler(this.button2_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(1107, 10);
+            this.label7.Location = new System.Drawing.Point(10, 68);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 16);
             this.label7.TabIndex = 70;
@@ -342,7 +350,7 @@ namespace Bordrolama10
             // 
             // txtdosyayolu
             // 
-            this.txtdosyayolu.Location = new System.Drawing.Point(1193, 6);
+            this.txtdosyayolu.Location = new System.Drawing.Point(96, 64);
             this.txtdosyayolu.Name = "txtdosyayolu";
             this.txtdosyayolu.Size = new System.Drawing.Size(210, 20);
             this.txtdosyayolu.TabIndex = 69;
@@ -351,7 +359,7 @@ namespace Bordrolama10
             // 
             this.btnDosyaYolu.BackColor = System.Drawing.Color.Gainsboro;
             this.btnDosyaYolu.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnDosyaYolu.Location = new System.Drawing.Point(1409, 7);
+            this.btnDosyaYolu.Location = new System.Drawing.Point(312, 63);
             this.btnDosyaYolu.Name = "btnDosyaYolu";
             this.btnDosyaYolu.Size = new System.Drawing.Size(101, 23);
             this.btnDosyaYolu.TabIndex = 71;
@@ -359,38 +367,128 @@ namespace Bordrolama10
             this.btnDosyaYolu.UseVisualStyleBackColor = false;
             this.btnDosyaYolu.Click += new System.EventHandler(this.btnDosyaYolu_Click);
             // 
-            // button3
+            // btnSeciliDonemPdf
             // 
-            this.button3.Location = new System.Drawing.Point(868, 33);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(201, 23);
-            this.button3.TabIndex = 72;
-            this.button3.Text = "Seçili Dönem Bordrosunu Pdf Kaydet";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnSeciliDonemPdf.Location = new System.Drawing.Point(1083, 1);
+            this.btnSeciliDonemPdf.Name = "btnSeciliDonemPdf";
+            this.btnSeciliDonemPdf.Size = new System.Drawing.Size(201, 20);
+            this.btnSeciliDonemPdf.TabIndex = 72;
+            this.btnSeciliDonemPdf.Text = "Seçili Dönem Bordrosunu Pdf Kaydet";
+            this.btnSeciliDonemPdf.UseVisualStyleBackColor = true;
+            this.btnSeciliDonemPdf.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(868, 61);
+            this.button4.Location = new System.Drawing.Point(869, 25);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(201, 23);
+            this.button4.Size = new System.Drawing.Size(201, 21);
             this.button4.TabIndex = 73;
             this.button4.Text = "Seçili İstihdamın Teşviki Liste Göster";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // btnSeciliDnmIstTesv
+            // 
+            this.btnSeciliDnmIstTesv.Location = new System.Drawing.Point(1083, 27);
+            this.btnSeciliDnmIstTesv.Name = "btnSeciliDnmIstTesv";
+            this.btnSeciliDnmIstTesv.Size = new System.Drawing.Size(201, 19);
+            this.btnSeciliDnmIstTesv.TabIndex = 74;
+            this.btnSeciliDnmIstTesv.Text = "Seçili İstihdamın Teşviki Pdf Kaydet";
+            this.btnSeciliDnmIstTesv.UseVisualStyleBackColor = true;
+            this.btnSeciliDnmIstTesv.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // btnIstTesvPdfToplu
+            // 
+            this.btnIstTesvPdfToplu.Location = new System.Drawing.Point(1083, 78);
+            this.btnIstTesvPdfToplu.Name = "btnIstTesvPdfToplu";
+            this.btnIstTesvPdfToplu.Size = new System.Drawing.Size(201, 19);
+            this.btnIstTesvPdfToplu.TabIndex = 75;
+            this.btnIstTesvPdfToplu.Text = "İstihdamın Teşviki Pdf Kaydet Toplu";
+            this.btnIstTesvPdfToplu.UseVisualStyleBackColor = true;
+            this.btnIstTesvPdfToplu.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // btnSeciliIstTesvTXT
+            // 
+            this.btnSeciliIstTesvTXT.Location = new System.Drawing.Point(1308, 2);
+            this.btnSeciliIstTesvTXT.Name = "btnSeciliIstTesvTXT";
+            this.btnSeciliIstTesvTXT.Size = new System.Drawing.Size(201, 19);
+            this.btnSeciliIstTesvTXT.TabIndex = 76;
+            this.btnSeciliIstTesvTXT.Text = "Seçili İstihdamın Teşviki TXT Kaydet";
+            this.btnSeciliIstTesvTXT.UseVisualStyleBackColor = true;
+            this.btnSeciliIstTesvTXT.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // btnIstTesvTopluTXT
+            // 
+            this.btnIstTesvTopluTXT.Location = new System.Drawing.Point(1308, 26);
+            this.btnIstTesvTopluTXT.Name = "btnIstTesvTopluTXT";
+            this.btnIstTesvTopluTXT.Size = new System.Drawing.Size(201, 19);
+            this.btnIstTesvTopluTXT.TabIndex = 77;
+            this.btnIstTesvTopluTXT.Text = "İstihdamın Teşviki TXT Kaydet Toplu";
+            this.btnIstTesvTopluTXT.UseVisualStyleBackColor = true;
+            this.btnIstTesvTopluTXT.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // btnOtoBdrDnmIstTesToplu
+            // 
+            this.btnOtoBdrDnmIstTesToplu.Location = new System.Drawing.Point(1546, 12);
+            this.btnOtoBdrDnmIstTesToplu.Name = "btnOtoBdrDnmIstTesToplu";
+            this.btnOtoBdrDnmIstTesToplu.Size = new System.Drawing.Size(300, 21);
+            this.btnOtoBdrDnmIstTesToplu.TabIndex = 80;
+            this.btnOtoBdrDnmIstTesToplu.Text = "Tüm Belgeleri Otomatik Oluştur";
+            this.btnOtoBdrDnmIstTesToplu.UseVisualStyleBackColor = true;
+            this.btnOtoBdrDnmIstTesToplu.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // btnOtoBdrIstTsvDonemlik
+            // 
+            this.btnOtoBdrIstTsvDonemlik.Location = new System.Drawing.Point(1546, 49);
+            this.btnOtoBdrIstTsvDonemlik.Name = "btnOtoBdrIstTsvDonemlik";
+            this.btnOtoBdrIstTsvDonemlik.Size = new System.Drawing.Size(300, 22);
+            this.btnOtoBdrIstTsvDonemlik.TabIndex = 81;
+            this.btnOtoBdrIstTsvDonemlik.Text = "Tüm Belgeleri Otomatik Oluştur";
+            this.btnOtoBdrIstTsvDonemlik.UseVisualStyleBackColor = true;
+            this.btnOtoBdrIstTsvDonemlik.Click += new System.EventHandler(this.btnOtoBdrIstTsvDonemlik_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(1599, 33);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(197, 13);
+            this.label8.TabIndex = 45;
+            this.label8.Text = "Bordro Donemlik, İsth Tesv Listesi Toplu";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(1612, 71);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(175, 13);
+            this.label9.TabIndex = 82;
+            this.label9.Text = "Bordro ve İst Tesviki Liste Donemlik";
             // 
             // BordroHesapla
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.NavajoWhite;
-            this.ClientSize = new System.Drawing.Size(1753, 889);
+            this.ClientSize = new System.Drawing.Size(1868, 889);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.btnOtoBdrIstTsvDonemlik);
+            this.Controls.Add(this.btnOtoBdrDnmIstTesToplu);
+            this.Controls.Add(this.btnIstTesvTopluTXT);
+            this.Controls.Add(this.btnSeciliIstTesvTXT);
+            this.Controls.Add(this.btnIstTesvPdfToplu);
+            this.Controls.Add(this.btnSeciliDnmIstTesv);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnSeciliDonemPdf);
             this.Controls.Add(this.btnDosyaYolu);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtdosyayolu);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnTesvTumBordPdf);
             this.Controls.Add(this.cmbilk);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cmbson);
@@ -437,11 +535,19 @@ namespace Bordrolama10
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbson;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnTesvTumBordPdf;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtdosyayolu;
         private System.Windows.Forms.Button btnDosyaYolu;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnSeciliDonemPdf;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnSeciliDnmIstTesv;
+        private System.Windows.Forms.Button btnIstTesvPdfToplu;
+        private System.Windows.Forms.Button btnSeciliIstTesvTXT;
+        private System.Windows.Forms.Button btnIstTesvTopluTXT;
+        private System.Windows.Forms.Button btnOtoBdrDnmIstTesToplu;
+        private System.Windows.Forms.Button btnOtoBdrIstTsvDonemlik;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }
