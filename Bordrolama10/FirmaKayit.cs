@@ -78,9 +78,9 @@ namespace Bordrolama10
             }
             baglan.Close();
 
-            lblfirmano.Text = programreferans.firmaid.ToString();
+            lblfirmaId.Text = programreferans.firmaid.ToString();
             baglan.Open();
-            SQLiteCommand arananfirma = new SQLiteCommand("select * from Hizli_Firma_Kayit where firmaid ='" + lblfirmano.Text + "'", baglan);
+            SQLiteCommand arananfirma = new SQLiteCommand("select * from Hizli_Firma_Kayit where firmaid ='" + lblfirmaId.Text + "'", baglan);
             SQLiteDataReader aranan = arananfirma.ExecuteReader();
             while (aranan.Read())
             {
@@ -114,9 +114,9 @@ namespace Bordrolama10
         private void button1_Click(object sender, EventArgs e)
         {
             baglan.Open();
-            string id = lblfirmano.Text;
+            string id = lblfirmaId.Text;
             string durum = chkbxpasif.Checked ? "Pasif" : "Aktif";
-            if (lblfirmano.Text == "")
+            if (lblfirmaId.Text == "Yeni Firma")
             {
 
                 SQLiteCommand ekle = new SQLiteCommand("Insert Into Hizli_Firma_Kayit(Firma_No,Firmakisaadi,Vd,Vn,Yetkiliadsoyad,Telefon,e_posta,Refid,Refadsoyad,Reftelefon,VdKullanici,VdParola,VdSifre,FirmaNot,aktifpasif) values ('" + txtfrmno.Text + "','" + txtkisaunvan.Text + "','" + txtvd.Text + "','" + txtvn.Text + "','" + txtyetkili.Text + "','" + txtytkltelefon.Text + "','" + txtytkposta.Text + "','" + lblrefid.Text + "','" + cmbrefadsoyad.Text + "','" + txtreftelefon.Text + "','" + txtvdkullanici.Text + "','" + txtvdparola.Text + "','" + txtvdsifre.Text + "','" + rctxfirmnot.Text + "','" + durum + "')", baglan);
@@ -128,11 +128,12 @@ namespace Bordrolama10
             {
 
                 //int firmaid = Convert.ToInt32(lblfirmano.Text);
-                SQLiteCommand guncelle = new SQLiteCommand("update Hizli_Firma_Kayit set Firma_No='" + txtfrmno.Text + "',Firmakisaadi='" + txtkisaunvan.Text + "',Vd='" + txtvd.Text + "',Vn='" + txtvn.Text + "',Yetkiliadsoyad='" + txtyetkili.Text + "',Telefon='" + txtytkltelefon.Text + "',e_posta='" + txtytkposta.Text + "',Refid='" + lblrefid.Text + "',Refadsoyad='" + cmbrefadsoyad.Text + "',Reftelefon='" + txtreftelefon.Text + "',VdKullanici='" + txtvdkullanici.Text + "',VdParola='" + txtvdparola.Text + "',VdSifre='" + txtvdsifre.Text + "',FirmaNot='" + rctxfirmnot.Text + "',aktifpasif='" + durum + "' where firmaid =" + lblfirmano.Text + "", baglan);
+                SQLiteCommand guncelle = new SQLiteCommand("update Hizli_Firma_Kayit set Firma_No='" + txtfrmno.Text + "',Firmakisaadi='" + txtkisaunvan.Text + "',Vd='" + txtvd.Text + "',Vn='" + txtvn.Text + "',Yetkiliadsoyad='" + txtyetkili.Text + "',Telefon='" + txtytkltelefon.Text + "',e_posta='" + txtytkposta.Text + "',Refid='" + lblrefid.Text + "',Refadsoyad='" + cmbrefadsoyad.Text + "',Reftelefon='" + txtreftelefon.Text + "',VdKullanici='" + txtvdkullanici.Text + "',VdParola='" + txtvdparola.Text + "',VdSifre='" + txtvdsifre.Text + "',FirmaNot='" + rctxfirmnot.Text + "',aktifpasif='" + durum + "' where firmaid =" + lblfirmaId.Text + "", baglan);
                 guncelle.ExecuteNonQuery();
 
                 MessageBox.Show("Firma Bilgileri Güncellendi");
             }
+
             baglan.Close();
 
         }
@@ -156,16 +157,27 @@ namespace Bordrolama10
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            MessageBox.Show("Kayıt Silinecektir", "Dikkat", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
-            if (DialogResult == DialogResult.Yes)
+            int firmaid = Convert.ToInt32(lblfirmaId.Text);
+            baglan.Open();
+            DialogResult dialog = new DialogResult();
+            dialog = MessageBox.Show("Kayıt Silinecektir", "Dikkat", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            SQLiteCommand subesiVarmi = new SQLiteCommand("Select count(firmaid) as sayi From sube_bilgileri where firmaid='" + firmaid + "' ",baglan);
+            int subesi = Convert.ToInt32(subesiVarmi.ExecuteScalar());
+
+            if (dialog == DialogResult.Yes )
             {
-                baglan.Open();
-                int firmaid = Convert.ToInt32(lblfirmano.Text.Trim());
-                SQLiteCommand komut = new SQLiteCommand("Delete from Hizli_Firma_Kayit where firmaid =(" + firmaid + ")", baglan);
-                komut.ExecuteNonQuery();
-                baglan.Close();
-                formutemize();
+                if (subesi > 0)
+                {
+                    MessageBox.Show("Silmeye Çalıştığınız Firmaya Ait Kayıtlı Şubeler Bulunmaktadır...\n Firma Kaydı Silinemez");
+                }
+                else
+                {
+                    SQLiteCommand komut = new SQLiteCommand("Delete from Hizli_Firma_Kayit where firmaid ='" + firmaid + "'", baglan);
+                    komut.ExecuteNonQuery();
+                    formutemize();
+                }
             }
+            baglan.Close();
         }
 
         private void btnfirmabul_Click(object sender, EventArgs e)
@@ -201,7 +213,7 @@ namespace Bordrolama10
 
         public void formutemize()
         {
-            lblfirmano.Text = "";
+            lblfirmaId.Text = "Yeni Firma";
             txtfrmno.Text = "";
             txtkisaunvan.Text = "";
             txtvd.Text = "";
@@ -223,6 +235,7 @@ namespace Bordrolama10
         {
             int secim = dataGridView1.SelectedCells[0].RowIndex;
             string firmaid = dataGridView1.Rows[secim].Cells[0].Value.ToString();
+            lblfirmaId.Text = firmaid;
             txtfrmno.Text = firmaid.ToString();
             int frmid = Convert.ToInt32(firmaid);
             baglan.Open();

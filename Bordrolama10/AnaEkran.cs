@@ -134,5 +134,11 @@ namespace Bordrolama10
                 MessageBox.Show("Tahmin Ekranı Zaten Açık");
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            BordroHesapla bdr = new BordroHesapla();
+            bdr.Show();
+        }
     }
 }

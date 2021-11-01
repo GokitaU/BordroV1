@@ -656,7 +656,7 @@ namespace Bordrolama10
             {
                 baglan.Open();
                 SQLiteDataAdapter baslikda = new SQLiteDataAdapter("SELECT * From sube_bilgileri where firmaid ='" + firmaid + "' and subeid='" + subeid + "'", baglan);
-                SQLiteDataAdapter bordroda = new SQLiteDataAdapter("SELECT * From FirmaBordro where FirmaNo='" + firmaid + "' and SubeNo='" + subeid + "' and (TerkinGv >0 or TerkinDv>0)  ", baglan);
+                SQLiteDataAdapter bordroda = new SQLiteDataAdapter("SELECT * From FirmaBordro where FirmaNo='" + firmaid + "' and SubeNo='" + subeid + "' and PuantajDonem between '" + cmbilk.Text + "' and '" + cmbson.Text + "' and (TerkinGv >0 or TerkinDv>0)  ", baglan);
 
                 baslikda.Fill(baslikTable);
                 bordroda.Fill(bordroTable);
@@ -750,6 +750,10 @@ namespace Bordrolama10
                     bordroTable.Rows[i]["isyeri_Kod"] = isyerisgkno.Substring(13, 7);
                     bordroTable.Rows[i]["Araci_Kod"] = isyerisgkno.Substring(31, 3);
                     bordroTable.Rows[i]["isyeriSubeKodu"] = baslikTable.Rows[0]["isyeriSubeKodu"];
+                    if (Convert.ToDateTime(bordroTable.Rows[i]["GirisTarihi"]) <= Convert.ToDateTime("31/12/2017"))
+                    {
+                        bordroTable.Rows[i]["GirisTarihi"] = "01/01/2018";
+                    }
                 }
 
 
@@ -759,7 +763,7 @@ namespace Bordrolama10
 
                 IstTesvTxt report = new IstTesvTxt { DataSource = bordroTable, DataMember = "bordroTable" };
                 string dnm = donem.Replace('/', '-');
-                report.Name = programreferans.subeunvan + "-" + dnm + "İstihdamın Teşviki Listesi";
+                report.Name = programreferans.subeunvan + "-" + dnm + " İstihdamın Teşviki Listesi";
                 string fileTxt = @txtdosyayolu.Text + "\\" + report.Name + ".Txt";
                 report.ExportToText(fileTxt);
             }
@@ -778,7 +782,7 @@ namespace Bordrolama10
             {
                 baglan.Open();
                 SQLiteDataAdapter baslikda = new SQLiteDataAdapter("SELECT * From sube_bilgileri where firmaid ='" + firmaid + "' and subeid='" + subeid + "'", baglan);
-                SQLiteDataAdapter bordroda = new SQLiteDataAdapter("SELECT * From FirmaBordro where FirmaNo='" + firmaid + "' and SubeNo='" + subeid + "'  and (TerkinGv >0 or TerkinDv>0)  ", baglan);
+                SQLiteDataAdapter bordroda = new SQLiteDataAdapter("SELECT * From FirmaBordro where FirmaNo='" + firmaid + "' and SubeNo='" + subeid + "'  and PuantajDonem between '" + cmbilk.Text+"' and '"+cmbson.Text+"' and (TerkinGv >0 or TerkinDv>0)  ", baglan);
 
                 baslikda.Fill(baslikTable);
                 bordroda.Fill(bordroTable);
@@ -810,6 +814,11 @@ namespace Bordrolama10
                     bordroTable.Rows[i]["isyeri_Kod"] = isyerisgkno.Substring(13, 7);
                     bordroTable.Rows[i]["Araci_Kod"] = isyerisgkno.Substring(31, 3);
                     bordroTable.Rows[i]["isyeriSubeKodu"] = baslikTable.Rows[0]["isyeriSubeKodu"];
+                    if (Convert.ToDateTime(bordroTable.Rows[i]["GirisTarihi"]) <= Convert.ToDateTime("31/12/2017"))
+                    {
+                        bordroTable.Rows[i]["GirisTarihi"] = "01/01/2018";
+                    }
+
                 }
 
 
@@ -836,7 +845,7 @@ namespace Bordrolama10
         private void btnOtoBdrIstTsvDonemlik_Click(object sender, EventArgs e)
         {
             // DataSet ds = new DataSet("DataSource");
-
+            button2_Click(sender, e);
             DataTable baslikTable = new DataTable("baslikTable");
             DataTable bordroTable = new DataTable("bordroTable");
 
@@ -854,7 +863,7 @@ namespace Bordrolama10
                     donem = dtgrtBrdDonem.Rows[j].Cells["Donem"].Value.ToString();
                     if (Convert.ToDecimal(dtgrtBrdDonem.Rows[j].Cells["TrkGv"].Value) > 0 || Convert.ToDecimal(dtgrtBrdDonem.Rows[j].Cells["TrkDv"].Value) > 0)
                     {
-                        SQLiteDataAdapter bordroda = new SQLiteDataAdapter("SELECT * From FirmaBordro where FirmaNo='" + firmaid + "'and SubeNo='" + subeid + "' and PuantajDonem='" + donem + "'", baglan);
+                        SQLiteDataAdapter bordroda = new SQLiteDataAdapter("SELECT * From FirmaBordro where FirmaNo='" + firmaid + "'and SubeNo='" + subeid + "' and PuantajDonem='" + donem + "' and (TerkinGv >0 or TerkinDv>0) ", baglan);
                         bordroda.Fill(bordroTable);
 
                         bordroTable.Columns.Add("firmunvantam", typeof(string));
@@ -896,11 +905,11 @@ namespace Bordrolama10
 
                         string dnm = donem.Replace('/', '-');
 
-                        GelirVergisiBordro Brdr = new GelirVergisiBordro { DataSource = bordroTable, DataMember = "bordroTable" };
+                        //GelirVergisiBordro Brdr = new GelirVergisiBordro { DataSource = bordroTable, DataMember = "bordroTable" };
 
-                        Brdr.Name = programreferans.subeunvan + "-" + dnm + " Dönem Bordrosu";
-                        string bdrpdf = @txtdosyayolu.Text + "\\" + Brdr.Name + ".pdf";
-                        Brdr.ExportToPdf(bdrpdf);
+                        //Brdr.Name = programreferans.subeunvan + "-" + dnm + " Dönem Bordrosu";
+                        //string bdrpdf = @txtdosyayolu.Text + "\\" + Brdr.Name + ".pdf";
+                        //Brdr.ExportToPdf(bdrpdf);
 
 
                         IstihdaminTesvikiListe isthListe = new IstihdaminTesvikiListe { DataSource = bordroTable, DataMember = "bordroTable" };

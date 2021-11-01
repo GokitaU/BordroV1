@@ -16,7 +16,7 @@ namespace Bordrolama10
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BordroHesapla());
+            Application.Run(new AnaEkran());
         }
     }
 }

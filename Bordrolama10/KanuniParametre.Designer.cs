@@ -31,6 +31,8 @@ namespace Bordrolama10
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnYeni = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -76,7 +78,7 @@ namespace Bordrolama10
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Gainsboro;
+            this.groupBox1.BackColor = System.Drawing.Color.PapayaWhip;
             this.groupBox1.Controls.Add(this.btnYeni);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.btnKaytet);
@@ -97,9 +99,9 @@ namespace Bordrolama10
             this.groupBox1.Controls.Add(this.txtdonemfiltre);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(10, 88);
+            this.groupBox1.Location = new System.Drawing.Point(10, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(590, 492);
+            this.groupBox1.Size = new System.Drawing.Size(643, 552);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "YILLARA GÖRE TAVAN VE TABAN  ÜCRETLER";
@@ -109,7 +111,7 @@ namespace Bordrolama10
             this.btnYeni.BackColor = System.Drawing.Color.Gainsboro;
             this.btnYeni.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnYeni.ForeColor = System.Drawing.Color.Black;
-            this.btnYeni.Location = new System.Drawing.Point(454, 359);
+            this.btnYeni.Location = new System.Drawing.Point(537, 199);
             this.btnYeni.Name = "btnYeni";
             this.btnYeni.Size = new System.Drawing.Size(98, 32);
             this.btnYeni.TabIndex = 68;
@@ -122,7 +124,7 @@ namespace Bordrolama10
             this.button3.BackColor = System.Drawing.Color.Gainsboro;
             this.button3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(454, 433);
+            this.button3.Location = new System.Drawing.Point(537, 273);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(98, 32);
             this.button3.TabIndex = 67;
@@ -135,7 +137,7 @@ namespace Bordrolama10
             this.btnKaytet.BackColor = System.Drawing.Color.Gainsboro;
             this.btnKaytet.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnKaytet.ForeColor = System.Drawing.Color.Black;
-            this.btnKaytet.Location = new System.Drawing.Point(454, 396);
+            this.btnKaytet.Location = new System.Drawing.Point(537, 236);
             this.btnKaytet.Name = "btnKaytet";
             this.btnKaytet.Size = new System.Drawing.Size(98, 32);
             this.btnKaytet.TabIndex = 66;
@@ -148,7 +150,7 @@ namespace Bordrolama10
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(417, 163);
+            this.label6.Location = new System.Drawing.Point(478, 154);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(81, 16);
             this.label6.TabIndex = 46;
@@ -158,9 +160,9 @@ namespace Bordrolama10
             // 
             this.TxtTavan.BackColor = System.Drawing.Color.White;
             this.TxtTavan.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.TxtTavan.Location = new System.Drawing.Point(492, 154);
+            this.TxtTavan.Location = new System.Drawing.Point(560, 150);
             this.TxtTavan.Name = "TxtTavan";
-            this.TxtTavan.Size = new System.Drawing.Size(83, 23);
+            this.TxtTavan.Size = new System.Drawing.Size(81, 23);
             this.TxtTavan.TabIndex = 45;
             this.TxtTavan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TxtTavan.Leave += new System.EventHandler(this.TxtTavan_Leave_1);
@@ -170,7 +172,7 @@ namespace Bordrolama10
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(417, 138);
+            this.label5.Location = new System.Drawing.Point(478, 129);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 16);
             this.label5.TabIndex = 44;
@@ -180,9 +182,9 @@ namespace Bordrolama10
             // 
             this.txtTaban.BackColor = System.Drawing.Color.White;
             this.txtTaban.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtTaban.Location = new System.Drawing.Point(492, 129);
+            this.txtTaban.Location = new System.Drawing.Point(560, 125);
             this.txtTaban.Name = "txtTaban";
-            this.txtTaban.Size = new System.Drawing.Size(83, 23);
+            this.txtTaban.Size = new System.Drawing.Size(81, 23);
             this.txtTaban.TabIndex = 43;
             this.txtTaban.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtTaban.Leave += new System.EventHandler(this.txtTaban_Leave);
@@ -192,7 +194,7 @@ namespace Bordrolama10
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(417, 113);
+            this.label4.Location = new System.Drawing.Point(478, 104);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 16);
             this.label4.TabIndex = 42;
@@ -202,9 +204,9 @@ namespace Bordrolama10
             // 
             this.txtDonem.BackColor = System.Drawing.Color.White;
             this.txtDonem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtDonem.Location = new System.Drawing.Point(492, 104);
+            this.txtDonem.Location = new System.Drawing.Point(560, 100);
             this.txtDonem.Name = "txtDonem";
-            this.txtDonem.Size = new System.Drawing.Size(83, 23);
+            this.txtDonem.Size = new System.Drawing.Size(81, 23);
             this.txtDonem.TabIndex = 41;
             this.txtDonem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtDonem.Click += new System.EventHandler(this.txtDonem_Click);
@@ -214,7 +216,7 @@ namespace Bordrolama10
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(417, 88);
+            this.label3.Location = new System.Drawing.Point(478, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 16);
             this.label3.TabIndex = 40;
@@ -224,9 +226,9 @@ namespace Bordrolama10
             // 
             this.TxtAy.BackColor = System.Drawing.Color.White;
             this.TxtAy.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.TxtAy.Location = new System.Drawing.Point(492, 79);
+            this.TxtAy.Location = new System.Drawing.Point(560, 75);
             this.TxtAy.Name = "TxtAy";
-            this.TxtAy.Size = new System.Drawing.Size(83, 23);
+            this.TxtAy.Size = new System.Drawing.Size(81, 23);
             this.TxtAy.TabIndex = 39;
             this.TxtAy.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -235,7 +237,7 @@ namespace Bordrolama10
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(417, 62);
+            this.label2.Location = new System.Drawing.Point(478, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 16);
             this.label2.TabIndex = 38;
@@ -245,9 +247,9 @@ namespace Bordrolama10
             // 
             this.txtYil.BackColor = System.Drawing.Color.White;
             this.txtYil.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtYil.Location = new System.Drawing.Point(492, 54);
+            this.txtYil.Location = new System.Drawing.Point(560, 50);
             this.txtYil.Name = "txtYil";
-            this.txtYil.Size = new System.Drawing.Size(83, 23);
+            this.txtYil.Size = new System.Drawing.Size(81, 23);
             this.txtYil.TabIndex = 37;
             this.txtYil.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -256,7 +258,7 @@ namespace Bordrolama10
             this.lblyıl.AutoSize = true;
             this.lblyıl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.lblyıl.ForeColor = System.Drawing.Color.Black;
-            this.lblyıl.Location = new System.Drawing.Point(5, 36);
+            this.lblyıl.Location = new System.Drawing.Point(18, 32);
             this.lblyıl.Name = "lblyıl";
             this.lblyıl.Size = new System.Drawing.Size(30, 16);
             this.lblyıl.TabIndex = 34;
@@ -267,7 +269,7 @@ namespace Bordrolama10
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(166, 36);
+            this.label1.Location = new System.Drawing.Point(244, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 16);
             this.label1.TabIndex = 36;
@@ -277,7 +279,7 @@ namespace Bordrolama10
             // 
             this.txtyilfiltre.BackColor = System.Drawing.Color.White;
             this.txtyilfiltre.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtyilfiltre.Location = new System.Drawing.Point(47, 29);
+            this.txtyilfiltre.Location = new System.Drawing.Point(60, 25);
             this.txtyilfiltre.Name = "txtyilfiltre";
             this.txtyilfiltre.Size = new System.Drawing.Size(78, 23);
             this.txtyilfiltre.TabIndex = 4;
@@ -296,11 +298,19 @@ namespace Bordrolama10
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(5, 54);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.Location = new System.Drawing.Point(-1, 51);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(407, 412);
+            this.dataGridView1.Size = new System.Drawing.Size(479, 482);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
@@ -308,7 +318,7 @@ namespace Bordrolama10
             // 
             this.txtdonemfiltre.BackColor = System.Drawing.Color.White;
             this.txtdonemfiltre.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtdonemfiltre.Location = new System.Drawing.Point(249, 29);
+            this.txtdonemfiltre.Location = new System.Drawing.Point(327, 25);
             this.txtdonemfiltre.Name = "txtdonemfiltre";
             this.txtdonemfiltre.Size = new System.Drawing.Size(104, 23);
             this.txtdonemfiltre.TabIndex = 35;
@@ -336,9 +346,9 @@ namespace Bordrolama10
             this.groupBox2.Controls.Add(this.txtagitavan);
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(605, 88);
+            this.groupBox2.Location = new System.Drawing.Point(666, 31);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(519, 492);
+            this.groupBox2.Size = new System.Drawing.Size(496, 549);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "YILLARA GÖRE GV - DV - AGİ";
@@ -361,7 +371,7 @@ namespace Bordrolama10
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(28, 386);
+            this.label14.Location = new System.Drawing.Point(129, 440);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(85, 16);
             this.label14.TabIndex = 87;
@@ -371,7 +381,7 @@ namespace Bordrolama10
             // 
             this.txtasgdv.BackColor = System.Drawing.Color.White;
             this.txtasgdv.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtasgdv.Location = new System.Drawing.Point(117, 379);
+            this.txtasgdv.Location = new System.Drawing.Point(218, 433);
             this.txtasgdv.Name = "txtasgdv";
             this.txtasgdv.Size = new System.Drawing.Size(85, 23);
             this.txtasgdv.TabIndex = 86;
@@ -383,7 +393,7 @@ namespace Bordrolama10
             this.button1.BackColor = System.Drawing.Color.Gainsboro;
             this.button1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(207, 253);
+            this.button1.Location = new System.Drawing.Point(308, 307);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 32);
             this.button1.TabIndex = 85;
@@ -395,20 +405,28 @@ namespace Bordrolama10
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightCoral;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightCoral;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(64, 54);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView2.Location = new System.Drawing.Point(8, 51);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(407, 182);
+            this.dataGridView2.Size = new System.Drawing.Size(488, 244);
             this.dataGridView2.TabIndex = 69;
             this.dataGridView2.Click += new System.EventHandler(this.dataGridView2_Click);
             // 
@@ -417,7 +435,7 @@ namespace Bordrolama10
             this.button2.BackColor = System.Drawing.Color.Gainsboro;
             this.button2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(207, 328);
+            this.button2.Location = new System.Drawing.Point(308, 382);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(98, 32);
             this.button2.TabIndex = 84;
@@ -430,7 +448,7 @@ namespace Bordrolama10
             this.button4.BackColor = System.Drawing.Color.Gainsboro;
             this.button4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(207, 290);
+            this.button4.Location = new System.Drawing.Point(308, 344);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(98, 32);
             this.button4.TabIndex = 83;
@@ -443,7 +461,7 @@ namespace Bordrolama10
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(28, 361);
+            this.label7.Location = new System.Drawing.Point(129, 415);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 16);
             this.label7.TabIndex = 82;
@@ -453,7 +471,7 @@ namespace Bordrolama10
             // 
             this.txtagigvfarki.BackColor = System.Drawing.Color.White;
             this.txtagigvfarki.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtagigvfarki.Location = new System.Drawing.Point(117, 354);
+            this.txtagigvfarki.Location = new System.Drawing.Point(218, 408);
             this.txtagigvfarki.Name = "txtagigvfarki";
             this.txtagigvfarki.Size = new System.Drawing.Size(85, 23);
             this.txtagigvfarki.TabIndex = 81;
@@ -464,7 +482,7 @@ namespace Bordrolama10
             // 
             this.txtgvyil.BackColor = System.Drawing.Color.White;
             this.txtgvyil.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtgvyil.Location = new System.Drawing.Point(117, 253);
+            this.txtgvyil.Location = new System.Drawing.Point(218, 307);
             this.txtgvyil.Name = "txtgvyil";
             this.txtgvyil.Size = new System.Drawing.Size(85, 23);
             this.txtgvyil.TabIndex = 73;
@@ -475,7 +493,7 @@ namespace Bordrolama10
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(28, 335);
+            this.label8.Location = new System.Drawing.Point(129, 389);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 16);
             this.label8.TabIndex = 80;
@@ -486,7 +504,7 @@ namespace Bordrolama10
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(28, 255);
+            this.label11.Location = new System.Drawing.Point(129, 309);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(29, 16);
             this.label11.TabIndex = 74;
@@ -496,7 +514,7 @@ namespace Bordrolama10
             // 
             this.txtasgucrgv.BackColor = System.Drawing.Color.White;
             this.txtasgucrgv.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtasgucrgv.Location = new System.Drawing.Point(117, 328);
+            this.txtasgucrgv.Location = new System.Drawing.Point(218, 382);
             this.txtasgucrgv.Name = "txtasgucrgv";
             this.txtasgucrgv.Size = new System.Drawing.Size(85, 23);
             this.txtasgucrgv.TabIndex = 79;
@@ -507,7 +525,7 @@ namespace Bordrolama10
             // 
             this.txtagitaban.BackColor = System.Drawing.Color.White;
             this.txtagitaban.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtagitaban.Location = new System.Drawing.Point(117, 278);
+            this.txtagitaban.Location = new System.Drawing.Point(218, 332);
             this.txtagitaban.Name = "txtagitaban";
             this.txtagitaban.Size = new System.Drawing.Size(85, 23);
             this.txtagitaban.TabIndex = 75;
@@ -519,7 +537,7 @@ namespace Bordrolama10
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(28, 310);
+            this.label9.Location = new System.Drawing.Point(129, 364);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(79, 16);
             this.label9.TabIndex = 78;
@@ -530,7 +548,7 @@ namespace Bordrolama10
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(28, 285);
+            this.label10.Location = new System.Drawing.Point(129, 339);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 16);
             this.label10.TabIndex = 76;
@@ -540,7 +558,7 @@ namespace Bordrolama10
             // 
             this.txtagitavan.BackColor = System.Drawing.Color.White;
             this.txtagitavan.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtagitavan.Location = new System.Drawing.Point(117, 303);
+            this.txtagitavan.Location = new System.Drawing.Point(218, 357);
             this.txtagitavan.Name = "txtagitavan";
             this.txtagitavan.Size = new System.Drawing.Size(85, 23);
             this.txtagitavan.TabIndex = 77;
@@ -551,8 +569,8 @@ namespace Bordrolama10
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(1155, 614);
+            this.BackColor = System.Drawing.Color.PeachPuff;
+            this.ClientSize = new System.Drawing.Size(1167, 614);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

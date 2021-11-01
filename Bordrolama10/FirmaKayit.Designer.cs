@@ -31,7 +31,6 @@ namespace Bordrolama10
         {
             this.btnkaydet = new System.Windows.Forms.Button();
             this.chkbxpasif = new System.Windows.Forms.CheckBox();
-            this.lblfirmano = new System.Windows.Forms.Label();
             this.txtytkltelefon = new System.Windows.Forms.MaskedTextBox();
             this.txtvn = new System.Windows.Forms.TextBox();
             this.txtvd = new System.Windows.Forms.TextBox();
@@ -74,6 +73,7 @@ namespace Bordrolama10
             this.cmbdurumagore = new System.Windows.Forms.ComboBox();
             this.btnkapat = new System.Windows.Forms.Button();
             this.btnReferans = new System.Windows.Forms.Button();
+            this.lblfirmaId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,17 +101,6 @@ namespace Bordrolama10
             this.chkbxpasif.TabIndex = 17;
             this.chkbxpasif.Text = "PASİF";
             this.chkbxpasif.UseVisualStyleBackColor = true;
-            // 
-            // lblfirmano
-            // 
-            this.lblfirmano.AutoSize = true;
-            this.lblfirmano.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblfirmano.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.lblfirmano.Location = new System.Drawing.Point(753, 14);
-            this.lblfirmano.Name = "lblfirmano";
-            this.lblfirmano.Size = new System.Drawing.Size(11, 15);
-            this.lblfirmano.TabIndex = 95;
-            this.lblfirmano.Text = "-";
             // 
             // txtytkltelefon
             // 
@@ -446,7 +435,7 @@ namespace Bordrolama10
             this.dataGridView1.Location = new System.Drawing.Point(33, 88);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(413, 334);
+            this.dataGridView1.Size = new System.Drawing.Size(413, 338);
             this.dataGridView1.TabIndex = 127;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
@@ -562,12 +551,24 @@ namespace Bordrolama10
             this.btnReferans.UseVisualStyleBackColor = false;
             this.btnReferans.Click += new System.EventHandler(this.btnReferans_Click);
             // 
+            // lblfirmaId
+            // 
+            this.lblfirmaId.AutoSize = true;
+            this.lblfirmaId.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblfirmaId.ForeColor = System.Drawing.Color.Black;
+            this.lblfirmaId.Location = new System.Drawing.Point(643, 39);
+            this.lblfirmaId.Name = "lblfirmaId";
+            this.lblfirmaId.Size = new System.Drawing.Size(74, 16);
+            this.lblfirmaId.TabIndex = 139;
+            this.lblfirmaId.Text = "Yeni Firma";
+            // 
             // FirmaKayit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PapayaWhip;
             this.ClientSize = new System.Drawing.Size(1168, 475);
+            this.Controls.Add(this.lblfirmaId);
             this.Controls.Add(this.btnReferans);
             this.Controls.Add(this.btnkapat);
             this.Controls.Add(this.cmbdurumagore);
@@ -603,7 +604,6 @@ namespace Bordrolama10
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnkaydet);
             this.Controls.Add(this.chkbxpasif);
-            this.Controls.Add(this.lblfirmano);
             this.Controls.Add(this.txtytkltelefon);
             this.Controls.Add(this.txtvn);
             this.Controls.Add(this.txtvd);
@@ -627,7 +627,6 @@ namespace Bordrolama10
 
         private System.Windows.Forms.Button btnkaydet;
         private System.Windows.Forms.CheckBox chkbxpasif;
-        private System.Windows.Forms.Label lblfirmano;
         private System.Windows.Forms.MaskedTextBox txtytkltelefon;
         private System.Windows.Forms.TextBox txtvn;
         private System.Windows.Forms.TextBox txtvd;
@@ -670,5 +669,6 @@ namespace Bordrolama10
         private System.Windows.Forms.ComboBox cmbdurumagore;
         private System.Windows.Forms.Button btnkapat;
         private System.Windows.Forms.Button btnReferans;
+        private System.Windows.Forms.Label lblfirmaId;
     }
 }

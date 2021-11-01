@@ -41,8 +41,8 @@ namespace Bordrolama10
             da.Fill(sgkara);
             dataGridView1.DataSource = sgkara;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridView1.Columns["ASGARİ_UCR"].DefaultCellStyle.Format = "C2";
-            dataGridView1.Columns["TAVAN_UCR"].DefaultCellStyle.Format = "C2";
+            dataGridView1.Columns["ASGARİ_UCR"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["TAVAN_UCR"].DefaultCellStyle.Format = "N2";
             dataGridView1.Columns["ASGARİ_UCR"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns["TAVAN_UCR"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns["DONEM"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -55,8 +55,8 @@ namespace Bordrolama10
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridView1.Columns["ASGARİ_UCR"].DefaultCellStyle.Format = "C2";
-            dataGridView1.Columns["TAVAN_UCR"].DefaultCellStyle.Format = "C2";
+            dataGridView1.Columns["ASGARİ_UCR"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["TAVAN_UCR"].DefaultCellStyle.Format = "N2";
             dataGridView1.Columns["ASGARİ_UCR"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns["TAVAN_UCR"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns["DONEM"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -70,11 +70,11 @@ namespace Bordrolama10
             dataGridView2.DataSource = ds.Tables[0];
 
             dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridView2.Columns["AGİ_TBN"].DefaultCellStyle.Format = "C2";
-            dataGridView2.Columns["AGİ_TVN"].DefaultCellStyle.Format = "C2";
-            dataGridView2.Columns["ASG_GV"].DefaultCellStyle.Format = "C2";
-            dataGridView2.Columns["FARK"].DefaultCellStyle.Format = "C2";
-            dataGridView2.Columns["DV"].DefaultCellStyle.Format = "C2";
+            dataGridView2.Columns["AGİ_TBN"].DefaultCellStyle.Format = "N2";
+            dataGridView2.Columns["AGİ_TVN"].DefaultCellStyle.Format = "N2";
+            dataGridView2.Columns["ASG_GV"].DefaultCellStyle.Format = "N2";
+            dataGridView2.Columns["FARK"].DefaultCellStyle.Format = "N2";
+            dataGridView2.Columns["DV"].DefaultCellStyle.Format = "N2";
 
             dataGridView2.Columns["AGİ_TBN"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView2.Columns["AGİ_TVN"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;

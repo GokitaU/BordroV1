@@ -98,7 +98,7 @@ namespace Bordrolama10
                 {
 
                     baglan.Open();
-                    SQLiteCommand ekle = new SQLiteCommand("INSERT INTO [sube_bilgileri] (subeno,firmunvantam,subeunvan,vd,vn,ticsiciln,sgkisyerino,adres,il,ilce,sgkkullanici,sgkek,sgksistemsif,sgkisyerisif,aktifpasif,firmaid,isyeriSubeKodu) values (@firmaunvan,@subeunvan,@vd,@vn,@ticsicil,@sgkisyerino,@adres,@il,@ilce,@sgkkullanici,@sgkek,@sgksistem,@sgkissif,@aktifpasif,@firmaid,@isySubKod)", baglan);
+                    SQLiteCommand ekle = new SQLiteCommand("INSERT INTO [sube_bilgileri] (subeno,firmunvantam,subeunvan,vd,vn,ticsiciln,sgkisyerino,adres,il,ilce,sgkkullanici,sgkek,sgksistemsif,sgkisyerisif,aktifpasif,firmaid,isyeriSubeKodu) values (@subeno,@firmaunvan,@subeunvan,@vd,@vn,@ticsicil,@sgkisyerino,@adres,@il,@ilce,@sgkkullanici,@sgkek,@sgksistem,@sgkissif,@aktifpasif,@firmaid,@isySubKod)", baglan);
 
 
 
@@ -139,7 +139,7 @@ namespace Bordrolama10
 
                     int subeid = Convert.ToInt32(lblsubeid.Text);
                     //int firmaid = Convert.ToInt32(lblfirmano.Text);
-                    guncelle.Parameters.AddWithValue("@subeno", lblsubeid.Text);
+                    guncelle.Parameters.AddWithValue("@subeno", txtsubeno.Text);
                     guncelle.Parameters.AddWithValue("@firmaunvan", txttamunvan.Text);
                     guncelle.Parameters.AddWithValue("@subeunvan", txtsubeunvan.Text);
                     guncelle.Parameters.AddWithValue("@vd", txtvd.Text);
@@ -204,7 +204,8 @@ namespace Bordrolama10
         private void dataGridView1_Click(object sender, EventArgs e)
         {
             int secim = dataGridView1.SelectedCells[0].RowIndex;
-            string subid = dataGridView1.Rows[secim].Cells[0].Value.ToString().Trim();
+            int subid = dataGridView1.Rows[secim].Cells[0].Value != DBNull.Value ? Convert.ToInt32(dataGridView1.Rows[secim].Cells[0].Value) :0;
+            
             string subeno = dataGridView1.Rows[secim].Cells[1].Value.ToString().Trim();
             string firmaunvan = dataGridView1.Rows[secim].Cells[2].Value.ToString().Trim();
             string subeunvan = dataGridView1.Rows[secim].Cells[3].Value.ToString().Trim();
@@ -223,7 +224,7 @@ namespace Bordrolama10
             string aktifpasif = dataGridView1.Rows[secim].Cells[15].Value.ToString().Trim();
             string isySubeKod = dataGridView1.Rows[secim].Cells[16].Value.ToString().Trim();
 
-            lblsubeid.Text = subid;
+            lblsubeid.Text = subid.ToString();
             txtsubeno.Text = subeno;
             txttamunvan.Text = firmaunvan;
             txtsubeunvan.Text = subeunvan;
@@ -249,13 +250,15 @@ namespace Bordrolama10
             }
 
             programreferans.firmaid =firmaid;
-            programreferans.subid = Convert.ToInt32(subid);
+            programreferans.subid = subid;
             programreferans.firmaunvan = firmaunvan;
             programreferans.subeunvan = subeunvan;
-            programreferans.IsyeriSgkNo =  sgkisyerino.Substring(13,7);
-
-
-
+            
+            if (sgkisyerino.Length > 0)
+            {
+                programreferans.IsyeriSgkNo = sgkisyerino.Substring(13, 7);
+            }
+           
         }
 
         private void button3_Click(object sender, EventArgs e)

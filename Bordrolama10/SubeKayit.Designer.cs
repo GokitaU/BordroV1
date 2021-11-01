@@ -85,6 +85,8 @@ namespace Bordrolama10
             this.txtGuvenlik = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.txtisySubeKod = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.lblvdsifre = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -96,8 +98,6 @@ namespace Bordrolama10
             this.btnBilgiAl = new System.Windows.Forms.Button();
             this.btnebeyanname = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.label25 = new System.Windows.Forms.Label();
-            this.txtisySubeKod = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -504,7 +504,7 @@ namespace Bordrolama10
             this.txtisyerisicil.Location = new System.Drawing.Point(110, 83);
             this.txtisyerisicil.Mask = "0 0000 00 00 0000000 000 00-00 000 000";
             this.txtisyerisicil.Name = "txtisyerisicil";
-            this.txtisyerisicil.Size = new System.Drawing.Size(165, 25);
+            this.txtisyerisicil.Size = new System.Drawing.Size(297, 25);
             this.txtisyerisicil.TabIndex = 6;
             // 
             // label21
@@ -727,6 +727,26 @@ namespace Bordrolama10
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ŞUBE BİLGİLERİ";
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label25.ForeColor = System.Drawing.Color.Black;
+            this.label25.Location = new System.Drawing.Point(926, 20);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(101, 16);
+            this.label25.TabIndex = 68;
+            this.label25.Text = "Muht.İşy.Kodu";
+            // 
+            // txtisySubeKod
+            // 
+            this.txtisySubeKod.BackColor = System.Drawing.Color.White;
+            this.txtisySubeKod.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtisySubeKod.Location = new System.Drawing.Point(1033, 15);
+            this.txtisySubeKod.Name = "txtisySubeKod";
+            this.txtisySubeKod.Size = new System.Drawing.Size(114, 23);
+            this.txtisySubeKod.TabIndex = 67;
+            // 
             // label28
             // 
             this.label28.AutoSize = true;
@@ -845,33 +865,13 @@ namespace Bordrolama10
             // 
             this.button6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button6.Location = new System.Drawing.Point(841, 157);
+            this.button6.Location = new System.Drawing.Point(668, 153);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(132, 26);
             this.button6.TabIndex = 75;
             this.button6.Text = "BORDRO YÜKLE";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label25.ForeColor = System.Drawing.Color.Black;
-            this.label25.Location = new System.Drawing.Point(926, 20);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(101, 16);
-            this.label25.TabIndex = 68;
-            this.label25.Text = "Muht.İşy.Kodu";
-            // 
-            // txtisySubeKod
-            // 
-            this.txtisySubeKod.BackColor = System.Drawing.Color.White;
-            this.txtisySubeKod.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtisySubeKod.Location = new System.Drawing.Point(1033, 15);
-            this.txtisySubeKod.Name = "txtisySubeKod";
-            this.txtisySubeKod.Size = new System.Drawing.Size(114, 23);
-            this.txtisySubeKod.TabIndex = 67;
             // 
             // SubeKayit
             // 
