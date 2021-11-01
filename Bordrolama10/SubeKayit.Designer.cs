@@ -46,7 +46,6 @@ namespace Bordrolama10
             this.lblyetkiliadsoyad = new System.Windows.Forms.Label();
             this.lblfirmano = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -81,8 +80,6 @@ namespace Bordrolama10
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtGuvenlik = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -98,8 +95,13 @@ namespace Bordrolama10
             this.btnBilgiAl = new System.Windows.Forms.Button();
             this.btnebeyanname = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.lblYukluBordro = new System.Windows.Forms.Label();
+            this.lblHizmetListesi = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.richFirmaNotu = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -149,110 +151,110 @@ namespace Bordrolama10
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label7.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(993, 8);
+            this.label7.Location = new System.Drawing.Point(501, 35);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 16);
+            this.label7.Size = new System.Drawing.Size(56, 13);
             this.label7.TabIndex = 22;
             this.label7.Text = "e-POSTA";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(819, 27);
+            this.label6.Location = new System.Drawing.Point(774, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 16);
+            this.label6.Size = new System.Drawing.Size(53, 13);
             this.label6.TabIndex = 21;
             this.label6.Text = "TELEFON";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(777, 9);
+            this.label5.Location = new System.Drawing.Point(717, 4);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 16);
+            this.label5.Size = new System.Drawing.Size(110, 13);
             this.label5.TabIndex = 20;
             this.label5.Text = "YETKİLİ AD SOYAD";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(587, 27);
+            this.label4.Location = new System.Drawing.Point(498, 19);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 16);
+            this.label4.Size = new System.Drawing.Size(59, 13);
             this.label4.TabIndex = 19;
             this.label4.Text = "VERGİ NO";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(562, 8);
+            this.label8.Location = new System.Drawing.Point(466, 4);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(103, 16);
+            this.label8.Size = new System.Drawing.Size(91, 13);
             this.label8.TabIndex = 18;
             this.label8.Text = "VERGİ DAİRESİ";
             // 
             // lblvn
             // 
             this.lblvn.AutoSize = true;
-            this.lblvn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblvn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblvn.ForeColor = System.Drawing.Color.Black;
-            this.lblvn.Location = new System.Drawing.Point(647, 27);
+            this.lblvn.Location = new System.Drawing.Point(561, 19);
             this.lblvn.Name = "lblvn";
-            this.lblvn.Size = new System.Drawing.Size(14, 16);
+            this.lblvn.Size = new System.Drawing.Size(11, 13);
             this.lblvn.TabIndex = 25;
             this.lblvn.Text = "-";
             // 
             // lblvd
             // 
             this.lblvd.AutoSize = true;
-            this.lblvd.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblvd.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblvd.ForeColor = System.Drawing.Color.Black;
-            this.lblvd.Location = new System.Drawing.Point(647, 8);
+            this.lblvd.Location = new System.Drawing.Point(561, 4);
             this.lblvd.Name = "lblvd";
-            this.lblvd.Size = new System.Drawing.Size(14, 16);
+            this.lblvd.Size = new System.Drawing.Size(11, 13);
             this.lblvd.TabIndex = 24;
             this.lblvd.Text = "-";
             // 
             // lbleposta
             // 
             this.lbleposta.AutoSize = true;
-            this.lbleposta.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbleposta.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbleposta.ForeColor = System.Drawing.Color.Black;
-            this.lbleposta.Location = new System.Drawing.Point(1053, 9);
+            this.lbleposta.Location = new System.Drawing.Point(561, 36);
             this.lbleposta.Name = "lbleposta";
-            this.lbleposta.Size = new System.Drawing.Size(14, 16);
+            this.lbleposta.Size = new System.Drawing.Size(11, 13);
             this.lbleposta.TabIndex = 28;
             this.lbleposta.Text = "-";
             // 
             // lbltelefon
             // 
             this.lbltelefon.AutoSize = true;
-            this.lbltelefon.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbltelefon.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbltelefon.ForeColor = System.Drawing.Color.Black;
-            this.lbltelefon.Location = new System.Drawing.Point(878, 27);
+            this.lbltelefon.Location = new System.Drawing.Point(831, 19);
             this.lbltelefon.Name = "lbltelefon";
-            this.lbltelefon.Size = new System.Drawing.Size(14, 16);
+            this.lbltelefon.Size = new System.Drawing.Size(11, 13);
             this.lbltelefon.TabIndex = 27;
             this.lbltelefon.Text = "-";
             // 
             // lblyetkiliadsoyad
             // 
             this.lblyetkiliadsoyad.AutoSize = true;
-            this.lblyetkiliadsoyad.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblyetkiliadsoyad.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblyetkiliadsoyad.ForeColor = System.Drawing.Color.Black;
-            this.lblyetkiliadsoyad.Location = new System.Drawing.Point(878, 9);
+            this.lblyetkiliadsoyad.Location = new System.Drawing.Point(831, 4);
             this.lblyetkiliadsoyad.Name = "lblyetkiliadsoyad";
-            this.lblyetkiliadsoyad.Size = new System.Drawing.Size(14, 16);
+            this.lblyetkiliadsoyad.Size = new System.Drawing.Size(11, 13);
             this.lblyetkiliadsoyad.TabIndex = 26;
             this.lblyetkiliadsoyad.Text = "-";
             // 
@@ -273,20 +275,9 @@ namespace Bordrolama10
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(111, 23);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(319, 25);
+            this.comboBox1.Size = new System.Drawing.Size(329, 25);
             this.comboBox1.TabIndex = 33;
             this.comboBox1.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(425, 2);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(144, 22);
-            this.label9.TabIndex = 32;
-            this.label9.Text = "FİRMA BİLGİLERİ";
             // 
             // label11
             // 
@@ -326,7 +317,7 @@ namespace Bordrolama10
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(418, 33);
+            this.label14.Location = new System.Drawing.Point(413, 58);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(51, 16);
             this.label14.TabIndex = 35;
@@ -337,7 +328,7 @@ namespace Bordrolama10
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(445, 75);
+            this.label15.Location = new System.Drawing.Point(751, 29);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(20, 16);
             this.label15.TabIndex = 36;
@@ -348,7 +339,7 @@ namespace Bordrolama10
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(431, 95);
+            this.label16.Location = new System.Drawing.Point(737, 58);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(35, 16);
             this.label16.TabIndex = 37;
@@ -381,7 +372,7 @@ namespace Bordrolama10
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(675, 27);
+            this.label19.Location = new System.Drawing.Point(908, 23);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(102, 16);
             this.label19.TabIndex = 40;
@@ -429,7 +420,7 @@ namespace Bordrolama10
             // 
             this.txtilce.BackColor = System.Drawing.Color.White;
             this.txtilce.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtilce.Location = new System.Drawing.Point(467, 89);
+            this.txtilce.Location = new System.Drawing.Point(773, 51);
             this.txtilce.Name = "txtilce";
             this.txtilce.Size = new System.Drawing.Size(114, 23);
             this.txtilce.TabIndex = 9;
@@ -438,7 +429,7 @@ namespace Bordrolama10
             // 
             this.txtil.BackColor = System.Drawing.Color.White;
             this.txtil.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtil.Location = new System.Drawing.Point(467, 68);
+            this.txtil.Location = new System.Drawing.Point(773, 22);
             this.txtil.Name = "txtil";
             this.txtil.Size = new System.Drawing.Size(114, 23);
             this.txtil.TabIndex = 8;
@@ -456,7 +447,7 @@ namespace Bordrolama10
             // 
             this.txtsgkisyeri.BackColor = System.Drawing.Color.White;
             this.txtsgkisyeri.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtsgkisyeri.Location = new System.Drawing.Point(783, 95);
+            this.txtsgkisyeri.Location = new System.Drawing.Point(1016, 91);
             this.txtsgkisyeri.Name = "txtsgkisyeri";
             this.txtsgkisyeri.Size = new System.Drawing.Size(94, 23);
             this.txtsgkisyeri.TabIndex = 13;
@@ -465,7 +456,7 @@ namespace Bordrolama10
             // 
             this.txtsistem.BackColor = System.Drawing.Color.White;
             this.txtsistem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtsistem.Location = new System.Drawing.Point(783, 70);
+            this.txtsistem.Location = new System.Drawing.Point(1016, 66);
             this.txtsistem.Name = "txtsistem";
             this.txtsistem.Size = new System.Drawing.Size(94, 23);
             this.txtsistem.TabIndex = 12;
@@ -474,7 +465,7 @@ namespace Bordrolama10
             // 
             this.txtek.BackColor = System.Drawing.Color.White;
             this.txtek.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtek.Location = new System.Drawing.Point(783, 45);
+            this.txtek.Location = new System.Drawing.Point(1016, 41);
             this.txtek.Name = "txtek";
             this.txtek.Size = new System.Drawing.Size(51, 23);
             this.txtek.TabIndex = 11;
@@ -483,7 +474,7 @@ namespace Bordrolama10
             // 
             this.txtsgkkullanici.BackColor = System.Drawing.Color.White;
             this.txtsgkkullanici.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtsgkkullanici.Location = new System.Drawing.Point(783, 20);
+            this.txtsgkkullanici.Location = new System.Drawing.Point(1016, 16);
             this.txtsgkkullanici.Name = "txtsgkkullanici";
             this.txtsgkkullanici.Size = new System.Drawing.Size(134, 23);
             this.txtsgkkullanici.TabIndex = 10;
@@ -492,7 +483,7 @@ namespace Bordrolama10
             // 
             this.rcbadres.Location = new System.Drawing.Point(467, 15);
             this.rcbadres.Name = "rcbadres";
-            this.rcbadres.Size = new System.Drawing.Size(171, 49);
+            this.rcbadres.Size = new System.Drawing.Size(264, 99);
             this.rcbadres.TabIndex = 7;
             this.rcbadres.Text = "";
             // 
@@ -512,7 +503,7 @@ namespace Bordrolama10
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(714, 52);
+            this.label21.Location = new System.Drawing.Point(959, 48);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(51, 16);
             this.label21.TabIndex = 55;
@@ -523,7 +514,7 @@ namespace Bordrolama10
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(689, 77);
+            this.label22.Location = new System.Drawing.Point(928, 73);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(82, 16);
             this.label22.TabIndex = 56;
@@ -534,7 +525,7 @@ namespace Bordrolama10
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(695, 102);
+            this.label23.Location = new System.Drawing.Point(931, 98);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(79, 16);
             this.label23.TabIndex = 57;
@@ -553,12 +544,13 @@ namespace Bordrolama10
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(4, 309);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1154, 192);
+            this.dataGridView1.Size = new System.Drawing.Size(1154, 239);
             this.dataGridView1.TabIndex = 58;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
@@ -567,7 +559,7 @@ namespace Bordrolama10
             this.chkbxpasif.AutoSize = true;
             this.chkbxpasif.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.chkbxpasif.ForeColor = System.Drawing.Color.Black;
-            this.chkbxpasif.Location = new System.Drawing.Point(335, 22);
+            this.chkbxpasif.Location = new System.Drawing.Point(3, 20);
             this.chkbxpasif.Name = "chkbxpasif";
             this.chkbxpasif.Size = new System.Drawing.Size(61, 21);
             this.chkbxpasif.TabIndex = 14;
@@ -622,7 +614,7 @@ namespace Bordrolama10
             // 
             this.button4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button4.Location = new System.Drawing.Point(668, 90);
+            this.button4.Location = new System.Drawing.Point(462, 111);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(110, 26);
             this.button4.TabIndex = 64;
@@ -642,38 +634,23 @@ namespace Bordrolama10
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.pictureBox1.Location = new System.Drawing.Point(791, 90);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 25);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 66;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // txtGuvenlik
-            // 
-            this.txtGuvenlik.BackColor = System.Drawing.Color.White;
-            this.txtGuvenlik.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtGuvenlik.Location = new System.Drawing.Point(791, 113);
-            this.txtGuvenlik.Name = "txtGuvenlik";
-            this.txtGuvenlik.Size = new System.Drawing.Size(59, 23);
-            this.txtGuvenlik.TabIndex = 67;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.NavajoWhite;
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.lbleposta);
-            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label28);
+            this.panel1.Controls.Add(this.lblvdsifre);
             this.panel1.Controls.Add(this.lbltelefon);
             this.panel1.Controls.Add(this.lblfirmano);
+            this.panel1.Controls.Add(this.lblvdparola);
             this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.lblvdkullanici);
+            this.panel1.Controls.Add(this.label26);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.lblyetkiliadsoyad);
             this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label4);
@@ -682,19 +659,13 @@ namespace Bordrolama10
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1168, 48);
+            this.panel1.Size = new System.Drawing.Size(1168, 52);
             this.panel1.TabIndex = 68;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label25);
             this.groupBox1.Controls.Add(this.txtisySubeKod);
-            this.groupBox1.Controls.Add(this.label28);
-            this.groupBox1.Controls.Add(this.lblvdsifre);
-            this.groupBox1.Controls.Add(this.label26);
-            this.groupBox1.Controls.Add(this.lblvdparola);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.lblvdkullanici);
             this.groupBox1.Controls.Add(this.chkbxpasif);
             this.groupBox1.Controls.Add(this.rcbadres);
             this.groupBox1.Controls.Add(this.label11);
@@ -732,7 +703,7 @@ namespace Bordrolama10
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.label25.ForeColor = System.Drawing.Color.Black;
-            this.label25.Location = new System.Drawing.Point(926, 20);
+            this.label25.Location = new System.Drawing.Point(186, 20);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(101, 16);
             this.label25.TabIndex = 68;
@@ -742,7 +713,7 @@ namespace Bordrolama10
             // 
             this.txtisySubeKod.BackColor = System.Drawing.Color.White;
             this.txtisySubeKod.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtisySubeKod.Location = new System.Drawing.Point(1033, 15);
+            this.txtisySubeKod.Location = new System.Drawing.Point(293, 15);
             this.txtisySubeKod.Name = "txtisySubeKod";
             this.txtisySubeKod.Size = new System.Drawing.Size(114, 23);
             this.txtisySubeKod.TabIndex = 67;
@@ -750,66 +721,66 @@ namespace Bordrolama10
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.label28.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label28.ForeColor = System.Drawing.Color.Black;
-            this.label28.Location = new System.Drawing.Point(999, 91);
+            this.label28.Location = new System.Drawing.Point(1011, 34);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(55, 14);
+            this.label28.Size = new System.Drawing.Size(51, 13);
             this.label28.TabIndex = 65;
-            this.label28.Text = "Vd Şifre";
+            this.label28.Text = "VD Şifre";
             // 
             // lblvdsifre
             // 
             this.lblvdsifre.AutoSize = true;
-            this.lblvdsifre.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.lblvdsifre.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblvdsifre.ForeColor = System.Drawing.Color.Black;
-            this.lblvdsifre.Location = new System.Drawing.Point(1083, 91);
+            this.lblvdsifre.Location = new System.Drawing.Point(1062, 35);
             this.lblvdsifre.Name = "lblvdsifre";
-            this.lblvdsifre.Size = new System.Drawing.Size(12, 14);
+            this.lblvdsifre.Size = new System.Drawing.Size(11, 13);
             this.lblvdsifre.TabIndex = 66;
             this.lblvdsifre.Text = "-";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.label26.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label26.ForeColor = System.Drawing.Color.Black;
-            this.label26.Location = new System.Drawing.Point(999, 72);
+            this.label26.Location = new System.Drawing.Point(1001, 19);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(66, 14);
+            this.label26.Size = new System.Drawing.Size(61, 13);
             this.label26.TabIndex = 63;
             this.label26.Text = "VD Parola";
             // 
             // lblvdparola
             // 
             this.lblvdparola.AutoSize = true;
-            this.lblvdparola.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.lblvdparola.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblvdparola.ForeColor = System.Drawing.Color.Black;
-            this.lblvdparola.Location = new System.Drawing.Point(1083, 72);
+            this.lblvdparola.Location = new System.Drawing.Point(1062, 19);
             this.lblvdparola.Name = "lblvdparola";
-            this.lblvdparola.Size = new System.Drawing.Size(12, 14);
+            this.lblvdparola.Size = new System.Drawing.Size(11, 13);
             this.lblvdparola.TabIndex = 64;
             this.lblvdparola.Text = "-";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.label10.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(999, 55);
+            this.label10.Location = new System.Drawing.Point(991, 4);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 14);
+            this.label10.Size = new System.Drawing.Size(71, 13);
             this.label10.TabIndex = 34;
             this.label10.Text = "VD Kullanici";
             // 
             // lblvdkullanici
             // 
             this.lblvdkullanici.AutoSize = true;
-            this.lblvdkullanici.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.lblvdkullanici.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblvdkullanici.ForeColor = System.Drawing.Color.Black;
-            this.lblvdkullanici.Location = new System.Drawing.Point(1083, 55);
+            this.lblvdkullanici.Location = new System.Drawing.Point(1062, 4);
             this.lblvdkullanici.Name = "lblvdkullanici";
-            this.lblvdkullanici.Size = new System.Drawing.Size(12, 14);
+            this.lblvdkullanici.Size = new System.Drawing.Size(11, 13);
             this.lblvdkullanici.TabIndex = 35;
             this.lblvdkullanici.Text = "-";
             // 
@@ -817,7 +788,7 @@ namespace Bordrolama10
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button1.Location = new System.Drawing.Point(1053, 151);
+            this.button1.Location = new System.Drawing.Point(1053, 154);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 32);
             this.button1.TabIndex = 70;
@@ -829,11 +800,11 @@ namespace Bordrolama10
             // 
             this.btnInteraktif.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnInteraktif.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnInteraktif.Location = new System.Drawing.Point(947, 63);
+            this.btnInteraktif.Location = new System.Drawing.Point(731, 53);
             this.btnInteraktif.Name = "btnInteraktif";
-            this.btnInteraktif.Size = new System.Drawing.Size(83, 26);
+            this.btnInteraktif.Size = new System.Drawing.Size(144, 26);
             this.btnInteraktif.TabIndex = 71;
-            this.btnInteraktif.Text = "İnteraktif Vd";
+            this.btnInteraktif.Text = "İnteraktif Vd Giriş";
             this.btnInteraktif.UseVisualStyleBackColor = true;
             this.btnInteraktif.Click += new System.EventHandler(this.btnInteraktif_Click);
             // 
@@ -841,7 +812,7 @@ namespace Bordrolama10
             // 
             this.btnBilgiAl.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnBilgiAl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnBilgiAl.Location = new System.Drawing.Point(668, 121);
+            this.btnBilgiAl.Location = new System.Drawing.Point(462, 141);
             this.btnBilgiAl.Name = "btnBilgiAl";
             this.btnBilgiAl.Size = new System.Drawing.Size(110, 26);
             this.btnBilgiAl.TabIndex = 73;
@@ -853,11 +824,11 @@ namespace Bordrolama10
             // 
             this.btnebeyanname.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnebeyanname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnebeyanname.Location = new System.Drawing.Point(947, 94);
+            this.btnebeyanname.Location = new System.Drawing.Point(731, 84);
             this.btnebeyanname.Name = "btnebeyanname";
-            this.btnebeyanname.Size = new System.Drawing.Size(83, 26);
+            this.btnebeyanname.Size = new System.Drawing.Size(144, 26);
             this.btnebeyanname.TabIndex = 74;
-            this.btnebeyanname.Text = "eBeyanname";
+            this.btnebeyanname.Text = "e Beyanname Giriş";
             this.btnebeyanname.UseVisualStyleBackColor = true;
             this.btnebeyanname.Click += new System.EventHandler(this.btnebeyanname_Click);
             // 
@@ -865,28 +836,92 @@ namespace Bordrolama10
             // 
             this.button6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button6.Location = new System.Drawing.Point(668, 153);
+            this.button6.Location = new System.Drawing.Point(881, 50);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(132, 26);
+            this.button6.Size = new System.Drawing.Size(153, 60);
             this.button6.TabIndex = 75;
-            this.button6.Text = "BORDRO YÜKLE";
+            this.button6.Text = "EXCELDEN FİRMA BORDRO YÜKLE";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(578, 119);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(221, 13);
+            this.label27.TabIndex = 76;
+            this.label27.Text = "SGK Şifreleri Kayıtlı ise Sisteme Giriş Yapabilir ";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(578, 149);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(243, 13);
+            this.label29.TabIndex = 77;
+            this.label29.Text = "Girişten Sonra Firma Bilgilerini SGK dan Alabilirsiniz";
+            // 
+            // lblYukluBordro
+            // 
+            this.lblYukluBordro.AutoSize = true;
+            this.lblYukluBordro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblYukluBordro.ForeColor = System.Drawing.Color.Red;
+            this.lblYukluBordro.Location = new System.Drawing.Point(880, 118);
+            this.lblYukluBordro.Name = "lblYukluBordro";
+            this.lblYukluBordro.Size = new System.Drawing.Size(12, 15);
+            this.lblYukluBordro.TabIndex = 78;
+            this.lblYukluBordro.Text = "-";
+            // 
+            // lblHizmetListesi
+            // 
+            this.lblHizmetListesi.AutoSize = true;
+            this.lblHizmetListesi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblHizmetListesi.ForeColor = System.Drawing.Color.Red;
+            this.lblHizmetListesi.Location = new System.Drawing.Point(880, 151);
+            this.lblHizmetListesi.Name = "lblHizmetListesi";
+            this.lblHizmetListesi.Size = new System.Drawing.Size(12, 15);
+            this.lblHizmetListesi.TabIndex = 79;
+            this.lblHizmetListesi.Text = "-";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(7, 562);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 16);
+            this.label9.TabIndex = 80;
+            this.label9.Text = "ŞUBE NOTU";
+            // 
+            // richFirmaNotu
+            // 
+            this.richFirmaNotu.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.richFirmaNotu.Location = new System.Drawing.Point(93, 555);
+            this.richFirmaNotu.Name = "richFirmaNotu";
+            this.richFirmaNotu.Size = new System.Drawing.Size(1058, 28);
+            this.richFirmaNotu.TabIndex = 69;
+            this.richFirmaNotu.Text = "";
             // 
             // SubeKayit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PapayaWhip;
-            this.ClientSize = new System.Drawing.Size(1168, 522);
-            this.Controls.Add(this.button6);
+            this.ClientSize = new System.Drawing.Size(1168, 592);
+            this.Controls.Add(this.richFirmaNotu);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lblHizmetListesi);
+            this.Controls.Add(this.lblYukluBordro);
             this.Controls.Add(this.btnebeyanname);
-            this.Controls.Add(this.btnBilgiAl);
+            this.Controls.Add(this.label29);
             this.Controls.Add(this.btnInteraktif);
+            this.Controls.Add(this.label27);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.btnBilgiAl);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.txtGuvenlik);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -907,7 +942,6 @@ namespace Bordrolama10
             this.Text = "SubeKayit";
             this.Load += new System.EventHandler(this.SubeKayit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -934,7 +968,6 @@ namespace Bordrolama10
         private System.Windows.Forms.Label lbltelefon;
         private System.Windows.Forms.Label lblyetkiliadsoyad;
         private System.Windows.Forms.Label lblfirmano;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
@@ -970,8 +1003,6 @@ namespace Bordrolama10
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtGuvenlik;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
@@ -987,5 +1018,11 @@ namespace Bordrolama10
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox txtisySubeKod;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label lblYukluBordro;
+        private System.Windows.Forms.Label lblHizmetListesi;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.RichTextBox richFirmaNotu;
     }
 }

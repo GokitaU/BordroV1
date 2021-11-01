@@ -14,6 +14,7 @@ using System.Collections.ObjectModel;
 using Microsoft.VisualBasic;
 using System.IO;
 using System.Linq;
+using OpenQA.Selenium.Support.UI;
 
 namespace Bordrolama10
 
@@ -35,7 +36,9 @@ namespace Bordrolama10
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
-
+            dataGridView1.Columns["subeid"].Visible = false;
+            dataGridView1.Columns["firmaid"].Visible = false;
+            dataGridView1.Columns["isyeriSubeKodu"].Visible = false;
 
         }
         public void tabloyutemizle()
@@ -98,7 +101,7 @@ namespace Bordrolama10
                 {
 
                     baglan.Open();
-                    SQLiteCommand ekle = new SQLiteCommand("INSERT INTO [sube_bilgileri] (subeno,firmunvantam,subeunvan,vd,vn,ticsiciln,sgkisyerino,adres,il,ilce,sgkkullanici,sgkek,sgksistemsif,sgkisyerisif,aktifpasif,firmaid,isyeriSubeKodu) values (@subeno,@firmaunvan,@subeunvan,@vd,@vn,@ticsicil,@sgkisyerino,@adres,@il,@ilce,@sgkkullanici,@sgkek,@sgksistem,@sgkissif,@aktifpasif,@firmaid,@isySubKod)", baglan);
+                    SQLiteCommand ekle = new SQLiteCommand("INSERT INTO [sube_bilgileri] (subeno,firmunvantam,subeunvan,vd,vn,ticsiciln,sgkisyerino,adres,il,ilce,sgkkullanici,sgkek,sgksistemsif,sgkisyerisif,aktifpasif,firmaid,isyeriSubeKodu,subeNotu) values (@subeno,@firmaunvan,@subeunvan,@vd,@vn,@ticsicil,@sgkisyerino,@adres,@il,@ilce,@sgkkullanici,@sgkek,@sgksistem,@sgkissif,@aktifpasif,@firmaid,@isySubKod,@subeNotu)", baglan);
 
 
 
@@ -119,6 +122,7 @@ namespace Bordrolama10
                     ekle.Parameters.AddWithValue("@sgksistem", txtsgkisyeri.Text.ToString().Trim());
                     ekle.Parameters.AddWithValue("@sgkissif", txtsistem.Text.ToString().Trim());
                     ekle.Parameters.AddWithValue("@isySubKod", txtisySubeKod.Text.ToString().Trim());
+                    ekle.Parameters.AddWithValue("@subeNotu", richFirmaNotu.Text.ToString().Trim());
                     string durum = (chkbxpasif.Checked == true) ? "Pasif" : "Aktif";
                     ekle.Parameters.AddWithValue("@aktifpasif", durum);
                     //ekle.Parameters.AddWithValue("@subeid", subeid);
@@ -135,7 +139,7 @@ namespace Bordrolama10
 
 
                     baglan.Open();
-                    SQLiteCommand guncelle = new SQLiteCommand("update [sube_bilgileri] set subeno=@subeno,firmunvantam=@firmaunvan,subeunvan=@subeunvan,vd=@vd,vn=@vn,ticsiciln=@ticsicil,sgkisyerino=@sgkisyerino,adres=@adres,il=@il,ilce=@ilce,sgkkullanici=@sgkkullanici,sgkek=@sgkek,sgksistemsif=@sgksistem,sgkisyerisif=@sgkissif,aktifpasif=@aktifpasif,firmaid=@firmaid,isyeriSubeKodu=@isySubKod WHERE subeid = @subeid", baglan);
+                    SQLiteCommand guncelle = new SQLiteCommand("update [sube_bilgileri] set subeno=@subeno,firmunvantam=@firmaunvan,subeunvan=@subeunvan,vd=@vd,vn=@vn,ticsiciln=@ticsicil,sgkisyerino=@sgkisyerino,adres=@adres,il=@il,ilce=@ilce,sgkkullanici=@sgkkullanici,sgkek=@sgkek,sgksistemsif=@sgksistem,sgkisyerisif=@sgkissif,aktifpasif=@aktifpasif,firmaid=@firmaid,isyeriSubeKodu=@isySubKod,subeNotu=@subeNotu WHERE subeid = @subeid", baglan);
 
                     int subeid = Convert.ToInt32(lblsubeid.Text);
                     //int firmaid = Convert.ToInt32(lblfirmano.Text);
@@ -154,7 +158,7 @@ namespace Bordrolama10
                     guncelle.Parameters.AddWithValue("@sgksistem", txtsgkisyeri.Text);
                     guncelle.Parameters.AddWithValue("@sgkissif", txtsistem.Text);
                     guncelle.Parameters.AddWithValue("@isySubKod", txtisySubeKod.Text);
-
+                    guncelle.Parameters.AddWithValue("@subeNotu", richFirmaNotu.Text.ToString().Trim());
                     String durum = (chkbxpasif.Checked == true) ? "Pasif" : "Aktif";
                     guncelle.Parameters.AddWithValue("@aktifpasif", durum);
                     guncelle.Parameters.AddWithValue("@subeid", subeid);
@@ -196,8 +200,9 @@ namespace Bordrolama10
             firmabilgileri.Close();
             int firmaid = Convert.ToInt32(lblfirmano.Text);
             verilerigoster("Select * from sube_bilgileri where firmaid = '" + firmaid + "'"); // COMBOBOX CLİK İLEMİNE EKLENECEK
-
             baglan.Close();
+
+
 
         }
 
@@ -223,6 +228,7 @@ namespace Bordrolama10
             string firmaid = dataGridView1.Rows[secim].Cells[16].Value.ToString().Trim();
             string aktifpasif = dataGridView1.Rows[secim].Cells[15].Value.ToString().Trim();
             string isySubeKod = dataGridView1.Rows[secim].Cells[16].Value.ToString().Trim();
+            string subeNotu = dataGridView1.Rows[secim].Cells[18].Value.ToString().Trim();
 
             lblsubeid.Text = subid.ToString();
             txtsubeno.Text = subeno;
@@ -240,6 +246,7 @@ namespace Bordrolama10
             txtsistem.Text = sgksistem;
             txtsgkisyeri.Text = sgkisysifr;
             txtisySubeKod.Text = isySubeKod;
+            richFirmaNotu.Text = subeNotu;
             if (aktifpasif == "Pasif")
             {
                 chkbxpasif.Checked = true;
@@ -258,7 +265,26 @@ namespace Bordrolama10
             {
                 programreferans.IsyeriSgkNo = sgkisyerino.Substring(13, 7);
             }
-           
+
+            baglan.Open();
+            SQLiteCommand hizmetListesiSayi = new SQLiteCommand("Select Count(*) From HizmetListesi where firmaid='" + lblfirmano.Text + "' and subeid='" + lblsubeid.Text + "'", baglan);
+            int yukluHizmetList = int.Parse(hizmetListesiSayi.ExecuteScalar().ToString());
+            
+            SQLiteCommand BordroSayisi = new SQLiteCommand("Select Count(*) From FirmaBordro where FirmaNo='" + lblfirmano.Text + "' and SubeNo='" + lblsubeid.Text + "'", baglan);
+            int yukluBordroBilgisi = int.Parse(BordroSayisi.ExecuteScalar().ToString());
+            baglan.Close();
+
+            if (yukluHizmetList > 0)
+            {
+                lblYukluBordro.Text = "Bordro Listesi Yüklü \n '"+yukluBordroBilgisi+"' adet kayıt";
+            }
+
+            if (yukluHizmetList > 0)
+            {
+                lblHizmetListesi.Text = "Hizmet Listesi Yüklü \n '" + yukluHizmetList + "' adet kayıt";
+            }
+
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -353,10 +379,13 @@ namespace Bordrolama10
 
 
             intvd.Navigate().GoToUrl("https://ivd.gib.gov.tr");
+            
 
-            ////*[@id="gen__1057"]
-            intvd.FindElement(By.XPath("//*[@id='gen__1057']")).SendKeys(lblvdkullanici.Text.ToString());
-            intvd.FindElement(By.XPath("//*[@id='gen__1058']")).SendKeys(lblvdsifre.Text.ToString());
+
+            // intvd.FindElement(By.XPath("//*[@id='gen__1057']")).SendKeys(lblvdkullanici.Text.ToString());
+            intvd.FindElement(By.Id("gen__1057")).SendKeys(lblvdkullanici.Text.Trim());
+            //intvd.FindElement(By.XPath("//*[@id='gen__1058']")).SendKeys(lblvdsifre.Text.ToString());
+            intvd.FindElement(By.Id("gen__1058")).SendKeys(lblvdkullanici.Text.Trim());
             //intvd.FindElement(By.Id("gen__1063")).SendKeys(txtVdguvenlik.Text.ToString());
             //intvd.FindElement(By.Id("gen__1067")).Click();
 
@@ -408,15 +437,27 @@ namespace Bordrolama10
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (lblfirmano.Text!="-" && lblsubeid.Text!="-")
+            baglan.Open();
+            SQLiteCommand totalCountCommand = new SQLiteCommand("Select Count(*) From HizmetListesi where firmaid='" + lblfirmano.Text + "' and subeid='" + lblsubeid.Text + "'", baglan);
+            int totalCount = int.Parse(totalCountCommand.ExecuteScalar().ToString());
+            baglan.Close();
+
+
+            if (totalCount>0)
             {
-                BordroYukle bordro = new BordroYukle();
-                bordro.Show();
-                
+                if (lblfirmano.Text != "-" && lblsubeid.Text != "-")
+                {
+                    BordroYukle bordro = new BordroYukle();
+                    bordro.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen FİRMA ve ŞUBE seçimini yapınız");
+                }
             }
             else
             {
-                MessageBox.Show("Lütfen FİRMA ve ŞUBE seçimini yapınız");
+                MessageBox.Show("Önce e-Bildirge Menüsünden APHB lerini indiriniz");
             }
 
         }

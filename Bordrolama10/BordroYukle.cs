@@ -22,13 +22,15 @@ namespace Bordrolama10
         int currentRecord = 0;
         static int firmano = Convert.ToInt32(programreferans.firmaid);
         static int subeno = programreferans.subid;
+        string donem = "";
 
         public static int MyProperty { get; set; }
         public int MyProperty1 { get; set; }
 
+
         private void GetValues()
         {
-           // SQLiteConnection baglan1 = new SqlConnection(Baglanti.Baglan1);
+            // SQLiteConnection baglan1 = new SqlConnection(Baglanti.Baglan1);
             baglan.Open();
 
             SQLiteDataAdapter da = new SQLiteDataAdapter(command, baglan);
@@ -42,33 +44,43 @@ namespace Bordrolama10
             da.Fill(currentRecord, showPageRowCount, table);
             currentRecord += showPageRowCount;
 
+
+
             dataGridView1.DataSource = table;
 
             baglan.Close();
         }
 
-        public void bordrolarigoster()
+        //public void bordrolarigoster()
+        //{
+        //    //SQLiteDataAdapter da = new SQLiteDataAdapter(command, baglan);
+        //    //DataTable table = new DataTable();
+
+        //    //baglan.Open();
+        //    //SQLiteCommand totalCountCommand = new SQLiteCommand("Select Count(*) From FirmaBordro where FirmaNo='" + firmano + "' and SubeNo='" + subeno + "'", baglan);
+        //    //totalCount = int.Parse(totalCountCommand.ExecuteScalar().ToString());
+        //    //baglan.Close();
+        //    // command = bordro;
+        //    // GetValues();
+
+        //    //da.Fill(table);
+
+        //    SQLiteDataAdapter da = new SQLiteDataAdapter(donem, baglan);
+        //    DataSet ds = new DataSet();
+        //    da.Fill(ds);
+        //    dataGridView1.DataSource = ds.Tables[0];
+
+
+        //}
+
+        public void bordrolarigoster(string bordro)
         {
-           // SQLiteDataAdapter da = new SQLiteDataAdapter(command, baglan);
-           // DataTable table = new DataTable();
-            baglan.Open();
-            SQLiteCommand totalCountCommand = new SQLiteCommand("Select Count(*) From FirmaBordro", baglan);
-            totalCount = int.Parse(totalCountCommand.ExecuteScalar().ToString());
-            baglan.Close();
-           // command = bordro;
-            GetValues();
 
+            SQLiteDataAdapter da = new SQLiteDataAdapter(bordro, baglan);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            dataGridView1.DataSource = ds.Tables[0];
 
-            //da.Fill(table);
-            //dataGridView1.DataSource = table;
-        }
-
-        public void bordrolarigoster(string donem)
-        {            
-            SQLiteCommand totalCountCommand = new SQLiteCommand("Select Count(*) From FirmaBordro", baglan);
-            totalCount = int.Parse(totalCountCommand.ExecuteScalar().ToString());
-            baglan.Close();
-            GetValues();
         }
 
         public void donemlerigoster(string donem)
@@ -81,48 +93,64 @@ namespace Bordrolama10
 
         private void datagiritalanlariniduzenle()
         {
+            //dataGridView1.Columns["AylikBrutUcret"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["GunlukBrut"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["FmUcreti"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["AylikEkOd"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["ToplamKazanc"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["SgkMatrahi"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["SGkIsciPrim"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["IszlikIsciPrim"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["KumVergMatr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["GvMatrahi"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["GelirVergisi"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["Agi"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["VergiInd"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["DamgaMatrahi"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["DamgaVrg"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["SgkIsverenPrim"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["IssizlikIsvPrim"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["BesKesintisi"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["SairKesintiler"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns["AylikNetUcret"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            dataGridView1.Columns["AylikBrutUcret"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["GunlukBrut"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["FmUcreti"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["AylikEkOd"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["ToplamKazanc"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["SgkMatrahi"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["SGkIsciPrim"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["IszlikIsciPrim"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["KumVergMatr"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["GvMatrahi"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["GelirVergisi"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["Agi"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["VergiInd"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["DamgaMatrahi"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["DamgaVrg"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["SgkIsverenPrim"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["IssizlikIsvPrim"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["BesKesintisi"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["SairKesintiler"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["AylikNetUcret"].DefaultCellStyle.Format = "N2";
 
 
-            dataGridView1.Columns["AylikBrutUcret"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["AylikBrutUcret"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["GunlukBrut"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["GunlukBrut"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["FmUcreti"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["FmUcreti"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["AylikEkOd"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["AylikEkOd"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["ToplamKazanc"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["ToplamKazanc"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["SgkMatrahi"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["SgkMatrahi"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["SGkIsciPrim"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["SGkIsciPrim"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["IszlikIsciPrim"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["IszlikIsciPrim"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["KumVergMatr"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["KumVergMatr"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["GvMatrahi"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["GvMatrahi"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["GelirVergisi"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["GelirVergisi"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["Agi"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["Agi"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["VergiInd"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["VergiInd"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["DamgaMatrahi"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["DamgaMatrahi"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["DamgaVrg"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["DamgaVrg"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["SgkIsverenPrim"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["SgkIsverenPrim"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["IssizlikIsvPrim"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["IssizlikIsvPrim"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["BesKesintisi"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["BesKesintisi"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["SairKesintiler"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["SairKesintiler"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Columns["AylikNetUcret"].DefaultCellStyle.Format = "#,#.##";
-            dataGridView1.Columns["AylikNetUcret"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.Columns["bdrId"].Visible = false;
+            dataGridView1.Columns["BordroSira"].Visible = false;
+            dataGridView1.Columns["PuantajYil"].Visible = false;
+            dataGridView1.Columns["PuantajAy"].Visible = false;
+            dataGridView1.Columns["FirmaNo"].Visible = false;
+            dataGridView1.Columns["SubeNo"].Visible = false;
+            dataGridView1.Columns["PersId"].Visible = false;
+            dataGridView1.Columns["bdrId"].Visible = false;
+            dataGridView1.Columns["FirmaPersId"].Visible = false;
+            dataGridView1.Columns["Gv_Agi"].Visible = false;
+            dataGridView1.Columns["AsgUcrGv"].Visible = false;
+            dataGridView1.Columns["GunlukGv"].Visible = false;
+            dataGridView1.Columns["AsgUcrDv"].Visible = false;
+            dataGridView1.Columns["TerkinGv"].Visible = false;
+            dataGridView1.Columns["TerkinDv"].Visible = false;
 
         }
         SQLiteConnection baglan = new SQLiteConnection(Baglanti.Baglan);
@@ -153,8 +181,6 @@ namespace Bordrolama10
                     comboBox1.Items.Add(oSheet.Name);
                 }
                 oXL.Quit();
-
-
             }
 
         }
@@ -222,10 +248,6 @@ namespace Bordrolama10
             }
             else
             {
-
-                pictureBox1.Visible = true;
-
-
                 List<DataColumn> dataColumns = new List<DataColumn>();
                 if (dataColumns.Count > 0)
                 {
@@ -263,15 +285,7 @@ namespace Bordrolama10
 
                             MessageBox.Show("Eksik veya Hatalı alanları düzelttikten sonra tekrar deneyiniz.");
                         }
-
-
-
-
                     }
-
-
-
-
                 }
             }
 
@@ -452,18 +466,31 @@ namespace Bordrolama10
             //int subeno = programreferans.subid;
 
 
-            load = true;
-            bordrolarigoster();
-            donemlerigoster("SELECT PuantajDonem as Donem, count(PersId) as Per_Sayi From FirmaBordro Where FirmaNo = '" + programreferans.firmaid + "' and SubeNo ='" + programreferans.subid + "' GROUP by Donem");
 
-            txtTotalPage.Text = Math.Round(double.Parse(totalCount.ToString()) / double.Parse(txtShowRowCount.Text), MidpointRounding.AwayFromZero).ToString();
+            //load = true;
 
-            if (totalCount > 0)
-            {
-                txtCurrentRow.Text = "1";
-                txtTotalRow.Text = totalCount.ToString();
-            }
-            //  datagiritalanlariniduzenle();
+            //donemlerigoster("SELECT PuantajDonem as Donem, count(PersId) as Per_Sayi From FirmaBordro Where FirmaNo = '" + programreferans.firmaid + "' and SubeNo ='" + programreferans.subid + "' GROUP by Donem");
+            //if (dataGridView2.Rows.Count>0)
+            //{
+            //    var secim = dataGridView2.SelectedCells[0].RowIndex;
+            //    donem = dataGridView2.Rows[secim].Cells[0].Value.ToString();
+            //}
+            //else
+            //{
+            //    donem = "";
+            //}
+
+
+            //bordrolarigoster("Select * From FirmaBordro where FirmaNo='" + programreferans.firmaid + "' and SubeNo='" + programreferans.subid + "' and PuantajDonem='" + donem + "'");
+            //datagiritalanlariniduzenle();
+            //    txtTotalPage.Text = Math.Round(double.Parse(totalCount.ToString()) / double.Parse(txtShowRowCount.Text), MidpointRounding.AwayFromZero).ToString();
+
+            //    if (totalCount > 0)
+            //    {
+            //        txtCurrentRow.Text = "1";
+            //        txtTotalRow.Text = totalCount.ToString();
+            //    }
+            //    //  datagiritalanlariniduzenle();
         }
 
         //private void btnKaydet_Click(object sender, EventArgs e)
@@ -574,11 +601,11 @@ namespace Bordrolama10
                     }
                     if (gv > (asUcrGvGun * Convert.ToInt32(primgun)) && gv > agi)
                     {
-                        gvTerkin = decimal.Round((asUcrGvGun * Convert.ToInt32(primgun)) - agi,2);
+                        gvTerkin = decimal.Round((asUcrGvGun * Convert.ToInt32(primgun)) - agi, 2);
                     }
                     if (gv < (asUcrGvGun * Convert.ToInt32(primgun)) && gv > agi)
                     {
-                        gvTerkin = decimal.Round((gv - agi),2);
+                        gvTerkin = decimal.Round((gv - agi), 2);
                     }
 
                     if (dv == 0)
@@ -587,11 +614,11 @@ namespace Bordrolama10
                     }
                     if (dv > (asUcrDvGun * Convert.ToInt32(primgun)))
                     {
-                        dvTerkin = decimal.Round((asUcrDvGun * Convert.ToInt32(primgun)),2);
+                        dvTerkin = decimal.Round((asUcrDvGun * Convert.ToInt32(primgun)), 2);
                     }
                     if (dv < (asUcrDvGun * Convert.ToInt32(primgun)))
                     {
-                        dvTerkin = decimal.Round((dv),2);
+                        dvTerkin = decimal.Round((dv), 2);
                     }
                 }
                 else
@@ -665,7 +692,7 @@ namespace Bordrolama10
 
             donemlerigoster("SELECT PuantajDonem as Donem, count(PersId) as Per_Sayi From FirmaBordro Where FirmaNo = '" + programreferans.firmaid + "' and SubeNo ='" + programreferans.subid + "' GROUP by Donem");
             //datagiritalanlariniduzenle();
-            pictureBox1.Visible = false;
+
             IslemDurumu.islemdurumu = "Tamamlandı";
         }
 
@@ -711,17 +738,27 @@ namespace Bordrolama10
 
         private void dataGridView2_Click(object sender, EventArgs e)
         {
+
             int secim = dataGridView2.SelectedCells[0].RowIndex;
-            var donem = dataGridView2.Rows[secim].Cells[0].Value.ToString();
+            donem = dataGridView2.Rows[secim].Cells[0].Value.ToString();
+
             command = "Select * From FirmaBordro where FirmaNo = '" + programreferans.firmaid + "' and SubeNo ='" + programreferans.subid + "' and PuantajDonem = '" + donem + "'";
+
+
+            baglan.Open();
+            SQLiteCommand totalCountCommand = new SQLiteCommand("Select Count(*) From FirmaBordro where FirmaNo='" + programreferans.firmaid + "' and SubeNo='" + programreferans.subid + "'and PuantajDonem = '" + donem + "'", baglan);
+            totalCount = int.Parse(totalCountCommand.ExecuteScalar().ToString());
+            baglan.Close();
+
 
             bordrolarigoster(command);
             datagiritalanlariniduzenle();
+            // GetValues();
         }
 
         private void btnfiltrekaldir_Click(object sender, EventArgs e)
         {
-            bordrolarigoster();
+            bordrolarigoster("Select * From FirmaBordro where FirmaNo='" + programreferans.firmaid + "' and SubeNo='" + programreferans.subid + "' and PuantajDonem='" + donem + "'");
             // datagiritalanlariniduzenle();
         }
 
@@ -847,22 +884,31 @@ namespace Bordrolama10
             }
         }
 
-        private void btnNextPage_Click(object sender, EventArgs e)
-        {
-            var pageNo = int.Parse(txtCurrentPage.Text);
-            txtCurrentPage.Text = (pageNo += 1).ToString();
+        //private void btnNextPage_Click(object sender, EventArgs e)
+        //{
+        //    if (txtCurrentPage.Text==txtTotalPage.Text)
+        //    {
+        //        MessageBox.Show("Zaten Son Sayfadasınız... ");
+        //    }
+        //    else
+        //    {
+        //        var pageNo = int.Parse(txtCurrentPage.Text);
+        //        txtCurrentPage.Text = (pageNo += 1).ToString();
 
-            GetValues();
-        }
+        //        GetValues();
+        //    }
 
-        private void btnLastPage_Click(object sender, EventArgs e)
-        {
-            txtCurrentPage.Text = txtTotalPage.Text;
+        //}
 
-            int showPageRowCount = int.Parse(txtShowRowCount.Text);
-            currentRecord = (int.Parse(txtCurrentPage.Text) - 1) * showPageRowCount;
-            GetValues();
-        }
+        //private void btnLastPage_Click(object sender, EventArgs e)
+        //{
+
+        //    txtCurrentPage.Text = txtTotalPage.Text;
+
+        //    int showPageRowCount = int.Parse(txtShowRowCount.Text);
+        //    currentRecord = (int.Parse(txtCurrentPage.Text) - 1) * showPageRowCount;
+        //    GetValues();
+        //}
 
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -875,5 +921,50 @@ namespace Bordrolama10
         {
             dataGridView1.Rows[e.RowIndex].Cells["IsChanged"].Value = true;
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            donemlerigoster("SELECT PuantajDonem as Donem, count(PersId) as Per_Sayi From FirmaBordro Where FirmaNo = '" + programreferans.firmaid + "' and SubeNo ='" + programreferans.subid + "' GROUP by Donem");
+            if (dataGridView2.Rows.Count > 0)
+            {
+                var secim = dataGridView2.SelectedCells[0].RowIndex;
+                donem = dataGridView2.Rows[secim].Cells[0].Value.ToString();
+            }
+            else
+            {
+                donem = "";
+            }
+
+
+            bordrolarigoster("Select * From FirmaBordro where FirmaNo='" + programreferans.firmaid + "' and SubeNo='" + programreferans.subid + "' and PuantajDonem='" + donem + "'");
+            datagiritalanlariniduzenle();
+        }
+
+        //private void btnPreviousPage_Click(object sender, EventArgs e)
+        //{
+
+        //    if (txtCurrentPage.Text=="1")
+        //    {
+        //        MessageBox.Show("Zaten İlk Sayfadasınız... ");
+        //    }
+        //    else
+        //    {
+        //        var pageNo = int.Parse(txtCurrentPage.Text);
+        //        txtCurrentPage.Text = (pageNo -= 1).ToString();
+
+        //        GetValues();
+        //    }
+
+        //}
+
+        //private void btnFirstPage_Click(object sender, EventArgs e)
+        //{
+
+        //    txtCurrentPage.Text = "1";
+
+        //    int showPageRowCount = int.Parse(txtShowRowCount.Text);
+        //    currentRecord = (int.Parse(txtCurrentPage.Text)+1) * showPageRowCount;
+        //    GetValues();
+        //}
     }
 }

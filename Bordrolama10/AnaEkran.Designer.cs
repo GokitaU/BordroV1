@@ -41,6 +41,8 @@ namespace Bordrolama10
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -157,6 +159,8 @@ namespace Bordrolama10
             // 
             this.panel3.BackColor = System.Drawing.Color.PapayaWhip;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
@@ -193,6 +197,26 @@ namespace Bordrolama10
             this.label3.TabIndex = 2;
             this.label3.Text = "Şubesi Yoksa bile firmanın Kendisi Şube Gibi Ekelenecektir";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(60, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 14);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "FİRMA KAYIT";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.Location = new System.Drawing.Point(60, 65);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(108, 14);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "ŞUBE İŞLEMLERİ";
+            // 
             // AnaEkran
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,5 +250,7 @@ namespace Bordrolama10
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
     }
 }
