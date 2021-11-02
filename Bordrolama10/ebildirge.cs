@@ -374,6 +374,12 @@ namespace Bordrolama10
             ReadPdf pdfOku = new ReadPdf();
             pdfOku.DosyaOkumayaBasla();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Tahmin tahmin = new Tahmin();
+            tahmin.Show();
+        }
     }
 
 }

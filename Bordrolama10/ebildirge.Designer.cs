@@ -29,7 +29,7 @@ namespace Bordrolama10
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,6 +65,12 @@ namespace Bordrolama10
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tb6sgkisyeribilgi.SuspendLayout();
@@ -153,10 +159,10 @@ namespace Bordrolama10
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.pictureBox1.Location = new System.Drawing.Point(605, 42);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(212, 36);
+            this.pictureBox1.Size = new System.Drawing.Size(212, 41);
             this.pictureBox1.TabIndex = 40;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -164,6 +170,7 @@ namespace Bordrolama10
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(15, 42);
@@ -251,16 +258,17 @@ namespace Bordrolama10
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView2.Location = new System.Drawing.Point(7, 32);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 25;
@@ -292,7 +300,7 @@ namespace Bordrolama10
             this.btnthkkal.ForeColor = System.Drawing.Color.Black;
             this.btnthkkal.Location = new System.Drawing.Point(427, 5);
             this.btnthkkal.Name = "btnthkkal";
-            this.btnthkkal.Size = new System.Drawing.Size(117, 23);
+            this.btnthkkal.Size = new System.Drawing.Size(195, 23);
             this.btnthkkal.TabIndex = 42;
             this.btnthkkal.Text = "TAHAKUKLARI AL";
             this.btnthkkal.UseVisualStyleBackColor = false;
@@ -311,6 +319,8 @@ namespace Bordrolama10
             // 
             // dataGridView3
             // 
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Location = new System.Drawing.Point(7, 5);
             this.dataGridView3.Name = "dataGridView3";
@@ -361,56 +371,61 @@ namespace Bordrolama10
             // lblsgkkullanici
             // 
             this.lblsgkkullanici.AutoSize = true;
-            this.lblsgkkullanici.Location = new System.Drawing.Point(873, 49);
+            this.lblsgkkullanici.Location = new System.Drawing.Point(506, 3);
             this.lblsgkkullanici.Name = "lblsgkkullanici";
             this.lblsgkkullanici.Size = new System.Drawing.Size(72, 13);
             this.lblsgkkullanici.TabIndex = 35;
             this.lblsgkkullanici.Text = "lblsgkkullanici";
+            this.lblsgkkullanici.Visible = false;
             // 
             // lblek
             // 
             this.lblek.AutoSize = true;
-            this.lblek.Location = new System.Drawing.Point(873, 62);
+            this.lblek.Location = new System.Drawing.Point(506, 16);
             this.lblek.Name = "lblek";
             this.lblek.Size = new System.Drawing.Size(29, 13);
             this.lblek.TabIndex = 36;
             this.lblek.Text = "lblek";
+            this.lblek.Visible = false;
             // 
             // lblsistemsif
             // 
             this.lblsistemsif.AutoSize = true;
-            this.lblsistemsif.Location = new System.Drawing.Point(873, 75);
+            this.lblsistemsif.Location = new System.Drawing.Point(506, 29);
             this.lblsistemsif.Name = "lblsistemsif";
             this.lblsistemsif.Size = new System.Drawing.Size(56, 13);
             this.lblsistemsif.TabIndex = 37;
             this.lblsistemsif.Text = "lblsistemsif";
+            this.lblsistemsif.Visible = false;
             // 
             // lblisyerisif
             // 
             this.lblisyerisif.AutoSize = true;
-            this.lblisyerisif.Location = new System.Drawing.Point(873, 88);
+            this.lblisyerisif.Location = new System.Drawing.Point(584, 3);
             this.lblisyerisif.Name = "lblisyerisif";
             this.lblisyerisif.Size = new System.Drawing.Size(50, 13);
             this.lblisyerisif.TabIndex = 38;
             this.lblisyerisif.Text = "lblisyerisif";
+            this.lblisyerisif.Visible = false;
             // 
             // lblsubeid
             // 
             this.lblsubeid.AutoSize = true;
-            this.lblsubeid.Location = new System.Drawing.Point(873, 101);
+            this.lblsubeid.Location = new System.Drawing.Point(584, 16);
             this.lblsubeid.Name = "lblsubeid";
             this.lblsubeid.Size = new System.Drawing.Size(38, 13);
             this.lblsubeid.TabIndex = 39;
             this.lblsubeid.Text = "subeid";
+            this.lblsubeid.Visible = false;
             // 
             // txtebldv2guvenlik
             // 
             this.txtebldv2guvenlik.BackColor = System.Drawing.Color.White;
             this.txtebldv2guvenlik.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtebldv2guvenlik.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F);
-            this.txtebldv2guvenlik.Location = new System.Drawing.Point(605, 81);
+            this.txtebldv2guvenlik.Location = new System.Drawing.Point(606, 87);
             this.txtebldv2guvenlik.Name = "txtebldv2guvenlik";
-            this.txtebldv2guvenlik.Size = new System.Drawing.Size(84, 25);
+            this.txtebldv2guvenlik.Size = new System.Drawing.Size(121, 25);
             this.txtebldv2guvenlik.TabIndex = 41;
             // 
             // panel1
@@ -423,8 +438,13 @@ namespace Bordrolama10
             this.panel1.Controls.Add(this.lbltelefon);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.lblsubeid);
             this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.lblisyerisif);
             this.panel1.Controls.Add(this.lblyetkiliadsoyad);
+            this.panel1.Controls.Add(this.lblsistemsif);
+            this.panel1.Controls.Add(this.lblsgkkullanici);
+            this.panel1.Controls.Add(this.lblek);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -449,9 +469,9 @@ namespace Bordrolama10
             this.button1.BackColor = System.Drawing.Color.Gainsboro;
             this.button1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(694, 81);
+            this.button1.Location = new System.Drawing.Point(606, 115);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 24);
+            this.button1.Size = new System.Drawing.Size(211, 24);
             this.button1.TabIndex = 48;
             this.button1.Text = "v2 SİSTEME GİRİŞ";
             this.button1.UseVisualStyleBackColor = false;
@@ -462,13 +482,72 @@ namespace Bordrolama10
             this.button3.BackColor = System.Drawing.Color.Gainsboro;
             this.button3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(694, 125);
+            this.button3.Location = new System.Drawing.Point(1001, 170);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(123, 24);
+            this.button3.Size = new System.Drawing.Size(146, 24);
             this.button3.TabIndex = 49;
             this.button3.Text = "pdfoku";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(823, 42);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(148, 13);
+            this.label7.TabIndex = 52;
+            this.label7.Text = "<= 1- Soldaki Alana Tıklayınız ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(733, 92);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(228, 13);
+            this.label8.TabIndex = 53;
+            this.label8.Text = "<=2- Soldaki Alana Güvenlik Sözcüğnü Yazınız";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(823, 121);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(131, 13);
+            this.label9.TabIndex = 54;
+            this.label9.Text = "<= 3- Sisteme Giriş Yapınız";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(609, 145);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(295, 13);
+            this.label10.TabIndex = 55;
+            this.label10.Text = "4-Giriş Yapıldıktan Sonra indirmek istediğiniz dönemleri seçiniz";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(609, 159);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(165, 13);
+            this.label11.TabIndex = 56;
+            this.label11.Text = "5-Tahakkukları Al Tuşuna Bazınız";
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Gainsboro;
+            this.button4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button4.ForeColor = System.Drawing.Color.Black;
+            this.button4.Location = new System.Drawing.Point(1001, 43);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(146, 47);
+            this.button4.TabIndex = 57;
+            this.button4.Text = "Gv Teşvik İçin Tahini Rapor";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // ebildirge
             // 
@@ -476,17 +555,18 @@ namespace Bordrolama10
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PapayaWhip;
             this.ClientSize = new System.Drawing.Size(1157, 596);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtebldv2guvenlik);
-            this.Controls.Add(this.lblsubeid);
-            this.Controls.Add(this.lblisyerisif);
-            this.Controls.Add(this.lblsistemsif);
-            this.Controls.Add(this.lblek);
-            this.Controls.Add(this.lblsgkkullanici);
             this.Controls.Add(this.tb6sgkisyeribilgi);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ebildirge";
@@ -544,5 +624,11 @@ namespace Bordrolama10
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button4;
     }
 }

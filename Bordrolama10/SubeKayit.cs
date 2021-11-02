@@ -377,19 +377,11 @@ namespace Bordrolama10
             chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
             var intvd = new ChromeDriver(driverPath, chromeOptions);
 
-
             intvd.Navigate().GoToUrl("https://ivd.gib.gov.tr");
-            
 
-
-            // intvd.FindElement(By.XPath("//*[@id='gen__1057']")).SendKeys(lblvdkullanici.Text.ToString());
+            intvd.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             intvd.FindElement(By.Id("gen__1057")).SendKeys(lblvdkullanici.Text.Trim());
-            //intvd.FindElement(By.XPath("//*[@id='gen__1058']")).SendKeys(lblvdsifre.Text.ToString());
-            intvd.FindElement(By.Id("gen__1058")).SendKeys(lblvdkullanici.Text.Trim());
-            //intvd.FindElement(By.Id("gen__1063")).SendKeys(txtVdguvenlik.Text.ToString());
-            //intvd.FindElement(By.Id("gen__1067")).Click();
-
-
+            intvd.FindElement(By.Id("gen__1058")).SendKeys(lblvdsifre.Text.Trim());
         }
 
         private void btnBilgiAl_Click(object sender, EventArgs e)
@@ -418,6 +410,7 @@ namespace Bordrolama10
 
         private void btnebeyanname_Click(object sender, EventArgs e)
         {
+
             var driverPath = Application.StartupPath;
             var chromeOptions = new ChromeOptions();
             chromeOptions.AddUserProfilePreference("intl.accept_languages", "tr");
@@ -426,7 +419,7 @@ namespace Bordrolama10
 
 
             ebeyn.Navigate().GoToUrl("https://ebeyanname.gib.gov.tr/giris.html");
-
+            ebeyn.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             //*[@id="buton"]
             ebeyn.FindElement(By.XPath("//*[@id='buton']")).Click();
             ebeyn.SwitchTo().Window(ebeyn.WindowHandles.Last());
