@@ -164,17 +164,17 @@ namespace PdfOku
                             sqlCommand.Parameters.AddWithValue("@trkMatrh", auterkmatrahi);
                             if (((asUcrGvTut / 30) * Convert.ToInt32(gun)) >= asUcrGvTut)
                             {
-                                sqlCommand.Parameters.AddWithValue("@gvterkin", Convert.ToDouble(gvterkinmax));
+                                sqlCommand.Parameters.AddWithValue("@gvterkin", Math.Round(Convert.ToDouble(gvterkinmax),2));
                             }
                             else if (((asUcrGvTut / 30) * Convert.ToInt32(gun) >= minAgitutari && (asUcrGvTut / 30) * Convert.ToInt32(gun) < asUcrGvTut))
                             {
-                                sqlCommand.Parameters.AddWithValue("@gvterkin", Convert.ToDouble(auterkmatrahi - minAgitutari));
+                                sqlCommand.Parameters.AddWithValue("@gvterkin", Math.Round(Convert.ToDouble(auterkmatrahi - minAgitutari),2));
                             }
                             else
                             {
                                 sqlCommand.Parameters.AddWithValue("@gvterkin", 0);
                             }
-                            sqlCommand.Parameters.AddWithValue("@dvterkin", Convert.ToDouble(dvterkin));
+                            sqlCommand.Parameters.AddWithValue("@dvterkin", Math.Round(Convert.ToDouble((dvterkin/30)*gun),2));
                         }
 
                     }

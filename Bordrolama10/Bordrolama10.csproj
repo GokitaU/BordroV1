@@ -139,6 +139,12 @@
     <Compile Include="AnaEkran.Designer.cs">
       <DependentUpon>AnaEkran.cs</DependentUpon>
     </Compile>
+    <Compile Include="APHB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="APHB.Designer.cs">
+      <DependentUpon>APHB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Baglanti.cs" />
     <Compile Include="BordroYukle.cs">
       <SubType>Form</SubType>
@@ -235,8 +241,18 @@
     <Compile Include="Tahmin.Designer.cs">
       <DependentUpon>Tahmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="TeknoParkBordro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeknoParkBordro.Designer.cs">
+      <DependentUpon>TeknoParkBordro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcretKesintiler.cs" />
     <EmbeddedResource Include="AnaEkran.resx">
       <DependentUpon>AnaEkran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APHB.resx">
+      <DependentUpon>APHB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BordroYukle.resx">
       <DependentUpon>BordroYukle.cs</DependentUpon>
@@ -289,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Tahmin.resx">
       <DependentUpon>Tahmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeknoParkBordro.resx">
+      <DependentUpon>TeknoParkBordro.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

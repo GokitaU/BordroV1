@@ -216,8 +216,16 @@ namespace Bordrolama10
         }
         private void yuklubordro()
         {
+            if (dataGridView2.Rows.Count>0)
+            {
+                donem = dataGridView2.Rows[0].Cells[0].Value.ToString();
+            }
+            else
+            {
+                donem = "'%'";
+            }
             baglan.Open();
-            using (SQLiteCommand sorgu = new SQLiteCommand("Select * From FirmaBordro where FirmaNo = '" + programreferans.firmaid + "' and SubeNo='" + programreferans.subid + "'", baglan))
+            using (SQLiteCommand sorgu = new SQLiteCommand("Select * From FirmaBordro where FirmaNo = '" + programreferans.firmaid + "' and SubeNo='" + programreferans.subid + "' and PuantajDonem = '"+donem+"'", baglan))
             {
                 SQLiteDataAdapter da = new SQLiteDataAdapter();
                 da.SelectCommand = sorgu;
@@ -570,7 +578,7 @@ namespace Bordrolama10
                 var sairkes = dataGridView1.Rows[i].Cells["SairKesintiler"].Value != DBNull.Value ? Convert.ToDecimal(dataGridView1.Rows[i].Cells["SairKesintiler"].Value) : 0;
                 var ayliknet = dataGridView1.Rows[i].Cells["AylikNetUcret"].Value != DBNull.Value ? Convert.ToDecimal(dataGridView1.Rows[i].Cells["AylikNetUcret"].Value) : 0;
 
-                var tesviklipersonel = tesvikliHizmetListesi.Select("firmPersid='" + firmPersid + "' and (Kanun_No='00687' or Kanun_No='01687' or Kanun_No='17103' or Kanun_No='027103' or Kanun_No like '%5746')", "Kanun_No");
+                var tesviklipersonel = tesvikliHizmetListesi.Select("firmPersid='" + firmPersid + "' and (Kanun_No='00687' or Kanun_No='01687' or Kanun_No='17103' or Kanun_No='027103')", "Kanun_No");
                 string kanunno = "";
                 decimal asUcrGv = 0;
                 decimal asUcrDv = 0;

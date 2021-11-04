@@ -121,7 +121,7 @@ namespace Bordrolama10
             // 
             this.btnOku.BackColor = System.Drawing.Color.Gainsboro;
             this.btnOku.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnOku.Location = new System.Drawing.Point(1563, 32);
+            this.btnOku.Location = new System.Drawing.Point(978, 32);
             this.btnOku.Name = "btnOku";
             this.btnOku.Size = new System.Drawing.Size(107, 23);
             this.btnOku.TabIndex = 3;
@@ -233,7 +233,7 @@ namespace Bordrolama10
             // 
             this.btnSil.BackColor = System.Drawing.Color.Gainsboro;
             this.btnSil.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSil.Location = new System.Drawing.Point(1563, 58);
+            this.btnSil.Location = new System.Drawing.Point(978, 61);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(107, 23);
             this.btnSil.TabIndex = 19;
@@ -444,7 +444,7 @@ namespace Bordrolama10
             // 
             this.button1.BackColor = System.Drawing.Color.Gainsboro;
             this.button1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(506, 9);
+            this.button1.Location = new System.Drawing.Point(532, 39);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(122, 53);
             this.button1.TabIndex = 42;

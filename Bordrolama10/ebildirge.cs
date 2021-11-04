@@ -38,6 +38,13 @@ namespace Bordrolama10
             daa.Fill(dss);
             dataGridView2.DataSource = dss.Tables[0];
         }
+        public void donemlerigoster(string donem)
+        {
+            SQLiteDataAdapter daa = new SQLiteDataAdapter(donem, baglan);
+            DataSet ds = new DataSet();
+            daa.Fill(ds);
+            dataGridView4.DataSource = ds.Tables[0];
+        }
         public void hizmetlistesinigoster(string hizmetlistesi)
         {
             SQLiteDataAdapter da = new SQLiteDataAdapter(hizmetlistesi, baglan);
@@ -124,6 +131,7 @@ namespace Bordrolama10
 
         private void dataGridView1_Click(object sender, EventArgs e)
         {
+            int firmaid = Convert.ToInt32(lblfirmano.Text);
             int secim = dataGridView1.SelectedCells[0].RowIndex;
             string subeid = dataGridView1.Rows[secim].Cells[0].Value.ToString().Trim();
             string sgkkullanici = dataGridView1.Rows[secim].Cells[3].Value.ToString().Trim();
@@ -147,7 +155,18 @@ namespace Bordrolama10
             else
             {
 
-                hizmetlistesinigoster("select Year as YIL,Month as AY, SgkNo as TCNO,Ad,Soyad,IlkSoyad,Ucret,Ikramiye,Gun,UCG,Eksik_Gun as Egun,GGun,CGun,Egs,Icn,Meslek_Kodu as MSLK_KOD,Kanun_No as Kanun,Belge_Cesidi as BÇşd, Belge_Turu as BTuru,Mahiyet from HizmetListesi Where subeid=" + subeid + "");
+                donemlerigoster("select Donem, count(subeid) as Calisan From HizmetListesi Where firmaid = " + firmaid + " and subeid=" + subeid + " Group by Donem ");
+                string donem;
+                if (dataGridView4.Rows.Count>0)
+                {
+                    donem = dataGridView4.Rows[0].Cells[0].Value.ToString();
+                }
+                else
+                {
+                    donem = "'%'";
+                }
+                
+                hizmetlistesinigoster("select Year as YIL,Month as AY, SgkNo as TCNO,Ad,Soyad,IlkSoyad,Ucret,Ikramiye,Gun,UCG,Eksik_Gun as Egun,GGun,CGun,Egs,Icn,Meslek_Kodu as MSLK_KOD,Kanun_No as Kanun,Belge_Cesidi as BÇşd, Belge_Turu as BTuru,Mahiyet from HizmetListesi Where firmaid = " + firmaid + " and subeid=" + subeid + " and Donem = '" + donem + "'");
             }
 
         }
@@ -174,11 +193,20 @@ namespace Bordrolama10
         {
 
             FileInfo fileinfo;
-            var pdfPath = Application.StartupPath + "Pdf\\";
+            var pdfPath = Application.StartupPath + "\\Pdf";
+
+           // var driverPath = Application.StartupPath;
+            //var chromeOptions = new ChromeOptions();
+
+            //chromeOptions.AddUserProfilePreference("download.default_directory", pdfPath);
+            //chromeOptions.AddUserProfilePreference("intl.accept_languages", "tr");
+            //chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
+            //driver. ChromeDriver(driverPath, chromeOptions);
+
             foreach (string item in Directory.GetFiles(pdfPath))
             {
                 fileinfo = new FileInfo(item);
-                if (fileinfo.Extension == ".pdf")
+                if (fileinfo.Extension == "pdf")
                 {
                     fileinfo.Delete();
                 }
@@ -189,19 +217,21 @@ namespace Bordrolama10
 
 
 
+
             var tahakkukadet = driver.FindElements(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr")).Count;
 
             //ilk önce veri tabanındaki ilgili şubeye kayıtlı olan daha önce indirilmiş tahakkuk bilgileri siliniyor
             baglan.Open();
+            int firmaid = Convert.ToInt32(lblfirmano.Text);
             int subeid = Convert.ToInt32(lblsubeid.Text);
-            SQLiteCommand thklarisil = new SQLiteCommand("delete from ilktahakkukbilgi where subeid='" + subeid + "' ", baglan);
+            SQLiteCommand thklarisil = new SQLiteCommand("delete from ilktahakkukbilgi where firmaid = '" + firmaid + "' and subeid='" + subeid + "'", baglan);
             thklarisil.ExecuteNonQuery();
             baglan.Close();
             //tahakkuk bilgi datagirtview dolduruluyor 
-            tahakkuklarigoster("select * from ilktahakkukbilgi where subeid='" + subeid + "'");
+            tahakkuklarigoster("select * from ilktahakkukbilgi where firmaid = '" + firmaid + "' and subeid='" + subeid + "'");
 
             //indirilen tahakkuklar için data set oluşturuloyr
-            SQLiteCommand hizmetlistesinisil = new SQLiteCommand("delete from HizmetListesi where subeid='" + subeid + "' ", baglan);
+            SQLiteCommand hizmetlistesinisil = new SQLiteCommand("delete from HizmetListesi Where firmaid = " + firmaid + " and subeid=" + subeid + "", baglan);
 
 
             baglan.Open();
@@ -264,7 +294,7 @@ namespace Bordrolama10
                 progressBar1.Value = i;
             }
 
-            tahakkuklarigoster("select id as ID, firmaid, subeid, thkkukdonem as DONEM, hzmtdonem as HZDONEM, blgtur as TÜR, bmahiyet as MAHİYET,bkanun as KANUN, bcalisan as ÇLŞN, bgun as GÜN, spek as SPEK, pdfindurm as İŞLEM FROM ilktahakkukbilgi");
+            tahakkuklarigoster("select id as ID, firmaid, subeid, thkkukdonem as DONEM, hzmtdonem as HZDONEM, blgtur as TÜR, bmahiyet as MAHİYET,bkanun as KANUN, bcalisan as ÇLŞN, bgun as GÜN, spek as SPEK, pdfindurm as İŞLEM FROM ilktahakkukbilgi where firmaid = '"+firmaid+ "' and subeid='"+subeid+"'");
 
 
             // HİZMET LİSTELERİ AÇILIYOR
@@ -277,8 +307,17 @@ namespace Bordrolama10
             ReadPdf pdfOku = new ReadPdf();
             pdfOku.DosyaOkumayaBasla();
 
-
-            hizmetlistesinigoster("select Year as YIL,Month as AY, SgkNo as TCNO,Ad,Soyad,IlkSoyad,Ucret,Ikramiye,Gun,UCG,Eksik_Gun as Egun,GGun,CGun,Egs,Icn,Meslek_Kodu as MSLK_KOD,Kanun_No as Kanun,Belge_Cesidi as BÇşd, Belge_Turu as BTuru,Mahiyet from HizmetListesi Where subeid=" + subeid + "");
+            donemlerigoster("select Donem, count(subeid) as Calisan From HizmetListesi Where firmaid = " + firmaid + " and subeid=" + subeid + " Group by Donem ");
+            string donem;
+            if (dataGridView4.Rows.Count > 0)
+            {
+                donem = dataGridView4.Rows[0].Cells[0].Value.ToString();
+            }
+            else
+            {
+                donem = "'%'";
+            }
+            hizmetlistesinigoster("select Year as YIL,Month as AY, SgkNo as TCNO,Ad,Soyad,IlkSoyad,Ucret,Ikramiye,Gun,UCG,Eksik_Gun as Egun,GGun,CGun,Egs,Icn,Meslek_Kodu as MSLK_KOD,Kanun_No as Kanun,Belge_Cesidi as BÇşd, Belge_Turu as BTuru,Mahiyet from HizmetListesi Where firmaid = "+firmaid+" and subeid=" + subeid + " and Donem = '"+donem+"'");
             baglan.Close();
 
         }
@@ -295,7 +334,18 @@ namespace Bordrolama10
             else
             {
                 int subeid = Convert.ToInt32(lblsubeid.Text.ToString());
-                hizmetlistesinigoster("select Year as YIL,Month as AY, SgkNo as TCNO,Ad,Soyad,IlkSoyad,Ucret,Ikramiye,Gun,UCG,Eksik_Gun as Egun,GGun,CGun,Egs,Icn,Meslek_Kodu as MSLK_KOD,Kanun_No as Kanun,Belge_Cesidi as BÇşd, Belge_Turu as BTuru,Mahiyet from HizmetListesi Where subeid=" + subeid + "");
+                int firmaid = Convert.ToInt32(lblfirmano.Text.ToString());
+                donemlerigoster("select Donem, count(subeid) as Calisan From HizmetListesi Where firmaid = " + firmaid + " and subeid=" + subeid + " Group by Donem ");
+                string donem;
+                if (dataGridView4.Rows.Count > 0)
+                {
+                    donem = dataGridView4.Rows[0].Cells[0].Value.ToString();
+                }
+                else
+                {
+                    donem = "'%'";
+                }
+                hizmetlistesinigoster("select Year as YIL,Month as AY, SgkNo as TCNO,Ad,Soyad,IlkSoyad,Ucret,Ikramiye,Gun,UCG,Eksik_Gun as Egun,GGun,CGun,Egs,Icn,Meslek_Kodu as MSLK_KOD,Kanun_No as Kanun,Belge_Cesidi as BÇşd, Belge_Turu as BTuru,Mahiyet from HizmetListesi Where firmaid = " + firmaid + " and subeid=" + subeid + " and Donem = '" + donem + "'");
             }
 
         }
@@ -307,7 +357,7 @@ namespace Bordrolama10
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var pdfPath = Application.StartupPath + "Pdf\\";
+            var pdfPath = Application.StartupPath + "\\Pdf";
             var driverPath = Application.StartupPath;
             var chromeOptions = new ChromeOptions();
 
@@ -342,7 +392,7 @@ namespace Bordrolama10
                 IlkDonemList.Add(new SgkDonemler { DisplayMember = tahakkukDonem.Text.ToString().Trim(), ValueMember = i - 1 });
                 SonDonemList.Add(new SgkDonemler { DisplayMember = tahakkukDonem.Text.ToString().Trim(), ValueMember = i - 1 });
             }
-            //2019/01
+           
 
             cmbilk.DataSource = IlkDonemList;
             cmbilk.DisplayMember = "DisplayMember";
@@ -360,7 +410,10 @@ namespace Bordrolama10
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
-            tahakkuklarigoster("select id as ID, firmaid, subeid, thkkukdonem as DONEM, hzmtdonem as HZDONEM, blgtur as TÜR, bmahiyet as MAHİYET,bkanun as KANUN, bcalisan as ÇLŞN, bgun as GÜN, spek as SPEK, pdfindurm as İŞLEM FROM ilktahakkukbilgi");
+            int subeid = Convert.ToInt32(lblsubeid.Text.ToString());
+            int firmaid = Convert.ToInt32(lblfirmano.Text.ToString());
+            
+            tahakkuklarigoster("select id as ID, firmaid, subeid, thkkukdonem as DONEM, hzmtdonem as HZDONEM, blgtur as TÜR, bmahiyet as MAHİYET,bkanun as KANUN, bcalisan as ÇLŞN, bgun as GÜN, spek as SPEK, pdfindurm as İŞLEM FROM ilktahakkukbilgi where firmaid = '" + firmaid + "' and subeid='" + subeid + "'");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -379,6 +432,26 @@ namespace Bordrolama10
         {
             Tahmin tahmin = new Tahmin();
             tahmin.Show();
+        }
+
+        private void dataGridView4_Click(object sender, EventArgs e)
+        {
+            string donem;
+            if (dataGridView4.Rows.Count > 0)
+            {
+                int secim = dataGridView4.SelectedCells[0].RowIndex;
+                donem = dataGridView4.Rows[secim].Cells[0].Value.ToString();
+            }
+            else
+            {
+                donem = "'%'";
+            }
+
+
+            int subeid = Convert.ToInt32(lblsubeid.Text.ToString());
+            int firmaid = Convert.ToInt32(lblfirmano.Text.ToString());
+
+            hizmetlistesinigoster("select Year as YIL,Month as AY, SgkNo as TCNO,Ad,Soyad,IlkSoyad,Ucret,Ikramiye,Gun,UCG,Eksik_Gun as Egun,GGun,CGun,Egs,Icn,Meslek_Kodu as MSLK_KOD,Kanun_No as Kanun,Belge_Cesidi as BÇşd, Belge_Turu as BTuru,Mahiyet from HizmetListesi Where firmaid = " + firmaid + " and subeid=" + subeid + " and Donem = '" + donem + "'");
         }
     }
 
