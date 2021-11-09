@@ -119,8 +119,8 @@ namespace Bordrolama10
                     ekle.Parameters.AddWithValue("@ilce", txtilce.Text.ToString().Trim());
                     ekle.Parameters.AddWithValue("@sgkkullanici", txtsgkkullanici.Text.ToString().Trim());
                     ekle.Parameters.AddWithValue("@sgkek", txtek.Text.ToString().Trim());
-                    ekle.Parameters.AddWithValue("@sgksistem", txtsgkisyeri.Text.ToString().Trim());
-                    ekle.Parameters.AddWithValue("@sgkissif", txtsistem.Text.ToString().Trim());
+                    ekle.Parameters.AddWithValue("@sgksistem", txtsistem.Text.ToString().Trim());
+                    ekle.Parameters.AddWithValue("@sgkissif", txtsgkisyeri.Text.ToString().Trim());
                     ekle.Parameters.AddWithValue("@isySubKod", txtisySubeKod.Text.ToString().Trim());
                     ekle.Parameters.AddWithValue("@subeNotu", richFirmaNotu.Text.ToString().Trim());
                     string durum = (chkbxpasif.Checked == true) ? "Pasif" : "Aktif";
@@ -155,8 +155,8 @@ namespace Bordrolama10
                     guncelle.Parameters.AddWithValue("@ilce", txtilce.Text);
                     guncelle.Parameters.AddWithValue("@sgkkullanici", txtsgkkullanici.Text);
                     guncelle.Parameters.AddWithValue("@sgkek", txtek.Text);
-                    guncelle.Parameters.AddWithValue("@sgksistem", txtsgkisyeri.Text);
-                    guncelle.Parameters.AddWithValue("@sgkissif", txtsistem.Text);
+                    guncelle.Parameters.AddWithValue("@sgksistem", txtsistem.Text);
+                    guncelle.Parameters.AddWithValue("@sgkissif", txtsgkisyeri.Text);
                     guncelle.Parameters.AddWithValue("@isySubKod", txtisySubeKod.Text);
                     guncelle.Parameters.AddWithValue("@subeNotu", richFirmaNotu.Text.ToString().Trim());
                     String durum = (chkbxpasif.Checked == true) ? "Pasif" : "Aktif";
@@ -261,7 +261,7 @@ namespace Bordrolama10
             programreferans.firmaunvan = firmaunvan;
             programreferans.subeunvan = subeunvan;
             
-            if (sgkisyerino.Length > 0)
+            if (sgkisyerino.Length > 1)
             {
                 programreferans.IsyeriSgkNo = sgkisyerino.Substring(13, 7);
             }

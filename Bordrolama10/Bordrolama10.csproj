@@ -247,6 +247,12 @@
     <Compile Include="TeknoParkBordro.Designer.cs">
       <DependentUpon>TeknoParkBordro.cs</DependentUpon>
     </Compile>
+    <Compile Include="TeknoTahmini.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeknoTahmini.Designer.cs">
+      <DependentUpon>TeknoTahmini.cs</DependentUpon>
+    </Compile>
     <Compile Include="UcretKesintiler.cs" />
     <EmbeddedResource Include="AnaEkran.resx">
       <DependentUpon>AnaEkran.cs</DependentUpon>
@@ -308,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TeknoParkBordro.resx">
       <DependentUpon>TeknoParkBordro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeknoTahmini.resx">
+      <DependentUpon>TeknoTahmini.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

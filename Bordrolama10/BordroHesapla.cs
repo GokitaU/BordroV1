@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SQLite;
 using DevExpress.DataAccess.Sql;
 using DevExpress.XtraPrinting;
+using System.IO;
 
 namespace Bordrolama10
 {
@@ -22,14 +23,15 @@ namespace Bordrolama10
 
         SQLiteConnection baglan = new SQLiteConnection(Baglanti.Baglan);
 
-        static int firmaid;
-        static string donem;
-        static int subeid;
-        static string persid;
+        static int firmaid=-1;
+        static string donem="";
+        static int subeid=-1;
+        static string persid="";
 
 
         public void subelistele()
         {
+            if (comboBox1.SelectedItem == null) return;
             baglan.Open();
             SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT sb.subeid as Id, sb.subeunvan as Sube_Unvan, count(fb.KanunNo) as tesvikli,round(sum(fb.TerkinGv),2) as TrkGv,round(sum(fb.TerkinDv),2) as TrkDv  From FirmaBordro fb INNER JOIN sube_bilgileri as sb on sb.subeid = fb.subeno where sb.firmaid = " + firmaid + " and PuantajDonem between '" + cmbilk.Text + "' and '" + cmbson.Text + "'   GROUP by sb.subeid", baglan);
             DataTable dt = new DataTable();
@@ -41,6 +43,7 @@ namespace Bordrolama10
 
         public void gvTesvikDonemBazli()
         {
+            if (comboBox1.SelectedItem == null) return;
             string subefiltre = "";
 
             if (subeid != 0)
@@ -56,6 +59,7 @@ namespace Bordrolama10
         }
         public void gvTesvikBordro()
         {
+            if (comboBox1.SelectedItem == null) return;
             string subefiltre = "";
             if (subeid != 0)
             {
@@ -77,6 +81,7 @@ namespace Bordrolama10
         }
         public void gvTesvikiPers()
         {
+            if (comboBox1.SelectedItem == null) return;
             string subefiltre = "";
 
             if (subeid != 0)
@@ -93,6 +98,7 @@ namespace Bordrolama10
         }
         public void hizmetListesi()
         {
+            if (comboBox1.SelectedItem == null) return;
             string subefiltre = "";
 
             if (subeid != 0)
@@ -117,7 +123,7 @@ namespace Bordrolama10
 
         private void BordroHesapla_Load(object sender, EventArgs e)
         {
-
+            
             baglan.Open();
             SQLiteCommand combobx = new SQLiteCommand("select * From Hizli_Firma_Kayit", baglan);//  where aktifpasif like'Aktif'
             SQLiteDataReader dr = combobx.ExecuteReader();
@@ -146,7 +152,7 @@ namespace Bordrolama10
 
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
-
+           // if (comboBox1.SelectedItem == null) return;
             baglan.Open();
             SQLiteCommand frm = new SQLiteCommand("select * from Hizli_Firma_Kayit where Firmakisaadi like '" + comboBox1.Text.ToString() + "'", baglan);
             SQLiteDataReader da = frm.ExecuteReader();
@@ -159,7 +165,16 @@ namespace Bordrolama10
 
             subelistele();
             gvTesvikDonemBazli();
-            donem = dtgrtBrdDonem.Rows[0].Cells[0].Value.ToString();
+            if (dtgrtBrdDonem.Rows.Count>1)
+            {
+                int secim = dtgrtBrdDonem.SelectedCells[0].RowIndex;
+                donem = dtgrtBrdDonem.Rows[secim].Cells[0].Value.ToString();
+            }
+            else
+            {
+                donem = "'%'";
+            }
+
             persid = null;
             gvTesvikiPers();
             hizmetListesi();
@@ -170,7 +185,7 @@ namespace Bordrolama10
             grid4duduzenle_SubeBazli();
             grid3duduzenle_HizmetListesi();
             grid2duduzenle_firmaBordro();
-
+           
         }
 
         private void dataGridView4_Click(object sender, EventArgs e)
@@ -227,7 +242,7 @@ namespace Bordrolama10
         }
         private void grid3duduzenle_HizmetListesi()
         {
-
+            if (comboBox1.SelectedItem == null) return;
             dtgrtHzmtListe.Columns["Ucret"].DefaultCellStyle.Format = "N2";
             dtgrtHzmtListe.Columns["Ikramiye"].DefaultCellStyle.Format = "N2";
             dtgrtHzmtListe.Columns["Id"].Visible = false;
@@ -235,13 +250,13 @@ namespace Bordrolama10
 
         private void grid1duduzenle_DonemBazli()
         {
-
+            if (comboBox1.SelectedItem == null) return;
             dtgrtBrdDonem.Columns["TrkGv"].DefaultCellStyle.Format = "N2";
             dtgrtBrdDonem.Columns["TrkDv"].DefaultCellStyle.Format = "N2";
         }
         private void grid4duduzenle_SubeBazli()
         {
-
+            if (comboBox1.SelectedItem == null) return;
             dtgrtSubeSecim.Columns["TrkGv"].DefaultCellStyle.Format = "N2";
             dtgrtSubeSecim.Columns["TrkDv"].DefaultCellStyle.Format = "N2";
         }
@@ -262,8 +277,10 @@ namespace Bordrolama10
 
         private void dtgrtBrdTesvikliPers_Click(object sender, EventArgs e)
         {
+            if (dtgrtBrdTesvikliPers.Rows.Count == 1) return;
+            
             int secim = dtgrtBrdTesvikliPers.SelectedCells[0].RowIndex;
-            persid = dtgrtBrdTesvikliPers.Rows[secim].Cells[0].Value.ToString();
+            persid = dtgrtBrdTesvikliPers.Rows[secim].Cells[0].Value != DBNull.Value ? dtgrtBrdTesvikliPers.Rows[secim].Cells[0].Value.ToString() : "";
             hizmetListesi();
             gvTesvikBordro();
 
@@ -342,10 +359,12 @@ namespace Bordrolama10
 
                 rpr.ShowDialog();
             }
+            MessageBox.Show("İşlem Tamamlandı...");
         }
 
         private void cmbilk_SelectedValueChanged(object sender, EventArgs e)
         {
+            if (comboBox1.SelectedItem == null) return;
             subelistele();
             gvTesvikDonemBazli();
             donem = dtgrtBrdDonem.Rows[0].Cells[0].Value != null ? dtgrtBrdDonem.Rows[0].Cells[0].Value.ToString() : "";
@@ -364,6 +383,7 @@ namespace Bordrolama10
 
         private void cmbson_SelectedValueChanged(object sender, EventArgs e)
         {
+            if (comboBox1.SelectedItem == null) return;
             subelistele();
             gvTesvikDonemBazli();
             donem = dtgrtBrdDonem.Rows[0].Cells[0].Value != null ? dtgrtBrdDonem.Rows[0].Cells[0].Value.ToString() : "";
@@ -398,7 +418,7 @@ namespace Bordrolama10
                 for (int j = 0; j < dtgrtBrdDonem.Rows.Count - 1; j++)
                 {
                     donem = dtgrtBrdDonem.Rows[j].Cells["Donem"].Value.ToString();
-                    if (Convert.ToDecimal(dtgrtBrdDonem.Rows[j].Cells["TrkGv"].Value) > 0 || Convert.ToDecimal(dtgrtBrdDonem.Rows[j].Cells["TrkDv"].Value) > 0)
+                    if (Convert.ToDecimal(dtgrtBrdDonem.Rows[j].Cells["tesvikli"].Value) > 0 )
                     {
                         SQLiteDataAdapter bordroda = new SQLiteDataAdapter("SELECT * From FirmaBordro where FirmaNo='" + firmaid + "'and SubeNo='" + subeid + "' and PuantajDonem='" + donem + "'", baglan);
                         bordroda.Fill(bordroTable);
@@ -424,15 +444,23 @@ namespace Bordrolama10
                             bordroTable.Rows[y]["sgkisyerino"] = baslikTable.Rows[0]["sgkisyerino"];
                         }
 
+                        try
+                        {
+                            GelirVergisiBordro report = new GelirVergisiBordro { DataSource = bordroTable, DataMember = "bordroTable" };
+                            string dnm = donem.Replace('/', '-');
+                            report.Name = programreferans.subeunvan.Substring(0, 15) + "-" + dnm;
+                            string filepathpdf = @txtdosyayolu.Text + "\\" + report.Name + ".pdf";
+                            report.ExportToPdf(filepathpdf);
 
-                        GelirVergisiBordro report = new GelirVergisiBordro { DataSource = bordroTable, DataMember = "bordroTable" };
-                        string dnm = donem.Replace('/', '-');
-                        report.Name = programreferans.subeunvan + "-" + dnm;
-                        string filepathpdf = @txtdosyayolu.Text + "\\" + report.Name + ".pdf";
-                        report.ExportToPdf(filepathpdf);
+                            bordroTable.Rows.Clear();
+                            bordroTable.Columns.Clear();
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Dosya Yolu Bulunamadı..");
+                            
+                        }
 
-                        bordroTable.Rows.Clear();
-                        bordroTable.Columns.Clear();
 
 
                     }
@@ -440,6 +468,7 @@ namespace Bordrolama10
 
             }
             baglan.Close();
+            MessageBox.Show("Teşvikli Tüm Bordrolar Hazırlandı...");
         }
 
 
@@ -519,6 +548,7 @@ namespace Bordrolama10
 
 
             }
+            MessageBox.Show("Seçili Dönem Bordrosu PDF olarak Kaydedildi ...");
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -580,6 +610,7 @@ namespace Bordrolama10
 
                 rpr.ShowDialog();
             }
+            MessageBox.Show("İşlem Tamamlandı...");
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -641,6 +672,7 @@ namespace Bordrolama10
                 string filepathpdf = @txtdosyayolu.Text + "\\" + report.Name + ".pdf";
                 report.ExportToPdf(filepathpdf);
             }
+            MessageBox.Show("Seçili İstihdamın Teşvikine ait Liste Tamamlandı ...");
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -703,6 +735,7 @@ namespace Bordrolama10
                 report.ExportToPdf(filepathpdf);
 
             }
+            MessageBox.Show("İstihdamın Teşvikine ait Liste Pdf Olarak Hazırlandı ...");
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -767,6 +800,7 @@ namespace Bordrolama10
                 string fileTxt = @txtdosyayolu.Text + "\\" + report.Name + ".Txt";
                 report.ExportToText(fileTxt);
             }
+            MessageBox.Show("Seçili İstihdamın Teşviki Listesi TXT olarak Hazırlandı ...");
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -832,6 +866,7 @@ namespace Bordrolama10
                 string fileTxt = @txtdosyayolu.Text + "\\" + report.Name + ".Txt";
                 report.ExportToText(fileTxt);
             }
+            MessageBox.Show("İstihdamın Teşviki Listesi Toplu Şekilte TXT olarak Hazırlandı ...");
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -840,6 +875,10 @@ namespace Bordrolama10
             button2_Click(sender, e);
             button6_Click(sender, e);
             button8_Click(sender, e);
+            MessageBox.Show("İşlem Tamamlandı...");
+            string kaynak = Application.StartupPath + "\\BilgiVeBelgeler\\Bdp ve dilekçe işlemleri.pdf";
+            string hedef = txtdosyayolu.Text+ "\\Bdp ve dilekçe işlemleri.pdf";
+            File.Copy(kaynak, hedef, true);
         }
 
         private void btnOtoBdrIstTsvDonemlik_Click(object sender, EventArgs e)
@@ -940,6 +979,7 @@ namespace Bordrolama10
 
             }
             baglan.Close();
+            MessageBox.Show("İşlem Tamamlandı...");
         }
    
     }

@@ -133,11 +133,20 @@ namespace Bordrolama10
         {
             int firmaid = Convert.ToInt32(lblfirmano.Text);
             int secim = dataGridView1.SelectedCells[0].RowIndex;
+            
+            
             string subeid = dataGridView1.Rows[secim].Cells[0].Value.ToString().Trim();
             string sgkkullanici = dataGridView1.Rows[secim].Cells[3].Value.ToString().Trim();
             string sgkek = dataGridView1.Rows[secim].Cells[4].Value.ToString().Trim();
             string sgksistem = dataGridView1.Rows[secim].Cells[5].Value.ToString().Trim();
             string sgkisyeri = dataGridView1.Rows[secim].Cells[6].Value.ToString().Trim();
+
+            programreferans.firmid = firmaid;
+            programreferans.subid = Convert.ToInt32(subeid);
+            programreferans.firmaunvan = dataGridView1.Rows[secim].Cells[1].Value.ToString();
+
+            programreferans.subeunvan = dataGridView1.Rows[secim].Cells[2].Value.ToString();
+
 
             lblsubeid.Text = subeid.Trim();
             lblsgkkullanici.Text = sgkkullanici.Trim();
@@ -452,6 +461,12 @@ namespace Bordrolama10
             int firmaid = Convert.ToInt32(lblfirmano.Text.ToString());
 
             hizmetlistesinigoster("select Year as YIL,Month as AY, SgkNo as TCNO,Ad,Soyad,IlkSoyad,Ucret,Ikramiye,Gun,UCG,Eksik_Gun as Egun,GGun,CGun,Egs,Icn,Meslek_Kodu as MSLK_KOD,Kanun_No as Kanun,Belge_Cesidi as BÇşd, Belge_Turu as BTuru,Mahiyet from HizmetListesi Where firmaid = " + firmaid + " and subeid=" + subeid + " and Donem = '" + donem + "'");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            TeknoTahmini teknobrd = new TeknoTahmini();
+            teknobrd.Show();
         }
     }
 

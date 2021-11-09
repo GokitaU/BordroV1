@@ -241,9 +241,9 @@ namespace Bordrolama10
             // 
             this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(153, 1);
+            this.comboBox1.Location = new System.Drawing.Point(122, 1);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(291, 28);
+            this.comboBox1.Size = new System.Drawing.Size(309, 28);
             this.comboBox1.TabIndex = 38;
             this.comboBox1.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
             // 
@@ -252,7 +252,7 @@ namespace Bordrolama10
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(15, 6);
+            this.label1.Location = new System.Drawing.Point(5, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 18);
             this.label1.TabIndex = 37;
@@ -272,15 +272,16 @@ namespace Bordrolama10
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgrtSubeSecim.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dtgrtSubeSecim.Location = new System.Drawing.Point(464, 1);
+            this.dtgrtSubeSecim.Location = new System.Drawing.Point(437, 1);
             this.dtgrtSubeSecim.Name = "dtgrtSubeSecim";
-            this.dtgrtSubeSecim.Size = new System.Drawing.Size(398, 102);
+            this.dtgrtSubeSecim.RowHeadersVisible = false;
+            this.dtgrtSubeSecim.Size = new System.Drawing.Size(530, 102);
             this.dtgrtSubeSecim.TabIndex = 39;
             this.dtgrtSubeSecim.Click += new System.EventHandler(this.dataGridView4_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(868, 1);
+            this.button1.Location = new System.Drawing.Point(972, 6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(201, 20);
             this.button1.TabIndex = 40;
@@ -330,7 +331,7 @@ namespace Bordrolama10
             // 
             // btnTesvTumBordPdf
             // 
-            this.btnTesvTumBordPdf.Location = new System.Drawing.Point(1083, 52);
+            this.btnTesvTumBordPdf.Location = new System.Drawing.Point(1178, 56);
             this.btnTesvTumBordPdf.Name = "btnTesvTumBordPdf";
             this.btnTesvTumBordPdf.Size = new System.Drawing.Size(201, 20);
             this.btnTesvTumBordPdf.TabIndex = 68;
@@ -369,7 +370,7 @@ namespace Bordrolama10
             // 
             // btnSeciliDonemPdf
             // 
-            this.btnSeciliDonemPdf.Location = new System.Drawing.Point(1083, 1);
+            this.btnSeciliDonemPdf.Location = new System.Drawing.Point(1178, 5);
             this.btnSeciliDonemPdf.Name = "btnSeciliDonemPdf";
             this.btnSeciliDonemPdf.Size = new System.Drawing.Size(201, 20);
             this.btnSeciliDonemPdf.TabIndex = 72;
@@ -379,7 +380,7 @@ namespace Bordrolama10
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(869, 25);
+            this.button4.Location = new System.Drawing.Point(973, 30);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(201, 21);
             this.button4.TabIndex = 73;
@@ -389,7 +390,7 @@ namespace Bordrolama10
             // 
             // btnSeciliDnmIstTesv
             // 
-            this.btnSeciliDnmIstTesv.Location = new System.Drawing.Point(1083, 27);
+            this.btnSeciliDnmIstTesv.Location = new System.Drawing.Point(1178, 31);
             this.btnSeciliDnmIstTesv.Name = "btnSeciliDnmIstTesv";
             this.btnSeciliDnmIstTesv.Size = new System.Drawing.Size(201, 19);
             this.btnSeciliDnmIstTesv.TabIndex = 74;
@@ -399,7 +400,7 @@ namespace Bordrolama10
             // 
             // btnIstTesvPdfToplu
             // 
-            this.btnIstTesvPdfToplu.Location = new System.Drawing.Point(1083, 78);
+            this.btnIstTesvPdfToplu.Location = new System.Drawing.Point(1178, 82);
             this.btnIstTesvPdfToplu.Name = "btnIstTesvPdfToplu";
             this.btnIstTesvPdfToplu.Size = new System.Drawing.Size(201, 19);
             this.btnIstTesvPdfToplu.TabIndex = 75;
@@ -409,7 +410,7 @@ namespace Bordrolama10
             // 
             // btnSeciliIstTesvTXT
             // 
-            this.btnSeciliIstTesvTXT.Location = new System.Drawing.Point(1308, 2);
+            this.btnSeciliIstTesvTXT.Location = new System.Drawing.Point(1389, 5);
             this.btnSeciliIstTesvTXT.Name = "btnSeciliIstTesvTXT";
             this.btnSeciliIstTesvTXT.Size = new System.Drawing.Size(201, 19);
             this.btnSeciliIstTesvTXT.TabIndex = 76;
@@ -419,7 +420,7 @@ namespace Bordrolama10
             // 
             // btnIstTesvTopluTXT
             // 
-            this.btnIstTesvTopluTXT.Location = new System.Drawing.Point(1308, 26);
+            this.btnIstTesvTopluTXT.Location = new System.Drawing.Point(1389, 29);
             this.btnIstTesvTopluTXT.Name = "btnIstTesvTopluTXT";
             this.btnIstTesvTopluTXT.Size = new System.Drawing.Size(201, 19);
             this.btnIstTesvTopluTXT.TabIndex = 77;
@@ -429,9 +430,9 @@ namespace Bordrolama10
             // 
             // btnOtoBdrDnmIstTesToplu
             // 
-            this.btnOtoBdrDnmIstTesToplu.Location = new System.Drawing.Point(1546, 12);
+            this.btnOtoBdrDnmIstTesToplu.Location = new System.Drawing.Point(1597, 12);
             this.btnOtoBdrDnmIstTesToplu.Name = "btnOtoBdrDnmIstTesToplu";
-            this.btnOtoBdrDnmIstTesToplu.Size = new System.Drawing.Size(300, 21);
+            this.btnOtoBdrDnmIstTesToplu.Size = new System.Drawing.Size(249, 21);
             this.btnOtoBdrDnmIstTesToplu.TabIndex = 80;
             this.btnOtoBdrDnmIstTesToplu.Text = "Tüm Belgeleri Otomatik Oluştur";
             this.btnOtoBdrDnmIstTesToplu.UseVisualStyleBackColor = true;
@@ -439,9 +440,9 @@ namespace Bordrolama10
             // 
             // btnOtoBdrIstTsvDonemlik
             // 
-            this.btnOtoBdrIstTsvDonemlik.Location = new System.Drawing.Point(1546, 49);
+            this.btnOtoBdrIstTsvDonemlik.Location = new System.Drawing.Point(1597, 49);
             this.btnOtoBdrIstTsvDonemlik.Name = "btnOtoBdrIstTsvDonemlik";
-            this.btnOtoBdrIstTsvDonemlik.Size = new System.Drawing.Size(300, 22);
+            this.btnOtoBdrIstTsvDonemlik.Size = new System.Drawing.Size(249, 22);
             this.btnOtoBdrIstTsvDonemlik.TabIndex = 81;
             this.btnOtoBdrIstTsvDonemlik.Text = "Tüm Belgeleri Otomatik Oluştur";
             this.btnOtoBdrIstTsvDonemlik.UseVisualStyleBackColor = true;
@@ -452,7 +453,7 @@ namespace Bordrolama10
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(1599, 33);
+            this.label8.Location = new System.Drawing.Point(1621, 35);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(197, 13);
             this.label8.TabIndex = 45;
@@ -463,7 +464,7 @@ namespace Bordrolama10
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(1612, 71);
+            this.label9.Location = new System.Drawing.Point(1633, 71);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(175, 13);
             this.label9.TabIndex = 82;

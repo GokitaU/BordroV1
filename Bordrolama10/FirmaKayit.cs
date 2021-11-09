@@ -66,7 +66,7 @@ namespace Bordrolama10
 
         private void FirmaKayit_Load(object sender, EventArgs e)
         {
-
+            
             firmabilgilerinigoster("Select firmaid as ID,  Firma_No, Firmakisaadi as FİRMA_TANIM, Refadsoyad as REFERANS, aktifpasif as DURUM From Hizli_Firma_Kayit");
 
             baglan.Open();
@@ -109,6 +109,7 @@ namespace Bordrolama10
 
             }
             baglan.Close();
+            lblfirmaId.Text = "Yeni Firma";
         }
 
         private void button1_Click(object sender, EventArgs e)

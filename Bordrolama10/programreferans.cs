@@ -13,8 +13,8 @@ namespace Bordrolama10
     public class programreferans
     {
         public static string firmaid = "";
-        public static int subid = 0;
-        public static int firmid = 0;
+        public static int subid = -1;
+        public static int firmid = -1;
         public static string subeunvan = "";
         public static string firmaunvan = "";
         public static string IsyeriSgkNo = "";
