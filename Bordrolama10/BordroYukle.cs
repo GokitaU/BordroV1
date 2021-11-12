@@ -1370,9 +1370,9 @@ namespace Bordrolama10
             TeknotesvikliListe();
             var firmabordrosu = TesvikHesBordrosu.Select("FirmaNo = '" + firmano + "' and SubeNo = '" + subeno + "'");
 
-            progressBar1.Maximum = tesvikliHizmetListesi.Rows.Count;
+            progressBar1.Maximum = TeknotesvikliHizmetListesi.Rows.Count;
 
-            for (int i = 0; i < tesvikliHizmetListesi.Rows.Count; i++)
+            for (int i = 0; i < TeknotesvikliHizmetListesi.Rows.Count; i++)
             {
 
                 HizmListTesviklipersid = TeknotesvikliHizmetListesi.Rows[i]["firmPersid"].ToString();

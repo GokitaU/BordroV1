@@ -146,6 +146,7 @@ namespace Bordrolama10
             cmbilk.Text = "2017/02";
             cmbson.Text = "2020/12";
             txtdosyayolu.Text = Application.StartupPath + "\\GvTesvikBordro";
+            
         }
 
 

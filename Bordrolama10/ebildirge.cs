@@ -465,7 +465,7 @@ namespace Bordrolama10
 
         private void button5_Click(object sender, EventArgs e)
         {
-            TeknoTahmini teknobrd = new TeknoTahmini();
+            teknoTahmini teknobrd = new teknoTahmini();
             teknobrd.Show();
         }
     }

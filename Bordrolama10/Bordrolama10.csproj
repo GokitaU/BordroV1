@@ -241,6 +241,7 @@
     <Compile Include="Tahmin.Designer.cs">
       <DependentUpon>Tahmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="TeknoOzet.cs" />
     <Compile Include="TeknoParkBordro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,7 +254,7 @@
     <Compile Include="TeknoTahmini.Designer.cs">
       <DependentUpon>TeknoTahmini.cs</DependentUpon>
     </Compile>
-    <Compile Include="UcretKesintiler.cs" />
+    <Compile Include="BordroHesaplama.cs" />
     <EmbeddedResource Include="AnaEkran.resx">
       <DependentUpon>AnaEkran.cs</DependentUpon>
     </EmbeddedResource>
