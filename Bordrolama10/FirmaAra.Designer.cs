@@ -69,9 +69,9 @@ namespace Bordrolama10
             // 
             this.txtunvan.BackColor = System.Drawing.Color.White;
             this.txtunvan.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtunvan.Location = new System.Drawing.Point(140, 43);
+            this.txtunvan.Location = new System.Drawing.Point(163, 43);
             this.txtunvan.Name = "txtunvan";
-            this.txtunvan.Size = new System.Drawing.Size(200, 23);
+            this.txtunvan.Size = new System.Drawing.Size(177, 23);
             this.txtunvan.TabIndex = 83;
             // 
             // label11
@@ -90,9 +90,9 @@ namespace Bordrolama10
             // 
             this.txtreferans.BackColor = System.Drawing.Color.White;
             this.txtreferans.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtreferans.Location = new System.Drawing.Point(140, 68);
+            this.txtreferans.Location = new System.Drawing.Point(163, 68);
             this.txtreferans.Name = "txtreferans";
-            this.txtreferans.Size = new System.Drawing.Size(200, 23);
+            this.txtreferans.Size = new System.Drawing.Size(177, 23);
             this.txtreferans.TabIndex = 84;
             // 
             // label2

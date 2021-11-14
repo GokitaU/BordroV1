@@ -215,7 +215,7 @@ namespace Bordrolama10
             foreach (string item in Directory.GetFiles(pdfPath))
             {
                 fileinfo = new FileInfo(item);
-                if (fileinfo.Extension == "pdf")
+                if (fileinfo.Extension == ".pdf")
                 {
                     fileinfo.Delete();
                 }
