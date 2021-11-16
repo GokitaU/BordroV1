@@ -33,7 +33,7 @@ namespace Bordrolama10
         {
             Bordro.Clear();
             baglan.Open();
-            using (SQLiteCommand sorgu = new SQLiteCommand("select FirmaPersId, PuantajDonem as Donem, TcNo,PersAdı,PersSoyadı,GirisTarihi,CikisTarihi,Net_Brüt,PrimGunu,ToplamKazanc,SgkMatrahi,SGkIsciPrim,IszlikIsciPrim,KumVergMatr,GvMatrahi,GelirVergisi,Agi,DamgaVrg,(BesKesintisi+SairKesintiler) as Kesintiler,AylikNetUcret,KanunNo from FirmaBordro WHERE FirmaNo = '" + firmaid + "' and SubeNo='" + subeid + "' and PuantajDonem =  '" + donem + "'", baglan))
+            using (SQLiteCommand sorgu = new SQLiteCommand("select FirmaPersId, PuantajDonem as Donem, TcNo,PersAdı,PersSoyadı,GirisTarihi,CikisTarihi,Net_Brüt,Net_BrtUcret as N_B_Ucret,PrimGunu,ToplamKazanc,SgkMatrahi,SGkIsciPrim,IszlikIsciPrim,KumVergMatr,GvMatrahi,GelirVergisi,Agi,DamgaVrg,(BesKesintisi+SairKesintiler) as Kesintiler,AylikNetUcret,KanunNo from FirmaBordro WHERE FirmaNo = '" + firmaid + "' and SubeNo='" + subeid + "' and PuantajDonem =  '" + donem + "'", baglan))
             {
                 SQLiteDataAdapter da = new SQLiteDataAdapter();
                 da.SelectCommand = sorgu;
@@ -41,8 +41,20 @@ namespace Bordrolama10
             }
             baglan.Close();
         }
+        DataTable TabanTavan = new DataTable();
+        private void SgkTabanTavan()
+        {
+            TabanTavan.Clear();
 
-
+            baglan.Open();
+            using (SQLiteCommand sorgu = new SQLiteCommand("select * From yillik_taban_tavan_ucr", baglan))
+            {
+                SQLiteDataAdapter da = new SQLiteDataAdapter();
+                da.SelectCommand = sorgu;
+                da.Fill(TabanTavan);
+            }
+            baglan.Close();
+        }
         private void SgkTahakkukbilgileri()
         {
             Tahakkuk.Clear();
@@ -90,7 +102,7 @@ namespace Bordrolama10
         }
         private void hizmetListesiDoldur()
         {
-
+            yuklubordro();
             string islemKanunu = "%";
 
             if (cmbAyrıBordro.Text == "Evet")
@@ -118,8 +130,6 @@ namespace Bordrolama10
             SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT firmPersid as ID, Donem,SgkNo,ad,soyad,Gun,Kanun_No,Mahiyet,Ucret,Ikramiye,(ucret + Ikramiye) as Brt_Spek From HizmetListesi where firmaid='" + firmaid + "' and subeid = '" + subeid + "' and Donem = '" + donem + "' AND Kanun_No like '%" + islemKanunu + "%' and ( " + asil + " or " + ek + " or " + iptal + ") order by sgkno", baglan);
 
             DataTable HzmtListesi = new DataTable();
-
-
             da.Fill(HzmtListesi);
             //hzmtlistesi.Columns.Add(new DataColumn("Degisti", typeof(bool)));
 
@@ -141,6 +151,9 @@ namespace Bordrolama10
                     HzmtListesi.Rows[k].Delete();
                 }
             }
+
+
+
 
             dtgrtHizmet.DataSource = HzmtListesi;
 
@@ -303,6 +316,7 @@ namespace Bordrolama10
 
         private void TeknoParkBordro_Load(object sender, EventArgs e)
         {
+
             baglan.Open();
             SQLiteCommand combobx = new SQLiteCommand("select * From Hizli_Firma_Kayit", baglan);//  where aktifpasif like'Aktif'
             SQLiteDataReader dr = combobx.ExecuteReader();
@@ -322,6 +336,7 @@ namespace Bordrolama10
             }
             baglan.Close();
 
+            cbmYil.Text = "2020";
             cmbilk.Text = "2014/04";
             cmbson.Text = "2021/01";
             txtdosyayolu.Text = Application.StartupPath + "\\GvTesvikBordro";
@@ -367,15 +382,15 @@ namespace Bordrolama10
             }
             hizmetListesiDoldur();
             tahakkukBilgisiListBox();
-            dtgrtHizmet.Columns.Add("SpekToplami", "SpekToplami");
-            dtgrtHizmet.Columns.Add("ThkAdet", "ThkAdet");
-            dtgrtHizmet.Columns.Add("hBrdTopl", "hBrdTopl");
-            dtgrtHizmet.Columns.Add("hBrdSpek", "hBrdSpek");
-            dtgrtHizmet.Columns.Add("hBrdIsciPy", "hBrdIsciPy");
-            dtgrtHizmet.Columns.Add("hBrdVergi", "hBrdVergi");
-            dtgrtHizmet.Columns.Add("hBrdKes", "hBrdKes");
-            dtgrtHizmet.Columns.Add("hBrdNet", "hBrdNet");
-            dtgrtHizmet.Columns.Add("BrdNet", "BrdNet");
+            //dtgrtHizmet.Columns.Add("SpekToplami", "SpekToplami");
+            //dtgrtHizmet.Columns.Add("ThkAdet", "ThkAdet");
+            //dtgrtHizmet.Columns.Add("hBrdTopl", "hBrdTopl");
+            //dtgrtHizmet.Columns.Add("hBrdSpek", "hBrdSpek");
+            //dtgrtHizmet.Columns.Add("hBrdIsciPy", "hBrdIsciPy");
+            //dtgrtHizmet.Columns.Add("hBrdVergi", "hBrdVergi");
+            //dtgrtHizmet.Columns.Add("hBrdKes", "hBrdKes");
+            //dtgrtHizmet.Columns.Add("hBrdNet", "hBrdNet");
+            //dtgrtHizmet.Columns.Add("BrdNet", "BrdNet");
         }
 
         private void listBox1_Click(object sender, EventArgs e)
@@ -451,7 +466,7 @@ namespace Bordrolama10
                         bSpek = Convert.ToDecimal(item["SgkMatrahi"]);
                         bsgkIsci = Convert.ToDecimal(item["SGkIsciPrim"]) + Convert.ToDecimal(item["IszlikIsciPrim"]);
                         bgv_Dv = Convert.ToDecimal(item["GelirVergisi"]) + Convert.ToDecimal(item["DamgaVrg"]);
-                        bKesintiler = Convert.ToDecimal(item["BesKesintisi"]) + Convert.ToDecimal(item["SairKesintiler"]);
+                        bKesintiler = Convert.ToDecimal(item["Kesintiler"]);
                         bNet = (bBrtKazanc - (bsgkIsci + bgv_Dv));
 
                         BordroNet = Convert.ToDecimal(item["AylikNetUcret"]);
@@ -476,7 +491,7 @@ namespace Bordrolama10
         DataTable hizmetListesiToplamlari = new DataTable();
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
-            cbmYil.Text = "2020";
+            
 
             if (tabControl1.SelectedTab == tabPage1)
             {
@@ -531,6 +546,7 @@ namespace Bordrolama10
             dtgrtBORDRO.Columns["DamgaVrg"].DefaultCellStyle.Format = "N2";
             dtgrtBORDRO.Columns["Kesintiler"].DefaultCellStyle.Format = "N2";
             dtgrtBORDRO.Columns["AylikNetUcret"].DefaultCellStyle.Format = "N2";
+            dtgrtBORDRO.Columns["N_B_Ucret"].DefaultCellStyle.Format = "N2";
         }
 
         private void dtgrTahakkukAlanlariDuzenle()
@@ -850,15 +866,16 @@ namespace Bordrolama10
         private void ThkAlanlariEslestir()
         {
             decimal fark = 0;
+            decimal fark1 = 0;
             string kanun = "";
             for (int i = 0; i < dtgrtTAHAKUKLAR.Rows.Count; i++)
             {
                 kanun = dtgrtTAHAKUKLAR.Rows[i].Cells["bkanun"].Value.ToString();
                 if (kanun.Contains("5746"))
                 {
-
-
-                    fark = Convert.ToDecimal(dtgrtTAHAKUKLAR.Rows[i].Cells["spek"].Value) - Convert.ToDecimal(dtgrtTAHAKUKLAR.Rows[i].Cells["HzmSpek"].Value);
+                    decimal Tspek = dtgrtTAHAKUKLAR.Rows[i].Cells["spek"].Value != DBNull.Value ? Convert.ToDecimal(dtgrtTAHAKUKLAR.Rows[i].Cells["spek"].Value) : 0;
+                    decimal Hspek = dtgrtTAHAKUKLAR.Rows[i].Cells["HzmSpek"].Value != DBNull.Value ? Convert.ToDecimal(dtgrtTAHAKUKLAR.Rows[i].Cells["HzmSpek"].Value) : 0;
+                    fark = Tspek-Hspek;
                     if (fark < 5 || fark > -5)
                     {
                         dtgrtTAHAKUKLAR.Rows[i].Cells["spek"].Style.BackColor = Color.Green;
@@ -869,6 +886,54 @@ namespace Bordrolama10
                         dtgrtTAHAKUKLAR.Rows[i].Cells["spek"].Style.BackColor = Color.Red;
                         dtgrtTAHAKUKLAR.Rows[i].Cells["HzmSpek"].Style.BackColor = Color.Red;
                     }
+
+                    int bcalisan = dtgrtTAHAKUKLAR.Rows[i].Cells["bcalisan"].Value != DBNull.Value ? Convert.ToInt32(dtgrtTAHAKUKLAR.Rows[i].Cells["bcalisan"].Value) : 0;
+                    int Hcalisan = dtgrtTAHAKUKLAR.Rows[i].Cells["HzmCalisan"].Value != DBNull.Value ? Convert.ToInt32(dtgrtTAHAKUKLAR.Rows[i].Cells["HzmCalisan"].Value) : 0;
+                    if (bcalisan == Hcalisan)
+                    {
+                        dtgrtTAHAKUKLAR.Rows[i].Cells["bcalisan"].Style.BackColor = Color.Green;
+                        dtgrtTAHAKUKLAR.Rows[i].Cells["HzmCalisan"].Style.BackColor = Color.Green;
+                    }
+                    else
+                    {
+                        dtgrtTAHAKUKLAR.Rows[i].Cells["bcalisan"].Style.BackColor = Color.Red;
+                        dtgrtTAHAKUKLAR.Rows[i].Cells["HzmCalisan"].Style.BackColor = Color.Red;
+                    }
+                    int bgun = dtgrtTAHAKUKLAR.Rows[i].Cells["bgun"].Value != DBNull.Value ? Convert.ToInt32(dtgrtTAHAKUKLAR.Rows[i].Cells["bgun"].Value) : 0;
+                    int Hgun = dtgrtTAHAKUKLAR.Rows[i].Cells["HzmGun"].Value != DBNull.Value ? Convert.ToInt32(dtgrtTAHAKUKLAR.Rows[i].Cells["HzmGun"].Value) : 0;
+                    if (bgun == Hgun)
+                    {
+                        dtgrtTAHAKUKLAR.Rows[i].Cells["bgun"].Style.BackColor = Color.Green;
+                        dtgrtTAHAKUKLAR.Rows[i].Cells["HzmGun"].Style.BackColor = Color.Green;
+                    }
+                    else
+                    {
+                        dtgrtTAHAKUKLAR.Rows[i].Cells["bgun"].Style.BackColor = Color.Red;
+                        dtgrtTAHAKUKLAR.Rows[i].Cells["HzmGun"].Style.BackColor = Color.Red;
+                    }
+
+                    
+                    int Ycalisan = dtgrtTAHAKUKLAR.Rows[i].Cells["YeniCalsn"].Value != DBNull.Value ? Convert.ToInt32(dtgrtTAHAKUKLAR.Rows[i].Cells["YeniCalsn"].Value): 0;
+                    if (bcalisan == Ycalisan)
+                    {
+                        dtgrtTAHAKUKLAR.Rows[i].Cells["YeniCalsn"].Style.BackColor = Color.Green;
+                    }
+                    else
+                    {
+                        dtgrtTAHAKUKLAR.Rows[i].Cells["YeniCalsn"].Style.BackColor = Color.Red;
+                    }
+
+                    
+                    int Ygun = dtgrtTAHAKUKLAR.Rows[i].Cells["YeniGun"].Value != DBNull.Value ? Convert.ToInt32(dtgrtTAHAKUKLAR.Rows[i].Cells["YeniGun"].Value) : 0;
+
+                    if (bgun == Ygun)
+                    {
+                        dtgrtTAHAKUKLAR.Rows[i].Cells["YeniGun"].Style.BackColor = Color.Green;
+                    }
+                    else
+                    {
+                        dtgrtTAHAKUKLAR.Rows[i].Cells["YeniGun"].Style.BackColor = Color.Red;
+                    }
                 }
             }
             
@@ -878,5 +943,167 @@ namespace Bordrolama10
         {
             ThkAlanlariEslestir();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            SgkTabanTavan();
+            yuklubordro();
+            string islemKanunu = "%";
+
+            if (cmbAyrıBordro.Text == "Evet")
+            {
+                islemKanunu = cmbIslemKanunu.Text;
+            }
+            string asil = "Mahiyet = '%'";
+            string ek = "Mahiyet = '%'";
+            string iptal = "Mahiyet = '%'";
+
+            if (checkedListBox2.GetItemCheckState(0) == CheckState.Checked)
+            {
+                asil = "Mahiyet = 'ASIL'";
+            }
+            if (checkedListBox2.GetItemCheckState(1) == CheckState.Checked)
+            {
+                ek = "Mahiyet = 'EK'";
+            }
+            if (checkedListBox2.GetItemCheckState(2) == CheckState.Checked)
+            {
+                iptal = "Mahiyet = 'IPTAL'";
+            }
+            baglan.Open();
+            SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT firmPersid as ID, Donem,SgkNo,ad,soyad,Gun,Kanun_No,Mahiyet,Ucret,Ikramiye,(ucret + Ikramiye) as Brt_Spek From HizmetListesi where firmaid='" + firmaid + "' and subeid = '" + subeid + "' AND Kanun_No like '%" + islemKanunu + "%' and ( " + asil + " or " + ek + " or " + iptal + ") order by sgkno", baglan);
+
+            DataTable HzmtListesi = new DataTable();
+            da.Fill(HzmtListesi);
+            baglan.Close();
+
+            string PrId = "";
+            string donem = "";
+            string Ad = "";
+            string Soyad = "";
+            string Gun = "";
+            string Kanun = "";
+            string Mahiyet = "";
+            string ThkAdet = "";
+            decimal Ucret = 0;
+            decimal ikramiye = 0;
+            decimal ToplamSpek = 0;
+            
+            decimal BdrBrt = 0;
+            decimal BdrMatrah = 0;
+            decimal BrtFarki = 0;
+            decimal MatrhFarki = 0;
+            decimal BrdIsciPayi = 0;
+            decimal BrdVergi = 0;
+            decimal Agi = 0;
+            decimal Kesintiler = 0;
+            decimal BrdNet = 0;
+
+            decimal AylikNet = 0;
+            decimal BrdNett = 0;
+            decimal NetFarki = 0;
+            decimal Baznet5746 = 0;
+            decimal Brut5746 = 0;
+            decimal Gunluk5746 = 0;
+            decimal AsgTbnGun = 0;
+            decimal AsgTvnGun = 0;
+            string TbnTvnUygunMu = "";
+            decimal EskiYeniSpekFarki = 0;
+            decimal YeniMatrah = 0;
+            decimal Aciklama = 0;
+            decimal HesDahilMi = 0;
+
+            for (int k = 0; k < HzmtListesi.Rows.Count; k++)
+            {
+                
+                PrId = HzmtListesi.Rows[k]["ID"].ToString();
+                var Tekno5746daVarmiYokmu = HzmtListesi.Select("ID='" + PrId + "'");
+                foreach (var item in Tekno5746daVarmiYokmu)
+                {
+                    donem = item["Donem"].ToString();
+                    Ad = item["SgkNo"].ToString();
+                    Soyad = item["ad"].ToString();
+                    Gun = item["soyad"].ToString();
+                    Kanun = item["Kanun_No"].ToString();
+                    Mahiyet = item["Mahiyet"].ToString();
+                    //ThkAdet = item[""].ToString();
+                    Ucret = Convert.ToDecimal(item["Mahiyet"]);
+                    ikramiye = Convert.ToDecimal(item["Mahiyet"]);
+                    ToplamSpek = Ucret + ikramiye;
+
+                    if (Kanun.Contains("5746")) continue;
+
+                }
+
+
+
+                var bordrodavarmi = Bordro.Select("PersId='"+PrId+"'");
+                foreach (var bdrPers in bordrodavarmi)
+                {
+                     BdrBrt = Convert.ToDecimal(bdrPers["ToplamKazanc"]);
+                    BdrMatrah = Convert.ToDecimal(bdrPers["SgkMatrahi"]);
+                    BrtFarki = 0;
+                    MatrhFarki = 0;
+                    BrdIsciPayi = Convert.ToDecimal(bdrPers["SGkIsciPrim"])+ Convert.ToDecimal(bdrPers["IszlikIsciPrim"]);
+                    BrdVergi = Convert.ToDecimal(bdrPers["GelirVergisi"])+ Convert.ToDecimal(bdrPers["DamgaVrg"]);
+                    Agi = Convert.ToDecimal(bdrPers["Agi"]);
+                    Kesintiler = Convert.ToDecimal(bdrPers["BesKesintisi"])+ Convert.ToDecimal(bdrPers["SairKesintiler"]);
+                    BrdNet = 0;
+// bence vergi matrahini da ekleyelim
+                    AylikNet = Convert.ToDecimal(bdrPers["Net_BrtUcret"]);
+                    BrdNett = Convert.ToDecimal(bdrPers["AylikNetUcret"]);
+                    NetFarki = 0;
+                     Baznet5746 = 0;
+                     Brut5746 = 0;
+                     Gunluk5746 = 0;
+                     AsgTbnGun = 0;
+                     AsgTvnGun = 0;
+                     TbnTvnUygunMu = "";
+                     EskiYeniSpekFarki = 0;
+                     YeniMatrah = 0;
+                     Aciklama = 0;
+                     HesDahilMi = 0;
+
+                     AylikNet = 0;
+                     BrdNett = 0;
+                     NetFarki = 0;
+                     Baznet5746 = 0;
+                     Brut5746 = 0;
+                     Gunluk5746 = 0;
+                     AsgTbnGun = 0;
+                     AsgTvnGun = 0;
+                     TbnTvnUygunMu = "";
+                     EskiYeniSpekFarki = 0;
+                     YeniMatrah = 0;
+                     Aciklama = 0;
+                     HesDahilMi = 0;
+
+                }
+                    
+
+            }
+
+
+
+
+            dtgrtHizmet.DataSource = HzmtListesi;
+
+
+        }
     }
 }
+
+
+//dataGridView1.ColumnCount = 3;
+//dataGridView1.ColumnHeadersVisible = true;
+
+//dataGridView1.Columns[0].HeaderText = "Öğrenci Adı";
+//dataGridView1.Columns[1].HeaderText = "Soyad";
+//dataGridView1.Columns[2].HeaderText = "Adres";
+
+//DataGridViewComboBoxColumn combo = new DataGridViewComboBoxColumn();
+//combo.Items.AddRange("10A", "And11A", "11C");
+//combo.HeaderText = "Sınıf";
+//dataGridView1.Columns.Add(combo);
+//int sayi = dataGridView1.Columns.Count - 1;
+//dataGridView1.Columns[sayi].DisplayIndex = 2;

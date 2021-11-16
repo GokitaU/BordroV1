@@ -23,7 +23,7 @@ namespace Bordrolama10
         static int firmano = Convert.ToInt32(programreferans.firmaid);
         static int subeno = programreferans.subid;
         static string donem = "";
-        string bordroCommand = "Select BordroSira AS Sıra, PuantajDonem as Donem, TcNo,PersAdı,PersSoyadı,GirisTarihi,	CikisTarihi, Normal_Emekli as N_E,MesaiGun as Mesai,HaftaSonu as HS,GenelTatil as GT,UcretsizIzin AS Ucrsz,SihhiIzin as Sıhhi, PrimGunu as PrmGun,FazlaMesaiGun as FmGun, AylikBrutUcret as BrutUcret,FmUcreti as FmUcrt, AylikEkOd as EkOdeme,ToplamKazanc, SgkMatrahi, SGkIsciPrim	as IsciPrim, IszlikIsciPrim as IszIsci, KumVergMatr,GvMatrahi, GelirVergisi, Agi, VergiInd, DamgaVrg, SgkIsverenPrim as IsvPrim, IssizlikIsvPrim as IszIsv, BesKesintisi as BesKes, SairKesintiler as SairKes, AylikNetUcret as AylikNet, KanunNo From FirmaBordro where FirmaNo = '" + firmano + "' and SubeNo ='" + subeno + "' and PuantajDonem='" + donem + "'";
+        string bordroCommand = "Select BordroSira AS Sıra, PuantajDonem as Donem, TcNo,PersAdı,PersSoyadı,GirisTarihi,	CikisTarihi, Normal_Emekli as N_E,Net_Brüt as N_B,Net_BrtUcret as N_B_Ucret, MesaiGun as Mesai,HaftaSonu as HS,GenelTatil as GT,UcretsizIzin AS Ucrsz,SihhiIzin as Sıhhi, PrimGunu as PrmGun,FazlaMesaiGun as FmGun, AylikBrutUcret as BrutUcret,FmUcreti as FmUcrt, AylikEkOd as EkOdeme,ToplamKazanc, SgkMatrahi, SGkIsciPrim	as IsciPrim, IszlikIsciPrim as IszIsci, KumVergMatr,GvMatrahi, GelirVergisi, Agi, VergiInd, DamgaVrg, SgkIsverenPrim as IsvPrim, IssizlikIsvPrim as IszIsv, BesKesintisi as BesKes, SairKesintiler as SairKes, AylikNetUcret as AylikNet, KanunNo From FirmaBordro where FirmaNo = '" + firmano + "' and SubeNo ='" + subeno + "' and PuantajDonem='" + donem + "'";
         public static int MyProperty { get; set; }
         public int MyProperty1 { get; set; }
 
@@ -107,7 +107,7 @@ namespace Bordrolama10
             dataGridView1.Columns["GelirVergisi"].DefaultCellStyle.Format = "N2";
             dataGridView1.Columns["Agi"].DefaultCellStyle.Format = "N2";
             dataGridView1.Columns["VergiInd"].DefaultCellStyle.Format = "N2";
-            dataGridView1.Columns["DamgaMatrahi"].DefaultCellStyle.Format = "N2";
+            dataGridView1.Columns["nbrtucret"].DefaultCellStyle.Format = "N2";
             dataGridView1.Columns["DamgaVrg"].DefaultCellStyle.Format = "N2";
             dataGridView1.Columns["SgkIsverenPrim"].DefaultCellStyle.Format = "N2";
             dataGridView1.Columns["IssizlikIsvPrim"].DefaultCellStyle.Format = "N2";
@@ -178,7 +178,7 @@ namespace Bordrolama10
         private void TesvikHesBordro()
         {
             baglan.Open();
-            using (SQLiteCommand sorgu = new SQLiteCommand("Select BordroSira,FirmaNo,SubeNo,PuantajYil,PuantajAy, PuantajDonem, TcNo,PersAdı,PersSoyadı,GirisTarihi,	CikisTarihi, Normal_Emekli, PrimGunu, AylikBrutUcret,FmUcreti, AylikEkOd,ToplamKazanc, SgkMatrahi, SGkIsciPrim, IszlikIsciPrim, KumVergMatr,GvMatrahi, GelirVergisi, Agi, VergiInd, DamgaVrg, SgkIsverenPrim, IssizlikIsvPrim, BesKesintisi, SairKesintiler, AylikNetUcret, KanunNo,FirmaPersId From FirmaBordro", baglan))
+            using (SQLiteCommand sorgu = new SQLiteCommand("Select BordroSira,FirmaNo,SubeNo,PuantajYil,PuantajAy, PuantajDonem, TcNo,PersAdı,PersSoyadı,GirisTarihi,	CikisTarihi, Normal_Emekli, Net_Brüt as N_B,Net_BrtUcret as N_B_Ucret, PrimGunu, AylikBrutUcret,FmUcreti, AylikEkOd,ToplamKazanc, SgkMatrahi, SGkIsciPrim, IszlikIsciPrim, KumVergMatr,GvMatrahi, GelirVergisi, Agi, VergiInd, DamgaVrg, SgkIsverenPrim, IssizlikIsvPrim, Net_Brüt as N_B,Net_BrtUcret as N_B_Ucret, nbrtucret, BesKesintisi, SairKesintiler, AylikNetUcret, KanunNo,FirmaPersId From FirmaBordro", baglan))
             {
                 SQLiteDataAdapter da = new SQLiteDataAdapter();
                 da.SelectCommand = sorgu;
@@ -430,6 +430,7 @@ namespace Bordrolama10
         {
 
 
+
             // dataGridView1.AutoGenerateColumns = false;// datagrit mükerrer başlık gelmesine engeller
             lblfirmano.Text = programreferans.firmaid;
             lblfirma.Text = programreferans.firmaunvan;
@@ -454,6 +455,7 @@ namespace Bordrolama10
             chktlistZorunluAlan.Items.Add("CikisTarihi", true);
             chktlistZorunluAlan.Items.Add("Normal_Emekli");
             chktlistZorunluAlan.Items.Add("Net_Brüt", true);
+            chktlistZorunluAlan.Items.Add("Net_BrtUcret");
             chktlistZorunluAlan.Items.Add("MesaiGun");
             chktlistZorunluAlan.Items.Add("HaftaSonu");
             chktlistZorunluAlan.Items.Add("GenelTatil");
@@ -474,7 +476,7 @@ namespace Bordrolama10
             chktlistZorunluAlan.Items.Add("GelirVergisi", true);
             chktlistZorunluAlan.Items.Add("Agi", true);
             chktlistZorunluAlan.Items.Add("VergiInd");
-            chktlistZorunluAlan.Items.Add("DamgaMatrahi");
+
             chktlistZorunluAlan.Items.Add("DamgaVrg", true);
             chktlistZorunluAlan.Items.Add("SgkIsverenPrim");
             chktlistZorunluAlan.Items.Add("IssizlikIsvPrim");
@@ -528,7 +530,7 @@ namespace Bordrolama10
 
 
             baglan.Open();
-            SQLiteCommand ekle = new SQLiteCommand("INSERT INTO [FirmaBordro](BordroSira,FirmaNo,SubeNo,PersId,PuantajYil,PuantajAy,PuantajDonem, TcNo, SgkNo, PersAdı, PersSoyadı, PersAdıSoyadı, GirisTarihi,CikisTarihi, Normal_Emekli, Net_Brüt, MesaiGun, HaftaSonu, GenelTatil,UcretsizIzin,SihhiIzin, PrimGunu, FazlaMesaiGun, AylikBrutUcret, GunlukBrut, FmUcreti, AylikEkOd,ToplamKazanc,SgkMatrahi,SGkIsciPrim,IszlikIsciPrim,KumVergMatr,GvMatrahi,GelirVergisi,Agi,VergiInd,DamgaMatrahi,DamgaVrg,SgkIsverenPrim,IssizlikIsvPrim,BesKesintisi,SairKesintiler,AylikNetUcret,KanunNo,Gv_Agi,AsgUcrGv,GunlukGv,AsgUcrDv,TerkinGv,TerkinDv,FirmaPersId) values (@bdrsira,@fno,@sno, @pid,@pyil,@pay,@pdnm,@tc,@sgkno,@padi,@psydi,@padisoyadi,@gtarih,@ctarih,@nrm,@ntbrt,@mesai,@hsonu, @gtatil,@uizin,@sihhi,@pun,@fmgun,@brtuc,@gnluk,@fmucr,@ekod,@tkznc, @sgkmat, @sgkisci, @iszisci, @kumgvmt, @gvmt, @gv,@agi,@vind,@dvmt,@dv,@sgkisv,@iszisv,@beskes,@sairkes,@netucr,@kanun,@gvAgi,@auGv,@auGvgun,@auDv,@gvTerkin,@dvTerkin,@frmPerId)", baglan);
+            SQLiteCommand ekle = new SQLiteCommand("INSERT INTO [FirmaBordro](BordroSira,FirmaNo,SubeNo,PersId,PuantajYil,PuantajAy,PuantajDonem, TcNo, SgkNo, PersAdı, PersSoyadı, PersAdıSoyadı, GirisTarihi,CikisTarihi, Normal_Emekli, Net_Brüt,Net_BrtUcret, MesaiGun, HaftaSonu, GenelTatil,UcretsizIzin,SihhiIzin, PrimGunu, FazlaMesaiGun, AylikBrutUcret, GunlukBrut, FmUcreti, AylikEkOd,ToplamKazanc,SgkMatrahi,SGkIsciPrim,IszlikIsciPrim,KumVergMatr,GvMatrahi,GelirVergisi,Agi,VergiInd,DamgaVrg,SgkIsverenPrim,IssizlikIsvPrim,BesKesintisi,SairKesintiler,AylikNetUcret,KanunNo,Gv_Agi,AsgUcrGv,GunlukGv,AsgUcrDv,TerkinGv,TerkinDv,FirmaPersId) values (@bdrsira,@fno,@sno, @pid,@pyil,@pay,@pdnm,@tc,@sgkno,@padi,@psydi,@padisoyadi,@gtarih,@ctarih,@nrm,@ntbrt,@nbrtucret,@mesai,@hsonu, @gtatil,@uizin,@sihhi,@pun,@fmgun,@brtuc,@gnluk,@fmucr,@ekod,@tkznc, @sgkmat, @sgkisci, @iszisci, @kumgvmt, @gvmt, @gv,@agi,@vind,@dv,@sgkisv,@iszisv,@beskes,@sairkes,@netucr,@kanun,@gvAgi,@auGv,@auGvgun,@auDv,@gvTerkin,@dvTerkin,@frmPerId)", baglan);
 
 
 
@@ -564,6 +566,7 @@ namespace Bordrolama10
                 var cikistarih = dataGridView1.Rows[i].Cells["CikisTarihi"].Value != DBNull.Value ? String.Format("{0:dd/MM/yyyy}", dataGridView1.Rows[i].Cells["CikisTarihi"].Value.ToString()) : "";
                 var normalemekli = dataGridView1.Rows[i].Cells["Normal_Emekli"].Value.ToString();
                 var netbrüt = dataGridView1.Rows[i].Cells["Net_Brüt"].Value.ToString();
+
                 var mesaigun = dataGridView1.Rows[i].Cells["MesaiGun"].Value.ToString();
                 var haftasonu = dataGridView1.Rows[i].Cells["HaftaSonu"].Value.ToString();
                 var geneltatil = dataGridView1.Rows[i].Cells["GenelTatil"].Value.ToString();
@@ -571,6 +574,7 @@ namespace Bordrolama10
                 var sihhiizin = dataGridView1.Rows[i].Cells["SihhiIzin"].Value.ToString();
                 var primgun = dataGridView1.Rows[i].Cells["PrimGunu"].Value.ToString();
                 var fmgun = dataGridView1.Rows[i].Cells["FazlaMesaiGun"].Value.ToString();
+                var nbrtucret = dataGridView1.Rows[i].Cells["N_B_Ucret"].Value != DBNull.Value ? Convert.ToDecimal(dataGridView1.Rows[i].Cells["N_B_Ucret"].Value) : 0;
 
                 var aylbrutucr = dataGridView1.Rows[i].Cells["AylikBrutUcret"].Value != DBNull.Value ? Convert.ToDecimal(dataGridView1.Rows[i].Cells["AylikBrutUcret"].Value) : 0;
                 var gunlukucr = dataGridView1.Rows[i].Cells["GunlukBrut"].Value != DBNull.Value ? Convert.ToDecimal(dataGridView1.Rows[i].Cells["GunlukBrut"].Value) : 0;
@@ -585,7 +589,7 @@ namespace Bordrolama10
                 var gv = dataGridView1.Rows[i].Cells["GelirVergisi"].Value != DBNull.Value ? Convert.ToDecimal(dataGridView1.Rows[i].Cells["GelirVergisi"].Value) : 0;
                 var agi = dataGridView1.Rows[i].Cells["Agi"].Value != DBNull.Value ? Convert.ToDecimal(dataGridView1.Rows[i].Cells["Agi"].Value) : 0;
                 var vergiind = dataGridView1.Rows[i].Cells["VergiInd"].Value != DBNull.Value ? Convert.ToDecimal(dataGridView1.Rows[i].Cells["VergiInd"].Value) : 0;
-                var damgamatrahi = dataGridView1.Rows[i].Cells["DamgaMatrahi"].Value != DBNull.Value ? Convert.ToDecimal(dataGridView1.Rows[i].Cells["DamgaMatrahi"].Value) : 0;
+
                 var dv = dataGridView1.Rows[i].Cells["DamgaVrg"].Value != DBNull.Value ? Convert.ToDecimal(dataGridView1.Rows[i].Cells["DamgaVrg"].Value) : 0;
                 var sgkisveren = dataGridView1.Rows[i].Cells["SgkIsverenPrim"].Value != DBNull.Value ? Convert.ToDecimal(dataGridView1.Rows[i].Cells["SgkIsverenPrim"].Value) : 0;
                 var issizlikIsveren = dataGridView1.Rows[i].Cells["IssizlikIsvPrim"].Value != DBNull.Value ? Convert.ToDecimal(dataGridView1.Rows[i].Cells["IssizlikIsvPrim"].Value) : 0;
@@ -666,6 +670,7 @@ namespace Bordrolama10
                 ekle.Parameters.AddWithValue("@ctarih", cikistarih);
                 ekle.Parameters.AddWithValue("@nrm", normalemekli);
                 ekle.Parameters.AddWithValue("@ntbrt", netbrüt);
+                ekle.Parameters.AddWithValue("@dvmt", nbrtucret);
                 ekle.Parameters.AddWithValue("@mesai", mesaigun);
                 ekle.Parameters.AddWithValue("@hsonu", haftasonu);
                 ekle.Parameters.AddWithValue("@gtatil", geneltatil);
@@ -686,7 +691,7 @@ namespace Bordrolama10
                 ekle.Parameters.AddWithValue("@gv", gv);
                 ekle.Parameters.AddWithValue("@agi", agi);
                 ekle.Parameters.AddWithValue("@vind", vergiind);
-                ekle.Parameters.AddWithValue("@dvmt", damgamatrahi);
+
                 ekle.Parameters.AddWithValue("@dv", dv);
                 ekle.Parameters.AddWithValue("@sgkisv", sgkisveren);
                 ekle.Parameters.AddWithValue("@iszisv", issizlikIsveren);
@@ -754,7 +759,7 @@ namespace Bordrolama10
 
                 donemlerigoster("SELECT PuantajDonem as Donem, count(PersId) as Per_Sayi From FirmaBordro Where FirmaNo = '" + programreferans.firmaid + "' and SubeNo ='" + programreferans.subid + "' GROUP by Donem");
                 baglan.Close();
-                bordrolarigoster("Select BordroSira AS Sıra, PuantajDonem as Donem, TcNo,PersAdı,PersSoyadı,GirisTarihi,	CikisTarihi, Normal_Emekli as N_E,MesaiGun as Mesai,HaftaSonu as HS,GenelTatil as GT,UcretsizIzin AS Ucrsz,SihhiIzin as Sıhhi, PrimGunu as PrmGun,FazlaMesaiGun as FmGun, AylikBrutUcret as BrutUcret,FmUcreti as FmUcrt, AylikEkOd as EkOdeme,ToplamKazanc, SgkMatrahi, SGkIsciPrim	as IsciPrim, IszlikIsciPrim as IszIsci, KumVergMatr,GvMatrahi, GelirVergisi, Agi, VergiInd, DamgaVrg, SgkIsverenPrim as IsvPrim, IssizlikIsvPrim as IszIsv, BesKesintisi as BesKes, SairKesintiler as SairKes, AylikNetUcret as AylikNet, KanunNo From FirmaBordro where FirmaNo = '" + firmano + "' and SubeNo ='" + subeno + "' and PuantajDonem='" + donem + "'");
+                bordrolarigoster("Select BordroSira AS Sıra, PuantajDonem as Donem, TcNo,PersAdı,PersSoyadı,GirisTarihi,	CikisTarihi, Normal_Emekli as N_E,Net_Brüt as N_B,Net_BrtUcret as N_B_Ucret, MesaiGun as Mesai,HaftaSonu as HS,GenelTatil as GT,UcretsizIzin AS Ucrsz,SihhiIzin as Sıhhi, PrimGunu as PrmGun,FazlaMesaiGun as FmGun, AylikBrutUcret as BrutUcret,FmUcreti as FmUcrt, AylikEkOd as EkOdeme,ToplamKazanc, SgkMatrahi, SGkIsciPrim	as IsciPrim, IszlikIsciPrim as IszIsci, KumVergMatr,GvMatrahi, GelirVergisi, Agi, VergiInd, DamgaVrg, SgkIsverenPrim as IsvPrim, IssizlikIsvPrim as IszIsv, BesKesintisi as BesKes, SairKesintiler as SairKes, AylikNetUcret as AylikNet, KanunNo From FirmaBordro where FirmaNo = '" + firmano + "' and SubeNo ='" + subeno + "' and PuantajDonem='" + donem + "'");
 
             }
         }
@@ -764,7 +769,7 @@ namespace Bordrolama10
 
             int secim = dataGridView2.SelectedCells[0].RowIndex;
             donem = dataGridView2.Rows[secim].Cells[0].Value.ToString();
-            bordrolarigoster("Select BordroSira AS Sıra, PuantajDonem as Donem, TcNo,PersAdı,PersSoyadı,GirisTarihi,	CikisTarihi, Normal_Emekli as N_E,MesaiGun as Mesai,HaftaSonu as HS,GenelTatil as GT,UcretsizIzin AS Ucrsz,SihhiIzin as Sıhhi, PrimGunu as PrmGun,FazlaMesaiGun as FmGun, AylikBrutUcret as BrutUcret,FmUcreti as FmUcrt, AylikEkOd as EkOdeme,ToplamKazanc, SgkMatrahi, SGkIsciPrim	as IsciPrim, IszlikIsciPrim as IszIsci, KumVergMatr,GvMatrahi, GelirVergisi, Agi, VergiInd, DamgaVrg, SgkIsverenPrim as IsvPrim, IssizlikIsvPrim as IszIsv, BesKesintisi as BesKes, SairKesintiler as SairKes, AylikNetUcret as AylikNet, KanunNo From FirmaBordro where FirmaNo = '" + firmano + "' and SubeNo ='" + subeno + "' and PuantajDonem='" + donem + "'");
+            bordrolarigoster("Select BordroSira AS Sıra, PuantajDonem as Donem, TcNo,PersAdı,PersSoyadı,GirisTarihi,	CikisTarihi, Normal_Emekli as N_E,Net_Brüt as N_B,Net_BrtUcret as N_B_Ucret, MesaiGun as Mesai,HaftaSonu as HS,GenelTatil as GT,UcretsizIzin AS Ucrsz,SihhiIzin as Sıhhi, PrimGunu as PrmGun,FazlaMesaiGun as FmGun, AylikBrutUcret as BrutUcret,FmUcreti as FmUcrt, AylikEkOd as EkOdeme,ToplamKazanc, SgkMatrahi, SGkIsciPrim	as IsciPrim, IszlikIsciPrim as IszIsci, KumVergMatr,GvMatrahi, GelirVergisi, Agi, VergiInd, DamgaVrg, SgkIsverenPrim as IsvPrim, IssizlikIsvPrim as IszIsv, BesKesintisi as BesKes, SairKesintiler as SairKes, AylikNetUcret as AylikNet, KanunNo From FirmaBordro where FirmaNo = '" + firmano + "' and SubeNo ='" + subeno + "' and PuantajDonem='" + donem + "'");
 
             //baglan.Open();
             //SQLiteCommand totalCountCommand = new SQLiteCommand("Select Count(*) From FirmaBordro where FirmaNo='" + programreferans.firmaid + "' and SubeNo='" + programreferans.subid + "'and PuantajDonem = '" + donem + "'", baglan);
@@ -779,7 +784,7 @@ namespace Bordrolama10
 
         private void btnfiltrekaldir_Click(object sender, EventArgs e)
         {
-            bordrolarigoster("Select BordroSira AS Sıra, PuantajDonem as Donem, TcNo,PersAdı,PersSoyadı,GirisTarihi,	CikisTarihi, Normal_Emekli as N_E,MesaiGun as Mesai,HaftaSonu as HS,GenelTatil as GT,UcretsizIzin AS Ucrsz,SihhiIzin as Sıhhi, PrimGunu as PrmGun,FazlaMesaiGun as FmGun, AylikBrutUcret as BrutUcret,FmUcreti as FmUcrt, AylikEkOd as EkOdeme,ToplamKazanc, SgkMatrahi, SGkIsciPrim	as IsciPrim, IszlikIsciPrim as IszIsci, KumVergMatr,GvMatrahi, GelirVergisi, Agi, VergiInd, DamgaVrg, SgkIsverenPrim as IsvPrim, IssizlikIsvPrim as IszIsv, BesKesintisi as BesKes, SairKesintiler as SairKes, AylikNetUcret as AylikNet, KanunNo From FirmaBordro where FirmaNo = '" + firmano + "' and SubeNo ='" + subeno + "' and PuantajDonem='" + donem + "'");
+            bordrolarigoster("Select BordroSira AS Sıra, PuantajDonem as Donem, TcNo,PersAdı,PersSoyadı,GirisTarihi,	CikisTarihi, Normal_Emekli as N_E,Net_Brüt as N_B,Net_BrtUcret as N_B_Ucret, MesaiGun as Mesai,HaftaSonu as HS,GenelTatil as GT,UcretsizIzin AS Ucrsz,SihhiIzin as Sıhhi, PrimGunu as PrmGun,FazlaMesaiGun as FmGun, AylikBrutUcret as BrutUcret,FmUcreti as FmUcrt, AylikEkOd as EkOdeme,ToplamKazanc, SgkMatrahi, SGkIsciPrim	as IsciPrim, IszlikIsciPrim as IszIsci, KumVergMatr,GvMatrahi, GelirVergisi, Agi, VergiInd, DamgaVrg, SgkIsverenPrim as IsvPrim, IssizlikIsvPrim as IszIsv, BesKesintisi as BesKes, SairKesintiler as SairKes, AylikNetUcret as AylikNet, KanunNo From FirmaBordro where FirmaNo = '" + firmano + "' and SubeNo ='" + subeno + "' and PuantajDonem='" + donem + "'");
             // datagiritalanlariniduzenle();
         }
 
@@ -957,7 +962,7 @@ namespace Bordrolama10
             }
 
 
-            bordrolarigoster("Select BordroSira AS Sıra, PuantajDonem as Donem, TcNo, PersAdı, PersSoyadı, GirisTarihi, CikisTarihi, Normal_Emekli as N_E, MesaiGun as Mesai, HaftaSonu as HS, GenelTatil as GT, UcretsizIzin AS Ucrsz, SihhiIzin as Sıhhi, PrimGunu as PrmGun, FazlaMesaiGun as FmGun, AylikBrutUcret as BrutUcret, FmUcreti as FmUcrt, AylikEkOd as EkOdeme, ToplamKazanc, SgkMatrahi, SGkIsciPrim as IsciPrim, IszlikIsciPrim as IszIsci, KumVergMatr, GvMatrahi, GelirVergisi, Agi, VergiInd, DamgaVrg, SgkIsverenPrim as IsvPrim, IssizlikIsvPrim as IszIsv, BesKesintisi as BesKes, SairKesintiler as SairKes, AylikNetUcret as AylikNet, KanunNo From FirmaBordro where FirmaNo = '" + firmano + "' and SubeNo = '" + subeno + "' and PuantajDonem = '" + donem + "'");
+            bordrolarigoster("Select BordroSira AS Sıra, PuantajDonem as Donem, TcNo,PersAdı,PersSoyadı,GirisTarihi,	CikisTarihi, Normal_Emekli as N_E,Net_Brüt as N_B,Net_BrtUcret as N_B_Ucret, MesaiGun as Mesai,HaftaSonu as HS,GenelTatil as GT,UcretsizIzin AS Ucrsz,SihhiIzin as Sıhhi, PrimGunu as PrmGun,FazlaMesaiGun as FmGun, AylikBrutUcret as BrutUcret,FmUcreti as FmUcrt, AylikEkOd as EkOdeme,ToplamKazanc, SgkMatrahi, SGkIsciPrim	as IsciPrim, IszlikIsciPrim as IszIsci, KumVergMatr,GvMatrahi, GelirVergisi, Agi, VergiInd, DamgaVrg, SgkIsverenPrim as IsvPrim, IssizlikIsvPrim as IszIsv, BesKesintisi as BesKes, SairKesintiler as SairKes, AylikNetUcret as AylikNet, KanunNo From FirmaBordro where FirmaNo = '" + firmano + "' and SubeNo = '" + subeno + "' and PuantajDonem = '" + donem + "'");
             //datagiritalanlariniduzenle();
         }
 
@@ -1037,9 +1042,10 @@ namespace Bordrolama10
 
 
             baglan.Open();
-            SQLiteCommand ekle = new SQLiteCommand("INSERT INTO [FirmaBordro](BordroSira,FirmaNo,SubeNo,PersId,PuantajYil,PuantajAy,PuantajDonem, TcNo, SgkNo, PersAdı, PersSoyadı, PersAdıSoyadı, GirisTarihi,CikisTarihi, Normal_Emekli, Net_Brüt, MesaiGun, HaftaSonu, GenelTatil,UcretsizIzin,SihhiIzin, PrimGunu, FazlaMesaiGun, AylikBrutUcret, GunlukBrut, FmUcreti, AylikEkOd,ToplamKazanc,SgkMatrahi,SGkIsciPrim,IszlikIsciPrim,KumVergMatr,GvMatrahi,GelirVergisi,Agi,VergiInd,DamgaMatrahi,DamgaVrg,SgkIsverenPrim,IssizlikIsvPrim,BesKesintisi,SairKesintiler,AylikNetUcret,FirmaPersId) values (@bdrsira,@fno,@sno, @pid,@pyil,@pay,@pdnm,@tc,@sgkno,@padi,@psydi,@padisoyadi,@gtarih,@ctarih,@nrm,@ntbrt,@mesai,@hsonu, @gtatil,@uizin,@sihhi,@pun,@fmgun,@brtuc,@gnluk,@fmucr,@ekod,@tkznc, @sgkmat, @sgkisci, @iszisci, @kumgvmt, @gvmt, @gv,@agi,@vind,@dvmt,@dv,@sgkisv,@iszisv,@beskes,@sairkes,@netucr,@frmPerId)", baglan);
+            SQLiteCommand ekle = new SQLiteCommand("INSERT INTO [FirmaBordro](BordroSira,FirmaNo,SubeNo,PersId,PuantajYil,PuantajAy,PuantajDonem, TcNo, SgkNo, PersAdı, PersSoyadı, PersAdıSoyadı, GirisTarihi,CikisTarihi, Normal_Emekli, Net_Brüt, Net_BrtUcret, MesaiGun, HaftaSonu, GenelTatil,UcretsizIzin,SihhiIzin, PrimGunu, FazlaMesaiGun, AylikBrutUcret, GunlukBrut, FmUcreti, AylikEkOd,ToplamKazanc,SgkMatrahi,SGkIsciPrim,IszlikIsciPrim,KumVergMatr,GvMatrahi,GelirVergisi,Agi,VergiInd,DamgaVrg,SgkIsverenPrim,IssizlikIsvPrim,BesKesintisi,SairKesintiler,AylikNetUcret,FirmaPersId) values (@bdrsira,@fno,@sno, @pid,@pyil,@pay,@pdnm,@tc,@sgkno,@padi,@psydi,@padisoyadi,@gtarih,@ctarih,@nrm,@ntbrt,@nbrtucret,@mesai,@hsonu, @gtatil,@uizin,@sihhi,@pun,@fmgun,@brtuc,@gnluk,@fmucr,@ekod,@tkznc, @sgkmat, @sgkisci, @iszisci, @kumgvmt, @gvmt, @gv,@agi,@vind,@dv,@sgkisv,@iszisv,@beskes,@sairkes,@netucr,@frmPerId)", baglan);
             //KanunNo,Gv_Agi,AsgUcrGv,GunlukGv,AsgUcrDv,TerkinGv,TerkinDv,
             //@kanun,@gvAgi,@auGv,@auGvgun,@auDv,@gvTerkin,@dvTerkin,
+
 
 
 
@@ -1072,8 +1078,13 @@ namespace Bordrolama10
                 var persadisoyadi = TemelTablo.Rows[i]["PersAdıSoyadı"].ToString();
                 var giristarih = TemelTablo.Rows[i]["GirisTarihi"] != DBNull.Value ? Convert.ToDateTime(TemelTablo.Rows[i]["GirisTarihi"]).ToShortDateString().Replace('.', '/') : "";
                 var cikistarih = TemelTablo.Rows[i]["CikisTarihi"] != DBNull.Value ? Convert.ToDateTime(TemelTablo.Rows[i]["CikisTarihi"]).ToShortDateString().Replace('.', '/') : "";
+                if (cikistarih=="01.01.2100"||cikistarih=="01.01.2101" || cikistarih == "01/01/2100" || cikistarih == "01/01/2101")
+                {
+                    cikistarih = "";
+                }
                 var normalemekli = TemelTablo.Rows[i]["Normal_Emekli"].ToString();
                 var netbrüt = TemelTablo.Rows[i]["Net_Brüt"].ToString();
+                var nbrtucret = TemelTablo.Rows[i]["Net_BrtUcret"] != DBNull.Value ? Convert.ToDecimal(TemelTablo.Rows[i]["Net_BrtUcret"]) : 0;
                 var mesaigun = TemelTablo.Rows[i]["MesaiGun"].ToString();
                 var haftasonu = TemelTablo.Rows[i]["HaftaSonu"].ToString();
                 var geneltatil = TemelTablo.Rows[i]["GenelTatil"].ToString();
@@ -1095,7 +1106,7 @@ namespace Bordrolama10
                 var gv = TemelTablo.Rows[i]["GelirVergisi"] != DBNull.Value ? Convert.ToDecimal(TemelTablo.Rows[i]["GelirVergisi"]) : 0;
                 var agi = TemelTablo.Rows[i]["Agi"] != DBNull.Value ? Convert.ToDecimal(TemelTablo.Rows[i]["Agi"]) : 0;
                 var vergiind = TemelTablo.Rows[i]["VergiInd"] != DBNull.Value ? Convert.ToDecimal(TemelTablo.Rows[i]["VergiInd"]) : 0;
-                var damgamatrahi = TemelTablo.Rows[i]["DamgaMatrahi"] != DBNull.Value ? Convert.ToDecimal(TemelTablo.Rows[i]["DamgaMatrahi"]) : 0;
+
                 var dv = TemelTablo.Rows[i]["DamgaVrg"] != DBNull.Value ? Convert.ToDecimal(TemelTablo.Rows[i]["DamgaVrg"]) : 0;
                 var sgkisveren = TemelTablo.Rows[i]["SgkIsverenPrim"] != DBNull.Value ? Convert.ToDecimal(TemelTablo.Rows[i]["SgkIsverenPrim"]) : 0;
                 var issizlikIsveren = TemelTablo.Rows[i]["IssizlikIsvPrim"] != DBNull.Value ? Convert.ToDecimal(TemelTablo.Rows[i]["IssizlikIsvPrim"]) : 0;
@@ -1176,6 +1187,7 @@ namespace Bordrolama10
                 ekle.Parameters.AddWithValue("@ctarih", cikistarih);
                 ekle.Parameters.AddWithValue("@nrm", normalemekli);
                 ekle.Parameters.AddWithValue("@ntbrt", netbrüt);
+                ekle.Parameters.AddWithValue("@nbrtucret", nbrtucret);
                 ekle.Parameters.AddWithValue("@mesai", mesaigun);
                 ekle.Parameters.AddWithValue("@hsonu", haftasonu);
                 ekle.Parameters.AddWithValue("@gtatil", geneltatil);
@@ -1196,7 +1208,7 @@ namespace Bordrolama10
                 ekle.Parameters.AddWithValue("@gv", gv);
                 ekle.Parameters.AddWithValue("@agi", agi);
                 ekle.Parameters.AddWithValue("@vind", vergiind);
-                ekle.Parameters.AddWithValue("@dvmt", damgamatrahi);
+
                 ekle.Parameters.AddWithValue("@dv", dv);
                 ekle.Parameters.AddWithValue("@sgkisv", sgkisveren);
                 ekle.Parameters.AddWithValue("@iszisv", issizlikIsveren);
@@ -1225,7 +1237,7 @@ namespace Bordrolama10
 
             donemlerigoster("SELECT PuantajDonem as Donem, count(PersId) as Per_Sayi From FirmaBordro Where FirmaNo = '" + programreferans.firmaid + "' and SubeNo ='" + programreferans.subid + "' GROUP by Donem");
             donem = dataGridView2.Rows[0].Cells[0].Value.ToString();
-            bordrolarigoster("Select BordroSira AS Sıra, PuantajDonem as Donem, TcNo,PersAdı,PersSoyadı,GirisTarihi,	CikisTarihi, Normal_Emekli as N_E,MesaiGun as Mesai,HaftaSonu as HS,GenelTatil as GT,UcretsizIzin AS Ucrsz,SihhiIzin as Sıhhi, PrimGunu as PrmGun,FazlaMesaiGun as FmGun, AylikBrutUcret as BrutUcret,FmUcreti as FmUcrt, AylikEkOd as EkOdeme,ToplamKazanc, SgkMatrahi, SGkIsciPrim	as IsciPrim, IszlikIsciPrim as IszIsci, KumVergMatr,GvMatrahi, GelirVergisi, Agi, VergiInd, DamgaVrg, SgkIsverenPrim as IsvPrim, IssizlikIsvPrim as IszIsv, BesKesintisi as BesKes, SairKesintiler as SairKes, AylikNetUcret as AylikNet, KanunNo From FirmaBordro where FirmaNo = '" + firmano + "' and SubeNo ='" + subeno + "' and PuantajDonem='" + donem + "'");
+            bordrolarigoster("Select BordroSira AS Sıra, PuantajDonem as Donem, TcNo,PersAdı,PersSoyadı,GirisTarihi,	CikisTarihi, Normal_Emekli as N_E,Net_Brüt as N_B,Net_BrtUcret as N_B_Ucret, MesaiGun as Mesai,HaftaSonu as HS,GenelTatil as GT,UcretsizIzin AS Ucrsz,SihhiIzin as Sıhhi, PrimGunu as PrmGun,FazlaMesaiGun as FmGun, AylikBrutUcret as BrutUcret,FmUcreti as FmUcrt, AylikEkOd as EkOdeme,ToplamKazanc, SgkMatrahi, SGkIsciPrim	as IsciPrim, IszlikIsciPrim as IszIsci, KumVergMatr,GvMatrahi, GelirVergisi, Agi, VergiInd, DamgaVrg, SgkIsverenPrim as IsvPrim, IssizlikIsvPrim as IszIsv, BesKesintisi as BesKes, SairKesintiler as SairKes, AylikNetUcret as AylikNet, KanunNo From FirmaBordro where FirmaNo = '" + firmano + "' and SubeNo ='" + subeno + "' and PuantajDonem='" + donem + "'");
             //datagiritalanlariniduzenle();
 
             IslemDurumu.islemdurumu = "Tamamlandı";
@@ -1330,7 +1342,7 @@ namespace Bordrolama10
                 {
                     dvTerkin = dv;
                 }
-                if (dv==asUcrDv)
+                if (dv == asUcrDv)
                 {
                     dvTerkin = dv;
                 }

@@ -29,19 +29,19 @@ namespace Bordrolama10
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
@@ -79,6 +79,9 @@ namespace Bordrolama10
             this.txtBRDadfiltre = new System.Windows.Forms.TextBox();
             this.dtgrtBORDRO = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label29 = new System.Windows.Forms.Label();
+            this.cbmYil = new System.Windows.Forms.ComboBox();
             this.btnHzmLstBilgileriniAl = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.txtTHKMahiyet = new System.Windows.Forms.TextBox();
@@ -118,9 +121,28 @@ namespace Bordrolama10
             this.label24 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.cbmYil = new System.Windows.Forms.ComboBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrtHizmet)).BeginInit();
@@ -146,21 +168,23 @@ namespace Bordrolama10
             this.tabControl1.Location = new System.Drawing.Point(85, 130);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1530, 719);
+            this.tabControl1.Size = new System.Drawing.Size(1733, 719);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.PapayaWhip;
+            this.tabPage1.Controls.Add(this.button7);
+            this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.dtgrtHizmet);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1609, 693);
+            this.tabPage1.Size = new System.Drawing.Size(1725, 693);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Kontrol";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -175,25 +199,25 @@ namespace Bordrolama10
             // dtgrtHizmet
             // 
             this.dtgrtHizmet.AllowUserToAddRows = false;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle16.NullValue = null;
-            this.dtgrtHizmet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle27.NullValue = null;
+            this.dtgrtHizmet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle27;
             this.dtgrtHizmet.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtgrtHizmet.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtgrtHizmet.BackgroundColor = System.Drawing.Color.White;
             this.dtgrtHizmet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgrtHizmet.DefaultCellStyle = dataGridViewCellStyle17;
-            this.dtgrtHizmet.Location = new System.Drawing.Point(22, 33);
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgrtHizmet.DefaultCellStyle = dataGridViewCellStyle28;
+            this.dtgrtHizmet.Location = new System.Drawing.Point(22, 58);
             this.dtgrtHizmet.Name = "dtgrtHizmet";
             this.dtgrtHizmet.RowHeadersVisible = false;
-            this.dtgrtHizmet.Size = new System.Drawing.Size(1559, 639);
+            this.dtgrtHizmet.Size = new System.Drawing.Size(1687, 614);
             this.dtgrtHizmet.TabIndex = 82;
             this.dtgrtHizmet.Click += new System.EventHandler(this.dtgrtHizmet_Click);
             // 
@@ -444,21 +468,21 @@ namespace Bordrolama10
             // dtgrtAPHB
             // 
             this.dtgrtAPHB.AllowUserToAddRows = false;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle18.NullValue = null;
-            this.dtgrtAPHB.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle29.NullValue = null;
+            this.dtgrtAPHB.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle29;
             this.dtgrtAPHB.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtgrtAPHB.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtgrtAPHB.BackgroundColor = System.Drawing.Color.White;
             this.dtgrtAPHB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgrtAPHB.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgrtAPHB.DefaultCellStyle = dataGridViewCellStyle30;
             this.dtgrtAPHB.Location = new System.Drawing.Point(6, 35);
             this.dtgrtAPHB.Name = "dtgrtAPHB";
             this.dtgrtAPHB.RowHeadersVisible = false;
@@ -558,21 +582,21 @@ namespace Bordrolama10
             // dtgrtBORDRO
             // 
             this.dtgrtBORDRO.AllowUserToAddRows = false;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle20.NullValue = null;
-            this.dtgrtBORDRO.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle31.NullValue = null;
+            this.dtgrtBORDRO.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
             this.dtgrtBORDRO.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtgrtBORDRO.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtgrtBORDRO.BackgroundColor = System.Drawing.Color.White;
             this.dtgrtBORDRO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgrtBORDRO.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgrtBORDRO.DefaultCellStyle = dataGridViewCellStyle32;
             this.dtgrtBORDRO.Location = new System.Drawing.Point(55, 56);
             this.dtgrtBORDRO.Name = "dtgrtBORDRO";
             this.dtgrtBORDRO.RowHeadersVisible = false;
@@ -582,14 +606,35 @@ namespace Bordrolama10
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.PapayaWhip;
+            this.tabPage4.Controls.Add(this.label40);
+            this.tabPage4.Controls.Add(this.textBox8);
+            this.tabPage4.Controls.Add(this.textBox9);
+            this.tabPage4.Controls.Add(this.textBox10);
+            this.tabPage4.Controls.Add(this.label41);
+            this.tabPage4.Controls.Add(this.label42);
+            this.tabPage4.Controls.Add(this.label43);
+            this.tabPage4.Controls.Add(this.label32);
+            this.tabPage4.Controls.Add(this.textBox2);
+            this.tabPage4.Controls.Add(this.textBox3);
+            this.tabPage4.Controls.Add(this.textBox7);
+            this.tabPage4.Controls.Add(this.label33);
+            this.tabPage4.Controls.Add(this.label38);
+            this.tabPage4.Controls.Add(this.label39);
+            this.tabPage4.Controls.Add(this.label37);
             this.tabPage4.Controls.Add(this.button6);
             this.tabPage4.Controls.Add(this.label29);
             this.tabPage4.Controls.Add(this.cbmYil);
+            this.tabPage4.Controls.Add(this.textBox4);
             this.tabPage4.Controls.Add(this.btnHzmLstBilgileriniAl);
+            this.tabPage4.Controls.Add(this.textBox5);
             this.tabPage4.Controls.Add(this.button5);
+            this.tabPage4.Controls.Add(this.textBox6);
             this.tabPage4.Controls.Add(this.txtTHKMahiyet);
+            this.tabPage4.Controls.Add(this.label34);
             this.tabPage4.Controls.Add(this.label23);
+            this.tabPage4.Controls.Add(this.label35);
             this.tabPage4.Controls.Add(this.txtTHKKanun);
+            this.tabPage4.Controls.Add(this.label36);
             this.tabPage4.Controls.Add(this.label25);
             this.tabPage4.Controls.Add(this.txtTHKTur);
             this.tabPage4.Controls.Add(this.label30);
@@ -599,9 +644,53 @@ namespace Bordrolama10
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1522, 693);
+            this.tabPage4.Size = new System.Drawing.Size(1609, 693);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Tahakkuklar";
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Gainsboro;
+            this.button6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button6.Location = new System.Drawing.Point(1121, 3);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(97, 23);
+            this.button6.TabIndex = 125;
+            this.button6.Text = "Renklendir";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label29.Location = new System.Drawing.Point(790, 32);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(23, 16);
+            this.label29.TabIndex = 124;
+            this.label29.Text = "Yıl";
+            // 
+            // cbmYil
+            // 
+            this.cbmYil.FormattingEnabled = true;
+            this.cbmYil.Items.AddRange(new object[] {
+            "2021",
+            "2020",
+            "2019",
+            "2018",
+            "2017",
+            "2016",
+            "2015",
+            "2014",
+            "2013",
+            "2012",
+            "2011",
+            "2010"});
+            this.cbmYil.Location = new System.Drawing.Point(836, 27);
+            this.cbmYil.Name = "cbmYil";
+            this.cbmYil.Size = new System.Drawing.Size(87, 21);
+            this.cbmYil.TabIndex = 123;
+            this.cbmYil.SelectedIndexChanged += new System.EventHandler(this.cbmYil_SelectedIndexChanged);
             // 
             // btnHzmLstBilgileriniAl
             // 
@@ -619,7 +708,7 @@ namespace Bordrolama10
             // 
             this.button5.BackColor = System.Drawing.Color.Gainsboro;
             this.button5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button5.Location = new System.Drawing.Point(945, 2);
+            this.button5.Location = new System.Drawing.Point(945, 3);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(170, 23);
             this.button5.TabIndex = 112;
@@ -631,7 +720,7 @@ namespace Bordrolama10
             // 
             this.txtTHKMahiyet.BackColor = System.Drawing.Color.White;
             this.txtTHKMahiyet.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtTHKMahiyet.Location = new System.Drawing.Point(657, 3);
+            this.txtTHKMahiyet.Location = new System.Drawing.Point(653, 25);
             this.txtTHKMahiyet.Name = "txtTHKMahiyet";
             this.txtTHKMahiyet.Size = new System.Drawing.Size(121, 23);
             this.txtTHKMahiyet.TabIndex = 121;
@@ -641,7 +730,7 @@ namespace Bordrolama10
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label23.Location = new System.Drawing.Point(590, 10);
+            this.label23.Location = new System.Drawing.Point(586, 32);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(60, 16);
             this.label23.TabIndex = 120;
@@ -651,7 +740,7 @@ namespace Bordrolama10
             // 
             this.txtTHKKanun.BackColor = System.Drawing.Color.White;
             this.txtTHKKanun.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtTHKKanun.Location = new System.Drawing.Point(463, 3);
+            this.txtTHKKanun.Location = new System.Drawing.Point(459, 25);
             this.txtTHKKanun.Name = "txtTHKKanun";
             this.txtTHKKanun.Size = new System.Drawing.Size(121, 23);
             this.txtTHKKanun.TabIndex = 119;
@@ -661,7 +750,7 @@ namespace Bordrolama10
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label25.Location = new System.Drawing.Point(389, 10);
+            this.label25.Location = new System.Drawing.Point(385, 32);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(68, 16);
             this.label25.TabIndex = 118;
@@ -671,7 +760,7 @@ namespace Bordrolama10
             // 
             this.txtTHKTur.BackColor = System.Drawing.Color.White;
             this.txtTHKTur.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtTHKTur.Location = new System.Drawing.Point(275, 3);
+            this.txtTHKTur.Location = new System.Drawing.Point(271, 25);
             this.txtTHKTur.Name = "txtTHKTur";
             this.txtTHKTur.Size = new System.Drawing.Size(101, 23);
             this.txtTHKTur.TabIndex = 115;
@@ -681,7 +770,7 @@ namespace Bordrolama10
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label30.Location = new System.Drawing.Point(198, 10);
+            this.label30.Location = new System.Drawing.Point(194, 32);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(60, 16);
             this.label30.TabIndex = 114;
@@ -691,7 +780,7 @@ namespace Bordrolama10
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label31.Location = new System.Drawing.Point(23, 10);
+            this.label31.Location = new System.Drawing.Point(19, 32);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(93, 16);
             this.label31.TabIndex = 113;
@@ -701,7 +790,7 @@ namespace Bordrolama10
             // 
             this.txtTHKDonem.BackColor = System.Drawing.Color.White;
             this.txtTHKDonem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtTHKDonem.Location = new System.Drawing.Point(122, 3);
+            this.txtTHKDonem.Location = new System.Drawing.Point(118, 25);
             this.txtTHKDonem.Name = "txtTHKDonem";
             this.txtTHKDonem.Size = new System.Drawing.Size(70, 23);
             this.txtTHKDonem.TabIndex = 111;
@@ -710,25 +799,25 @@ namespace Bordrolama10
             // dtgrtTAHAKUKLAR
             // 
             this.dtgrtTAHAKUKLAR.AllowUserToAddRows = false;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle14.NullValue = null;
-            this.dtgrtTAHAKUKLAR.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle33.NullValue = null;
+            this.dtgrtTAHAKUKLAR.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle33;
             this.dtgrtTAHAKUKLAR.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtgrtTAHAKUKLAR.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtgrtTAHAKUKLAR.BackgroundColor = System.Drawing.Color.White;
             this.dtgrtTAHAKUKLAR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgrtTAHAKUKLAR.DefaultCellStyle = dataGridViewCellStyle15;
-            this.dtgrtTAHAKUKLAR.Location = new System.Drawing.Point(25, 32);
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgrtTAHAKUKLAR.DefaultCellStyle = dataGridViewCellStyle34;
+            this.dtgrtTAHAKUKLAR.Location = new System.Drawing.Point(25, 54);
             this.dtgrtTAHAKUKLAR.Name = "dtgrtTAHAKUKLAR";
             this.dtgrtTAHAKUKLAR.RowHeadersVisible = false;
-            this.dtgrtTAHAKUKLAR.Size = new System.Drawing.Size(1485, 634);
+            this.dtgrtTAHAKUKLAR.Size = new System.Drawing.Size(1224, 612);
             this.dtgrtTAHAKUKLAR.TabIndex = 83;
             // 
             // tabPage5
@@ -736,7 +825,7 @@ namespace Bordrolama10
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1609, 693);
+            this.tabPage5.Size = new System.Drawing.Size(1522, 693);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -813,14 +902,14 @@ namespace Bordrolama10
             this.dtgrtSubeSecim.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtgrtSubeSecim.BackgroundColor = System.Drawing.Color.White;
             this.dtgrtSubeSecim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgrtSubeSecim.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgrtSubeSecim.DefaultCellStyle = dataGridViewCellStyle35;
             this.dtgrtSubeSecim.Location = new System.Drawing.Point(479, 22);
             this.dtgrtSubeSecim.Name = "dtgrtSubeSecim";
             this.dtgrtSubeSecim.RowHeadersVisible = false;
@@ -953,21 +1042,21 @@ namespace Bordrolama10
             // 
             // dtgrtEk
             // 
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle23.NullValue = null;
-            this.dtgrtEk.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle36.NullValue = null;
+            this.dtgrtEk.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle36;
             this.dtgrtEk.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtgrtEk.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtgrtEk.BackgroundColor = System.Drawing.Color.White;
             this.dtgrtEk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgrtEk.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgrtEk.DefaultCellStyle = dataGridViewCellStyle37;
             this.dtgrtEk.Location = new System.Drawing.Point(350, 28);
             this.dtgrtEk.Name = "dtgrtEk";
             this.dtgrtEk.Size = new System.Drawing.Size(218, 76);
@@ -975,21 +1064,21 @@ namespace Bordrolama10
             // 
             // txtKanunNo
             // 
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle25.NullValue = null;
-            this.txtKanunNo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle38.NullValue = null;
+            this.txtKanunNo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle38;
             this.txtKanunNo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.txtKanunNo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.txtKanunNo.BackgroundColor = System.Drawing.Color.White;
             this.txtKanunNo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.txtKanunNo.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.txtKanunNo.DefaultCellStyle = dataGridViewCellStyle39;
             this.txtKanunNo.Location = new System.Drawing.Point(105, 28);
             this.txtKanunNo.Name = "txtKanunNo";
             this.txtKanunNo.Size = new System.Drawing.Size(218, 76);
@@ -1055,7 +1144,7 @@ namespace Bordrolama10
             // 
             this.button2.BackColor = System.Drawing.Color.Gainsboro;
             this.button2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Location = new System.Drawing.Point(144, 102);
+            this.button2.Location = new System.Drawing.Point(706, 14);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(162, 23);
             this.button2.TabIndex = 101;
@@ -1063,49 +1152,227 @@ namespace Bordrolama10
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // cbmYil
+            // textBox4
             // 
-            this.cbmYil.FormattingEnabled = true;
-            this.cbmYil.Items.AddRange(new object[] {
-            "2021",
-            "2020",
-            "2019",
-            "2018",
-            "2017",
-            "2016",
-            "2015",
-            "2014",
-            "2013",
-            "2012",
-            "2011",
-            "2010"});
-            this.cbmYil.Location = new System.Drawing.Point(840, 5);
-            this.cbmYil.Name = "cbmYil";
-            this.cbmYil.Size = new System.Drawing.Size(87, 21);
-            this.cbmYil.TabIndex = 123;
-            this.cbmYil.SelectedIndexChanged += new System.EventHandler(this.cbmYil_SelectedIndexChanged);
+            this.textBox4.BackColor = System.Drawing.Color.White;
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox4.Location = new System.Drawing.Point(1393, 135);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(121, 23);
+            this.textBox4.TabIndex = 131;
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label29
+            // textBox5
             // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label29.Location = new System.Drawing.Point(794, 10);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(23, 16);
-            this.label29.TabIndex = 124;
-            this.label29.Text = "Yıl";
+            this.textBox5.BackColor = System.Drawing.Color.White;
+            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox5.Location = new System.Drawing.Point(1393, 109);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(121, 23);
+            this.textBox5.TabIndex = 130;
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // button6
+            // textBox6
             // 
-            this.button6.BackColor = System.Drawing.Color.Gainsboro;
-            this.button6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button6.Location = new System.Drawing.Point(1121, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(97, 23);
-            this.button6.TabIndex = 125;
-            this.button6.Text = "Renklendir";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.textBox6.BackColor = System.Drawing.Color.White;
+            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox6.Location = new System.Drawing.Point(1393, 83);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(121, 23);
+            this.textBox6.TabIndex = 129;
+            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label34.Location = new System.Drawing.Point(1299, 142);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(88, 16);
+            this.label34.TabIndex = 127;
+            this.label34.Text = "Toplam Spek";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label35.Location = new System.Drawing.Point(1306, 116);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(81, 16);
+            this.label35.TabIndex = 126;
+            this.label35.Text = "Toplam Gün";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label36.Location = new System.Drawing.Point(1285, 90);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(102, 16);
+            this.label36.TabIndex = 125;
+            this.label36.Text = "Toplam Çalışan";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label37.Location = new System.Drawing.Point(1363, 55);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(80, 16);
+            this.label37.TabIndex = 135;
+            this.label37.Text = "İPTAL SPEK";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label32.Location = new System.Drawing.Point(1363, 207);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(115, 16);
+            this.label32.TabIndex = 142;
+            this.label32.Text = "DÜZELTİLEN SPEK";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.White;
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox2.Location = new System.Drawing.Point(1393, 287);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(121, 23);
+            this.textBox2.TabIndex = 141;
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.White;
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox3.Location = new System.Drawing.Point(1393, 261);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(121, 23);
+            this.textBox3.TabIndex = 140;
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBox7
+            // 
+            this.textBox7.BackColor = System.Drawing.Color.White;
+            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox7.Location = new System.Drawing.Point(1393, 235);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(121, 23);
+            this.textBox7.TabIndex = 139;
+            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label33.Location = new System.Drawing.Point(1299, 294);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(88, 16);
+            this.label33.TabIndex = 138;
+            this.label33.Text = "Toplam Spek";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label38.Location = new System.Drawing.Point(1306, 268);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(81, 16);
+            this.label38.TabIndex = 137;
+            this.label38.Text = "Toplam Gün";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label39.Location = new System.Drawing.Point(1285, 242);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(102, 16);
+            this.label39.TabIndex = 136;
+            this.label39.Text = "Toplam Çalışan";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label40.Location = new System.Drawing.Point(1363, 350);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(76, 16);
+            this.label40.TabIndex = 149;
+            this.label40.Text = "FARK SPEK";
+            // 
+            // textBox8
+            // 
+            this.textBox8.BackColor = System.Drawing.Color.White;
+            this.textBox8.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox8.Location = new System.Drawing.Point(1393, 430);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(121, 23);
+            this.textBox8.TabIndex = 148;
+            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBox9
+            // 
+            this.textBox9.BackColor = System.Drawing.Color.White;
+            this.textBox9.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox9.Location = new System.Drawing.Point(1393, 404);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(121, 23);
+            this.textBox9.TabIndex = 147;
+            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBox10
+            // 
+            this.textBox10.BackColor = System.Drawing.Color.White;
+            this.textBox10.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox10.Location = new System.Drawing.Point(1393, 378);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(121, 23);
+            this.textBox10.TabIndex = 146;
+            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label41.Location = new System.Drawing.Point(1299, 437);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(88, 16);
+            this.label41.TabIndex = 145;
+            this.label41.Text = "Toplam Spek";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label42.Location = new System.Drawing.Point(1306, 411);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(81, 16);
+            this.label42.TabIndex = 144;
+            this.label42.Text = "Toplam Gün";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label43.Location = new System.Drawing.Point(1285, 385);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(102, 16);
+            this.label43.TabIndex = 143;
+            this.label43.Text = "Toplam Çalışan";
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.Gainsboro;
+            this.button7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button7.Location = new System.Drawing.Point(460, 15);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(228, 23);
+            this.button7.TabIndex = 102;
+            this.button7.Text = "Tekno Bordro Hesapla Tamamı";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // TeknoParkBordro
             // 
@@ -1113,7 +1380,6 @@ namespace Bordrolama10
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.NavajoWhite;
             this.ClientSize = new System.Drawing.Size(1830, 903);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cmbAyrıBordro);
@@ -1241,5 +1507,27 @@ namespace Bordrolama10
         private System.Windows.Forms.ComboBox cbmYil;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Button button7;
     }
 }
