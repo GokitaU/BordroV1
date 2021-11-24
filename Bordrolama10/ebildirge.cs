@@ -459,6 +459,7 @@ namespace Bordrolama10
 
             int subeid = Convert.ToInt32(lblsubeid.Text.ToString());
             int firmaid = Convert.ToInt32(lblfirmano.Text.ToString());
+     
 
             hizmetlistesinigoster("select Year as YIL,Month as AY, SgkNo as TCNO,Ad,Soyad,IlkSoyad,Ucret,Ikramiye,Gun,UCG,Eksik_Gun as Egun,GGun,CGun,Egs,Icn,Meslek_Kodu as MSLK_KOD,Kanun_No as Kanun,Belge_Cesidi as BÇşd, Belge_Turu as BTuru,Mahiyet from HizmetListesi Where firmaid = " + firmaid + " and subeid=" + subeid + " and Donem = '" + donem + "'");
         }
@@ -467,6 +468,22 @@ namespace Bordrolama10
         {
             teknoTahmini teknobrd = new teknoTahmini();
             teknobrd.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = new DialogResult();
+            dialog = MessageBox.Show("Seçili Şubeye Ait Tüm Hizmet Listesi Silinecektir! \n Onaylıyormusunuz. ", "Dikkat", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                baglan.Open();
+                SQLiteCommand komut = new SQLiteCommand("Delete from HizmetListesi where firmaid='" + programreferans.firmid + "' and subeid = '" + programreferans.subid + "'", baglan);
+                komut.ExecuteNonQuery();
+                baglan.Close();
+                MessageBox.Show("Seçili Şubenin Tüm Hizmet Listeleri Silinmiştir");
+                baglan.Close();
+            }
+
         }
     }
 

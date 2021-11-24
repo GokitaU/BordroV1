@@ -50,8 +50,8 @@ namespace PdfOku
             foreach (DizindekiDosyalar dizindekiDosya in this.DizindekiDosyaList)
                 this.PdfOku(this.DosyaYolu + dizindekiDosya.DosyaAdi);
             HizmetListesiniKaydet(this.HList);
-            if (SilinecekIptalKayitlar.Count > 0)
-                KayitIptalSil();
+            //if (SilinecekIptalKayitlar.Count > 0)
+            //    KayitIptalSil();
             int num = (int)MessageBox.Show("Okuma İşlemi Tamamlandı. \n\nVeritabanına Kayıt İşlemi Tamamlandı.", "Bilgi Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
         }

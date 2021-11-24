@@ -60,18 +60,31 @@ namespace Bordrolama10
         {
             yHesaplananHizmetListesi.Clear();
             baglan.Open();
-            SQLiteDataAdapter Yhizmtda = new SQLiteDataAdapter("SELECT Donem,SgkNo,Ad,Soyad,Gun,KanunNo,Mahiyet,ThkAdet,A_Ucret,B_Ikramiye,AB_Toplam,C_TumSpek,D_BDRBrut,E_BDRSgkMatrah,C_D_BrtFarkı,AB_E_MatrahFarkı,BRDIsciPayi_1,VergiMatrahi,BRDVergi_2,Agi_3,Kesintiler_4,BrdNet_1234,F_AylıkNet,G_BordroNet,F_G_NetFarkı,Baz_Net_5746,Brut_5746,Gunluk_5746,Asg_TbnGunluk,Asg_TvnGunluk,Tbn_Tvn_UygunMu,EskiYeniSpekFarkı,YeniAPHBMatrah,Acıklama,HesaplansınMı from  Bordro5746 where firmaid='" + firmaid + "' and subeid = '" + subeid + "' and Donem = '" + donem + "'", baglan);
+            SQLiteDataAdapter Yhizmtda = new SQLiteDataAdapter("SELECT HesaplansınMı,Donem,SgkNo,Ad,Soyad,Gun,KanunNo,Mahiyet,ThkAdet,A_Ucret,B_Ikramiye,AB_Toplam,C_TumSpek,Brt_Net,D_BDRBrut,E_BDRSgkMatrah,C_D_BrtFarkı,AB_E_MatrahFarkı,BRDIsciPayi_1,VergiMatrahi,BRDVergi_2,Agi_3,Kesintiler_4,BrdNet_1234,F_AylıkNet,G_BordroNet,F_G_NetFarkı,Baz_Net_5746,Brut_5746,Gunluk_5746,Asg_TbnGunluk,Asg_TvnGunluk,Tbn_Tvn_UygunMu,EskiYeniSpekFarkı,YeniAPHBMatrah,Acıklama from  Bordro5746 where firmaid='" + firmaid + "' and subeid = '" + subeid + "' and Donem = '" + donem + "' order by SgkNo", baglan);
 
             Yhizmtda.Fill(yHesaplananHizmetListesi);
             baglan.Close();
 
+            DataGridViewComboBoxColumn combo = new DataGridViewComboBoxColumn();
+            combo.Name = "Hesapla";
+            combo.DataPropertyName = "HesaplansınMı";
+            combo.Items.Add("Evet");
+            combo.Items.Add("Hayır");
 
-            //DataGridViewComboBoxColumn combo = new DataGridViewComboBoxColumn();
-            //dataGridView1.Columns.Add(combo);
-            ////combo.DataSource = yHesaplananHizmetListesi.Columns["HesaplansınMı"];
-            //combo.Items.Add("Evet");
-            //combo.Items.Add("Hayır");
+
+            if (dataGridView1.Columns["Hesapla"] == null)
+            {
+                dataGridView1.Columns.Add(combo);
+                dataGridView1.Columns["Hesapla"].HeaderText = "Hesapla";
+            }
+
             dataGridView1.DataSource = yHesaplananHizmetListesi;
+            dataGridView1.Columns["Brt_Net"].Frozen = true;// sütün dondurma
+                                                           // dataGridView1.Columns["HesaplansınMı"].Visible = false;
+
+            // dataGridView1.Columns["HesaplansınMı"].Visible = false;
+            //combo.DataSource = yHesaplananHizmetListesi.Columns["HesaplansınMı"];
+
         }
 
 
@@ -89,6 +102,10 @@ namespace Bordrolama10
             }
             baglan.Close();
         }
+        decimal vMatrahi = 0;
+        decimal kVMatrahi = 0;
+        string VYili = "";
+        decimal gv = 0;
         private void BordroHesapla()
         {
             SQLiteDataAdapter da = new SQLiteDataAdapter("select * From VergiDilimleri", baglan);
@@ -119,7 +136,7 @@ namespace Bordrolama10
 
             }
             BordroHesaplama bordroHesaplama = new BordroHesaplama();
-            decimal gv = bordroHesaplama.GvHesapla(vergidilimleri.Where(x => x.yil == "2015").FirstOrDefault(), 20000, 650000);
+            gv = bordroHesaplama.GvHesapla(vergidilimleri.Where(x => x.yil == VYili).FirstOrDefault(), vMatrahi, kVMatrahi);
         }
         private void hizmetListesiDoldur()
         {
@@ -1220,22 +1237,7 @@ namespace Bordrolama10
             {
                 islemKanunu = cmbIslemKanunu.Text;
             }
-            string asil = "Mahiyet = '%'";
-            string ek = "Mahiyet = '%'";
-            string iptal = "Mahiyet = '%'";
 
-            if (checkedListBox2.GetItemCheckState(0) == CheckState.Checked)
-            {
-                asil = "Mahiyet = 'ASIL'";
-            }
-            if (checkedListBox2.GetItemCheckState(1) == CheckState.Checked)
-            {
-                ek = "Mahiyet = 'EK'";
-            }
-            if (checkedListBox2.GetItemCheckState(2) == CheckState.Checked)
-            {
-                iptal = "Mahiyet = 'IPTAL'";
-            }
             HzmtListesi.Clear();
             baglan.Open();
             SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT firmPersid as ID, Donem,SgkNo,ad,soyad,Gun,Kanun_No,Mahiyet,Ucret,Ikramiye,(ucret + Ikramiye) as Brt_Spek,firmaid,subeid From HizmetListesi where firmaid='" + firmaid + "' and subeid = '" + subeid + "'", baglan);
@@ -1291,65 +1293,68 @@ namespace Bordrolama10
             HzmtListesiHL.AcceptChanges();
             progressBar1.Maximum = HzmtListesiHL.Rows.Count;
 
-            
+
             lblIslemDurumu.Text = "Arındırılmış Hizmet Listesi Veri Tamanına Kayıt ediliyor... Lütfen Bekleyiniz.";
             System.Threading.Thread.Sleep(1000);
             for (int i = 0; i < HzmtListesiHL.Rows.Count; i++)
             {
                 progressBar1.Value = i;
                 // string PrId = HzmtListesiHL.Rows[i]["PersId"].ToString();
-                if (HzmtListesiHL.Rows[i]["ID"] != null)
+                string FrmPrId = HzmtListesiHL.Rows[i]["ID"].ToString();
+                string donem = HzmtListesiHL.Rows[i]["Donem"].ToString();
+                string TcNo = HzmtListesiHL.Rows[i]["SgkNo"].ToString();
+                string Ad = HzmtListesiHL.Rows[i]["ad"].ToString();
+                string Soyad = HzmtListesiHL.Rows[i]["soyad"].ToString();
+                string Gun = HzmtListesiHL.Rows[i]["Gun"].ToString();
+                string Kanun = HzmtListesiHL.Rows[i]["Kanun_No"].ToString();
+                string Mahiyet = HzmtListesiHL.Rows[i]["Mahiyet"].ToString();
+
+                decimal Ucret = Convert.ToDecimal(HzmtListesiHL.Rows[i]["Ucret"]);
+                decimal ikramiye = Convert.ToDecimal(HzmtListesiHL.Rows[i]["Ikramiye"]);
+                decimal ToplamSpek = Convert.ToDecimal(HzmtListesiHL.Rows[i]["Brt_Spek"]);
+                string firmaid = HzmtListesiHL.Rows[i]["firmaid"].ToString();
+                string subeid = HzmtListesiHL.Rows[i]["subeid"].ToString();
+
+                decimal TumSpek = 0;
+                int ThkAdet = 0;
+
+
+                var personelSayiveToplami = HzmtListesiHL.Select("ID='" + FrmPrId + "'"); // seçili kanun maddesi personeli başka bir kanundan faydalandı ise seç
+                if (Kanun.Contains("5746"))
                 {
-
-                    string FrmPrId = HzmtListesiHL.Rows[i]["ID"].ToString();
-                    string donem = HzmtListesiHL.Rows[i]["Donem"].ToString();
-                    string TcNo = HzmtListesiHL.Rows[i]["SgkNo"].ToString();
-                    string Ad = HzmtListesiHL.Rows[i]["ad"].ToString();
-                    string Soyad = HzmtListesiHL.Rows[i]["soyad"].ToString();
-                    string Gun = HzmtListesiHL.Rows[i]["Gun"].ToString();
-                    string Kanun = HzmtListesiHL.Rows[i]["Kanun_No"].ToString();
-                    string Mahiyet = HzmtListesiHL.Rows[i]["Mahiyet"].ToString();
-
-                    decimal Ucret = Convert.ToDecimal(HzmtListesiHL.Rows[i]["Ucret"]);
-                    decimal ikramiye = Convert.ToDecimal(HzmtListesiHL.Rows[i]["Ikramiye"]);
-                    decimal ToplamSpek = Convert.ToDecimal(HzmtListesiHL.Rows[i]["Brt_Spek"]);
-                    string firmaid = HzmtListesiHL.Rows[i]["firmaid"].ToString();
-                    string subeid = HzmtListesiHL.Rows[i]["subeid"].ToString();
-
-                    decimal TumSpek = 0;
-                    int ThkAdet = 0;
-                    var personelSayiveToplami = HzmtListesiHL.Select("ID='" + FrmPrId + "'");
                     foreach (var adet in personelSayiveToplami)
                     {
                         TumSpek = Convert.ToDecimal(adet["Brt_Spek"]);
                         ThkAdet += 1;
                     }
-
-                    baglan.Open();
-                    SQLiteCommand ekle = new SQLiteCommand("Insert Into [Bordro5746] (FrmPrId,Donem,SgkNo,Ad,Soyad,Gun,KanunNo,Mahiyet,ThkAdet,A_Ucret,B_Ikramiye,AB_Toplam,C_TumSpek,firmaid,subeid) values (@FrmPrId,@Donem, @SgkNo, @Ad, @Soyad, @Gun, @KanunNo, @Mahiyet, @ThkAdet, @A_Ucret, @B_Ikramiye, @AB_Toplam, @C_TumSpek,@firmaid,@subeid)", baglan);
-
-
-                    ekle.Parameters.AddWithValue("@FrmPrId", FrmPrId);
-                    //ekle.Parameters.AddWithValue("@PersId", 0);
-                    ekle.Parameters.AddWithValue("@Donem", donem);
-                    ekle.Parameters.AddWithValue("@SgkNo", TcNo);
-                    ekle.Parameters.AddWithValue("@Ad", Ad);
-                    ekle.Parameters.AddWithValue("@Soyad", Soyad);
-                    ekle.Parameters.AddWithValue("@Gun", Gun);
-                    ekle.Parameters.AddWithValue("@KanunNo", Kanun);
-                    ekle.Parameters.AddWithValue("@Mahiyet", Mahiyet);
-                    ekle.Parameters.AddWithValue("@ThkAdet", ThkAdet);
-                    ekle.Parameters.AddWithValue("@A_Ucret", Ucret);
-                    ekle.Parameters.AddWithValue("@B_Ikramiye", ikramiye);
-                    ekle.Parameters.AddWithValue("@AB_Toplam", ToplamSpek);
-                    ekle.Parameters.AddWithValue("@C_TumSpek", TumSpek);
-                    ekle.Parameters.AddWithValue("@firmaid", firmaid);
-                    ekle.Parameters.AddWithValue("@subeid", subeid);
-
-
-                    ekle.ExecuteNonQuery();
-                    baglan.Close();
                 }
+
+
+                baglan.Open();
+                SQLiteCommand ekle = new SQLiteCommand("Insert Into [Bordro5746] (FrmPrId,Donem,SgkNo,Ad,Soyad,Gun,KanunNo,Mahiyet,ThkAdet,A_Ucret,B_Ikramiye,AB_Toplam,C_TumSpek,firmaid,subeid) values (@FrmPrId,@Donem, @SgkNo, @Ad, @Soyad, @Gun, @KanunNo, @Mahiyet, @ThkAdet, @A_Ucret, @B_Ikramiye, @AB_Toplam, @C_TumSpek,@firmaid,@subeid)", baglan);
+
+
+                ekle.Parameters.AddWithValue("@FrmPrId", FrmPrId);
+                //ekle.Parameters.AddWithValue("@PersId", 0);
+                ekle.Parameters.AddWithValue("@Donem", donem);
+                ekle.Parameters.AddWithValue("@SgkNo", TcNo);
+                ekle.Parameters.AddWithValue("@Ad", Ad);
+                ekle.Parameters.AddWithValue("@Soyad", Soyad);
+                ekle.Parameters.AddWithValue("@Gun", Gun);
+                ekle.Parameters.AddWithValue("@KanunNo", Kanun);
+                ekle.Parameters.AddWithValue("@Mahiyet", Mahiyet);
+                ekle.Parameters.AddWithValue("@ThkAdet", ThkAdet);
+                ekle.Parameters.AddWithValue("@A_Ucret", Ucret);
+                ekle.Parameters.AddWithValue("@B_Ikramiye", ikramiye);
+                ekle.Parameters.AddWithValue("@AB_Toplam", ToplamSpek);
+                ekle.Parameters.AddWithValue("@C_TumSpek", TumSpek);
+                ekle.Parameters.AddWithValue("@firmaid", firmaid);
+                ekle.Parameters.AddWithValue("@subeid", subeid);
+
+
+                ekle.ExecuteNonQuery();
+                baglan.Close();
+
             }
             MessageBox.Show("Verier Başarı İle Veri Tabanına Eklendi");
 
@@ -1383,24 +1388,30 @@ namespace Bordrolama10
 
             YeniHsHizmetListesi.Clear();
             baglan.Open();
-            SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT FrmPrId,Donem, SgkNo, Ad, Soyad, Gun, KanunNo, Mahiyet, ThkAdet, A_Ucret, B_Ikramiye, AB_Toplam, C_TumSpek, D_BDRBrut, E_BDRSgkMatrah, C_D_BrtFarkı, AB_E_MatrahFarkı, BRDIsciPayi_1, VergiMatrahi, BRDVergi_2, Agi_3, Kesintiler_4, BrdNet_1234, F_AylıkNet, G_BordroNet, F_G_NetFarkı, Baz_Net_5746, Brut_5746, Gunluk_5746, Asg_TbnGunluk, Asg_TvnGunluk, Tbn_Tvn_UygunMu, EskiYeniSpekFarkı, YeniAPHBMatrah, Acıklama, HesaplansınMı from Bordro5746 where firmaid = '" + firmaid + "' and subeid = '" + subeid + "'", baglan);
+            SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT TeknoPrId,FrmPrId,Donem, SgkNo, Ad, Soyad, Gun, KanunNo, Mahiyet, ThkAdet, A_Ucret, B_Ikramiye, AB_Toplam, C_TumSpek, D_BDRBrut, E_BDRSgkMatrah, C_D_BrtFarkı, AB_E_MatrahFarkı, BRDIsciPayi_1, VergiMatrahi, BRDVergi_2, Agi_3, Kesintiler_4, BrdNet_1234, F_AylıkNet, G_BordroNet, F_G_NetFarkı, Baz_Net_5746, Brut_5746, Gunluk_5746, Asg_TbnGunluk, Asg_TvnGunluk, Tbn_Tvn_UygunMu, EskiYeniSpekFarkı, YeniAPHBMatrah, Acıklama, HesaplansınMı from Bordro5746 where firmaid = '" + firmaid + "' and subeid = '" + subeid + "'", baglan);
             da.Fill(YeniHsHizmetListesi);
             baglan.Close();
 
 
             Bordrobd.Clear();
             baglan.Open();
-            using (SQLiteCommand sorgu = new SQLiteCommand("select FirmaPersId,PersId, PuantajDonem as Donem, TcNo,PersAdı,PersSoyadı,GirisTarihi,CikisTarihi,Net_Brüt,Net_BrtUcret as N_B_Ucret,PrimGunu,ToplamKazanc,SgkMatrahi,SGkIsciPrim,IszlikIsciPrim,KumVergMatr,GvMatrahi,GelirVergisi,Agi,DamgaVrg,(BesKesintisi+SairKesintiler) as Kesintiler,AylikNetUcret,KanunNo from FirmaBordro WHERE FirmaNo = '" + firmaid + "' and SubeNo='" + subeid + "' ", baglan))
+            using (SQLiteCommand sorgu = new SQLiteCommand("select FirmaPersId,PersId, PuantajDonem as Donem, TcNo,PersAdı,PersSoyadı,GirisTarihi,CikisTarihi,Net_Brüt,Net_BrtUcret as N_B_Ucret,PrimGunu,AylikBrutUcret,ToplamKazanc,SgkMatrahi,SGkIsciPrim,IszlikIsciPrim,KumVergMatr,GvMatrahi,GelirVergisi,Agi,DamgaVrg,(BesKesintisi+SairKesintiler) as Kesintiler,AylikNetUcret,KanunNo from FirmaBordro WHERE FirmaNo = '" + firmaid + "' and SubeNo='" + subeid + "' ", baglan))
             {
                 SQLiteDataAdapter dabdr = new SQLiteDataAdapter();
                 dabdr.SelectCommand = sorgu;
                 dabdr.Fill(Bordrobd);
             }
             baglan.Close();
+
+
+
+
+
             progressBar1.Maximum = YeniHsHizmetListesi.Rows.Count;
             for (int k = 0; k < YeniHsHizmetListesi.Rows.Count; k++)
             {
                 progressBar1.Value = k;
+                int TeknoPrId = Convert.ToInt32(YeniHsHizmetListesi.Rows[k]["TeknoPrId"]);
                 string PrId = YeniHsHizmetListesi.Rows[k]["FrmPrId"].ToString();
                 string donem = YeniHsHizmetListesi.Rows[k]["Donem"].ToString();
                 string Gun = YeniHsHizmetListesi.Rows[k]["Gun"].ToString();
@@ -1410,7 +1421,9 @@ namespace Bordrolama10
                 decimal Ucret = Convert.ToDecimal(YeniHsHizmetListesi.Rows[k]["A_Ucret"]);
                 decimal ikramiye = Convert.ToDecimal(YeniHsHizmetListesi.Rows[k]["B_Ikramiye"]);
                 decimal ToplamSpek = Convert.ToDecimal(YeniHsHizmetListesi.Rows[k]["AB_Toplam"]);
+                decimal GenelSgkMatrah = Convert.ToDecimal(YeniHsHizmetListesi.Rows[k]["C_TumSpek"]);
 
+                string BrutNet = "";
                 decimal BdrBrt = 0;
                 decimal BdrMatrah = 0;
                 decimal BrtFarki = 0;
@@ -1439,33 +1452,113 @@ namespace Bordrolama10
                 string VergiAciklama = "";
                 string netAciklama = "";
                 string brutAciklama = "";
+                string brtNetAciklama = "";
+                string matrahAciklama = "";
+                string kanunAciklama = "";
+                decimal AylikKazanc = 0;
+                decimal KmVergiMatrahi = 0;
+                decimal EkOdemeler = 0;
+                decimal farkmatrah = 0;
 
-                if (Kanun.Contains("5746"))
+
+                decimal digerucreti = 0;
+                var bordrodavarmi = Bordrobd.Select("FirmaPersId='" + PrId + "'");
+                foreach (var bdrPers in bordrodavarmi)
                 {
 
-                    var bordrodavarmi = Bordrobd.Select("FirmaPersId='" + PrId + "'");
-                    foreach (var bdrPers in bordrodavarmi)
+                    AylikKazanc = Convert.ToDecimal(bdrPers["N_B_Ucret"]);
+
+                    BrutNet = bdrPers["Net_Brüt"].ToString();
+                    BdrBrt = Convert.ToDecimal(bdrPers["ToplamKazanc"]);
+                    EkOdemeler = BdrBrt - Convert.ToDecimal(bdrPers["AylikBrutUcret"]);
+                    BdrMatrah = Convert.ToDecimal(bdrPers["SgkMatrahi"]);
+                    BrtFarki = ToplamSpek - BdrBrt;
+                    MatrhFarki = Ucret - BdrMatrah;
+                    KmVergiMatrahi = Convert.ToDecimal(bdrPers["KumVergMatr"]);
+                    VergiMatrahi = Convert.ToDecimal(bdrPers["GvMatrahi"]);
+                    BrdIsciPayi = Convert.ToDecimal(bdrPers["SGkIsciPrim"]) + Convert.ToDecimal(bdrPers["IszlikIsciPrim"]);
+                    BrdVergi = Convert.ToDecimal(bdrPers["GelirVergisi"]) + Convert.ToDecimal(bdrPers["DamgaVrg"]);
+                    Agi = Convert.ToDecimal(bdrPers["Agi"]);
+                    Kesintiler = Convert.ToDecimal(bdrPers["Kesintiler"]);
+                    BrdNet = (BdrBrt - (BrdIsciPayi + BrdVergi + Agi + Kesintiler));// manuel hesaplanan aylik net kazanc
+                    BrdNett = Convert.ToDecimal(bdrPers["AylikNetUcret"]); // bize gelen bordor üzerinde hesaplanmış olan aylik net 
+                                                                           // 5746 kanun kapsamı dışındaki kazanç sağlayan personelin net ücretine ulaşmaya çalışıyoruz. 
+
+                    if (!Kanun.Contains("5746"))
                     {
-                        BdrBrt = Convert.ToDecimal(bdrPers["ToplamKazanc"]);
-                        BdrMatrah = Convert.ToDecimal(bdrPers["SgkMatrahi"]);
-                        BrtFarki = ToplamSpek - BdrBrt;
-                        MatrhFarki = Ucret - BdrMatrah;
-                        VergiMatrahi = Convert.ToDecimal(bdrPers["GvMatrahi"]);
-                        BrdIsciPayi = Convert.ToDecimal(bdrPers["SGkIsciPrim"]) + Convert.ToDecimal(bdrPers["IszlikIsciPrim"]);
-                        BrdVergi = Convert.ToDecimal(bdrPers["GelirVergisi"]) + Convert.ToDecimal(bdrPers["DamgaVrg"]);
-                        Agi = Convert.ToDecimal(bdrPers["Agi"]);
-                        Kesintiler = Convert.ToDecimal(bdrPers["Kesintiler"]);
-                        BrdNet = (BdrBrt - (BrdIsciPayi + BrdVergi + Agi + Kesintiler));
-                        AylikNet = (Convert.ToDecimal(bdrPers["N_B_Ucret"]) / 30) * (Convert.ToInt32(Gun));
-                        BrdNett = Convert.ToDecimal(bdrPers["AylikNetUcret"]);
+
+                        BrdIsciPayi = GenelSgkMatrah * 15 / 100;
+                        vMatrahi = GenelSgkMatrah - BrdIsciPayi;// Vergi Matrahını sadece 5746 dışındaki kanun Matrahını dikkate alarak hesaplıyoruz. 
+                        kVMatrahi = KmVergiMatrahi;
+                        VYili = donem.Substring(0, 4);
+                        BordroHesapla();
+                        BrdVergi = gv + Convert.ToDecimal(Convert.ToDouble(vMatrahi) * 0.00759);
+                        VergiMatrahi = vMatrahi;
+                        BdrBrt = GenelSgkMatrah;
+                        BdrMatrah = GenelSgkMatrah;
+                        BrtFarki = GenelSgkMatrah - GenelSgkMatrah;
+                        MatrhFarki = GenelSgkMatrah - GenelSgkMatrah;
+
+                        BrdNet = EkOdemeler - BrdIsciPayi - BrdVergi;
+                        BrdNett = EkOdemeler - BrdIsciPayi - BrdVergi;
+                        AylikKazanc = EkOdemeler - BrdIsciPayi - BrdVergi;
+
+
+                    }
+                    else
+                    {
+                        
+
+                        if (MatrhFarki < 0)
+                        {
+                            farkmatrah = Math.Abs(MatrhFarki);
+
+                            decimal farkiIsciPayi = farkmatrah * 15 / 100;
+                            vMatrahi = farkmatrah - farkiIsciPayi;// Vergi Matrahını sadece 5746 dışındaki kanun Matrahını dikkate alarak hesaplıyoruz. 
+                            kVMatrahi = KmVergiMatrahi;
+                            VYili = donem.Substring(0, 4);
+                            BordroHesapla();
+
+                            decimal farkVergi = gv + Convert.ToDecimal(Convert.ToDouble(vMatrahi) * 0.00759);
+                            VergiMatrahi = vMatrahi;
+                            decimal farknet = EkOdemeler - (farkiIsciPayi + farkVergi);
+
+                            //BrdIsciPayi = BrdIsciPayi-farkiIsciPayi;
+                            //BrdVergi = BrdVergi-farkVergi;
+
+                            BrdNet = BrdNet - farknet;
+                        }
+                        //else
+                        //{
+                            if (BrutNet.Contains("Net") || BrutNet.Contains("NET"))
+                            {
+                                if (Convert.ToInt32(Gun) == 30)
+                                {
+                                    AylikNet = AylikKazanc;
+                                }
+                                else
+                                {
+                                    AylikNet = (AylikKazanc / 30) * (Convert.ToInt32(Gun));
+                                }
+
+                            }
+                            else
+                            {
+                                AylikNet = BrdNet;//küsüratlardan kurtulmak için bordroda gelen net ücret baz alındı 
+                            }
+                        
+
+
+
+
                         NetFarki = BrdNett - AylikNet;
-                        if (AylikNet == BrdNett || AylikNet > BrdNett)
+                        if (AylikNet >= BrdNet)
                         {
                             Baznet5746 = AylikNet;
                         }
                         else
                         {
-                            Baznet5746 = AylikNet;
+                            Baznet5746 = BrdNet;
                         }
                         Brut5746 = (Baznet5746 / 85) * 100;
                         if (Brut5746 > 0 && Convert.ToInt32(Gun) > 0)
@@ -1493,83 +1586,114 @@ namespace Bordrolama10
                             TbnTvnUygunMu = "Uygun Değil";
                         }
 
-                        EskiYeniSpekFarki = Ucret - Brut5746;
-                        if (Brut5746 == Ucret || Brut5746 > Ucret)
+
+                        if (Brut5746 >= Ucret)
                         {
                             YeniMatrah = Ucret;
                         }
-                        else
+                        if ((Gunluk5746 * Convert.ToInt32(Gun)) > (AsgTvnGun * Convert.ToInt32(Gun)))
+                        {
+                            YeniMatrah = Ucret;
+                            TbnTvnUygunMu = "Sgk Matrahi Asgari Ücret Tavanından Fazla";
+                        }
+                        if ((Gunluk5746 * Convert.ToInt32(Gun)) < (AsgTbnGun * Convert.ToInt32(Gun)))
+                        {
+                            YeniMatrah = Ucret;
+                            TbnTvnUygunMu = "Sgk Matrahi Asgari Ücret Tabanından Düşük";
+                        }
+                        if (YeniMatrah != Ucret)
                         {
                             YeniMatrah = Brut5746;
                         }
-                        if (MatrhFarki < 1 || MatrhFarki >-1)
+                        EskiYeniSpekFarki = Ucret - YeniMatrah;
+                        //HESAPLAMAYA DAHİL EDİLSİN Mİ EDİLMESİN Mİ ? 
+                        //1. krider 5746 matrahlı personel olmuş olması
+                        if (!Kanun.Contains("5746"))
                         {
-                            if (BrdVergi == 0 || VergiMatrahi == 0)
+                            HesDahilMi = "Hayır";
+                            kanunAciklama = " 5746 Kanun Kapsamında Değil.., ";
+                        }
+                        else
+                        {
+                            //2. kriter anlaşma net ücret üzerinden olmuş olmalı
+                            if (!BrutNet.Contains("NET"))
                             {
                                 HesDahilMi = "Hayır";
+                                brtNetAciklama = "Brüt Ücret Hesaplanamaz., ";
                             }
-                            VergiAciklama = "Vergi Hesaplı Değil, ";
-                        }
-                        else
-                        {
-                            HesDahilMi = "Evet";
-                            VergiAciklama = "Vergi Ok, ";
-                        }
-                        if (NetFarki <1 || NetFarki >-1)
-                        {
-                            netAciklama = "Net Ücret Doğru, ";
-                        }
-                        else
-                        {
-                            netAciklama = "Net Ücret Yanlış, ";
-                        }
-                        if (MatrhFarki < 1 || MatrhFarki > -1)
-                        {
-                            brutAciklama = "Brüt Ücret Spek İle Tutuyor, ";
-                        }
-                        else
-                        {
-                            brutAciklama = "Brüt Ücret Spek İle Tutuyor, ";
+                            else
+                            {
+                                //3. Kriter Ücretinden vergi kesintisi yapılmış mı 
+                                if (BrdVergi < 1 || VergiMatrahi < 1)
+                                {
+                                    HesDahilMi = "Hayır";
+                                    VergiAciklama = "Ücretten Vergi Kesilmemiş, ";
+                                }
+                                else
+                                {
+                                    //4. kriter yeni hesaplanan spek eski spekmi baz almış yeni 5746 speki mi 
+                                    if (YeniMatrah == Brut5746)
+                                    {
+                                        HesDahilMi = "Evet";
+                                    }
+                                    else
+                                    {
+                                        HesDahilMi = "Hayır";
+                                    }
+                                }
+
+                            }
+
+
+                            if (NetFarki > 1 || NetFarki < -1)
+                            {
+                                netAciklama = "Net Ücret Tutmuyor, ";
+                            }
+
+                            if (MatrhFarki > 1 || MatrhFarki < -1)
+                            {
+                                matrahAciklama = "Sgk Matrahında Fark Var, ";
+                            }
+
                         }
 
-                        
-                        Aciklama = VergiAciklama + " "+netAciklama+" "+brutAciklama;
+                        Aciklama = kanunAciklama + " " + matrahAciklama + " " + VergiAciklama;
 
 
                     }
 
-                    
                 }
+
                 baglan.Open();
-                SQLiteCommand ekle = new SQLiteCommand("update Bordro5746 set  D_BDRBrut=@D_BDRBrut,E_BDRSgkMatrah=@E_BDRSgkMatrah,C_D_BrtFarkı=@C_D_BrtFarkı,AB_E_MatrahFarkı=@AB_E_MatrahFarkı,BRDIsciPayi_1=@BRDIsciPayi_1,VergiMatrahi=@VergiMatrahi,BRDVergi_2=@BRDVergi_2,Agi_3= @Agi_3,Kesintiler_4= @Kesintiler_4,BrdNet_1234=@BrdNet_1234,F_AylıkNet=@F_AylıkNet,G_BordroNet= @G_BordroNet,F_G_NetFarkı= @F_G_NetFarkı,Baz_Net_5746=@Baz_Net_5746,Brut_5746= @Brut_5746,Gunluk_5746= @Gunluk_5746,Asg_TbnGunluk=@Asg_TbnGunluk,Asg_TvnGunluk= @Asg_TvnGunluk,Tbn_Tvn_UygunMu= @Tbn_Tvn_UygunMu,EskiYeniSpekFarkı= @EskiYeniSpekFarkı,YeniAPHBMatrah= @YeniAPHBMatrah,Acıklama=@Acıklama,HesaplansınMı= @HesaplansınMı where FrmPrId ='" + PrId + "'", baglan);
+                SQLiteCommand guncelle = new SQLiteCommand("update Bordro5746 set  Brt_Net=@Brt_Net,D_BDRBrut=@D_BDRBrut,E_BDRSgkMatrah=@E_BDRSgkMatrah,C_D_BrtFarkı=@C_D_BrtFarkı,AB_E_MatrahFarkı=@AB_E_MatrahFarkı,BRDIsciPayi_1=@BRDIsciPayi_1,VergiMatrahi=@VergiMatrahi,BRDVergi_2=@BRDVergi_2,Agi_3= @Agi_3,Kesintiler_4= @Kesintiler_4,BrdNet_1234=@BrdNet_1234,F_AylıkNet=@F_AylıkNet,G_BordroNet= @G_BordroNet,F_G_NetFarkı= @F_G_NetFarkı,Baz_Net_5746=@Baz_Net_5746,Brut_5746= @Brut_5746,Gunluk_5746= @Gunluk_5746,Asg_TbnGunluk=@Asg_TbnGunluk,Asg_TvnGunluk= @Asg_TvnGunluk,Tbn_Tvn_UygunMu= @Tbn_Tvn_UygunMu,EskiYeniSpekFarkı= @EskiYeniSpekFarkı,YeniAPHBMatrah= @YeniAPHBMatrah,Acıklama=@Acıklama,HesaplansınMı= @HesaplansınMı where TeknoPrId ='" + TeknoPrId + "'", baglan);
+
+                guncelle.Parameters.AddWithValue("@Brt_Net", BrutNet);
+                guncelle.Parameters.AddWithValue("@D_BDRBrut", BdrBrt);
+                guncelle.Parameters.AddWithValue("@E_BDRSgkMatrah", BdrMatrah);
+                guncelle.Parameters.AddWithValue("@C_D_BrtFarkı", BrtFarki);
+                guncelle.Parameters.AddWithValue("@AB_E_MatrahFarkı", MatrhFarki);
+                guncelle.Parameters.AddWithValue("@BRDIsciPayi_1", BrdIsciPayi);
+                guncelle.Parameters.AddWithValue("@VergiMatrahi", VergiMatrahi);
+                guncelle.Parameters.AddWithValue("@BRDVergi_2", BrdVergi);
+                guncelle.Parameters.AddWithValue("@Agi_3", Agi);
+                guncelle.Parameters.AddWithValue("@Kesintiler_4", Kesintiler);
+                guncelle.Parameters.AddWithValue("@BrdNet_1234", BrdNet);
+                guncelle.Parameters.AddWithValue("@F_AylıkNet", AylikNet);
+                guncelle.Parameters.AddWithValue("@G_BordroNet", BrdNett);
+                guncelle.Parameters.AddWithValue("@F_G_NetFarkı", NetFarki);
+                guncelle.Parameters.AddWithValue("@Baz_Net_5746", Baznet5746);
+                guncelle.Parameters.AddWithValue("@Brut_5746", Brut5746);
+                guncelle.Parameters.AddWithValue("@Gunluk_5746", Gunluk5746);
+                guncelle.Parameters.AddWithValue("@Asg_TbnGunluk", AsgTbnGun);
+                guncelle.Parameters.AddWithValue("@Asg_TvnGunluk", AsgTvnGun);
+                guncelle.Parameters.AddWithValue("@Tbn_Tvn_UygunMu", TbnTvnUygunMu);
+                guncelle.Parameters.AddWithValue("@EskiYeniSpekFarkı", EskiYeniSpekFarki);
+                guncelle.Parameters.AddWithValue("@YeniAPHBMatrah", YeniMatrah);
+                guncelle.Parameters.AddWithValue("@Acıklama", Aciklama);
+                guncelle.Parameters.AddWithValue("@HesaplansınMı", HesDahilMi);
 
 
-                ekle.Parameters.AddWithValue("@D_BDRBrut", BdrBrt);
-                ekle.Parameters.AddWithValue("@E_BDRSgkMatrah", BdrMatrah);
-                ekle.Parameters.AddWithValue("@C_D_BrtFarkı", BrtFarki);
-                ekle.Parameters.AddWithValue("@AB_E_MatrahFarkı", MatrhFarki);
-                ekle.Parameters.AddWithValue("@BRDIsciPayi_1", BrdIsciPayi);
-                ekle.Parameters.AddWithValue("@VergiMatrahi", VergiMatrahi);
-                ekle.Parameters.AddWithValue("@BRDVergi_2", BrdVergi);
-                ekle.Parameters.AddWithValue("@Agi_3", Agi);
-                ekle.Parameters.AddWithValue("@Kesintiler_4", Kesintiler);
-                ekle.Parameters.AddWithValue("@BrdNet_1234", BrdNet);
-                ekle.Parameters.AddWithValue("@F_AylıkNet", AylikNet);
-                ekle.Parameters.AddWithValue("@G_BordroNet", BrdNett);
-                ekle.Parameters.AddWithValue("@F_G_NetFarkı", NetFarki);
-                ekle.Parameters.AddWithValue("@Baz_Net_5746", Baznet5746);
-                ekle.Parameters.AddWithValue("@Brut_5746", Brut5746);
-                ekle.Parameters.AddWithValue("@Gunluk_5746", Gunluk5746);
-                ekle.Parameters.AddWithValue("@Asg_TbnGunluk", AsgTbnGun);
-                ekle.Parameters.AddWithValue("@Asg_TvnGunluk", AsgTvnGun);
-                ekle.Parameters.AddWithValue("@Tbn_Tvn_UygunMu", TbnTvnUygunMu);
-                ekle.Parameters.AddWithValue("@EskiYeniSpekFarkı", EskiYeniSpekFarki);
-                ekle.Parameters.AddWithValue("@YeniAPHBMatrah", YeniMatrah);
-                ekle.Parameters.AddWithValue("@Acıklama", Aciklama);
-                ekle.Parameters.AddWithValue("@HesaplansınMı", HesDahilMi);
-
-
-                ekle.ExecuteNonQuery();
+                guncelle.ExecuteNonQuery();
                 baglan.Close();
 
             }
@@ -1607,17 +1731,226 @@ namespace Bordrolama10
             dataGridView1.Columns["EskiYeniSpekFarkı"].DefaultCellStyle.Format = "N2";
             dataGridView1.Columns["YeniAPHBMatrah"].DefaultCellStyle.Format = "N2";
 
+            dataGridView1.Columns["Gunluk_5746"].Visible = false;
+            dataGridView1.Columns["Asg_TbnGunluk"].Visible = false;
+            dataGridView1.Columns["Asg_TvnGunluk"].Visible = false;
 
 
+            //dataGridView1.Columns["Brt_Net"].Frozen = true;// sütün dondurma
 
             //combo.ValueMember= dataGridView1.Columns["HesaplansınMı"].ToString();
             //combo.Name = dataGridView1.Columns["HesaplansınMı"];
             //combo.Items.AddRange("Evet", "Hayır");
 
         }
-    }
 
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            string islemKanunu = "%";
+
+            if (cmbAyrıBordro.Text == "Evet")
+            {
+                islemKanunu = cmbIslemKanunu.Text;
+            }
+
+            HzmtListesi.Clear();
+            baglan.Open();
+            SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT firmPersid as ID, Donem,SgkNo,ad,soyad,Gun,Kanun_No,Mahiyet,Ucret,Ikramiye,(ucret + Ikramiye) as Brt_Spek,firmaid,subeid From HizmetListesi where firmaid='" + firmaid + "' and subeid = '" + subeid + "'", baglan);
+
+            DataTable HzmtListesiHL = new DataTable();
+
+            da.Fill(HzmtListesiHL);
+            lblIslemDurumu.Text = cmbIslemKanunu.Text + " Nolu Kanun için Hizmet Listesi Diğer Kanunlardan Arındırılıyor...";
+            System.Threading.Thread.Sleep(1000);
+            progressBar1.Maximum = HzmtListesiHL.Rows.Count;
+            baglan.Close();
+            baglan.Open();
+            SQLiteDataAdapter Hsplda = new SQLiteDataAdapter("SELECT count(FrmPrId) as sayi from  Bordro5746 where firmaid='" + firmaid + "' and subeid = '" + subeid + "'", baglan);
+
+            DataTable yeniHizmetListPersonelVarmi = new DataTable();
+
+            Hsplda.Fill(yeniHizmetListPersonelVarmi);
+            baglan.Close();
+
+            if (Convert.ToInt32(yeniHizmetListPersonelVarmi.Rows[0][0]) > 0)
+            {
+                DialogResult msg = new DialogResult();
+                msg = MessageBox.Show("Hizmet Listesi Daha Önceden aktarılmış, Listeyi Silerek Yeniden oluşturmak istiyormusunuz.", "Dikkat", MessageBoxButtons.YesNo);
+                if (msg == DialogResult.Yes)
+                {
+                    baglan.Open();
+                    SQLiteCommand komut = new SQLiteCommand("Delete from Bordro5746 where firmaid='" + firmaid + "' and subeid = '" + subeid + "'", baglan);
+                    komut.ExecuteNonQuery();
+                    MessageBox.Show(comboBox1.Text + " Firmasına ait tüm veriler silinmiştir");
+                    baglan.Close();
+                }
+            }
+            for (int k = 0; k < HzmtListesiHL.Rows.Count; k++)
+            {
+                progressBar1.Value = k;
+                string FrmPrId = "";
+                string Kanun = "";
+                FrmPrId = HzmtListesiHL.Rows[k]["ID"].ToString();
+
+
+                Kanun = HzmtListesiHL.Rows[k]["Kanun_No"].ToString();
+                decimal Ucret = Convert.ToDecimal(HzmtListesiHL.Rows[k]["Ucret"]);
+                decimal Ikramiye = Convert.ToDecimal(HzmtListesiHL.Rows[k]["Ikramiye"]);
+                string Mahiyet = HzmtListesiHL.Rows[k]["Mahiyet"].ToString();
+                string gun = HzmtListesiHL.Rows[k]["Gun"].ToString();
+
+                if (HzmtListesiHL.Rows[k]["Mahiyet"].ToString().Contains("IPTAL"))
+                {
+                    string iptalTahkkuk = "";
+                    string tespEdIptalPersohelId = "";
+                    string tespEdIptalPersohelkanun = "";
+                    string tespedIptalPersohelGun = "";
+                    decimal tespEdIptalPersohelucret = 0;
+                    decimal tespEdIptalPersohelIkramiye = 0;
+
+
+                    var asılIptalEkAyristir = HzmtListesiHL.Select("ID='" + FrmPrId + "'");
+                    foreach (var iptaliOlanPersonel in asılIptalEkAyristir)
+                    {
+
+                        tespEdIptalPersohelId = iptaliOlanPersonel["ID"].ToString();
+                        tespEdIptalPersohelkanun = iptaliOlanPersonel["Kanun_No"].ToString();
+                        tespedIptalPersohelGun = iptaliOlanPersonel["Gun"].ToString();
+                        tespEdIptalPersohelucret = Convert.ToDecimal(iptaliOlanPersonel["Ucret"]);
+                        tespEdIptalPersohelIkramiye = Convert.ToDecimal(iptaliOlanPersonel["Ikramiye"]);
+                        if (FrmPrId == tespEdIptalPersohelId && tespEdIptalPersohelkanun == Kanun && tespEdIptalPersohelucret == Ucret && tespEdIptalPersohelIkramiye == Ikramiye && tespedIptalPersohelGun == gun)
+                        {
+                            iptaliOlanPersonel.Delete();
+                            HzmtListesiHL.Rows[k].Delete();
+                            break;
+                        }
+
+                    }
+
+                    progressBar1.Value = k;
+                }
+
+
+            }
+            HzmtListesiHL.AcceptChanges();
+            progressBar1.Maximum = HzmtListesiHL.Rows.Count;
+
+            System.Threading.Thread.Sleep(500);
+            lblIslemDurumu.Text = cmbIslemKanunu.Text + " Kanun Maddeli Personellerin Mükerrer Kanun Maddeleri Arındırılıyor...";
+            System.Threading.Thread.Sleep(500);
+
+
+            for (int j = 0; j < HzmtListesiHL.Rows.Count; j++)
+            {
+                progressBar1.Value = j;
+                string FrmPrId = "";
+                string Kanun = "";
+                FrmPrId = HzmtListesiHL.Rows[j]["ID"].ToString();
+                var Tekno5746daVarmiYokmu = HzmtListesiHL.Select("ID='" + FrmPrId + "'");
+
+                foreach (var item in Tekno5746daVarmiYokmu)
+                {
+                    Kanun = item["Kanun_No"].ToString();
+                    if (Kanun.Contains("5746")) continue;
+
+                }
+                if (!Kanun.Contains("5746"))
+                {
+
+                    HzmtListesiHL.Rows[j].Delete();
+
+                }
+            }
+            HzmtListesiHL.AcceptChanges();
+            System.Threading.Thread.Sleep(500);
+            lblIslemDurumu.Text = "Arındırılmış Hizmet Listesi Veri Tabanına Kayıt ediliyor... Lütfen Bekleyiniz.";
+            System.Threading.Thread.Sleep(500);
+
+            progressBar1.Maximum = HzmtListesiHL.Rows.Count;
+            for (int i = 0; i < HzmtListesiHL.Rows.Count; i++)
+            {
+                progressBar1.Value = i;
+                // string PrId = HzmtListesiHL.Rows[i]["PersId"].ToString();
+                string FrmPrId = HzmtListesiHL.Rows[i]["ID"].ToString();
+                string donem = HzmtListesiHL.Rows[i]["Donem"].ToString();
+                string TcNo = HzmtListesiHL.Rows[i]["SgkNo"].ToString();
+                string Ad = HzmtListesiHL.Rows[i]["ad"].ToString();
+                string Soyad = HzmtListesiHL.Rows[i]["soyad"].ToString();
+                string Gun = HzmtListesiHL.Rows[i]["Gun"].ToString();
+                string Kanun = HzmtListesiHL.Rows[i]["Kanun_No"].ToString();
+                string Mahiyet = HzmtListesiHL.Rows[i]["Mahiyet"].ToString();
+
+                decimal Ucret = Convert.ToDecimal(HzmtListesiHL.Rows[i]["Ucret"]);
+                decimal ikramiye = Convert.ToDecimal(HzmtListesiHL.Rows[i]["Ikramiye"]);
+                decimal ToplamSpek = Convert.ToDecimal(HzmtListesiHL.Rows[i]["Brt_Spek"]);
+                string firmaid = HzmtListesiHL.Rows[i]["firmaid"].ToString();
+                string subeid = HzmtListesiHL.Rows[i]["subeid"].ToString();
+
+                decimal TumSpek = 0;
+                int ThkAdet = 0;
+
+
+
+
+                if (!Kanun.Contains("5746"))
+                {
+                    var personelSayiveToplami = HzmtListesiHL.Select("ID='" + FrmPrId + "'"); // seçili kanun maddesi personeli başka bir kanundan faydalandı ise seç
+                    foreach (var adet in personelSayiveToplami)
+                    {
+                        string knn = adet["Kanun_No"].ToString();
+                        if (!knn.Contains("5746"))
+                        {
+                            TumSpek += Convert.ToDecimal(adet["Ucret"]) + Convert.ToDecimal(adet["Ikramiye"]);
+                            ThkAdet += 1;
+                        }
+                        else
+                        {
+                            TumSpek += Convert.ToDecimal(adet["Ikramiye"]);
+                            ThkAdet += 1;
+                        }
+                    }
+                }
+
+
+
+
+                baglan.Open();
+                SQLiteCommand ekle = new SQLiteCommand("Insert Into [Bordro5746] (FrmPrId,Donem,SgkNo,Ad,Soyad,Gun,KanunNo,Mahiyet,ThkAdet,A_Ucret,B_Ikramiye,AB_Toplam,C_TumSpek,firmaid,subeid) values (@FrmPrId,@Donem, @SgkNo, @Ad, @Soyad, @Gun, @KanunNo, @Mahiyet, @ThkAdet, @A_Ucret, @B_Ikramiye, @AB_Toplam, @C_TumSpek,@firmaid,@subeid)", baglan);
+
+
+                ekle.Parameters.AddWithValue("@FrmPrId", FrmPrId);
+                //ekle.Parameters.AddWithValue("@PersId", 0);
+                ekle.Parameters.AddWithValue("@Donem", donem);
+                ekle.Parameters.AddWithValue("@SgkNo", TcNo);
+                ekle.Parameters.AddWithValue("@Ad", Ad);
+                ekle.Parameters.AddWithValue("@Soyad", Soyad);
+                ekle.Parameters.AddWithValue("@Gun", Gun);
+                ekle.Parameters.AddWithValue("@KanunNo", Kanun);
+                ekle.Parameters.AddWithValue("@Mahiyet", Mahiyet);
+                ekle.Parameters.AddWithValue("@ThkAdet", ThkAdet);
+                ekle.Parameters.AddWithValue("@A_Ucret", Ucret);
+                ekle.Parameters.AddWithValue("@B_Ikramiye", ikramiye);
+                ekle.Parameters.AddWithValue("@AB_Toplam", ToplamSpek);
+                ekle.Parameters.AddWithValue("@C_TumSpek", TumSpek);
+                ekle.Parameters.AddWithValue("@firmaid", firmaid);
+                ekle.Parameters.AddWithValue("@subeid", subeid);
+
+
+                ekle.ExecuteNonQuery();
+                baglan.Close();
+            }
+        }
+
+    }
 }
+
+
+
 
 
 //dataGridView1.ColumnCount = 3;

@@ -101,6 +101,7 @@ namespace Bordrolama10
             this.lblHizmetListesi = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.richFirmaNotu = new System.Windows.Forms.RichTextBox();
+            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -131,7 +132,7 @@ namespace Bordrolama10
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(435, 63);
+            this.label1.Location = new System.Drawing.Point(105, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(186, 22);
             this.label1.TabIndex = 2;
@@ -570,7 +571,7 @@ namespace Bordrolama10
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button2.Location = new System.Drawing.Point(1053, 84);
+            this.button2.Location = new System.Drawing.Point(1056, 89);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(98, 32);
             this.button2.TabIndex = 60;
@@ -602,7 +603,7 @@ namespace Bordrolama10
             // 
             this.button3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button3.Location = new System.Drawing.Point(1053, 118);
+            this.button3.Location = new System.Drawing.Point(1056, 123);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(98, 32);
             this.button3.TabIndex = 63;
@@ -626,7 +627,7 @@ namespace Bordrolama10
             // 
             this.button5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button5.Location = new System.Drawing.Point(1053, 50);
+            this.button5.Location = new System.Drawing.Point(1056, 55);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(98, 32);
             this.button5.TabIndex = 65;
@@ -788,7 +789,7 @@ namespace Bordrolama10
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button1.Location = new System.Drawing.Point(1053, 154);
+            this.button1.Location = new System.Drawing.Point(1056, 159);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 32);
             this.button1.TabIndex = 70;
@@ -800,7 +801,7 @@ namespace Bordrolama10
             // 
             this.btnInteraktif.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnInteraktif.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnInteraktif.Location = new System.Drawing.Point(731, 53);
+            this.btnInteraktif.Location = new System.Drawing.Point(462, 53);
             this.btnInteraktif.Name = "btnInteraktif";
             this.btnInteraktif.Size = new System.Drawing.Size(144, 26);
             this.btnInteraktif.TabIndex = 71;
@@ -824,7 +825,7 @@ namespace Bordrolama10
             // 
             this.btnebeyanname.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnebeyanname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnebeyanname.Location = new System.Drawing.Point(731, 84);
+            this.btnebeyanname.Location = new System.Drawing.Point(462, 84);
             this.btnebeyanname.Name = "btnebeyanname";
             this.btnebeyanname.Size = new System.Drawing.Size(144, 26);
             this.btnebeyanname.TabIndex = 74;
@@ -836,7 +837,7 @@ namespace Bordrolama10
             // 
             this.button6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button6.Location = new System.Drawing.Point(881, 50);
+            this.button6.Location = new System.Drawing.Point(612, 53);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(153, 60);
             this.button6.TabIndex = 75;
@@ -867,7 +868,7 @@ namespace Bordrolama10
             this.lblYukluBordro.AutoSize = true;
             this.lblYukluBordro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblYukluBordro.ForeColor = System.Drawing.Color.Red;
-            this.lblYukluBordro.Location = new System.Drawing.Point(880, 118);
+            this.lblYukluBordro.Location = new System.Drawing.Point(774, 55);
             this.lblYukluBordro.Name = "lblYukluBordro";
             this.lblYukluBordro.Size = new System.Drawing.Size(12, 15);
             this.lblYukluBordro.TabIndex = 78;
@@ -878,7 +879,7 @@ namespace Bordrolama10
             this.lblHizmetListesi.AutoSize = true;
             this.lblHizmetListesi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblHizmetListesi.ForeColor = System.Drawing.Color.Red;
-            this.lblHizmetListesi.Location = new System.Drawing.Point(880, 151);
+            this.lblHizmetListesi.Location = new System.Drawing.Point(774, 90);
             this.lblHizmetListesi.Name = "lblHizmetListesi";
             this.lblHizmetListesi.Size = new System.Drawing.Size(12, 15);
             this.lblHizmetListesi.TabIndex = 79;
@@ -905,12 +906,25 @@ namespace Bordrolama10
             this.richFirmaNotu.TabIndex = 69;
             this.richFirmaNotu.Text = "";
             // 
+            // button7
+            // 
+            this.button7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.button7.Location = new System.Drawing.Point(894, 58);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(156, 36);
+            this.button7.TabIndex = 81;
+            this.button7.Text = "TEKNOPARK";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // SubeKayit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PapayaWhip;
             this.ClientSize = new System.Drawing.Size(1168, 592);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.richFirmaNotu);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.lblHizmetListesi);
@@ -1025,5 +1039,6 @@ namespace Bordrolama10
         private System.Windows.Forms.Label lblHizmetListesi;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RichTextBox richFirmaNotu;
+        private System.Windows.Forms.Button button7;
     }
 }

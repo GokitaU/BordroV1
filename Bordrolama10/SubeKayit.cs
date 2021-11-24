@@ -454,6 +454,12 @@ namespace Bordrolama10
             }
 
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            TeknoBordroHesapla tknbdr = new TeknoBordroHesapla();
+            tknbdr.Show();
+        }
     }
 
 }
