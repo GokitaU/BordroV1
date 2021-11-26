@@ -41,4 +41,6 @@ namespace Bordrolama10
             return table.Rows.Count;
         }
     }
+
+
 }

@@ -49,6 +49,9 @@ namespace Bordrolama10
             this.label2 = new System.Windows.Forms.Label();
             this.txtMevcutCalisan = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.cmbTumKanunlar = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -66,8 +69,13 @@ namespace Bordrolama10
             this.label17 = new System.Windows.Forms.Label();
             this.txtFirmaUnvan = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabTeknoHesapla = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lblTeknoHesapla = new System.Windows.Forms.Label();
+            this.prgTeknoHesapla = new System.Windows.Forms.ProgressBar();
+            this.label24 = new System.Windows.Forms.Label();
+            this.btnTeknoHesapla = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.lblCiftKanunluOlustur = new System.Windows.Forms.Label();
             this.lblTeknPrkPerOlustur = new System.Windows.Forms.Label();
             this.lblAsilIptalEkAyristir = new System.Windows.Forms.Label();
@@ -81,18 +89,20 @@ namespace Bordrolama10
             this.label16 = new System.Windows.Forms.Label();
             this.btnAsilEkİptalAyikla = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dtgrtToknoBordorHesapla = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabTeknoHesapla.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrtToknoBordorHesapla)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(6, 27);
+            this.label1.Location = new System.Drawing.Point(211, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 0;
@@ -119,9 +129,9 @@ namespace Bordrolama10
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtMevcutCalisan);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(624, 6);
+            this.panel1.Location = new System.Drawing.Point(932, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(801, 117);
+            this.panel1.Size = new System.Drawing.Size(493, 117);
             this.panel1.TabIndex = 1;
             // 
             // label7
@@ -172,7 +182,7 @@ namespace Bordrolama10
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(156, 5);
+            this.label6.Location = new System.Drawing.Point(361, 5);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 13);
             this.label6.TabIndex = 13;
@@ -180,21 +190,21 @@ namespace Bordrolama10
             // 
             // txtYeniSpek
             // 
-            this.txtYeniSpek.Location = new System.Drawing.Point(147, 62);
+            this.txtYeniSpek.Location = new System.Drawing.Point(352, 62);
             this.txtYeniSpek.Name = "txtYeniSpek";
             this.txtYeniSpek.Size = new System.Drawing.Size(87, 20);
             this.txtYeniSpek.TabIndex = 11;
             // 
             // txtYeniGun
             // 
-            this.txtYeniGun.Location = new System.Drawing.Point(147, 41);
+            this.txtYeniGun.Location = new System.Drawing.Point(352, 41);
             this.txtYeniGun.Name = "txtYeniGun";
             this.txtYeniGun.Size = new System.Drawing.Size(87, 20);
             this.txtYeniGun.TabIndex = 10;
             // 
             // txtYeniCalisan
             // 
-            this.txtYeniCalisan.Location = new System.Drawing.Point(147, 20);
+            this.txtYeniCalisan.Location = new System.Drawing.Point(352, 20);
             this.txtYeniCalisan.Name = "txtYeniCalisan";
             this.txtYeniCalisan.Size = new System.Drawing.Size(87, 20);
             this.txtYeniCalisan.TabIndex = 9;
@@ -203,7 +213,7 @@ namespace Bordrolama10
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(73, 6);
+            this.label5.Location = new System.Drawing.Point(278, 6);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 13);
             this.label5.TabIndex = 8;
@@ -211,7 +221,7 @@ namespace Bordrolama10
             // 
             // txtFark
             // 
-            this.txtFark.Location = new System.Drawing.Point(56, 83);
+            this.txtFark.Location = new System.Drawing.Point(261, 83);
             this.txtFark.Name = "txtFark";
             this.txtFark.Size = new System.Drawing.Size(85, 20);
             this.txtFark.TabIndex = 7;
@@ -220,7 +230,7 @@ namespace Bordrolama10
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(22, 90);
+            this.label4.Location = new System.Drawing.Point(227, 90);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 13);
             this.label4.TabIndex = 6;
@@ -228,7 +238,7 @@ namespace Bordrolama10
             // 
             // txtMevcutSpek
             // 
-            this.txtMevcutSpek.Location = new System.Drawing.Point(56, 62);
+            this.txtMevcutSpek.Location = new System.Drawing.Point(261, 62);
             this.txtMevcutSpek.Name = "txtMevcutSpek";
             this.txtMevcutSpek.Size = new System.Drawing.Size(85, 20);
             this.txtMevcutSpek.TabIndex = 5;
@@ -237,7 +247,7 @@ namespace Bordrolama10
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(18, 69);
+            this.label3.Location = new System.Drawing.Point(223, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 13);
             this.label3.TabIndex = 4;
@@ -245,7 +255,7 @@ namespace Bordrolama10
             // 
             // txtMevcutGun
             // 
-            this.txtMevcutGun.Location = new System.Drawing.Point(56, 41);
+            this.txtMevcutGun.Location = new System.Drawing.Point(261, 41);
             this.txtMevcutGun.Name = "txtMevcutGun";
             this.txtMevcutGun.Size = new System.Drawing.Size(85, 20);
             this.txtMevcutGun.TabIndex = 3;
@@ -254,7 +264,7 @@ namespace Bordrolama10
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(24, 48);
+            this.label2.Location = new System.Drawing.Point(229, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 2;
@@ -262,7 +272,7 @@ namespace Bordrolama10
             // 
             // txtMevcutCalisan
             // 
-            this.txtMevcutCalisan.Location = new System.Drawing.Point(56, 20);
+            this.txtMevcutCalisan.Location = new System.Drawing.Point(261, 20);
             this.txtMevcutCalisan.Name = "txtMevcutCalisan";
             this.txtMevcutCalisan.Size = new System.Drawing.Size(85, 20);
             this.txtMevcutCalisan.TabIndex = 1;
@@ -270,6 +280,9 @@ namespace Bordrolama10
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.SandyBrown;
+            this.panel2.Controls.Add(this.checkBox1);
+            this.panel2.Controls.Add(this.label22);
+            this.panel2.Controls.Add(this.label21);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.cmbTumKanunlar);
             this.panel2.Controls.Add(this.label11);
@@ -289,14 +302,45 @@ namespace Bordrolama10
             this.panel2.Controls.Add(this.label18);
             this.panel2.Location = new System.Drawing.Point(12, 6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(606, 117);
+            this.panel2.Size = new System.Drawing.Size(914, 117);
             this.panel2.TabIndex = 19;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.checkBox1.Location = new System.Drawing.Point(896, 90);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 98;
+            this.checkBox1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label22.Location = new System.Drawing.Point(632, 39);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(196, 13);
+            this.label22.TabIndex = 97;
+            this.label22.Text = "Sadece TeknoPark Personeline Ait Mi ?";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label21.Location = new System.Drawing.Point(680, 17);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(148, 13);
+            this.label21.TabIndex = 96;
+            this.label21.Text = "Yükleme Yapıman Bordro";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label15.Location = new System.Drawing.Point(4, 74);
+            this.label15.Location = new System.Drawing.Point(785, 69);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(43, 13);
             this.label15.TabIndex = 95;
@@ -308,9 +352,9 @@ namespace Bordrolama10
             this.cmbTumKanunlar.Items.AddRange(new object[] {
             "Hayır",
             "Evet"});
-            this.cmbTumKanunlar.Location = new System.Drawing.Point(347, 71);
+            this.cmbTumKanunlar.Location = new System.Drawing.Point(846, 31);
             this.cmbTumKanunlar.Name = "cmbTumKanunlar";
-            this.cmbTumKanunlar.Size = new System.Drawing.Size(63, 21);
+            this.cmbTumKanunlar.Size = new System.Drawing.Size(65, 21);
             this.cmbTumKanunlar.TabIndex = 94;
             // 
             // label11
@@ -318,11 +362,11 @@ namespace Bordrolama10
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(247, 77);
+            this.label11.Location = new System.Drawing.Point(656, 91);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(94, 13);
+            this.label11.Size = new System.Drawing.Size(172, 13);
             this.label11.TabIndex = 93;
-            this.label11.Text = "Tüm Kanunları İşle";
+            this.label11.Text = "Sadece Seçili Kanun Maddesini Çek";
             // 
             // cmbKanunMd
             // 
@@ -331,9 +375,9 @@ namespace Bordrolama10
             "5746",
             "0000",
             "Kanunsuz"});
-            this.cmbKanunMd.Location = new System.Drawing.Point(90, 71);
+            this.cmbKanunMd.Location = new System.Drawing.Point(846, 61);
             this.cmbKanunMd.Name = "cmbKanunMd";
-            this.cmbKanunMd.Size = new System.Drawing.Size(95, 21);
+            this.cmbKanunMd.Size = new System.Drawing.Size(65, 21);
             this.cmbKanunMd.TabIndex = 92;
             // 
             // btnDosyaSec
@@ -454,19 +498,23 @@ namespace Bordrolama10
             this.label18.TabIndex = 0;
             this.label18.Text = "Firma Ünvanı";
             // 
-            // tabControl1
+            // tabTeknoHesapla
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 129);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1339, 364);
-            this.tabControl1.TabIndex = 20;
+            this.tabTeknoHesapla.Controls.Add(this.tabPage1);
+            this.tabTeknoHesapla.Controls.Add(this.tabPage2);
+            this.tabTeknoHesapla.Location = new System.Drawing.Point(12, 129);
+            this.tabTeknoHesapla.Name = "tabTeknoHesapla";
+            this.tabTeknoHesapla.SelectedIndex = 0;
+            this.tabTeknoHesapla.Size = new System.Drawing.Size(1339, 487);
+            this.tabTeknoHesapla.TabIndex = 20;
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.PapayaWhip;
+            this.tabPage1.Controls.Add(this.lblTeknoHesapla);
+            this.tabPage1.Controls.Add(this.prgTeknoHesapla);
+            this.tabPage1.Controls.Add(this.label24);
+            this.tabPage1.Controls.Add(this.btnTeknoHesapla);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.lblCiftKanunluOlustur);
             this.tabPage1.Controls.Add(this.lblTeknPrkPerOlustur);
@@ -483,15 +531,66 @@ namespace Bordrolama10
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1331, 338);
+            this.tabPage1.Size = new System.Drawing.Size(1331, 461);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Başlangıç İşlemleri";
+            // 
+            // lblTeknoHesapla
+            // 
+            this.lblTeknoHesapla.AutoSize = true;
+            this.lblTeknoHesapla.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblTeknoHesapla.Location = new System.Drawing.Point(867, 225);
+            this.lblTeknoHesapla.Name = "lblTeknoHesapla";
+            this.lblTeknoHesapla.Size = new System.Drawing.Size(11, 13);
+            this.lblTeknoHesapla.TabIndex = 98;
+            this.lblTeknoHesapla.Text = "-";
+            // 
+            // prgTeknoHesapla
+            // 
+            this.prgTeknoHesapla.Location = new System.Drawing.Point(565, 215);
+            this.prgTeknoHesapla.Name = "prgTeknoHesapla";
+            this.prgTeknoHesapla.Size = new System.Drawing.Size(296, 23);
+            this.prgTeknoHesapla.TabIndex = 97;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label24.Location = new System.Drawing.Point(33, 220);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(195, 13);
+            this.label24.TabIndex = 96;
+            this.label24.Text = "4 - TeknoPark Bordro Hesapla .. ";
+            // 
+            // btnTeknoHesapla
+            // 
+            this.btnTeknoHesapla.BackColor = System.Drawing.Color.Tomato;
+            this.btnTeknoHesapla.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnTeknoHesapla.Location = new System.Drawing.Point(369, 215);
+            this.btnTeknoHesapla.Name = "btnTeknoHesapla";
+            this.btnTeknoHesapla.Size = new System.Drawing.Size(159, 23);
+            this.btnTeknoHesapla.TabIndex = 95;
+            this.btnTeknoHesapla.Text = "İşlemi Başlat";
+            this.btnTeknoHesapla.UseVisualStyleBackColor = false;
+            this.btnTeknoHesapla.Click += new System.EventHandler(this.btnTeknoHesapla_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Tomato;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button1.Location = new System.Drawing.Point(53, 66);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(159, 23);
+            this.button1.TabIndex = 94;
+            this.button1.Text = "Excelden Yükle";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblCiftKanunluOlustur
             // 
             this.lblCiftKanunluOlustur.AutoSize = true;
             this.lblCiftKanunluOlustur.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblCiftKanunluOlustur.Location = new System.Drawing.Point(867, 202);
+            this.lblCiftKanunluOlustur.Location = new System.Drawing.Point(867, 163);
             this.lblCiftKanunluOlustur.Name = "lblCiftKanunluOlustur";
             this.lblCiftKanunluOlustur.Size = new System.Drawing.Size(11, 13);
             this.lblCiftKanunluOlustur.TabIndex = 93;
@@ -519,7 +618,7 @@ namespace Bordrolama10
             // 
             // prgsBrCiftKanunluTeknoPers
             // 
-            this.prgsBrCiftKanunluTeknoPers.Location = new System.Drawing.Point(565, 192);
+            this.prgsBrCiftKanunluTeknoPers.Location = new System.Drawing.Point(565, 153);
             this.prgsBrCiftKanunluTeknoPers.Name = "prgsBrCiftKanunluTeknoPers";
             this.prgsBrCiftKanunluTeknoPers.Size = new System.Drawing.Size(296, 23);
             this.prgsBrCiftKanunluTeknoPers.TabIndex = 90;
@@ -528,7 +627,7 @@ namespace Bordrolama10
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label20.Location = new System.Drawing.Point(33, 200);
+            this.label20.Location = new System.Drawing.Point(33, 158);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(313, 13);
             this.label20.TabIndex = 89;
@@ -538,12 +637,13 @@ namespace Bordrolama10
             // 
             this.btnCiftKanunluTeknoPers.BackColor = System.Drawing.Color.Tomato;
             this.btnCiftKanunluTeknoPers.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnCiftKanunluTeknoPers.Location = new System.Drawing.Point(369, 190);
+            this.btnCiftKanunluTeknoPers.Location = new System.Drawing.Point(369, 153);
             this.btnCiftKanunluTeknoPers.Name = "btnCiftKanunluTeknoPers";
             this.btnCiftKanunluTeknoPers.Size = new System.Drawing.Size(159, 23);
             this.btnCiftKanunluTeknoPers.TabIndex = 88;
             this.btnCiftKanunluTeknoPers.Text = "İşlemi Başlat";
             this.btnCiftKanunluTeknoPers.UseVisualStyleBackColor = false;
+            this.btnCiftKanunluTeknoPers.Click += new System.EventHandler(this.btnCiftKanunluTeknoPers_Click);
             // 
             // prgrsBrTeknoPrsOlustur
             // 
@@ -587,9 +687,9 @@ namespace Bordrolama10
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label16.Location = new System.Drawing.Point(33, 103);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(259, 13);
+            this.label16.Size = new System.Drawing.Size(255, 13);
             this.label16.TabIndex = 83;
-            this.label16.Text = "1 - Firma Asıl Ek İptal Bildirgelerini Ayıkla ... ";
+            this.label16.Text = "2- Firma Asıl Ek İptal Bildirgelerini Ayıkla ... ";
             // 
             // btnAsilEkİptalAyikla
             // 
@@ -605,33 +705,30 @@ namespace Bordrolama10
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.dtgrtToknoBordorHesapla);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1331, 338);
+            this.tabPage2.Size = new System.Drawing.Size(1331, 461);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Tekno Bordro Hesapla";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // dtgrtToknoBordorHesapla
             // 
-            this.button1.BackColor = System.Drawing.Color.Tomato;
-            this.button1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(53, 66);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 23);
-            this.button1.TabIndex = 94;
-            this.button1.Text = "Excelden Yükle";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.dtgrtToknoBordorHesapla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgrtToknoBordorHesapla.Location = new System.Drawing.Point(20, 22);
+            this.dtgrtToknoBordorHesapla.Name = "dtgrtToknoBordorHesapla";
+            this.dtgrtToknoBordorHesapla.Size = new System.Drawing.Size(1081, 422);
+            this.dtgrtToknoBordorHesapla.TabIndex = 0;
             // 
             // TeknoBordroHesapla
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.NavajoWhite;
-            this.ClientSize = new System.Drawing.Size(1437, 524);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(1437, 683);
+            this.Controls.Add(this.tabTeknoHesapla);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "TeknoBordroHesapla";
@@ -641,9 +738,11 @@ namespace Bordrolama10
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            this.tabTeknoHesapla.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrtToknoBordorHesapla)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -687,7 +786,7 @@ namespace Bordrolama10
         private System.Windows.Forms.ComboBox cmbTumKanunlar;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cmbKanunMd;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabTeknoHesapla;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ProgressBar prgsBrCiftKanunluTeknoPers;
@@ -703,5 +802,13 @@ namespace Bordrolama10
         private System.Windows.Forms.Label lblTeknPrkPerOlustur;
         private System.Windows.Forms.Label lblAsilIptalEkAyristir;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dtgrtToknoBordorHesapla;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label lblTeknoHesapla;
+        private System.Windows.Forms.ProgressBar prgTeknoHesapla;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button btnTeknoHesapla;
     }
 }

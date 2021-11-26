@@ -1,34 +1,84 @@
-﻿5746 ya dönüştürülen sgk matrahı tavan ücreti geçiyor ise en yüksek sgk tavan ücret alması gerekiyor. .. 
-Bordroya düşen açıklamaları güncelle ve Evet - Hayır için tekrar kafa yor 
+﻿
+1 bordro tek mi ayrı mı 
 
-datagrite renklendirme koy, 
 
-datagirite değişiklik olan satır güncellemesi ekle 
-
-Aphb sine APHB belgesine yükleme yapılacak son halini göndermesi gerekiyo
-
+YAZILIM AŞAMASI
 kısmi iptalleride tüm hizmet belgesinin iptalini de aklında tut 
-
 sayfa ve tüm hizmet belgesi kontrolü ekle ve hatalı olabilecekleri kullanıcıya aktar
-
 oluşturulacak olan hizmet listelerinin iptal ve ek tutarları TAHAKKUKLAR sayfasına eklenmesi gerekiyor unutma 
-
-sgk v2 ye iptal girişi ile ilgili çalışma yapılacak unutma 
-
 asgari ücret taban tavan açıklamasını en son açıklama içerisine koy 
-
-Hesaplamada gizlenecek sutünları belirle 
-
 çalışma yapılan dönem tahakkuk bilgilerini ektran üzerinde göster
 hizmet listesi bilgilerini de tahakkuk bilgileri ile eşleştirmeye çalış. 
-
 bordro veya hizmet listesi yüklerken eksik dönem tespiti yapsın 
-
-ÖNEMLİ 
-1- HİZMET LİSTESİNİ AKTARACAĞIZ 
-2- HİZMET LİSTESİ ASIL İPTAL EK ARINDIRILACAK 
 EN SON HİZMET LİSTESİ OLUŞTURULURKEN DÜŞEN SPEK VE 5746 DAN FAYDALANMADI İSE 5746 KAZANCI AYRIYETEN YAZILSIN ( BÖYLECE DÜŞEN SPEKDEN TAHAKKUK KAZANCINDAN NE KADAR DÜŞDÜĞÜNÜDE GÖRÜRÜRZ. ) 
 PERSONELİN 5746 DAN FAYDALANMADIĞI DÖNEMLERİN TESPİTİ YAPILACAK. 
+
+KONTROL AŞAMASI
+Aphb sine APHB belgesine yükleme yapılacak son halini göndermesi gerekiyo
+
+
+BİÇİMLENDİRME AYARLARI
+
+datagrite renklendirme koy, 
+datagirite değişiklik olan satır güncellemesi ekle 
+
+5746 ya dönüştürülen sgk matrahı tavan ücreti geçiyor ise en yüksek sgk tavan ücret alması gerekiyor. .. 
+Bordroya düşen açıklamaları güncelle ve Evet - Hayır için tekrar kafa yor 
+Hesaplamada gizlenecek sutünları belirle 
+
+
+
+
+İPTALLERİN SGK SİSTEME YÜKLENMESİ
+sgk v2 ye iptal girişi ile ilgili çalışma yapılacak unutma 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ÖNEMLİ 
+
+
+
 3- HİZMET LİSTESİ 5746 MADDESİ KANUN İLE ARINDIRILACAK - ( kanun maddesi 5746 verilmemiş dönemlerin personelleri 5746 yapılarak tekrar düzeltilmesi gerekiyor )
-4- BORDRO HESAPLAMASI YAPILACAK 
-5- RENKLENDİRME YAPILACAK 
+
+
+
+
+Bordro5746 (
+	TeknoPrId	INTEGER NOT NULL UNIQUE
+	HzListId,TeknoPersonel,toplamaDahilMi,FrmPrId,Donem,SgkNo,Ad,Soyad,Gun,KanunNo,Mahiyet,ThkAdet,A_Ucret,B_Ikramiye,AB_Toplam	,DigerKanun,firmaid,subeid		
+	
+	Brt_Net	
+	D_BDRBrut	
+	E_BDRSgkMatrah	
+	C_D_BrtFarkı	
+	AB_E_MatrahFarkı	
+	BRDIsciPayi_1	
+	VergiMatrahi	
+	BRDVergi_2	
+	Agi_3	
+	Kesintiler_4	
+	BrdNet_1234	
+	F_AylıkNet	
+	G_BordroNet	
+	F_G_NetFarkı	
+	Baz_Net_5746	
+	Brut_5746	
+	Gunluk_5746	
+	Asg_TbnGunluk	
+	Asg_TvnGunluk	
+	Tbn_Tvn_UygunMu	
+	EskiYeniSpekFarkı	
+	YeniAPHBMatrah	
+	HesaplansınMı	
+	Acıklama	

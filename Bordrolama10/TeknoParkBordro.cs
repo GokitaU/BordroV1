@@ -1561,6 +1561,7 @@ namespace Bordrolama10
                             Baznet5746 = BrdNet;
                         }
                         Brut5746 = (Baznet5746 / 85) * 100;
+
                         if (Brut5746 > 0 && Convert.ToInt32(Gun) > 0)
                         {
                             Gunluk5746 = Brut5746 / Convert.ToInt32(Gun);

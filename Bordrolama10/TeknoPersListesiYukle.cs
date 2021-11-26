@@ -32,14 +32,16 @@ namespace Bordrolama10
             
             
             dataGridView1.DataSource = ds.Tables[0];
-            dataGridView1.Columns.Add("SıraNo", "SıraNo");
-            dataGridView1.Columns["SıraNo"].DisplayIndex = 0;
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            {
-                dataGridView1.Rows[i].Cells[0].Value = i + 1;
-                dataGridView1.Columns["SıraNo"][i] = i + 1;
-            }
+            setRowNumber(dataGridView1);
 
+        }
+        private void setRowNumber(DataGridView dgv)
+        {
+            // datagrit rowheaderi numara vermek için 
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                row.HeaderCell.Value = (row.Index + 1).ToString();
+            }
         }
         private void btnDosyaYolu_Click(object sender, EventArgs e)
         {
