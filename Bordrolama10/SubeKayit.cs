@@ -258,6 +258,7 @@ namespace Bordrolama10
 
             programreferans.firmaid =firmaid;
             programreferans.subid = subid;
+            programreferans.firmid = Convert.ToInt32(firmaid);
             programreferans.firmaunvan = firmaunvan;
             programreferans.subeunvan = subeunvan;
             
@@ -457,8 +458,16 @@ namespace Bordrolama10
 
         private void button7_Click(object sender, EventArgs e)
         {
-            TeknoBordroHesapla tknbdr = new TeknoBordroHesapla();
-            tknbdr.Show();
+            if (lblfirmano.Text=="-"|| lblsubeid.Text=="-")
+            {
+                MessageBox.Show("Lütfene firma ve şube seçimini yapınız...");
+            }
+            else
+            {
+                TeknoBordroHesapla tknbdr = new TeknoBordroHesapla();
+                tknbdr.Show();
+            }
+
         }
     }
 
