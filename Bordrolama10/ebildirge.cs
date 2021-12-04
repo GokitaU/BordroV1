@@ -128,14 +128,14 @@ namespace Bordrolama10
 
         }
 
-
+        string subeid = "";
         private void dataGridView1_Click(object sender, EventArgs e)
         {
             int firmaid = Convert.ToInt32(lblfirmano.Text);
             int secim = dataGridView1.SelectedCells[0].RowIndex;
             
             
-            string subeid = dataGridView1.Rows[secim].Cells[0].Value.ToString().Trim();
+           subeid = dataGridView1.Rows[secim].Cells[0].Value.ToString().Trim();
             string sgkkullanici = dataGridView1.Rows[secim].Cells[3].Value.ToString().Trim();
             string sgkek = dataGridView1.Rows[secim].Cells[4].Value.ToString().Trim();
             string sgksistem = dataGridView1.Rows[secim].Cells[5].Value.ToString().Trim();
@@ -176,6 +176,7 @@ namespace Bordrolama10
                 }
                 
                 hizmetlistesinigoster("select Year as YIL,Month as AY, SgkNo as TCNO,Ad,Soyad,IlkSoyad,Ucret,Ikramiye,Gun,UCG,Eksik_Gun as Egun,GGun,CGun,Egs,Icn,Meslek_Kodu as MSLK_KOD,Kanun_No as Kanun,Belge_Cesidi as BÇşd, Belge_Turu as BTuru,Mahiyet from HizmetListesi Where firmaid = " + firmaid + " and subeid=" + subeid + " and Donem = '" + donem + "'");
+                tahakkuklarigoster("select * from ilktahakkukbilgi where firmaid = '" + firmaid + "' and subeid='" + subeid + "'");
             }
 
         }
@@ -204,14 +205,14 @@ namespace Bordrolama10
             FileInfo fileinfo;
             var pdfPath = Application.StartupPath + "\\Pdf";
 
-           // var driverPath = Application.StartupPath;
+            // var driverPath = Application.StartupPath;
             //var chromeOptions = new ChromeOptions();
 
             //chromeOptions.AddUserProfilePreference("download.default_directory", pdfPath);
             //chromeOptions.AddUserProfilePreference("intl.accept_languages", "tr");
             //chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
             //driver. ChromeDriver(driverPath, chromeOptions);
-
+            
             foreach (string item in Directory.GetFiles(pdfPath))
             {
                 fileinfo = new FileInfo(item);
@@ -220,6 +221,7 @@ namespace Bordrolama10
                     fileinfo.Delete();
                 }
 
+                fileinfo.Refresh();
             }
 
             driver.Navigate().GoToUrl("https://ebildirge.sgk.gov.tr/EBildirgeV2/tahakkuk/tahakkukonaylanmisTahakkukDonemSecildi.action?hizmet_yil_ay_index=" + cmbilk.SelectedValue.ToString() + "&hizmet_yil_ay_index_bitis=" + cmbson.SelectedValue.ToString() + "");
@@ -232,7 +234,7 @@ namespace Bordrolama10
             //ilk önce veri tabanındaki ilgili şubeye kayıtlı olan daha önce indirilmiş tahakkuk bilgileri siliniyor
             baglan.Open();
             int firmaid = Convert.ToInt32(lblfirmano.Text);
-            int subeid = Convert.ToInt32(lblsubeid.Text);
+           // int subeid = Convert.ToInt32(lblsubeid.Text);
             SQLiteCommand thklarisil = new SQLiteCommand("delete from ilktahakkukbilgi where firmaid = '" + firmaid + "' and subeid='" + subeid + "'", baglan);
             thklarisil.ExecuteNonQuery();
             baglan.Close();
@@ -249,6 +251,15 @@ namespace Bordrolama10
 
 
                 SQLiteCommand thklarial = new SQLiteCommand("INSERT INTO ilktahakkukbilgi (firmaid,subeid,thkkukdonem,hzmtdonem,blgtur,bmahiyet,bkanun,bcalisan,bgun,spek,pdfindurm) values (@firmaid,@subeid,@donmay,@hizmetay,@bturu,@bmahiyet,@kanunno,@calisan,@gun,@spk,@pdf)", baglan);
+
+                IWebElement pdff = driver.FindElement(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[10]/div/a[2]"));
+
+                if (pdff.Text == "")
+                {
+                    driver.Url = "https://ebildirge.sgk.gov.tr/EBildirgeV2/tahakkuk/tahakkukonaylanmisTahakkukDonemSecildi.action?hizmet_yil_ay_index=" + cmbilk.SelectedValue.ToString() + "&hizmet_yil_ay_index_bitis=" + cmbson.SelectedValue.ToString() + "";
+                    pdff = driver.FindElement(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[10]/div/a[2]"));
+                    thklarial.Parameters.AddWithValue("@pdf", (object)pdff.Text.ToString().Trim());
+                }
 
                 IWebElement donemay = driver.FindElement(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[1]"));
                 IWebElement hizmetay = driver.FindElement(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[2]"));
@@ -278,14 +289,7 @@ namespace Bordrolama10
                 thklarial.Parameters.AddWithValue("@spk", tutar);//Convert.ToDecimal(spek.First().Text.ToString().Split(' ')[0]));
                 thklarial.Parameters.AddWithValue("@pdf", (object)pdf.Text.ToString().Trim());
 
-                if (pdf.Text == "")
-                {
-                    driver.Url = "https://ebildirge.sgk.gov.tr/EBildirgeV2/tahakkuk/tahakkukonaylanmisTahakkukDonemSecildi.action?hizmet_yil_ay_index=" + cmbilk.SelectedValue.ToString() + "&hizmet_yil_ay_index_bitis=" + cmbson.SelectedValue.ToString() + "";
-                    pdf = driver.FindElement(By.XPath("//*[@id=\"contentContainer\"]/div/table/tbody/tr/td/table/tbody/tr/td/div/table/tbody/tr[" + i + "]/td[10]/div/a[2]"));
-                    thklarial.Parameters.AddWithValue("@pdf", (object)pdf.Text.ToString().Trim());
 
-
-                }
 
                 pdf.Click();
                 //if ((pdf.Text.ToString().Trim()) == "H")
@@ -342,7 +346,7 @@ namespace Bordrolama10
             }
             else
             {
-                int subeid = Convert.ToInt32(lblsubeid.Text.ToString());
+               // int subeid = Convert.ToInt32(lblsubeid.Text.ToString());
                 int firmaid = Convert.ToInt32(lblfirmano.Text.ToString());
                 donemlerigoster("select Donem, count(subeid) as Calisan From HizmetListesi Where firmaid = " + firmaid + " and subeid=" + subeid + " Group by Donem ");
                 string donem;
@@ -419,7 +423,7 @@ namespace Bordrolama10
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
-            int subeid = Convert.ToInt32(lblsubeid.Text.ToString());
+           // int subeid = Convert.ToInt32(lblsubeid.Text.ToString());
             int firmaid = Convert.ToInt32(lblfirmano.Text.ToString());
             
             tahakkuklarigoster("select id as ID, firmaid, subeid, thkkukdonem as DONEM, hzmtdonem as HZDONEM, blgtur as TÜR, bmahiyet as MAHİYET,bkanun as KANUN, bcalisan as ÇLŞN, bgun as GÜN, spek as SPEK, pdfindurm as İŞLEM FROM ilktahakkukbilgi where firmaid = '" + firmaid + "' and subeid='" + subeid + "'");
@@ -457,7 +461,7 @@ namespace Bordrolama10
             }
 
 
-            int subeid = Convert.ToInt32(lblsubeid.Text.ToString());
+            //int subeid = Convert.ToInt32(lblsubeid.Text.ToString());
             int firmaid = Convert.ToInt32(lblfirmano.Text.ToString());
      
 

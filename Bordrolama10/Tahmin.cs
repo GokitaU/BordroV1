@@ -274,7 +274,7 @@ namespace Bordrolama10
                     {
                         worksheet.Cells[1, i] = dataGritSubeOzet.Columns[i - 1].HeaderText;
                     }
-                    for (int i = 0; i < dataGritSubeOzet.Rows.Count - 1; i++)
+                    for (int i = 0; i < dataGritSubeOzet.Rows.Count; i++)
                     {
                         for (int j = 0; j < dataGritSubeOzet.Columns.Count; j++)
                         {

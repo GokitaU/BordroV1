@@ -81,17 +81,21 @@ namespace Bordrolama10
         {
 
 
-            if (Application.OpenForms.Count > 1)
+            if (Application.OpenForms.Count > 2)
             {
                 MessageBox.Show("Açık olan Pencereleriniz var Kapattıktan sonra programdan çıkmayı deneyizin. ");
             }
             else
             {
+
                 DialogResult dialog = new DialogResult();
                 dialog = MessageBox.Show("Programdan Çıkış Yapmak İstediğinize Eminmisiniz", "DİKKAT", MessageBoxButtons.YesNo);
                 if (dialog == DialogResult.Yes)
                 {
                     this.Close();
+                    Application.OpenForms["KullaniciGiris"].Close();
+
+
                 }
             }
 

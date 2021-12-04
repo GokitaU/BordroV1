@@ -1004,7 +1004,7 @@ namespace Bordrolama10
             combo.Items.Add("Hayır");
             DataGridViewCheckBoxColumn check = new DataGridViewCheckBoxColumn();
             check.Name = "Degisen";
-            check
+            
             
             if (dtgrtToknoBordorHesapla.Columns["Hesapla"] == null)
             {

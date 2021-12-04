@@ -227,7 +227,7 @@ namespace Bordrolama10
             string sgkisysifr = dataGridView1.Rows[secim].Cells[14].Value.ToString().Trim();
             string firmaid = dataGridView1.Rows[secim].Cells[16].Value.ToString().Trim();
             string aktifpasif = dataGridView1.Rows[secim].Cells[15].Value.ToString().Trim();
-            string isySubeKod = dataGridView1.Rows[secim].Cells[16].Value.ToString().Trim();
+            string isySubeKod = dataGridView1.Rows[secim].Cells[17].Value.ToString().Trim();
             string subeNotu = dataGridView1.Rows[secim].Cells[18].Value.ToString().Trim();
 
             lblsubeid.Text = subid.ToString();

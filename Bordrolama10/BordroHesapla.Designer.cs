@@ -260,6 +260,7 @@ namespace Bordrolama10
             // 
             // dtgrtSubeSecim
             // 
+            this.dtgrtSubeSecim.AllowUserToAddRows = false;
             this.dtgrtSubeSecim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtgrtSubeSecim.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtgrtSubeSecim.BackgroundColor = System.Drawing.Color.White;

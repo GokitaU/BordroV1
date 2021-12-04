@@ -39,6 +39,10 @@ namespace Bordrolama10
             da.Fill(dt);
             baglan.Close();
             dtgrtSubeSecim.DataSource = dt;
+            if (dtgrtSubeSecim.Rows.Count==0)
+            {
+                MessageBox.Show("1- APHBelgesini İndirmelisiniz..\n 2- Firma Bordrosunu Yüklemelisiniz");
+            }
         }
 
         public void gvTesvikDonemBazli()
@@ -144,7 +148,7 @@ namespace Bordrolama10
             baglan.Close();
 
             cmbilk.Text = "2017/02";
-            cmbson.Text = "2020/12";
+            cmbson.Text = "2021/12";
             txtdosyayolu.Text = Application.StartupPath + "\\GvTesvikBordro";
             
         }
